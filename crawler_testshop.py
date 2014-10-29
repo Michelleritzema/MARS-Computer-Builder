@@ -30,4 +30,4 @@ def spider_text(item_url):
         source = item_img.get('src')
         print(source)
 
-spider_mars(5)
+spider_mars(4)
