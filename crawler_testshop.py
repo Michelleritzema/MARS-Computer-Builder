@@ -1,11 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-
+#Hij doet nu niks meer dubbel het ligt idd aan pages die mee gegeven worden#
 
 def spider_mars(max_pages):
     page = 1
-    if page <= max_pages:
+    while page <= max_pages:
         url = "http://michelle.initworks.com/TestCrawler//index.php?page=" + str(page)
         source_code = requests.get(url)
         plain_text = source_code.text
@@ -30,4 +30,4 @@ def spider_text(item_url):
         source = item_img.get('src')
         print(source)
 
-spider_mars(5)
+spider_mars(2)
