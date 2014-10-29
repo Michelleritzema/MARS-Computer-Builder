@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-
+# hoi michelle
 
 def spider_mars(max_pages):
     page = 1
