@@ -5,7 +5,7 @@ import re
 
 def spider_mars(max_pages):
     page = 1
-    while page <= max_pages:
+    if page <= max_pages:
         url = "http://michelle.initworks.com/TestCrawler//index.php?page=" + str(page)
         source_code = requests.get(url)
         plain_text = source_code.text
