@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-import re
-#Hij doet nu niks meer dubbel het ligt idd aan pages die mee gegeven worden#
+import re, time
+
 
 def spider_mars(max_pages):
     page = 1
