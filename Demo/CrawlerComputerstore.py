@@ -1,7 +1,7 @@
 __author__ = 'Anny & Michelle'
 
 import time
-
+import datetime
 from bs4 import BeautifulSoup
 import requests
 from py2neo import neo4j
@@ -32,8 +32,8 @@ def categories():
     for category in categories:
         cat_name = category_names[a_index]
         max_amount = get_pages(category)
-        # if not(cat_name == "Barebones" or cat_name == "UpgradeKits"):
-        computerstore(category, cat_name, max_amount)
+        if not(cat_name == "Barebones" or cat_name == "UpgradeKits"):
+            computerstore(category, cat_name, max_amount)
         a_index += 1
 
 
@@ -48,20 +48,21 @@ def get_pages(url):
     return max_amount
 
 
-def check_for_nodes(cat_name, link_item, name, source):
-    existing_nodes = list(graph.find(cat_name, property_key='link', property_value=link_item))
-    # print (existing_nodes)
+def check_for_nodes(cat_name, link_item, name, source, date):
+    #print "Name = " + name
+    existing_nodes = list(graph.find('Onderdeel', property_key='name', property_value=name))
+    print "Existing nodes: " + str((existing_nodes))
     if len(existing_nodes) > 0:
         print ("Deze node is al eens aangemaakt")
     else:
         print ("Deze node bestaat nog niet")
-        add_node(cat_name, link_item, name, source)
+        add_node(cat_name, link_item, name, source, date)
 
 
-def add_node(cat_name, link, name, source):
-    create_string = 'CREATE (:Onderdeel { category: {cat_name}, link: {link}, name: {name}, img: {img}})'
+def add_node(cat_name, link, name, source, date):
+    create_string = 'CREATE (:Onderdeel { category: {cat_name}, link: {link}, name: {name}, img: {img}, date: {date}})'
     query = neo4j.CypherQuery(graph, create_string)
-    query.execute(cat_name=cat_name, link=link, name=name, img=source)
+    query.execute(cat_name=cat_name, link=link, name=name, img=source, date=date)
     print("node is toegevoegd")
 
 
@@ -82,7 +83,10 @@ def computerstore(url, cat_name, max_pages):
 
 
 def get_details(link_item, cat_name):
-    #print "test4"
+    time.sleep(2)
+    today = datetime.date.today()
+    date = today.strftime("%d-%m-%Y")
+    print "Current date: " + date
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
@@ -93,14 +97,13 @@ def get_details(link_item, cat_name):
         for name_child in name_children:
             name_raw = name_child.text
             name = name_raw.strip()
-            print name
+            #print name
         img_children = item.findChildren('img', {'class': 'hasImageZoom'})
         for img_child in img_children:
-            #print "test7"
             source = img_child.get('data-img-large')
-            print(source)
+            #print(source)
         print cat_name + ", " + link_item + ", " + name + ", " + source
-        check_for_nodes(cat_name, link_item, name, source)
+        check_for_nodes(cat_name, link_item, name, source, date)
 
 
 categories()
