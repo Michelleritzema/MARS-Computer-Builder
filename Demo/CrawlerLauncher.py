@@ -13,6 +13,9 @@ print "Please do not close this window unless you want to stop this scheduling"
 print "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 print ""
 
+# Deze scheduler draait altijd. Voor elke dag van de week start het script een cron job,
+# om 11 uur 's avonds. Dit is een subprocess dat op de achtergrond gaat draaien. Tijdens
+# het subproces wordt de website Computerstore.nl gecrawled.
 @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 def timed_job():
     print('This job is run every day at 11pm.')
