@@ -5,6 +5,8 @@ import datetime
 from bs4 import BeautifulSoup
 import requests
 from py2neo import neo4j
+import socket
+import errno
 
 
 graph = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
@@ -48,6 +50,7 @@ def get_categories():
 def walk_through_categories(categories, category_names):
     a_index = 0
     for category in categories:
+        time.sleep(5)
         cat_name = category_names[a_index]
         max_amount = get_pages(category)
         if not(cat_name == "Barebones" or cat_name == "UpgradeKits"):
@@ -76,11 +79,11 @@ def get_pages(url):
 # Wanneer de lengte van de lijst groter is dan 0, dan wordt de node niet aangemaakt.
 # Anders wordt de functie add_node() aangeroepen.
 def check_for_nodes(cat_name, link_item, name, source, date):
-    #print "Name = " + name
     existing_nodes = list(graph.find('Onderdeel', property_key='name', property_value=name))
     print "Existing nodes: " + str((existing_nodes))
     if len(existing_nodes) > 0:
-        print ("Deze node is al eens aangemaakt")
+        print ("Deze node is al eens aangemaakt, updating node.")
+        update_node(name, date)
     else:
         print ("Deze node bestaat nog niet")
         add_node(cat_name, link_item, name, source, date)
@@ -94,6 +97,12 @@ def add_node(cat_name, link, name, source, date):
     query.execute(cat_name=cat_name, link=link, name=name, img=source, date=date)
     print("node is toegevoegd")
 
+
+def update_node(name, date):
+    update_string = 'MATCH (n:Onderdeel { name: {name} }) SET n.date = {date} RETURN n'
+    query = neo4j.CypherQuery(graph, update_string)
+    query.execute(name=name, date=date)
+    print("node is geupdate")
 
 # Deze functie gaat alle pagina's langs van een bepaalde categorie. Van elke pagina wordt
 # gezocht naar alle li's met de class 'product-list-item'. Van al deze li's worden vervolgens
@@ -112,7 +121,14 @@ def get_info_per_page(url, cat_name, max_pages):
             a_children = item.findChildren('a', {'class': 'product-list-item--image-link'})
             for a_child in a_children:
                 link_item = "http://www.computerstore.nl" + a_child.get('href')
-                get_details(link_item, cat_name)
+                print "cat_name: " + cat_name
+                print "link_item: " + link_item
+                try:
+                    get_details(link_item, cat_name)
+                except socket.error as error:
+                    if error.errno == errno.WSAECONNRESET:
+                        time.sleep(30)
+                        get_info_per_page(url, cat_name, max_pages)
         page += 1
 
 
@@ -124,7 +140,7 @@ def get_info_per_page(url, cat_name, max_pages):
 # de 'source' variabele. Vervolgens wordt de functie check_for_nodes() aangeroepen om
 # te checken of de node zich al in de database bevindt.
 def get_details(link_item, cat_name):
-    time.sleep(2)
+    time.sleep(5)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
     print "Current date: " + date
@@ -132,18 +148,29 @@ def get_details(link_item, cat_name):
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
     #print soup
+    print "test1"
     for item in soup.findAll('div', {'class': 'product_container'}):
         #print item
+        print "test2"
         name_children = item.findChildren('span', {'itemprop': 'name'})
-        for name_child in name_children:
-            name_raw = name_child.text
-            name = name_raw.strip()
-            #print name
+        print "test3"
+        if not (name_children == ""):
+            print "Name is found"
+            for name_child in name_children:
+                name_raw = name_child.text
+                name = name_raw.strip()
+                print "name: " + name
+        else:
+            print "Name is empty, using default name."
+            name = "unknown"
         img_children = item.findChildren('img', {'class': 'hasImageZoom'})
-        for img_child in img_children:
-            source = img_child.get('data-img-large')
-            #print(source)
-        print cat_name + ", " + link_item + ", " + name + ", " + source
+        if not (img_children == ""):
+            for img_child in img_children:
+                source = img_child.get('data-img-large')
+                print "source: " + source
+        else:
+            print "Img is empty, using default img."
+            source = "emptyimg"
         check_for_nodes(cat_name, link_item, name, source, date)
 
 
