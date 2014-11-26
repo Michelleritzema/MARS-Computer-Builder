@@ -1,0 +1,51 @@
+.home{
+	background:white;
+	 }
+.banner{
+		position:fixed;
+		top:11px;
+		left:50px;
+		
+		}
+.sidebar{
+    position:fixed;
+	background:#5e5e5e;
+	top:109px;
+	left:50px;
+	height:498px;
+	width:219px;
+	text-decoration: none;
+	
+		}
+   
+.sidebar .sidebarlinks {
+    font-family: 'Arial Black';
+    font-size: 15px;
+    font-weight:normal;
+    letter-spacing:-1px; 
+	color:#fcfcfc;
+	float: right; 
+    width: 95%;  
+    text-decoration: none;
+    }  
+.sidebarlinks a{
+     color:#fcfcfc;
+	 text-decoration: none;
+	
+    }
+.sidebarlinks a:hover {
+    color:#f7dc36;
+    letter-spacing:1px;
+	text-decoration: none;
+	text-shadow: none;
+    }
+.body{
+    background:#E0E0E0;
+	position:fixed;
+	top:109px;
+	left:272px;
+	height:498px;
+	width:1047px;
+	
+
+}
