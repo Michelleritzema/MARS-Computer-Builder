@@ -169,27 +169,31 @@ def get_details(link_item, cat_name):
     for item in soup.findAll('div', {'class': 'product_container'}):
         #print item
         print "test: found product_container"
-        name_children = item.findChildren('span', {'itemprop': 'name'})
-        if not (name_children == ""):
-            print "test: name is found"
+        for name_children in soup.findChildren('span', {'itemprop': 'name'}):
+            print "test: found name"
             for name_child in name_children:
-                name_raw = name_child.text
-                name = name_raw.strip()
+                #print name_child
+                #name_raw = name_child.text
+                name = name_child.strip()
                 print "name: " + name
-        else:
-            print "test: name is empty, using default name."
-            name = "unknown"
-            print "name: " + name
-        img_children = item.findChildren('img', {'class': 'hasImageZoom'})
-        if not (img_children == ""):
-            print "test: image is found"
-            for img_child in img_children:
-                source = img_child.get('data-img-large')
-                print "source: " + source
-        else:
-            print "Img is empty, using default img."
-            source = "empty_img"
+        for img_child in soup.findChildren('img', {'class': 'hasImageZoom'}):
+            print "test: found hasImageZoom"
+            #print img_children
+            source = img_child.get('data-img-large')
             print "source: " + source
+    for item in soup.findAll('div', {'class': 'product-page'}):
+        #print item
+        print "test: found product-page"
+        for name_child in soup.findChildren('span', {'class': 'js-product-name'}):
+            print "test: found js-product-name"
+            name_raw = name_child.text
+            name = name_raw.strip()
+            print "name: " + name
+        for img_child in soup.findChildren('img', {'class': 'media-gallery--main-image'}):
+            print "test: found media-gallery--main-image"
+            source = str(img_child.get('src'))
+            print "source: " + source
+    #if not (name == ""):
         #check_for_nodes(cat_name, link_item, name, source, date)
 
 
