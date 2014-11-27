@@ -193,6 +193,9 @@ def get_details(link_item, cat_name):
             print "test: found media-gallery--main-image"
             source = str(img_child.get('src'))
             print "source: " + source
+        for specs_child in soup.findChildren('div', {'class': 'product-specs'}):
+            print "test:Found product-specs"
+            print specs_child
     #if not (name == ""):
         #check_for_nodes(cat_name, link_item, name, source, date)
 
