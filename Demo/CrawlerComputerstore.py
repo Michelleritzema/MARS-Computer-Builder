@@ -122,18 +122,18 @@ def get_info_per_page(url, cat_name, max_pages):
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text)
-        print "test: made soup of items page"
+        #print "test: made soup of items page"
         for item in soup.findAll('li', {'class': 'product-list-item'}):
             print "-------------------------------------"
             print "   Starting at a new detail page"
             print "-------------------------------------"
-            print "test: found product-list-item"
+            #print "test: found product-list-item"
             a_children = item.findChildren('a', {'class': 'product-list-item--image-link'})
             if not (a_children == ""):
                 for a_child in a_children:
                     link_obj = a_child
                 #print a_child
-                print "test: found product-list-item--image-link"
+                #print "test: found product-list-item--image-link"
                 link_item = "http://www.computerstore.nl" + link_obj.get('href')
                 print "cat_name: " + cat_name
                 print "link_item: " + link_item
@@ -157,6 +157,8 @@ def get_info_per_page(url, cat_name, max_pages):
 # de 'source' variabele. Vervolgens wordt de functie check_for_nodes() aangeroepen om
 # te checken of de node zich al in de database bevindt.
 def get_details(link_item, cat_name):
+    spec_title = []
+    spec_desc = []
     time.sleep(15)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
@@ -164,38 +166,50 @@ def get_details(link_item, cat_name):
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
-    print "test: made a soup of the item detail page"
+    #print "test: made a soup of the item detail page"
     #print soup
     for item in soup.findAll('div', {'class': 'product_container'}):
         #print item
         print "test: found product_container"
         for name_children in soup.findChildren('span', {'itemprop': 'name'}):
-            print "test: found name"
+            #print "test: found name"
             for name_child in name_children:
                 #print name_child
                 #name_raw = name_child.text
                 name = name_child.strip()
                 print "name: " + name
         for img_child in soup.findChildren('img', {'class': 'hasImageZoom'}):
-            print "test: found hasImageZoom"
+            #print "test: found hasImageZoom"
             #print img_children
             source = img_child.get('data-img-large')
             print "source: " + source
+        for specs_title_child in soup.findChildren('td', {'class': 'table_spectable_spec'}):
+            #print "test: found product-specifications"
+            #print specs_title_child
+            specs_title_txt = specs_title_child.text
+            spec_title.append(specs_title_txt.strip())
+        for specs_desc_child in soup.findChildren('td', {'class': 'table_spectable_specdescription'}):
+            #print "test: found product-specifications"
+            #print specs_desc_child
+            specs_desc_txt = specs_desc_child.text
+            specs_desc.append(specs_desc_txt.strip())
+        print spec_title
+        print spec_desc
     for item in soup.findAll('div', {'class': 'product-page'}):
         #print item
         print "test: found product-page"
         for name_child in soup.findChildren('span', {'class': 'js-product-name'}):
-            print "test: found js-product-name"
+            #print "test: found js-product-name"
             name_raw = name_child.text
             name = name_raw.strip()
             print "name: " + name
         for img_child in soup.findChildren('img', {'class': 'media-gallery--main-image'}):
-            print "test: found media-gallery--main-image"
+            #print "test: found media-gallery--main-image"
             source = str(img_child.get('src'))
             print "source: " + source
-        for specs_child in soup.findChildren('div', {'class': 'product-specs'}):
-            print "test:Found product-specs"
-            print specs_child
+        for spec_child in soup.findChildren('dd', {'class': 'product-specs--item-spec'}):
+                print "spec: " + str(spec_child.strip())
+            #print specs_child
     #if not (name == ""):
         #check_for_nodes(cat_name, link_item, name, source, date)
 
