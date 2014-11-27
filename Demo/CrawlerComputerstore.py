@@ -62,13 +62,14 @@ def walk_through_categories(categories, category_names):
 # element wordt eruit gehaald en opgeslagen onder de variabele 'max-amount'. Deze
 # waarde wordt terug gegeven aan de functie walk_through_categories().
 def get_pages(url):
-    time.sleep(3)
+    time.sleep(10)
     source_code = requests.get(url)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
     for item in soup.findAll('li', {'class': 'paging-navigation-last-page'}):
         number = item.text
     max_amount = int(number.strip())
+    print ""
     print "Maximale aantal pagina's voor deze categorie: " + str(max_amount)
     return max_amount
 
@@ -112,28 +113,34 @@ def update_node(name, date):
 def get_info_per_page(url, cat_name, max_pages):
     page = 1
     while page <= max_pages:
+        print ""
         print "---------------------------------------"
         print "   Starting at a new page of items"
         print "---------------------------------------"
-        print ""
-        time.sleep(5)
+        time.sleep(10)
         url = url + "?sort=popularity&dir=d&page=" + str(page) + "&items=12"
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text)
         print "test: made soup of items page"
         for item in soup.findAll('li', {'class': 'product-list-item'}):
+            print "-------------------------------------"
+            print "   Starting at a new detail page"
+            print "-------------------------------------"
             print "test: found product-list-item"
             a_children = item.findChildren('a', {'class': 'product-list-item--image-link'})
-            for a_child in a_children:
+            if not (a_children == ""):
+                for a_child in a_children:
+                    link_obj = a_child
                 #print a_child
                 print "test: found product-list-item--image-link"
-                link_item = "http://www.computerstore.nl" + a_child.get('href')
+                link_item = "http://www.computerstore.nl" + link_obj.get('href')
                 print "cat_name: " + cat_name
                 print "link_item: " + link_item
                 try:
                     print "test: inside try function, getting details"
                     get_details(link_item, cat_name)
+                    #break
                 except socket.error as error:
                     if error.errno == errno.WSAECONNRESET:
                         print "there was an error, sleeping for 30 seconds and trying again..."
@@ -154,7 +161,7 @@ def get_details(link_item, cat_name):
     print "   Starting at a new detail page"
     print "-------------------------------------"
     print ""
-    time.sleep(5)
+    time.sleep(15)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
     print "Current date: " + date
