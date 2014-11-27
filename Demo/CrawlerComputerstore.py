@@ -157,10 +157,6 @@ def get_info_per_page(url, cat_name, max_pages):
 # de 'source' variabele. Vervolgens wordt de functie check_for_nodes() aangeroepen om
 # te checken of de node zich al in de database bevindt.
 def get_details(link_item, cat_name):
-    print "-------------------------------------"
-    print "   Starting at a new detail page"
-    print "-------------------------------------"
-    print ""
     time.sleep(15)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
