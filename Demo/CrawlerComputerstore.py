@@ -1,3 +1,5 @@
+import re
+
 __author__ = 'Anny & Michelle'
 
 import time
@@ -187,12 +189,12 @@ def get_details(link_item, cat_name):
             #print "test: found product-specifications"
             #print specs_title_child
             specs_title_txt = specs_title_child.text
-            spec_title.append(specs_title_txt.strip())
+            spec_title.append(re.sub('\s+', ' ', specs_title_txt))
         for specs_desc_child in soup.findChildren('td', {'class': 'table_spectable_specdescription'}):
             #print "test: found product-specifications"
             #print specs_desc_child
             specs_desc_txt = specs_desc_child.text
-            specs_desc.append(specs_desc_txt.strip())
+            spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
         print spec_title
         print spec_desc
     for item in soup.findAll('div', {'class': 'product-page'}):
@@ -207,9 +209,14 @@ def get_details(link_item, cat_name):
             #print "test: found media-gallery--main-image"
             source = str(img_child.get('src'))
             print "source: " + source
-        for spec_child in soup.findChildren('dd', {'class': 'product-specs--item-spec'}):
-                print "spec: " + str(spec_child.strip())
-            #print specs_child
+        for specs_title_child in soup.findChildren('dt', {'class': 'product-specs--item-title'}):
+            print specs_title_child
+            #specs_title_txt = specs_title_child.text
+            #spec_title.append(re.sub('\s+', ' ', str(specs_title_child)))
+        for specs_desc_child in soup.findChildren('dd', {'class': 'product-specs--item-spec'}):
+            print specs_desc_child
+            #specs_desc_txt = specs_desc_child.text
+            #spec_desc.append(re.sub('\s+', ' ', str(specs_desc_child)))
     #if not (name == ""):
         #check_for_nodes(cat_name, link_item, name, source, date)
 
