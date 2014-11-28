@@ -68,9 +68,10 @@ def get_pages(url):
     source_code = requests.get(url)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
+    max_amount = 0
     for item in soup.findAll('li', {'class': 'paging-navigation-last-page'}):
         number = item.text
-    max_amount = int(number.strip())
+        max_amount = int(number.strip())
     print ""
     print "Maximale aantal pagina's voor deze categorie: " + str(max_amount)
     return max_amount
@@ -194,15 +195,15 @@ def get_details(link_item, cat_name):
             if specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
                 #print "has span"
                 for specs_title_raw in specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
-                    specs_title_txt = specs_title_raw.text.replace(" ", "")
+                    specs_title_txt = specs_title_raw.text.replace(" ", "").lstrip().rstrip()
                     spec_title.append(re.sub('\s+', ' ', specs_title_txt))
             else:
                 #print "no span"
-                specs_title_txt = specs_title_child.text.replace(" ", "")
+                specs_title_txt = specs_title_child.text.replace(" ", "").lstrip().rstrip()
                 spec_title.append(re.sub('\s+', ' ', specs_title_txt))
         for specs_desc_child in item.findChildren('td', {'class': 'table_spectable_specdescription'}):
             #print specs_desc_child
-            specs_desc_txt = specs_desc_child.text
+            specs_desc_txt = specs_desc_child.text.lstrip().rstrip()
             spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
         i = 0
         while i < len(spec_title):
@@ -232,22 +233,22 @@ def get_details(link_item, cat_name):
             if specs_title_child.findChildren('span', {'class': 'product-specs--help-title'}):
                 #print "has span"
                 for specs_title_raw in specs_title_child.findChildren('span', {'class': 'product-specs--help-title'}):
-                    specs_title_txt = specs_title_raw.text.replace(" ", "")
+                    specs_title_txt = specs_title_raw.text.replace(" ", "").lstrip().rstrip()
                     spec_title.append(re.sub('\s+', ' ', specs_title_txt))
             else:
                 #print "no span"
-                specs_title_txt = specs_title_child.text.replace(" ", "")
+                specs_title_txt = specs_title_child.text.replace(" ", "").lstrip().rstrip()
                 spec_title.append(re.sub('\s+', ' ', specs_title_txt))
         for specs_desc_child in item.findChildren('dd', {'class': 'product-specs--item-spec'}):
             #print specs_desc_child
             if specs_desc_child.findChildren('span', {'class': 'icon-fallback'}):
                 #print "has span"
                 for specs_desc_raw in specs_desc_child.findChildren('span', {'class': 'icon-fallback'}):
-                    specs_desc_txt = specs_desc_raw.text.replace(" ", "")
+                    specs_desc_txt = specs_desc_raw.text.replace(" ", "").lstrip().rstrip()
                     spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
             else:
                 #print "no span"
-                specs_desc_txt = specs_desc_child.text.replace(" ", "")
+                specs_desc_txt = specs_desc_child.text.replace(" ", "").lstrip().rstrip()
                 spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
         i = 0
         while i < len(spec_title):
