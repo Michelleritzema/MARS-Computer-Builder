@@ -54,7 +54,7 @@ def walk_through_categories(categories, category_names):
     for category in categories:
         cat_name = category_names[a_index]
         max_amount = get_pages(category)
-        if not(cat_name == "Barebones" or cat_name == "UpgradeKits"):
+        if not (cat_name == "Barebones" or cat_name == "UpgradeKits"):
             get_info_per_page(category, cat_name, max_amount)
         a_index += 1
 
@@ -107,6 +107,7 @@ def update_node(name, date):
     query.execute(name=name, date=date)
     print("node is geupdate")
 
+
 # Deze functie gaat alle pagina's langs van een bepaalde categorie. Van elke pagina wordt
 # gezocht naar alle li's met de class 'product-list-item'. Van al deze li's worden vervolgens
 # alle links gezocht met de class 'product-list-item--image-link'. Elke link die hierbij
@@ -124,12 +125,12 @@ def get_info_per_page(url, cat_name, max_pages):
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text)
-        #print "test: made soup of items page"
+        # print "test: made soup of items page"
         for item in soup.findAll('li', {'class': 'product-list-item'}):
             print "-------------------------------------"
             print "   Starting at a new detail page"
             print "-------------------------------------"
-            #print "test: found product-list-item"
+            # print "test: found product-list-item"
             a_children = item.findChildren('a', {'class': 'product-list-item--image-link'})
             if not (a_children == ""):
                 for a_child in a_children:
@@ -168,8 +169,8 @@ def get_details(link_item, cat_name):
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
-    #print "test: made a soup of the item detail page"
-    #print soup
+    # print "test: made a soup of the item detail page"
+    # print soup
     for item in soup.findAll('div', {'class': 'product_container'}):
         #print item
         print "test: found product_container"
@@ -186,39 +187,61 @@ def get_details(link_item, cat_name):
             source = img_child.get('data-img-large')
             print "source: " + source
         for specs_title_child in soup.findChildren('td', {'class': 'table_spectable_spec'}):
-            #print "test: found product-specifications"
-            #print specs_title_child
-            specs_title_txt = specs_title_child.text
-            spec_title.append(re.sub('\s+', ' ', specs_title_txt))
+    #        #print "test: found product-specifications"
+    #        print specs_title_child
+            if specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
+                print "has span"
+                for specs_title_raw in specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
+                    specs_title_txt = specs_title_raw.text.replace(" ", "")
+                    spec_title.append(re.sub('\s+', ' ', specs_title_txt))
+            else:
+                print "no span"
+                specs_title_txt = specs_title_child.text.replace(" ", "")
+                spec_title.append(re.sub('\s+', ' ', specs_title_txt))
+    #        found_span = 0
+    #        for specs_title_raw in specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
+    #            print "span"
+    #            found_span = 1
+    #            specs_title_txt = specs_title_raw.text.replace(" ", "")
+    #            spec_title.append(re.sub('\s+', ' ', specs_title_txt))
+    #            return found_span
+    #        if found_span == 0:
+    #            print "no span"
+    #            specs_title_txt = specs_title_child.text.replace(" ", "")
+    #            spec_title.append(re.sub('\s+', ' ', specs_title_txt))
         for specs_desc_child in soup.findChildren('td', {'class': 'table_spectable_specdescription'}):
             #print "test: found product-specifications"
             #print specs_desc_child
             specs_desc_txt = specs_desc_child.text
             spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
-        print spec_title
-        print spec_desc
-    for item in soup.findAll('div', {'class': 'product-page'}):
-        #print item
-        print "test: found product-page"
-        for name_child in soup.findChildren('span', {'class': 'js-product-name'}):
-            #print "test: found js-product-name"
-            name_raw = name_child.text
-            name = name_raw.strip()
-            print "name: " + name
-        for img_child in soup.findChildren('img', {'class': 'media-gallery--main-image'}):
-            #print "test: found media-gallery--main-image"
-            source = str(img_child.get('src'))
-            print "source: " + source
-        for specs_title_child in soup.findChildren('dt', {'class': 'product-specs--item-title'}):
-            print specs_title_child
-            #specs_title_txt = specs_title_child.text
-            #spec_title.append(re.sub('\s+', ' ', str(specs_title_child)))
-        for specs_desc_child in soup.findChildren('dd', {'class': 'product-specs--item-spec'}):
-            print specs_desc_child
+        i = 0
+        while i < len(spec_title):
+            print spec_title[i] + ": " + spec_desc[i]
+            i += 1
+    #for item in soup.findAll('div', {'class': 'product-page'}):
+    #    print "test: found product-page"
+    #    for name_child in soup.findChildren('span', {'class': 'js-product-name'}):
+    #        #print "test: found js-product-name"
+    #        name_raw = name_child.text
+    #        name = name_raw.strip()
+    #        print "name: " + name
+    #    for img_child in soup.findChildren('img', {'class': 'media-gallery--main-image'}):
+    #        #print "test: found media-gallery--main-image"
+    #        source = str(img_child.get('src'))
+    #        print "source: " + source
+    #    #print item
+    #    for specs_title_child in soup.findChildren('dt', {'class': 'product-specs--item-title'}):
+    #        specs_title = specs_title_child.get_text()
+    #        print specs_title.replace(" ", "")
+    #    #specs_title_txt = specs_title_child.text
+    #    #spec_title.append(re.sub('\s+', ' ', str(specs_title_child)))
+    #    for specs_desc_child in soup.findChildren('dd', {'class': 'product-specs--item-spec'}):
+    #        specs_desc = specs_desc_child.get_text()
+    #        print specs_desc.replace(" ", "")
             #specs_desc_txt = specs_desc_child.text
             #spec_desc.append(re.sub('\s+', ' ', str(specs_desc_child)))
-    #if not (name == ""):
-        #check_for_nodes(cat_name, link_item, name, source, date)
+            #if not (name == ""):
+            #check_for_nodes(cat_name, link_item, name, source, date)
 
 
 get_categories()
