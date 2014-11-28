@@ -82,7 +82,7 @@ def get_pages(url):
 # property hebben die overeenkomt met de variabele 'name' die meegegeven wordt.
 # Wanneer de lengte van de lijst groter is dan 0, dan wordt de node niet aangemaakt.
 # Anders wordt de functie add_node() aangeroepen.
-def check_for_nodes(cat_name, link_item, name, source, date):
+def check_for_nodes(cat_name, link_item, name, price, source, date, spec_title, spec_desc):
     existing_nodes = list(graph.find('Onderdeel', property_key='name', property_value=name))
     print "Existing nodes: " + str((existing_nodes))
     if len(existing_nodes) > 0:
@@ -90,15 +90,20 @@ def check_for_nodes(cat_name, link_item, name, source, date):
         update_node(name, date)
     else:
         print ("Deze node bestaat nog niet")
-        add_node(cat_name, link_item, name, source, date)
+        add_node(cat_name, link_item, name, price, source, date, spec_title, spec_desc)
 
 
 # Deze functie maakt een node aan in de Neo4j database met het label 'Onderdeel'. Hierin
 # worden de variabelen 'cat_name', 'link', 'name', 'img' en 'date' opgeslagen.
-def add_node(cat_name, link, name, source, date):
-    create_string = 'CREATE (:Onderdeel { category: {cat_name}, link: {link}, name: {name}, img: {img}, date: {date}})'
+def add_node(cat_name, link, name, price, source, date, spec_title, spec_desc):
+    create_string = 'CREATE (:Onderdeel { category: {cat_name}, link: {link}, name: {name}, img: {img}, date: {date}, spec_title: {spec_title}, spec_desc: {spec_desc}});'
     query = neo4j.CypherQuery(graph, create_string)
-    query.execute(cat_name=cat_name, link=link, name=name, img=source, date=date)
+    query.execute(cat_name=cat_name, link=link, name=name, img=source, date=date, spec_title=spec_title,
+                  spec_desc=spec_desc)
+    create_string2 = 'MATCH (n:Onderdeel) WHERE n.name = {name} CREATE (m:Price { date: {date}, price: {price}}) CREATE (m)-[:BELONGS_TO]->(n);'
+    query2 = neo4j.CypherQuery(graph, create_string2)
+    query2.execute(name=name, date=date, price=price)
+
     print("node is toegevoegd")
 
 
@@ -136,7 +141,7 @@ def get_info_per_page(url, cat_name, max_pages):
             if not (a_children == ""):
                 for a_child in a_children:
                     link_obj = a_child
-                #print a_child
+                # print a_child
                 #print "test: found product-list-item--image-link"
                 link_item = "http://www.computerstore.nl" + link_obj.get('href')
                 print "cat_name: " + cat_name
@@ -170,7 +175,7 @@ def get_details(link_item, cat_name):
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
-    #print soup
+    # print soup
     for item in soup.findAll('div', {'class': 'product_container'}):
         print "test: found product_container"
         #print item
@@ -194,7 +199,8 @@ def get_details(link_item, cat_name):
             #print specs_title_child
             if specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
                 #print "has span"
-                for specs_title_raw in specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
+                for specs_title_raw in specs_title_child.findChildren('span',
+                                                                      {'class': 'table_spectable_spec_titletext'}):
                     specs_title_txt = specs_title_raw.text.replace(" ", "").lstrip().rstrip()
                     spec_title.append(re.sub('\s+', ' ', specs_title_txt))
             else:
@@ -254,8 +260,9 @@ def get_details(link_item, cat_name):
         while i < len(spec_title):
             print spec_title[i] + ": " + spec_desc[i]
             i += 1
-    #if not (name == ""):
-        #check_for_nodes(cat_name, link_item, name, source, date)
+    if not (name == ""):
+        #check_for_nodes(cat_name, link_item, name, source, date, spec_title, spec_desc)
+        add_node(cat_name, link_item, name, price, source, date, spec_title, spec_desc)
 
 
 get_categories()
