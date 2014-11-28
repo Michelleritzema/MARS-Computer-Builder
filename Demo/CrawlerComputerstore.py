@@ -169,52 +169,65 @@ def get_details(link_item, cat_name):
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
-    # print "test: made a soup of the item detail page"
-    # print soup
-    #for item in soup.findAll('div', {'class': 'product_container'}):
-    #    #print item
-    #    print "test: found product_container"
-    #    for name_children in soup.findChildren('span', {'itemprop': 'name'}):
-    #        for name_child in name_children:
-    #            #print name_child
-    #            name = name_child.strip()
-    #            print "name: " + name
-    #    for img_child in soup.findChildren('img', {'class': 'hasImageZoom'}):
-    #        #print img_children
-    #        source = img_child.get('data-img-large')
-    #        print "source: " + source
-    #    for specs_title_child in soup.findChildren('td', {'class': 'table_spectable_spec'}):
-    #        #print specs_title_child
-    #        if specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
-    #            #print "has span"
-    #            for specs_title_raw in specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
-    #                specs_title_txt = specs_title_raw.text.replace(" ", "")
-    #                spec_title.append(re.sub('\s+', ' ', specs_title_txt))
-    #        else:
-    #            #print "no span"
-    #            specs_title_txt = specs_title_child.text.replace(" ", "")
-    #            spec_title.append(re.sub('\s+', ' ', specs_title_txt))
-    #    for specs_desc_child in soup.findChildren('td', {'class': 'table_spectable_specdescription'}):
-    #        #print specs_desc_child
-    #        specs_desc_txt = specs_desc_child.text
-    #        spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
-    #    i = 0
-    #    while i < len(spec_title):
-    #        print spec_title[i] + ": " + spec_desc[i]
-    #        i += 1
+    #print soup
+    for item in soup.findAll('div', {'class': 'product_container'}):
+        print "test: found product_container"
+        #print item
+        for name_children in item.findChildren('span', {'itemprop': 'name'}):
+            for name_child in name_children:
+                #print name_child
+                name = name_child.strip()
+                print "name: " + name
+        for price_child in item.findChildren('div', {'class': 'price'}):
+            #print price_child
+            price_raw = price_child.text
+            price_text = re.findall(r'\d+,\d+', price_raw)
+            for price_item in price_text:
+                price = price_item
+                print "price: " + price
+        for img_child in item.findChildren('img', {'class': 'hasImageZoom'}):
+            #print img_children
+            source = img_child.get('data-img-large')
+            print "source: " + source
+        for specs_title_child in item.findChildren('td', {'class': 'table_spectable_spec'}):
+            #print specs_title_child
+            if specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
+                #print "has span"
+                for specs_title_raw in specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
+                    specs_title_txt = specs_title_raw.text.replace(" ", "")
+                    spec_title.append(re.sub('\s+', ' ', specs_title_txt))
+            else:
+                #print "no span"
+                specs_title_txt = specs_title_child.text.replace(" ", "")
+                spec_title.append(re.sub('\s+', ' ', specs_title_txt))
+        for specs_desc_child in item.findChildren('td', {'class': 'table_spectable_specdescription'}):
+            #print specs_desc_child
+            specs_desc_txt = specs_desc_child.text
+            spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
+        i = 0
+        while i < len(spec_title):
+            print spec_title[i] + ": " + spec_desc[i]
+            i += 1
     for item in soup.findAll('div', {'class': 'product-page'}):
         print "test: found product-page"
-        for name_child in soup.findChildren('span', {'class': 'js-product-name'}):
+        for name_child in item.findChildren('span', {'class': 'js-product-name'}):
             #print "test: found js-product-name"
             name_raw = name_child.text
             name = name_raw.strip()
             print "name: " + name
-        for img_child in soup.findChildren('img', {'class': 'media-gallery--main-image'}):
+        for price_child in item.findChildren('strong', {'class': 'sales-price--current'}):
+            #print price_child
+            price_raw = price_child.text
+            price_text = re.findall(r'\d+,\d+', price_raw)
+            for price_item in price_text:
+                price = price_item
+                print "price: " + price
+        for img_child in item.findChildren('img', {'class': 'media-gallery--main-image'}):
             #print "test: found media-gallery--main-image"
             source = str(img_child.get('src'))
             print "source: " + source
         #print item
-        for specs_title_child in soup.findChildren('dt', {'class': 'product-specs--item-title'}):
+        for specs_title_child in item.findChildren('dt', {'class': 'product-specs--item-title'}):
             #print specs_title_child
             if specs_title_child.findChildren('span', {'class': 'product-specs--help-title'}):
                 #print "has span"
@@ -225,12 +238,7 @@ def get_details(link_item, cat_name):
                 #print "no span"
                 specs_title_txt = specs_title_child.text.replace(" ", "")
                 spec_title.append(re.sub('\s+', ' ', specs_title_txt))
-
-            #specs_title = specs_title_child.get_text()
-            #print specs_title.replace(" ", "")
-        #specs_title_txt = specs_title_child.text
-        #spec_title.append(re.sub('\s+', ' ', str(specs_title_child)))
-        for specs_desc_child in soup.findChildren('dd', {'class': 'product-specs--item-spec'}):
+        for specs_desc_child in item.findChildren('dd', {'class': 'product-specs--item-spec'}):
             #print specs_desc_child
             if specs_desc_child.findChildren('span', {'class': 'icon-fallback'}):
                 #print "has span"
@@ -245,8 +253,8 @@ def get_details(link_item, cat_name):
         while i < len(spec_title):
             print spec_title[i] + ": " + spec_desc[i]
             i += 1
-            #if not (name == ""):
-            #check_for_nodes(cat_name, link_item, name, source, date)
+    #if not (name == ""):
+        #check_for_nodes(cat_name, link_item, name, source, date)
 
 
 get_categories()
