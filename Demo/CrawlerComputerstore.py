@@ -82,35 +82,37 @@ def get_pages(url):
 # property hebben die overeenkomt met de variabele 'name' die meegegeven wordt.
 # Wanneer de lengte van de lijst groter is dan 0, dan wordt de node niet aangemaakt.
 # Anders wordt de functie add_node() aangeroepen.
-def check_for_nodes(cat_name, link_item, name, price, source, date, spec_title, spec_desc):
-    existing_nodes = list(graph.find('Onderdeel', property_key='name', property_value=name))
+def check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc):
+    existing_nodes = list(graph.find('Item', property_key='manufacture_code', property_value=manufacture_code))
     print "Existing nodes: " + str((existing_nodes))
     if len(existing_nodes) > 0:
         print ("Deze node is al eens aangemaakt, updating node.")
-        update_node(name, date)
+        update_node(name, date, link_item, source, price, manufacture_code)
     else:
         print ("Deze node bestaat nog niet")
-        add_node(cat_name, link_item, name, price, source, date, spec_title, spec_desc)
+        add_node(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
 
 
 # Deze functie maakt een node aan in de Neo4j database met het label 'Onderdeel'. Hierin
 # worden de variabelen 'cat_name', 'link', 'name', 'img' en 'date' opgeslagen.
-def add_node(cat_name, link, name, price, source, date, spec_title, spec_desc):
-    create_string = 'CREATE (:Onderdeel { category: {cat_name}, link: {link}, name: {name}, img: {img}, date: {date}, spec_title: {spec_title}, spec_desc: {spec_desc}});'
+def add_node(cat_name, link, name, price, source, date, man_code, spec_title, spec_desc):
+    create_string = 'CREATE (:Item { manufacture_code: {man_code}, category: {cat_name}, link: {link}, name: {name}, img: {img}, date: {date}, spec_title: {spec_title}, spec_desc: {spec_desc}});'
     query = neo4j.CypherQuery(graph, create_string)
-    query.execute(cat_name=cat_name, link=link, name=name, img=source, date=date, spec_title=spec_title,
+    query.execute(man_code=man_code, cat_name=cat_name, link=link, name=name, img=source, date=date, spec_title=spec_title,
                   spec_desc=spec_desc)
-    create_string2 = 'MATCH (n:Onderdeel) WHERE n.name = {name} CREATE (m:Price { date: {date}, price: {price}}) CREATE (m)-[:BELONGS_TO]->(n);'
+    create_string2 = 'MATCH (n:Item) WHERE n.manufacture_code = {man_code} CREATE (m:Price { date: {date}, price: {price}, link: {link}}) CREATE (m)-[:BELONGS_TO]->(n);'
     query2 = neo4j.CypherQuery(graph, create_string2)
-    query2.execute(name=name, date=date, price=price)
-
+    query2.execute(man_code=man_code, date=date, price=price, link=link)
     print("node is toegevoegd")
 
 
-def update_node(name, date):
-    update_string = 'MATCH (n:Onderdeel { name: {name} }) SET n.date = {date} RETURN n'
+def update_node(name, date, link, source, price, man_code):
+    update_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.date = {date}, n.link = {link}, n.source = {source} RETURN n'
     query = neo4j.CypherQuery(graph, update_string)
-    query.execute(name=name, date=date)
+    query.execute(man_code=man_code, link=link, date=date, source=source)
+    create_string2 = 'MATCH (n:Item) WHERE n.manufacture_code = {man_code} CREATE (m:Price { date: {date}, price: {price}, link: {link}}) CREATE (m)-[:BELONGS_TO]->(n);'
+    query2 = neo4j.CypherQuery(graph, create_string2)
+    query2.execute(man_code=man_code, date=date, price=price, link=link)
     print("node is geupdate")
 
 
@@ -166,8 +168,6 @@ def get_info_per_page(url, cat_name, max_pages):
 # de 'source' variabele. Vervolgens wordt de functie check_for_nodes() aangeroepen om
 # te checken of de node zich al in de database bevindt.
 def get_details(link_item, cat_name):
-    spec_title = []
-    spec_desc = []
     time.sleep(15)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
@@ -176,6 +176,11 @@ def get_details(link_item, cat_name):
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
     # print soup
+    spec_title = []
+    spec_desc = []
+    name = "unknown"
+    price = 0
+    source = "unknown"
     for item in soup.findAll('div', {'class': 'product_container'}):
         print "test: found product_container"
         #print item
@@ -187,9 +192,11 @@ def get_details(link_item, cat_name):
         for price_child in item.findChildren('div', {'class': 'price'}):
             #print price_child
             price_raw = price_child.text
-            price_text = re.findall(r'\d+,\d+', price_raw)
-            for price_item in price_text:
-                price = price_item
+            price_array = re.findall(r'\d{1,6}[\,.]{1}\d{0,2}', price_raw)
+            for price_item in price_array:
+                price_str = price_item.replace(',', '.')
+                price_float = float(price_str)
+                price = ('%.2f' % price_float)
                 print "price: " + price
         for img_child in item.findChildren('img', {'class': 'hasImageZoom'}):
             #print img_children
@@ -211,10 +218,10 @@ def get_details(link_item, cat_name):
             #print specs_desc_child
             specs_desc_txt = specs_desc_child.text.lstrip().rstrip()
             spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
-        i = 0
-        while i < len(spec_title):
-            print spec_title[i] + ": " + spec_desc[i]
-            i += 1
+        #i = 0
+        #while i < len(spec_title):
+        #    print spec_title[i] + ": " + spec_desc[i]
+        #    i += 1
     for item in soup.findAll('div', {'class': 'product-page'}):
         print "test: found product-page"
         for name_child in item.findChildren('span', {'class': 'js-product-name'}):
@@ -225,9 +232,11 @@ def get_details(link_item, cat_name):
         for price_child in item.findChildren('strong', {'class': 'sales-price--current'}):
             #print price_child
             price_raw = price_child.text
-            price_text = re.findall(r'\d+,\d+', price_raw)
-            for price_item in price_text:
-                price = price_item
+            price_array = re.findall(r'\d{1,6}[\,.]{1}\d{0,2}', price_raw)
+            for price_item in price_array:
+                price_str = price_item.replace(',', '.')
+                price_float = float(price_str)
+                price = ('%.2f' % price_float)
                 print "price: " + price
         for img_child in item.findChildren('img', {'class': 'media-gallery--main-image'}):
             #print "test: found media-gallery--main-image"
@@ -256,13 +265,22 @@ def get_details(link_item, cat_name):
                 #print "no span"
                 specs_desc_txt = specs_desc_child.text.replace(" ", "").lstrip().rstrip()
                 spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
-        i = 0
-        while i < len(spec_title):
-            print spec_title[i] + ": " + spec_desc[i]
-            i += 1
+        #i = 0
+        #while i < len(spec_title):
+        #    print spec_title[i] + ": " + spec_desc[i]
+        #    i += 1
+    manufacture_code = get_manufacture_code(spec_title, spec_desc)
+    print "manufacture_code: " + manufacture_code
     if not (name == ""):
-        #check_for_nodes(cat_name, link_item, name, source, date, spec_title, spec_desc)
-        add_node(cat_name, link_item, name, price, source, date, spec_title, spec_desc)
+        check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
+        #add_node(cat_name, link_item, name, price, source, date, manufacturer_code, spec_title, spec_desc)
+
+
+def get_manufacture_code(spec_title, spec_desc):
+    index = spec_title.index('Fabrikantcode')
+    print "index: " + str(index)
+    manufacture_code = spec_desc[index]
+    return manufacture_code
 
 
 get_categories()
