@@ -6,8 +6,6 @@ tmp
 .history
 dist
 /.idea
-/.cache
-/.target
 /*.iml
 /out
 /.idea_modules
@@ -15,4 +13,3 @@ dist
 /.project
 /RUNNING_PID
 /.settings
-/project/*-shim.sbt
