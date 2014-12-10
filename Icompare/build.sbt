@@ -1,24 +1,11 @@
-name := """Icompare_MARS_Programming"""
+import play.Project._
+
+name := """hello-play-java"""
 
 version := "1.0-SNAPSHOT"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala)
-
-scalaVersion := "2.11.1"
-
-resolvers ++= Seq(
-  "anormcypher" at "http://repo.anormcypher.org/",
-  "Typesafe Releases" at "http://repo.typesafe.com/typesafe/releases/"
-)
-
 libraryDependencies ++= Seq(
-  javaJdbc,
-  javaEbean,
-  cache,
-  javaWs,
-  jdbc,
-  anorm,
-  cache,
-  ws,
-  "org.anormcypher" %% "anormcypher" % "0.6.0"
-)
+  "org.webjars" %% "webjars-play" % "2.2.2", 
+  "org.webjars" % "bootstrap" % "2.3.1")
+
+playJavaSettings
