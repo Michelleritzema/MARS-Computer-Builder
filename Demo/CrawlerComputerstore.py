@@ -307,6 +307,6 @@ def get_details(link_item, cat_name):
 
 if time.strftime("%H:%M") == "23:00":
     get_categories()
-    raw_input('Press enter to close this window ')
+    input('Press enter to close this window ')
 else:
     print("this is a test")
