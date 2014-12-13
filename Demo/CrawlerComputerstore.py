@@ -249,14 +249,13 @@ def get_spec_desc(item_name, item_container, soup):
             spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
     elif item_name == "product-page":
         for specs_desc_child in soup.findChildren('div', {'class': 'show-more--content'}):
-            # print specs_title_child
             for desc_child in specs_desc_child.findChildren('dd', {'class': 'product-specs--item-spec'}):
                 if desc_child.findChildren('span', {'class': 'icon-fallback'}):
                     for specs_desc_raw in desc_child.findChildren('span', {'class': 'icon-fallback'}):
                         specs_desc_txt = specs_desc_raw.text.replace(" ", "").lstrip().rstrip()
                         spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
                 else:
-                    specs_desc_txt = desc_child.text.replace(" ", "").lstrip().rstrip()
+                    specs_desc_txt = desc_child.text.lstrip().rstrip()
                     spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
     print(spec_desc)
     return spec_desc
