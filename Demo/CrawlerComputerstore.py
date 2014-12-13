@@ -1,5 +1,3 @@
-import re
-
 __author__ = 'Anny & Michelle'
 
 import time
@@ -9,6 +7,7 @@ import requests
 from py2neo import neo4j
 import socket
 import errno
+import re
 
 
 graph = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
@@ -35,7 +34,7 @@ def get_categories():
         for link in category_link:
             name = link.get('title').replace(" ", "")
             category_names.append(name)
-            print "name of categorie found: " + name
+            print("name of categorie found: " + name)
         container_sources = container.findChildren('a', {'class': 'image'})
         for container_source in container_sources:
             source = "http://www.computerstore.nl" + container_source.get('href')
@@ -53,7 +52,7 @@ def walk_through_categories(categories, category_names):
     for category in categories:
         cat_name = category_names[a_index]
         max_amount = get_pages(category)
-        if not (cat_name == "Moederborden" or cat_name == "Processoren" or cat_name == "Interngeheugen(RAM)"):
+        if not (cat_name == "Barebones" or cat_name == "UpgradeKits"):
             # print "check"
             get_info_per_page(category, cat_name, max_amount)
             #else:
@@ -74,8 +73,8 @@ def get_pages(url):
     for item in soup.findAll('li', {'class': 'paging-navigation-last-page'}):
         number = item.text
         max_amount = int(number.strip())
-    print ""
-    print "Maximale aantal pagina's voor deze categorie: " + str(max_amount)
+    print("")
+    print("Maximale aantal pagina's voor deze categorie: " + str(max_amount))
     return max_amount
 
 
@@ -86,12 +85,12 @@ def get_pages(url):
 # een update_node() functie uitgevoerd. Anders wordt de functie add_node() aangeroepen.
 def check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc):
     existing_nodes = list(graph.find('Item', property_key='manufacture_code', property_value=manufacture_code))
-    print "Existing nodes: " + str(existing_nodes)
+    print("Existing nodes: " + str(existing_nodes))
     if len(existing_nodes) > 0:
-        print ("Deze node is al eens aangemaakt, updating node.")
+        print("Deze node is al eens aangemaakt, updating node.")
         update_node(date, link_item, source, price, manufacture_code)
     else:
-        print ("Deze node bestaat nog niet")
+        print("Deze node bestaat nog niet")
         add_node(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
 
 
@@ -130,19 +129,19 @@ def update_node(date, link, source, price, man_code):
 def get_info_per_page(url, cat_name, max_pages):
     page = 1
     while page <= max_pages:
-        print ""
-        print "---------------------------------------"
-        print "   Starting at a new page of items"
-        print "---------------------------------------"
+        print("")
+        print("---------------------------------------")
+        print("   Starting at a new page of items")
+        print("---------------------------------------")
         time.sleep(8)
         url = url + "?sort=popularity&dir=d&page=" + str(page) + "&items=12"
         source_code = requests.get(url)
         plain_text = source_code.text
         soup = BeautifulSoup(plain_text)
         for item in soup.findAll('li', {'class': 'product-list-item'}):
-            print "-------------------------------------"
-            print "   Starting at a new detail page"
-            print "-------------------------------------"
+            print("-------------------------------------")
+            print("   Starting at a new detail page")
+            print("-------------------------------------")
             a_children = item.findChildren('a', {'class': 'product-list-item--image-link'})
             if not (a_children == ""):
                 link_obj = ""
@@ -150,15 +149,15 @@ def get_info_per_page(url, cat_name, max_pages):
                     link_obj = a_child
                 # print a_child
                 link_item = "http://www.computerstore.nl" + link_obj.get('href')
-                print "cat_name: " + cat_name
-                print "link_item: " + link_item
+                print("cat_name: " + cat_name)
+                print("link_item: " + link_item)
                 try:
-                    print "test: inside try function, getting details"
+                    print("test: inside try function, getting details")
                     get_details(link_item, cat_name)
                     #break
                 except socket.error as error:
                     if error.errno == errno.WSAECONNRESET:
-                        print "there was an error, sleeping for 30 seconds and trying again..."
+                        print("there was an error, sleeping for 30 seconds and trying again...")
                         time.sleep(30)
                         get_info_per_page(url, cat_name, max_pages)
         page += 1
@@ -176,7 +175,7 @@ def get_name(item_name, item_container):
         for name_child in item_container.findChildren('span', {'class': 'js-product-name'}):
             name_raw = name_child.text
             name = name_raw.strip()
-    print "name: " + name
+    print("name: " + name)
     return name
 
 
@@ -184,19 +183,19 @@ def get_name(item_name, item_container):
 # De variabele wordt teruggegeven aan de functie get_details()
 def get_price(item_name, item_container):
     price = 0
-    price_raw = "0"
+    price_raw = "0,-"
     if item_name == "product_container":
         for price_child in item_container.findChildren('div', {'class': 'price'}):
             price_raw = price_child.text
     elif item_name == "product-page":
         for price_child in item_container.findChildren('strong', {'class': 'sales-price--current'}):
             price_raw = price_child.text
-    price_array = re.findall(r'\d{1,6}[\,.]{1}\d{0,2}', price_raw)
+    price_array = re.findall(r'\d{1,6}[,.]\d{0,2}', price_raw)
     for price_item in price_array:
         price_str = price_item.replace(',', '.')
         price_float = float(price_str)
         price = ('%.2f' % price_float)
-    print "price: " + str(price)
+    print("price: " + str(price))
     return price
 
 
@@ -210,7 +209,7 @@ def get_img(item_name, item_container):
     elif item_name == "product-page":
         for img_child in item_container.findChildren('img', {'class': 'media-gallery--main-image'}):
             source = str(img_child.get('src'))
-    print "source: " + source
+    print("source: " + source)
     return source
 
 
@@ -238,7 +237,7 @@ def get_spec_title(item_name, item_container, soup):
                 else:
                     specs_title_txt = title_child.text.replace(" ", "").lstrip().rstrip()
                     spec_title.append(re.sub('\s+', ' ', specs_title_txt))
-    print spec_title
+    print(spec_title)
     return spec_title
 
 
@@ -259,7 +258,7 @@ def get_spec_desc(item_name, item_container, soup):
                 else:
                     specs_desc_txt = desc_child.text.replace(" ", "").lstrip().rstrip()
                     spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
-    print spec_desc
+    print(spec_desc)
     return spec_desc
 
 
@@ -270,7 +269,7 @@ def get_manufacture_code(spec_title, spec_desc):
         manufacture_code = spec_desc[index]
     except:
         manufacture_code = "unknown"
-    print "manufacture_code: " + manufacture_code
+    print("manufacture_code: " + manufacture_code)
     return manufacture_code
 
 
@@ -285,7 +284,7 @@ def get_details(link_item, cat_name):
     time.sleep(8)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
-    print "Current date: " + date
+    print("Current date: " + date)
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
@@ -296,7 +295,7 @@ def get_details(link_item, cat_name):
     for item_container in soup.findAll('div', {'class': 'product-page'}):
         #print item_container
         item_name = "product-page"
-    print "test: found " + item_name
+    print("test: found " + item_name)
     name = get_name(item_name, item_container)
     price = get_price(item_name, item_container)
     source = get_img(item_name, item_container)
@@ -306,5 +305,8 @@ def get_details(link_item, cat_name):
     if not manufacture_code == "unknown":
         check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
 
-
-get_categories()
+if time.strftime("%H:%M") == "23:00":
+    get_categories()
+    raw_input('Press enter to close this window ')
+else:
+    print("this is a test")

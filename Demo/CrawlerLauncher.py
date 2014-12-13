@@ -1,7 +1,7 @@
 __author__ = 'Michelle & Sander'
 
 from apscheduler.schedulers.blocking import BlockingScheduler
-import subprocess
+from subprocess import Popen, CREATE_NEW_CONSOLE
 import time
 #import logging
 #logging.basicConfig()
@@ -18,9 +18,8 @@ print ""
 # het subproces wordt de website Computerstore.nl gecrawled.
 @sched.scheduled_job('cron', day_of_week='mon-sun', hour=23)
 def timed_job():
-    print('This job is run every day at 11pm.')
-    print (time.strftime("%H:%M:%S"))
-    subprocess.Popen(["python", "C:/Users/Michelle/PycharmProjects/MARS_website_crawler/CrawlerComputerstore.py"])
+    print(time.strftime("%H:%M:%S") + ' - Starting the Computerstore crawler')
+    Popen(["python", "C:/Users/0881495/Desktop/Demo/CrawlerComputerstore.py"], creationflags=CREATE_NEW_CONSOLE)
 
 #@sched.scheduled_job('cron', day_of_week='mon-sun', hour=1)
 #def timed_job():
