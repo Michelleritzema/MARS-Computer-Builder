@@ -1,5 +1,5 @@
 __author__ = 'Michelle'
-
+# coding: utf-8
 import unittest
 from bs4 import BeautifulSoup
 from CrawlerComputerstore import get_name, get_price, get_img, get_spec_title, get_spec_desc
