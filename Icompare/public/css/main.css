@@ -109,18 +109,40 @@ body {
     padding:15px;
     display:none;
 }
-.processor_brand {
-    float:left;
-}
-.processor_core {
-    float:left;
-}
 .processor h5 {
     font-weight: bold;
 }
 .processor {
-    margin-left:25px;
+    margin-left: 25px;
 }
-.processor input {
-    margin-left:20px;
+.processor_brand {
+    float:left;
+}
+.processor_serie {
+    position:relative;
+    left:100px;
+    top:0px;
+}
+.processor_core {
+    float:left;
+    position:relative;
+    top:15px;
+}
+#slider_range {
+    width:50%;
+}
+.processor_speed {
+    position:relative;
+    left:90px;
+    top:15px;
+    height:20%;
+    width:30%;
+    float:left;
+}
+.processor_cost {
+    float:left;
+    position:relative;
+    top:35px;
+    left:120px;
+    height:20%;
 }
