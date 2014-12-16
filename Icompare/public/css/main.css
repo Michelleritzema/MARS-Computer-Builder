@@ -109,3 +109,18 @@ body {
     padding:15px;
     display:none;
 }
+.processor_brand {
+    float:left;
+}
+.processor_core {
+    float:left;
+}
+.processor h5 {
+    font-weight: bold;
+}
+.processor {
+    margin-left:25px;
+}
+.processor input {
+    margin-left:20px;
+}
