@@ -128,21 +128,22 @@ body {
     position:relative;
     top:15px;
 }
-#slider_range {
+#slider_range1 {
     width:50%;
 }
+
 .processor_speed {
     position:relative;
-    left:90px;
+    left:80px;
     top:15px;
     height:20%;
-    width:30%;
+    width:20%;
     float:left;
 }
 .processor_cost {
-    float:left;
     position:relative;
-    top:35px;
-    left:120px;
+    top:55px;
+    left:160px;
     height:20%;
+    width:20%;
 }
