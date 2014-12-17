@@ -62,39 +62,66 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="selection">
-            <div class="processor">
-                <form>
-                 <div class="processor_brand">
-                     <table class="brand_table">
-                         <tr>
-                             <td colspan="2"><h5> Welk merk processor wilt u?</h5></td>
-                         </tr>
-                         <tr>
-                             <td>Intel</td>
-                             <td>AMD</td>
-                         </tr>
-                         <tr>
-                             <td><input type="checkbox" name="processor_brand" value="Intel"></td>
-                             <td><input type="checkbox" name="processor_brand" value="AMD"></td>
-                         </tr>
-                     </table>
-                 </div>
-                 <div class="processor_serie" style="line-height:100%">
-                     <table class="serie_table" cellspacing="1px">
-                         <tr>
-                             <td colspan="3"><h5> Welke processor serie wilt u?</h5></td>
-                         </tr>
-                         <tr>
-                             <td>A10</td>
-                             <td>A6</td>
-                             <td>A8</td>
-                         </tr>
-                         <tr>
-                             <td><input type="checkbox" name="processor_serie" value="A10"></td>
-                             <td><input type="checkbox" name="processor_serie" value="A6"></td>
-                             <td><input type="checkbox" name="processor_serie" value="A8"></td>
-                         </tr>
+        <form>
+            <div class="selection">
+                <div class="col-md-6 left_div">
+                    <table class="brand_table">
+                        <tr>
+                            <th colspan="2"><h5>Merk processor</h5></th>
+                        </tr>
+                        <tr>
+                            <td>Intel</td>
+                            <td>AMD</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="processor_brand1" value="Intel"></td>
+                            <td><input type="checkbox" name="processor_brand2" value="AMD"></td>
+                        </tr>
+                    </table>
+                    <table class="core_table">
+                        <tr>
+                            <td colspan="2"><h5>Aantal processorkernen</h5></td>
+                        </tr>
+                        <tr>
+                            <td>Dual core</td>
+                            <td>Quad core</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="processor_core" value="Dual core"></td>
+                            <td><input type="checkbox" name="processor_core" value="Quad core"></td>
+                        </tr>
+                        <tr>
+                            <td>6-core</td>
+                            <td>6-core</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="processor_core" value="6-core"></td>
+                            <td><input type="checkbox" name="processor_core" value="6-core"></td>
+                        </tr>
+                    </table>
+                    <div class="processor_cost" >
+                        <h5>Prijs (minimum - maximum)</h5>
+                        <p>
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </p>
+                        <div id="slider-range2"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 right_div">
+                    <table class="serie_table" cellspacing="1px">
+                        <tr>
+                            <td colspan="3"><h5>Processor serie</h5></td>
+                        </tr>
+                        <tr>
+                            <td>A10</td>
+                            <td>A6</td>
+                            <td>A8</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="processor_serie" value="A10"></td>
+                            <td><input type="checkbox" name="processor_serie" value="A6"></td>
+                            <td><input type="checkbox" name="processor_serie" value="A8"></td>
+                        </tr>
                         <tr>
                             <td>Core i3</td>
                             <td>Core i5</td>
@@ -110,55 +137,22 @@ session_start();
                             <td>Pentium</td>
                             <td>Sempron</td>
                         </tr>
-                         <tr>
-                             <td><input type="checkbox" name="processor_serie" value="FX"></td>
-                             <td><input type="checkbox" name="processor_serie" value="Pentium"></td>
-                             <td><input type="checkbox" name="processor_serie" value="Sempron"></td>
-                         </tr>
-                     </table>
-                 </div>
-                 <div class="processor_core">
-                     <table class="core_table">
-                         <tr>
-                             <td colspan="2"><h5> Hoeveel processorkernen wilt u?</h5></td>
-                         </tr>
-                         <tr>
-                             <td>Dual core</td>
-                             <td>Quad core</td>
-                         </tr>
-                         <tr>
-                             <td><input type="checkbox" name="processor_core" value="Dual core"></td>
-                             <td><input type="checkbox" name="processor_core" value="Quad core"></td>
-                         </tr>
                         <tr>
-                            <td>6-core</td>
-                            <td>6-core</td>
+                            <td><input type="checkbox" name="processor_serie" value="FX"></td>
+                            <td><input type="checkbox" name="processor_serie" value="Pentium"></td>
+                            <td><input type="checkbox" name="processor_serie" value="Sempron"></td>
                         </tr>
-                         <tr>
-                             <td><input type="checkbox" name="processor_core" value="6-core"></td>
-                             <td><input type="checkbox" name="processor_core" value="6-core"></td>
-                         </tr>
-                     </table>
-                 </div>
-                <div class="processor_speed">
-                     <h5> wat is uw gewenste kloksnelheid?</h5>
-                     <p>
-                         <label for="speed">Kloksnelheid:</label>
-                         <input type="text" id="speed" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                     </p>
-                    <div id="slider-range1"></div>
-                 </div>
-
-                    <div class="processor_cost" >
-                        <h5> wat is de gewenste prijs?</h5>
+                    </table>
+                    <div class="processor_speed">
+                        <h5>Kloksnelheid (minimum - maximum)</h5>
                         <p>
-                            <label for="amount" >prijs:</label>
-                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            <input type="text" id="speed" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
-                        <div id="slider-range2"></div>
+                        <div id="slider-range1"></div>
                     </div>
-                    <input type="submit" value="Submit" id="submit_proces">
-                </form>
+                </div>
+            <input type="submit" value="Submit" id="submit_proces">
+        </form>
             </div>
         </div>
     </div>
