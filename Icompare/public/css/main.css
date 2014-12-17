@@ -143,7 +143,13 @@ body {
 .processor_cost {
     position:relative;
     top:55px;
-    left:160px;
-    height:20%;
+    left:10px;
+    height:10%;
     width:20%;
+}
+#submit_proces {
+    float:left;
+    position:relative;
+    top:10px;
+    left:360px;
 }

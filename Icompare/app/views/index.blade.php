@@ -157,6 +157,7 @@ session_start();
                         </p>
                         <div id="slider-range2"></div>
                     </div>
+                    <input type="submit" value="Submit" id="submit_proces">
                 </form>
             </div>
         </div>
