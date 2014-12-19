@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * Made by: Anny & Randa & Michelle
+ * Made by: Anny & Randa & Michelle & Sander
  * Date: 12/12/2014
  * Time: 22:15
  */
@@ -34,15 +34,7 @@ session_start();
     </div>
     <div class= 'sidebar'>
         <div class='sidebarlinks'>
-            <div class='menu_button'>
-                <a href="#">Button 1</a>
-            </div>
-            <div class='menu_button'>
-                <a href="#">Button 2</a>
-            </div>
-            <div class='menu_button'>
-                <a href="#">Button 3</a>
-            </div>
+
         </div>
     </div>
     <div class='content'>
@@ -62,7 +54,7 @@ session_start();
             </div>
         </div>
 
-        <div class = 'container'  >
+        <div class = 'parts-buttons'  >
             <table  >
 
                 <tr >
