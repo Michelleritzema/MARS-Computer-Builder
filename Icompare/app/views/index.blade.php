@@ -135,9 +135,9 @@ session_start();
                             <td>A8</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="processor_serie" value="A10"></td>
-                            <td><input type="checkbox" name="processor_serie" value="A6"></td>
-                            <td><input type="checkbox" name="processor_serie" value="A8"></td>
+                            <td><input type="checkbox" name="processor_serie1" value="A10"></td>
+                            <td><input type="checkbox" name="processor_serie2" value="A6"></td>
+                            <td><input type="checkbox" name="processor_serie3" value="A8"></td>
                         </tr>
                         <tr>
                             <td>Core i3</td>
@@ -145,9 +145,9 @@ session_start();
                             <td>Core i7</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="processor_serie" value="Core i3"></td>
-                            <td><input type="checkbox" name="processor_serie" value="Core i5"></td>
-                            <td><input type="checkbox" name="processor_serie" value="Core i7"></td>
+                            <td><input type="checkbox" name="processor_serie4" value="Core i3"></td>
+                            <td><input type="checkbox" name="processor_serie5" value="Core i5"></td>
+                            <td><input type="checkbox" name="processor_serie6" value="Core i7"></td>
                         </tr>
                         <tr>
                             <td>FX</td>
@@ -155,15 +155,14 @@ session_start();
                             <td>Sempron</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="processor_serie" value="FX"></td>
-                            <td><input type="checkbox" name="processor_serie" value="Pentium"></td>
-                            <td><input type="checkbox" name="processor_serie" value="Sempron"></td>
+                            <td><input type="checkbox" name="processor_serie7" value="FX"></td>
+                            <td><input type="checkbox" name="processor_serie8" value="Pentium"></td>
+                            <td><input type="checkbox" name="processor_serie9" value="Sempron"></td>
                         </tr>
                     </table>
                     <div class="processor_speed">
                         <h5>Kloksnelheid (minimum - maximum)</h5>
                         <p>
-                            <label for="speed" >Kloksnelheid (Minimum - Maximum):</label>
                             <input type="text" id="speed" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
                         <div id="slider-range1"></div>

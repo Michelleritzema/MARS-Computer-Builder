@@ -249,3 +249,59 @@ $(function() {
     $( "#amount_behuizing_uitbreiding" ).val( + $( "#slider-range18" ).slider( "values", 0 ) +
     " tot " + $( "#slider-range18" ).slider( "values", 1 ));
 });
+
+$(function() {
+    $( "#slider-range19" ).slider({
+        range: true,
+        min: 0,
+        max: 375,
+        values: [ 50, 250 ],
+        slide: function( event, ui ) {
+            $( "#amount_voeding" ).val( "€" + ui.values[ 0 ] + "€" + ui.values[ 1 ]  );
+        }
+    });
+    $( "#amount_voeding" ).val("€" + $( "#slider-range19" ).slider( "values", 0 ) +
+    "€" + $( "#slider-range19" ).slider( "values", 1 ));
+});
+
+$(function() {
+    $( "#slider-range20" ).slider({
+        range: true,
+        min: 350,
+        max: 1500,
+        values: [ 400, 1000 ],
+        slide: function( event, ui ) {
+            $( "#voeding_vermogen" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ] + "watt"  );
+        }
+    });
+    $( "#voeding_pci" ).val( + $( "#slider-range20" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range20" ).slider( "values", 1 ) + "watt");
+});
+
+$(function() {
+    $( "#slider-range21" ).slider({
+        range: true,
+        min: 1,
+        max: 10,
+        values: [ 3, 6 ],
+        slide: function( event, ui ) {
+            $( "#voeding_pci" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+        }
+    });
+    $( "#voeding_pci" ).val( + $( "#slider-range21" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range21" ).slider( "values", 1 ));
+});
+
+$(function() {
+    $( "#slider-range22" ).slider({
+        range: true,
+        min: 3,
+        max: 20,
+        values: [ 5, 15 ],
+        slide: function( event, ui ) {
+            $( "#voeding_sata" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+        }
+    });
+    $( "#voeding_sata" ).val( + $( "#slider-range22" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range22" ).slider( "values", 1 ));
+});
