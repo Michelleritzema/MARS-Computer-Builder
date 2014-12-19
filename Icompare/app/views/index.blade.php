@@ -20,8 +20,7 @@ session_start();
     {{ HTML::script('js/jquery-1.11.1.min.js'); }}
     {{ HTML::script('js/bootstrap.min.js'); }}
     {{ HTML::script('js/intro_accordion.js'); }}
-    {{ HTML::script('js/slider.js'); }}
-    {{ HTML::script('js/slidercost.js'); }}
+    {{ HTML::script('js/slidersicompare.js'); }}
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -172,12 +171,14 @@ session_start();
                     <div class="processor_speed">
                         <h5>Kloksnelheid (minimum - maximum)</h5>
                         <p>
+                            <label for="speed" >Kloksnelheid (Minimum - Maximum):</label>
                             <input type="text" id="speed" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
                         <div id="slider-range1"></div>
                     </div>
                 </div>
             <input type="submit" value="Submit" id="submit_proces">
+            </div>
         </form>
             </div>
         </div>
