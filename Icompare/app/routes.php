@@ -15,3 +15,16 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
+
+Route::get('/voeding', 'HomeController@showPowerSupply');
+Route::get('/processorkoeler', 'HomeController@showProcessorCooler');
+Route::get('/internehardeschijf', 'HomeController@showInternalHarddrive');
+Route::get('/geluidskaart', 'HomeController@showSoundcard');
+Route::get('/PCI', 'HomeController@showPCI');
+Route::get('/videokaart', 'HomeController@showVideoCard');
+Route::get('/processor', 'HomeController@showProcessor');
+Route::get('/internalmemory', 'HomeController@showInternalMemory');
+Route::get('/motherboard', 'HomeController@showMotherboard');
+Route::get('/casing', 'HomeController@showCasing');
+Route::get('/ssd', 'HomeController@showSSD');
+Route::get('/blu-raydvd', 'HomeController@showBlurayDVD');

@@ -1,5 +1,6 @@
 body {
     background: #121212 !important;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
 }
 @media (min-width:768px){.menu_button{height: 22px;}}
@@ -14,14 +15,8 @@ body {
 }
 .sidebar {
 	background: #899CA9;
-	display: inline-block;
 	text-align: left;
-	padding: 25px 0.5%;
-    float: right;
-    width: 15%;
-    height: 500px;
 	text-decoration: none;
-	border-radius: 4px;
 }
 .sidebar .sidebarlinks {
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
@@ -30,15 +25,10 @@ body {
 	color: #fcfcfc;
     text-decoration: none;
     }
-.menu_button {
-    width: 100%;
-    min-height: 22px;
-    padding: 8px 10%;
-}
 .sidebarlinks a{
      color:#fcfcfc;
 	 text-decoration: none;
-	
+
     }
 .sidebarlinks a:hover {
 	text-decoration: none;
@@ -46,12 +36,10 @@ body {
     }
 .content {
 	background: white;
-    display: inline-block;
+    padding: 0;
     padding-bottom:20px;
-    float: left;
+    margin-bottom:6px;
 	min-height: 500px;
-	width: 84.5%;
-	border-radius: 4px;
 }
 .intro_accordion, .intro_accordion * {
     -webkit-box-sizing:border-box; 
@@ -111,17 +99,38 @@ body {
     display:none;
 }
 .left_div, .right_div {
-    padding:20px 8%;
+    padding: 20px 4%;
+    text-align: center !important;
 }
 
 table {
     width:100%;
 }
 
+.spec_table {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.spec_table th {
+    color: black;
+}
+
+.spec_table tr td {
+    padding: 5px;
+}
+
+.spec_table tr td input {
+    text-align: center;
+    border: 0;
+    color: #f6931f;
+    font-weight: bold;
+    font-size: 13pt;
+}
 
 h5 {
     font-weight: bold;
-    font-size:12pt;
+    font-size:11pt;
     text-align:center;
 }/*
 .processor {
@@ -166,21 +175,55 @@ h5 {
     left:360px;
 }*/
 
+.specification, .parts-buttons {
+    padding: 0;
+    min-height: 100px;
+}
+
+.title {
+    font-size: 14pt;
+    margin-top: 15px;
+}
 
 tbody tr td {
     font-family: 'Open Sans', sans-serif;
-    font-weight:400;
-    color:#5f6062;
-    font-size:13px;
-    padding:20px 20px 20px 20px;
+    color: #5f6062;
+    font-size: 10pt;
     border-bottom:1px solid #e0e0e0;
 
+}
+
+.link_row {
+    height: 42px;
+}
+
+.link, .link_image {
+    margin: 0;
+    width: 10%;
+    text-align: center;
+    color: #428bca;
+    font-size: 9pt;
+}
+
+.link {
+    background-color: #f8f8f8;
+}
+
+.link_image {
+    padding: 5px;
 }
 
 .link a{
     text-decoration:none;
 }
-.link:hover {
+.link:hover, .link_image:hover {
     opacity: 0.5;
+}
 
+.parts-buttons a table {
+    padding: 0 !important;
+}
+
+.parts-buttons table tr {
+    padding: 0;
 }
