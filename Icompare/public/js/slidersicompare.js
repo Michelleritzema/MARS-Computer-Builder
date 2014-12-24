@@ -305,3 +305,45 @@ $(function() {
     $( "#voeding_sata" ).val( + $( "#slider-range22" ).slider( "values", 0 ) +
     " tot " + $( "#slider-range22" ).slider( "values", 1 ));
 });
+
+$(function() {
+    $( "#slider-range23" ).slider({
+        range: true,
+        min: 0,
+        max: 80,
+        values: [ 20, 50 ],
+        slide: function( event, ui ) {
+            $( "#amount_pci" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+        }
+    });
+    $( "#amount_pci" ).val( + $( "#slider-range23" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range23" ).slider( "values", 1 ));
+});
+
+$(function() {
+    $( "#slider-range24" ).slider({
+        range: true,
+        min: 0,
+        max: 200,
+        values: [ 50, 100 ],
+        slide: function( event, ui ) {
+            $( "#amount_geluid" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+        }
+    });
+    $( "#amount_geluid" ).val( + $( "#slider-range24" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range24" ).slider( "values", 1 ));
+});
+
+$(function() {
+    $( "#slider-range25" ).slider({
+        range: true,
+        min: 0,
+        max: 110,
+        values: [ 50, 90 ],
+        slide: function( event, ui ) {
+            $( "#amount_brander" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+        }
+    });
+    $( "#amount_brander" ).val( + $( "#slider-range25" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range25" ).slider( "values", 1 ));
+});
