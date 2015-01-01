@@ -123,9 +123,7 @@ session_start();
                         </p>
                         <div id="slider-range24"></div>
                     </div>
-                    </div>
-                </div>
-                <div class="col-md-6 right_div">
+
                     <table class="geluid_minijack_table">
                         <tr>
                             <th colspan="2"><h5>3,5mm mini-jack</h5></th>
@@ -246,6 +244,7 @@ session_start();
                             <td><input type="checkbox" name="geluid_processor5" value="Sound Core3D"></td>
                     </table>
                 </div>
+            </div>
             <input type="submit" value="Submit" id="submit_proces">
         </form>
             </div>
