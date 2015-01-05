@@ -10,4 +10,4 @@ solid state drives
 geluidkaarten
 pci express kaarten
 blu-ray/dvd branders
-klaar
+klaarh
