@@ -257,11 +257,11 @@ $(function() {
         max: 375,
         values: [ 50, 250 ],
         slide: function( event, ui ) {
-            $( "#amount_voeding" ).val( "€" + ui.values[ 0 ] + "€" + ui.values[ 1 ]  );
+            $( "#amount_voeding" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
     $( "#amount_voeding" ).val("€" + $( "#slider-range19" ).slider( "values", 0 ) +
-    "€" + $( "#slider-range19" ).slider( "values", 1 ));
+    " - €" + $( "#slider-range19" ).slider( "values", 1 ));
 });
 
 $(function() {
@@ -271,11 +271,11 @@ $(function() {
         max: 1500,
         values: [ 400, 1000 ],
         slide: function( event, ui ) {
-            $( "#voeding_vermogen" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ] + "watt"  );
+            $( "#voeding_vermogen" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ] + " watt"  );
         }
     });
-    $( "#voeding_pci" ).val( + $( "#slider-range20" ).slider( "values", 0 ) +
-    " tot " + $( "#slider-range20" ).slider( "values", 1 ) + "watt");
+    $( "#voeding_vermogen" ).val( + $( "#slider-range20" ).slider( "values", 0 ) +
+    " tot " + $( "#slider-range20" ).slider( "values", 1 ) + " watt");
 });
 
 $(function() {
@@ -313,11 +313,11 @@ $(function() {
         max: 80,
         values: [ 20, 50 ],
         slide: function( event, ui ) {
-            $( "#amount_pci" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+            $( "#amount_pci" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_pci" ).val( + $( "#slider-range23" ).slider( "values", 0 ) +
-    " tot " + $( "#slider-range23" ).slider( "values", 1 ));
+    $( "#amount_pci" ).val( "€" + $( "#slider-range23" ).slider( "values", 0 ) +
+    " - €" + $( "#slider-range23" ).slider( "values", 1 ));
 });
 
 $(function() {
@@ -327,23 +327,64 @@ $(function() {
         max: 200,
         values: [ 50, 100 ],
         slide: function( event, ui ) {
-            $( "#amount_geluid" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+            $( "#amount_geluid" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
     $( "#amount_geluid" ).val( + $( "#slider-range24" ).slider( "values", 0 ) +
-    " tot " + $( "#slider-range24" ).slider( "values", 1 ));
+    " - €" + $( "#slider-range24" ).slider( "values", 1 ));
 });
 
 $(function() {
     $( "#slider-range25" ).slider({
         range: true,
         min: 0,
+        max: 120,
+        values: [ 50, 90 ],
+        slide: function( event, ui ) {
+            $( "#amount_brander" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
+        }
+    });
+    $( "#amount_brander" ).val( "€" + $( "#slider-range25" ).slider( "values", 0 ) +
+    " - €" + $( "#slider-range25" ).slider( "values", 1 ));
+});
+
+$(function() {
+    $( "#slider-range26" ).slider({
+        range: true,
+        min: 0,
         max: 110,
         values: [ 50, 90 ],
         slide: function( event, ui ) {
-            $( "#amount_brander" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+            $( "#amount_koeler" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_brander" ).val( + $( "#slider-range25" ).slider( "values", 0 ) +
-    " tot " + $( "#slider-range25" ).slider( "values", 1 ));
+    $( "#amount_koeler" ).val( "€" + $( "#slider-range26" ).slider( "values", 0 ) +
+    " - €" + $( "#slider-range26" ).slider( "values", 1 ));
+});
+
+$(function() {
+$( "#slider-range27" ).slider({
+    range: "max",
+    min: 6,
+    max: 14,
+    value: 9,
+    slide: function( event, ui ) {
+        $( "#koeler_diameter" ).val( ui.value );
+    }
+});
+$( "#koeler_diameter" ).val( $( "#slider-range27" ).slider( "value" ) );
+});
+
+$(function() {
+    $( "#slider-range28" ).slider({
+        range: true,
+        min: 800,
+        max: 3300,
+        values: [ 500, 1200 ],
+        slide: function( event, ui ) {
+            $( "#koeler_rotatie" ).val(  ui.values[ 0 ] + " - " + ui.values[ 1 ]  );
+        }
+    });
+    $( "#koeler_rotatie" ).val( $( "#slider-range28" ).slider( "values", 0 ) +
+    " - " + $( "#slider-range28" ).slider( "values", 1 ));
 });

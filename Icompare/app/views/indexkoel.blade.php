@@ -92,7 +92,7 @@ session_start();
                 <div class="col-md-6 left_div">
                     <table class="koeler_merk_table">
                         <tr>
-                            <th colspan="4"><h5>Merk voeding</h5></th>
+                            <th colspan="4"><h5>Merk koeler</h5></th>
                         </tr>
                         <tr>
                             <td>Be quiet!</td>
@@ -119,15 +119,15 @@ session_start();
                     </table>
                     <table class="koeler_type_table">
                         <tr>
-                            <td colspan="2"><h5>certificering</h5></td>
+                            <td colspan="2"><h5>koel methode</h5></td>
                         </tr>
                         <tr>
                             <td>Lucht</td>
                             <td>Water</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="voeding_type1" value="Lucht"></td>
-                            <td><input type="checkbox" name="voeding_type2" value="Water"></td>
+                            <td><input type="checkbox" name="koeler_type1" value="Lucht"></td>
+                            <td><input type="checkbox" name="koeler_type2" value="Water"></td>
                         </tr>
                     </table>
                     <div class="koeler_cost" >
@@ -135,102 +135,25 @@ session_start();
                         <p>
                             <input type="text" id="amount_koeler" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
-                        <div id="slider-range22"></div>
+                        <div id="slider-range26"></div>
                     </div>
                     </div>
                 </div>
                 <div class="col-md-6 right_div">
-                    <div class="voeding_PCI">
-                        <h5> (minimum - maximum)</h5>
-                        <p>PCI Express pin
-                            <input type="text" id="voeding_pci" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        </p>
-                        <div id="slider-range23"></div>
-                    </div>
-                    <div class="voeding_sata">
-                        <h5>S-ATA aansluitingen (minimum - maximum)</h5>
+                    <div class="koeler_diameter">
+                        <h5> Diameter ventilator (minimum - maximum)</h5>
                         <p>
-                            <input type="text" id="voeding_sata" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            <input type="text" id="koeler_diameter" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
-                        <div id="slider-range21"></div>
+                        <div id="slider-range27"></div>
                     </div>
-                    <div class="voeding_vermogen">
-                        <h5>Vermogen (minimum - maximum)</h5>
+                    <div class="koeler_rotatie">
+                        <h5>Rotatiesnelheid (minimum - maximum)</h5>
                         <p>
-                            <input type="text" id="voeding_vermogen" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            <input type="text" id="koeler_rotatie" readonly style="border:0; color:#f6931f; font-weight:bold;">
                         </p>
-                        <div id="slider-range20"></div>
+                        <div id="slider-range28"></div>
                     </div>
-                    <table class="voeding_cpup4_table" cellspacing="1px">
-                        <tr>
-                            <td colspan="2"><h5>CPU P4</h5></td>
-                        </tr>
-                        <tr>
-                            <td>Ja</td>
-                            <td>Nee</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="voeding_cpup41" value="Ja"></td>
-                            <td><input type="checkbox" name="voeding_cpup42" value="Nee"></td>
-                        </tr>
-                    </table>
-                    <table class="voeding_cpup8_table" cellspacing="1px">
-                        <tr>
-                            <td colspan="2"><h5>CPU P4</h5></td>
-                        </tr>
-                        <tr>
-                            <td>Ja</td>
-                            <td>Nee</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="voeding_cpup81" value="Ja"></td>
-                            <td><input type="checkbox" name="voeding_cpup82" value="Nee"></td>
-                        </tr>
-                    </table>
-                    <table class="voeding_cpup4p4_table" cellspacing="1px">
-                        <tr>
-                            <td colspan="2"><h5>CPU P4+P4</h5></td>
-                        </tr>
-                        <tr>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="voeding_cpup4p41" value="0"></td>
-                            <td><input type="checkbox" name="voeding_cpup4p42" value="1"></td>
-                            <td><input type="checkbox" name="voeding_cpup4p43" value="2"></td>
-                        </tr>
-                    </table>
-                    <div class="voeding_PCI">
-                        <h5>PCI Express pin (minimum - maximum)</h5>
-                        <p>
-                            <input type="text" id="voeding_pci" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        </p>
-                        <div id="slider-range23"></div>
-                    </div>
-                    <div class="voeding_sata">
-                        <h5>S-ATA aansluitingen (minimum - maximum)</h5>
-                        <p>
-                            <input type="text" id="voeding_sata" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        </p>
-                        <div id="slider-range21"></div>
-                    </div>
-                    <table class="voeding_FDD_table" cellspacing="1px">
-                        <tr>
-                            <td colspan="3"><h5>CPU P4+P4</h5></td>
-                        </tr>
-                        <tr>
-                            <td>0</td>
-                            <td>1</td>
-                            <td>2</td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="voeding_FDD1" value="0"></td>
-                            <td><input type="checkbox" name="voeding_FDD2" value="1"></td>
-                            <td><input type="checkbox" name="voeding_FDD3" value="2"></td>
-                        </tr>
-                    </table>
                 </div>
             <input type="submit" value="Submit" id="submit_proces">
         </form>
