@@ -720,7 +720,7 @@ $menuitem = Session::get('menuitem');
                         </table>
                         <table class="voeding_cpup8_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>CPU P4</h5></td>
+                                <td colspan="2"><h5>CPU P8</h5></td>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -729,21 +729,6 @@ $menuitem = Session::get('menuitem');
                             <tr>
                                 <td><input type="checkbox" name="voeding_cpup81" value="Ja"></td>
                                 <td><input type="checkbox" name="voeding_cpup82" value="Nee"></td>
-                            </tr>
-                        </table>
-                        <table class="voeding_cpup4p4_table" cellspacing="1px">
-                            <tr>
-                                <td colspan="2"><h5>CPU P4+P4</h5></td>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="voeding_cpup4p41" value="0"></td>
-                                <td><input type="checkbox" name="voeding_cpup4p42" value="1"></td>
-                                <td><input type="checkbox" name="voeding_cpup4p43" value="2"></td>
                             </tr>
                         </table>
                         <div class="voeding_PCI">
@@ -845,33 +830,6 @@ $menuitem = Session::get('menuitem');
                                 <td><input type="checkbox" name="koeler_merk7" value="Scythe"></td>
                             </tr>
                         </table>
-                    </div>
-                        <div class="col-md-6 right_div">
-                        <table class="spec_table" id="koeler_methode">
-                            <tr>
-                                <td colspan="2"><h5>koel methode</h5></td>
-                            </tr>
-                            <tr>
-                                <td>Lucht</td>
-                                <td>Water</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="koeler_type1" value="Lucht"></td>
-                                <td><input type="checkbox" name="koeler_type2" value="Water"></td>
-                            </tr>
-                        </table>
-                            </div>
-                        <div id="koeler_cost" class="spec_table">
-                            <h5>Prijs (minimum - maximum)</h5>
-
-                            <p>
-                                <input type="text" id="amount_koeler" readonly
-                                       style="border:0; color:#f6931f; font-weight:bold;">
-                            </p>
-
-                            <div id="slider-range26"></div>
-                        </div>
-
                         <div id="koeler_diameterventilator" class="spec_table">
                             <h5> Diameter ventilator (minimum - maximum)</h5>
 
@@ -1249,6 +1207,30 @@ $menuitem = Session::get('menuitem');
                         <td><input type="checkbox" name="RAM_game2" value="Nee"></td>
                     </tr>
                 </table>
+
+                @elseif($menuitem == "processorcooler")
+                    <table class="spec_table" id="koeler_methode">
+                        <tr>
+                            <td colspan="2"><h5>koel methode</h5></td>
+                        </tr>
+                        <tr>
+                            <td>Lucht</td>
+                            <td>Water</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="koeler_type1" value="Lucht"></td>
+                            <td><input type="checkbox" name="koeler_type2" value="Water"></td>
+                        </tr>
+                    </table>
+                    <div class="koeler_cost" >
+                        <h5>Prijs (minimum - maximum)</h5>
+                        <p>
+                            <input type="text" id="amount_koeler" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </p>
+                        <div id="slider-range26"></div>
+                    </div>
+
+
                 @elseif($menuitem == "ssd")
 
                     <table class="SSD_controller_table" cellspacing="1px">
@@ -1991,6 +1973,7 @@ $menuitem = Session::get('menuitem');
                 </table>
 
                     @endif
+            </div>
             </div>
         </form>
     </div>
