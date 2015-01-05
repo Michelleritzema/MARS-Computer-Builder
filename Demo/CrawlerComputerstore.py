@@ -10,7 +10,6 @@ import errno
 import re
 
 
-
 graph = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
 
 
