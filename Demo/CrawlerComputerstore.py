@@ -10,7 +10,6 @@ import errno
 import re
 
 
-
 graph = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
 
 # Deze functie haalt van de site computerstore op hoeveel categorieen er in totaal zijn.
