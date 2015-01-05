@@ -39,14 +39,24 @@ def get_categories():
         for container_source in container_sources:
             source = "http://www.computerstore.nl" + container_source.get('href')
             categories.append(source)
-    walk_through_categories(categories, category_names)
-
+    #walk_through_categories(categories, category_names)
+    shutdowndatabase()
 
 # Deze functie loopt alle items in de array 'categories' door. Voor elk item wordt de
 # naam opgeslagen uit de 'category_names' array onder de variabele 'cat_name'. Ook wordt
 # de functie get_pages() aangeroepen, die het maximale aantal pagina's teruggeeft, dit
 # wordt opgeslagen onder de variabele 'max_amount'. Wanneer de naam van de categorie
 # niet "Barebones" of "UpgradeKits" is, dan wordt de functie get_info_per_page() aangeroepen.
+def shutdowndatabase():
+    def _close_db():
+        try:
+            graph.shutdown()
+        except NameError:
+            print 'Could not shutdown Neo4j database. Is it open in another process?'
+    #import atexit
+    #atexit.register(_close_db)
+
+
 def walk_through_categories(categories, category_names):
     a_index = 0
     for category in categories:
@@ -304,8 +314,12 @@ def get_details(link_item, cat_name):
     if not manufacture_code == "unknown":
         check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
 
+
+
 if time.strftime("%H:%M") == "23:00":
     get_categories()
     input('Press enter to close this window ')
 else:
     print("this is a test")
+
+#get_categories()
