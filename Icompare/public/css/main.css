@@ -100,6 +100,7 @@ body {
 }
 .left_div, .right_div {
     padding: 20px 4%;
+    padding-top: 10px;
     text-align: center !important;
 }
 
@@ -226,4 +227,18 @@ tbody tr td {
 
 .parts-buttons table tr {
     padding: 0;
+}
+
+.specification_table {
+    margin-top: 20px;
+    color: #5f6062;
+}
+
+.specification_table h5 {
+    margin-bottom: 0;
+}
+
+.specification_table_slider {
+    display: inline-block;
+    width: 90%;
 }

@@ -364,7 +364,7 @@ $(function() {
 
 $(function() {
 $( "#slider-range27" ).slider({
-    range: "max",
+    range: "min",
     min: 6,
     max: 14,
     value: 9,

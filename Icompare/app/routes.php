@@ -33,3 +33,8 @@ Route::get('/test', function()
 {
 	return View::make('php_to_java');
 });
+
+Route::get('/testboxes', function()
+{
+	return View::make('testboxes');
+});
