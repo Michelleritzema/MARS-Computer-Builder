@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .rake_test_cache
 
 ###
@@ -5,3 +6,6 @@
 ###
 .chef/*.pem
 .chef/encrypted_data_bag_secret
+=======
+/Search_Engine/MARS_Search_Engine/nbproject/private/
+>>>>>>> 80b1d3faec6026daba6eee9acc82a3b380b8b0e8

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Overview
 ========
 
@@ -64,3 +65,10 @@ Next Steps
 ==========
 
 Read the README file in each of the subdirectories for more information about what goes in those directories.
+=======
+MARS-Computer-Builder
+=====================
+
+INF2D Project 5/6 Computer Builder Program
+Wordt aangevuld...
+>>>>>>> 80b1d3faec6026daba6eee9acc82a3b380b8b0e8
