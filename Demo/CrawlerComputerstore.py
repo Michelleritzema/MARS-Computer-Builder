@@ -38,8 +38,8 @@ def get_categories():
         for container_source in container_sources:
             source = "http://www.computerstore.nl" + container_source.get('href')
             categories.append(source)
-    #walk_through_categories(categories, category_names)
-    shutdowndatabase()
+    walk_through_categories(categories, category_names)
+    #shutdowndatabase()
 
 # Deze functie loopt alle items in de array 'categories' door. Voor elk item wordt de
 # naam opgeslagen uit de 'category_names' array onder de variabele 'cat_name'. Ook wordt
