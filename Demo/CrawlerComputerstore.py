@@ -228,6 +228,7 @@ def get_spec_title(item_name, item_container, soup):
     spec_title = []
     if item_name == "product_container":
         for specs_title_child in item_container.findChildren('td', {'class': 'table_spectable_spec'}):
+            print("found table_spectable_spec")
             if specs_title_child.findChildren('span', {'class': 'table_spectable_spec_titletext'}):
                 for specs_title_raw in specs_title_child.findChildren('span',
                                                                       {'class': 'table_spectable_spec_titletext'}):
@@ -237,7 +238,7 @@ def get_spec_title(item_name, item_container, soup):
                 specs_title_txt = specs_title_child.text.replace(" ", "").lstrip().rstrip()
                 spec_title.append(re.sub('\s+', ' ', specs_title_txt))
     elif item_name == "product-page":
-        for specs_title_child in soup.findChildren('div', {'class': 'show-more--content'}):
+        for specs_title_child in soup.findChildren('div', {'class': 'product-specs'}):
             for title_child in specs_title_child.findChildren('dt', {'class': 'product-specs--item-title'}):
                 if title_child.findChildren('span', {'class': 'product-specs--help-title'}):
                     for specs_title_raw in title_child.findChildren('span', {'class': 'product-specs--help-title'}):
@@ -257,7 +258,7 @@ def get_spec_desc(item_name, item_container, soup):
             specs_desc_txt = specs_desc_child.text.lstrip().rstrip()
             spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
     elif item_name == "product-page":
-        for specs_desc_child in soup.findChildren('div', {'class': 'show-more--content'}):
+        for specs_desc_child in soup.findChildren('div', {'class': 'product-specs'}):
             for desc_child in specs_desc_child.findChildren('dd', {'class': 'product-specs--item-spec'}):
                 if desc_child.findChildren('span', {'class': 'icon-fallback'}):
                     for specs_desc_raw in desc_child.findChildren('span', {'class': 'icon-fallback'}):
@@ -303,7 +304,7 @@ def get_details(link_item, cat_name):
     for item_container in soup.findAll('div', {'class': 'product-page'}):
         #print item_container
         item_name = "product-page"
-    print("test: found " + item_name)
+    #print("test: found " + item_name)
     name = get_name(item_name, item_container)
     price = get_price(item_name, item_container)
     source = get_img(item_name, item_container)
