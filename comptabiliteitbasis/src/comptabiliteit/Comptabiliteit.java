@@ -1,8 +1,8 @@
 package comptabiliteit;
 
 public class Comptabiliteit {
-	int comptabiliteitBehuizing;
-	int comptabiliteitMoederbord;
+	int compatibiliteitBehuizing;
+	int compatibiliteitMoederbord;
 	
 	 public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -13,31 +13,31 @@ public class Comptabiliteit {
 	{
 		if (ProcessSocket != MotherboardProcessSocket)
 		{
-			return comptabiliteitMoederbord = 2;
+			return compatibiliteitMoederbord = 2;
 		}
 		else if (RAMmemory > MotherboardMaxMemory)
 		{
-			return comptabiliteitMoederbord = 2;
+			return compatibiliteitMoederbord = 2;
 		}
 		else if (RAMsticks > MotherboardMemorySlots)
 		{
-			return comptabiliteitMoederbord = 2;
+			return compatibiliteitMoederbord = 2;
 		}
 		else if (GPUSlots > MotherboardGPUSlots)
 		{
-			return comptabiliteitMoederbord = 2;
+			return compatibiliteitMoederbord = 2;
 		}
 		else if (GPUSlotType != MotherboardGPUSlotType)
 		{
-			return comptabiliteitMoederbord = 2;
+			return compatibiliteitMoederbord = 2;
 		}
 		else if (HardDrives > MotherboardMaxHardDriveSlots)
 		{
-			return comptabiliteitMoederbord = 2;
+			return compatibiliteitMoederbord = 2;
 		}
 		else
 		{
-			return comptabiliteitMoederbord = 1;
+			return compatibiliteitMoederbord = 1;
 		}
 	}
 	 
@@ -45,32 +45,32 @@ public class Comptabiliteit {
 	 {
 		 if (HardDrives > CasingMaxHardDriveSlots)
 		 {
-			return comptabiliteitBehuizing = 2;
+			return compatibiliteitBehuizing = 2;
 		 }
 		 else if (GPUaantal > CasingMaxGPUSlots)
 		 {
-			 return comptabiliteitBehuizing = 2;
+			 return compatibiliteitBehuizing = 2;
 		 }
 		 else if (GPULength > CasingMaxGPULength)
 		 {
-			 return comptabiliteitBehuizing = 2;
+			 return compatibiliteitBehuizing = 2;
 		 }
 		 else if (procesCoolHeight > CasingMaxProcesCoolHeight)
 		 {
-			 return comptabiliteitBehuizing = 2;
+			 return compatibiliteitBehuizing = 2;
 		 }
 		 else if (FanAmount > CasingMaxFanAmount)
 		 {
-			 return comptabiliteitBehuizing = 2;
+			 return compatibiliteitBehuizing = 2;
 		 }
 		 else
 		 {
-			 return comptabiliteitBehuizing = 1;
+			 return compatibiliteitBehuizing = 1;
 		 }
 	 }
-	 public void comptabiliteit()
+	 public void comptabiliteitcheck()
 	 {
-		 if (comptabiliteitBehuizing == 1 && comptabiliteitMoederbord == 1 )
+		 if (compatibiliteitBehuizing == 1 && compatibiliteitMoederbord == 1 )
 		 {
 			 System.out.println("Alle onderdelen zijn comptitabel met elkaar");
 		 }
