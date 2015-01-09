@@ -255,8 +255,7 @@ echo $menuitem;
                             <h5>PCI Express pin (minimum - maximum)</h5>
 
                             <p style="padding:0 44%">
-                                <input type="text" id="voeding_pci" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="voeding_pci" readonly >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range21"></div>
@@ -265,11 +264,14 @@ echo $menuitem;
                             <h5>S-ATA aansluitingen (minimum - maximum)</h5>
 
                             <p style="padding:0 44%">
-                                <input type="text" id="voeding_sata" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="voeding_sata" readonly >
                             </p>
 
-                            <div class="specification_table_slider" id="slider-range22"></div>
+                            <div class="specification_table_slider" id="slider-range22">
+
+
+
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -328,8 +330,7 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
 
                             <p style="padding:0 41%">
-                                <input type="text" id="amount_voeding" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_voeding" readonly>
                             </p>
 
                             <div class="specification_table_slider" id="slider-range19"></div>
@@ -338,8 +339,7 @@ echo $menuitem;
                             <h5>Vermogen (minimum - maximum)</h5>
 
                             <p style="padding:0 35%">
-                                <input type="text" id="voeding_vermogen" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="voeding_vermogen" readonly >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range20"></div>
@@ -347,7 +347,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @elseif($menuitem == "processorcooler")
                 <form>
@@ -385,8 +385,8 @@ echo $menuitem;
                             <h5>Diameter ventilator (in cm)</h5>
 
                             <p style="padding:0 48%">
-                                <input type="text" id="koeler_diameter" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input  class="slider_label" type="text" id="koeler_diameter" readonly
+                                       >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range27"></div>
@@ -395,8 +395,8 @@ echo $menuitem;
                             <h5>Rotatiesnelheid (minimum - maximum)</h5>
 
                             <p style="padding:0 42%">
-                                <input type="text" id="koeler_rotatie" readonly
-                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                <input  class="slider_label" type="text" id="koeler_rotatie" readonly
+                                      >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range28"></div>
@@ -420,8 +420,8 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
 
                             <p style="padding:0 42%">
-                                <input type="text" id="amount_koeler" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_koeler" readonly
+                                       >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range26"></div>
@@ -429,7 +429,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @elseif($menuitem == "internalharddrive")
                 <form>
@@ -569,8 +569,8 @@ echo $menuitem;
 
                             <p>
                                 <label for="amount_hdd">prijs (Minimum - Maximum):</label>
-                                <input type="text" id="amount_hdd" readonly
-                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_hdd" readonly
+                                       >
                             </p>
 
                             <div id="slider-range10"></div>
@@ -578,7 +578,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
 
             @elseif($menuitem == "soundcard")
@@ -713,8 +713,8 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
 
                             <p style="padding:0 42%">
-                                <input type="text" id="amount_geluid" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_geluid" readonly
+                                      >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range24"></div>
@@ -748,7 +748,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @elseif($menuitem == "PCI")
                 <form>
@@ -783,8 +783,8 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
 
                             <p style="padding:0 42%">
-                                <input type="text" id="amount_pci" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_pci" readonly
+                                       >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range23"></div>
@@ -820,7 +820,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @elseif($menuitem == "videocard")
                 <form>
@@ -1053,8 +1053,8 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
 
                             <p style="padding:0 42%">
-                                <input type="text" id="amount_GPU_prijs" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_GPU_prijs" readonly
+                                       >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range3"></div>
@@ -1063,8 +1063,8 @@ echo $menuitem;
                             <h5>Gewenst videogeheugen (minimum - maximum)</h5>
 
                             <p style="padding:0 36%">
-                                <input type="text" id="amount_GPU_geheugen" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input  class="slider_label" type="text" id="amount_GPU_geheugen" readonly
+                                       >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range4"></div>
@@ -1072,7 +1072,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @elseif($menuitem == "processor")
                 <form>
@@ -1115,8 +1115,8 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
 
                             <p style="padding:0 41%">
-                                <input type="text" id="amount" readonly
-                                       style="border:0;color:#f6931f;font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount" readonly
+                                      >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range2"></div>
@@ -1162,8 +1162,8 @@ echo $menuitem;
                             <h5>Kloksnelheid (minimum - maximum)</h5>
 
                             <p>
-                                <input type="text" id="speed" readonly
-                                       style="border:0; color:#f6931f; font-weight:bold;">
+                                <input  class="slider_label" type="text" id="speed" readonly
+                                       >
                             </p>
 
                             <div id="slider-range1"></div>
@@ -1172,7 +1172,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
 
             @elseif($menuitem == "internalmemory")
@@ -1234,7 +1234,7 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
                             <p>
                                 <label for="amount_ram" >prijs (Minimum - Maximum):</label>
-                                <input type="text" id="amount_ram" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_ram" readonly >
                             </p>
                             <div id="slider-range5"></div>
                         </div>
@@ -1315,7 +1315,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
 
             @elseif($menuitem == "motherboard")
@@ -1376,7 +1376,7 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
                             <p>
                                 <label for="amount_moederbord" >prijs (Minimum - Maximum):</label>
-                                <input type="text" id="amount_moederbord" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_moederbord" readonly >
                             </p>
                             <div id="slider-range6"></div>
                         </div>
@@ -1384,7 +1384,7 @@ echo $menuitem;
                             <h5>aantal USB 3.0 poorten aanwezig</h5>
                             <p>
                                 <label for="amount_usb" >Aantal USB 3.0 poorten:</label>
-                                <input type="text" id="amount_usb" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input   class="slider_label" type="text" id="amount_usb" readonly >
                             </p>
                             <div id="slider-range7"></div>
                         </div>
@@ -1562,7 +1562,7 @@ echo $menuitem;
                             <h5>SATA 300</h5>
                             <p>
                                 <label for="amount_sata300" >Aantal SATA 300 aansluitingen:</label>
-                                <input type="text" id="amount_sata300" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_sata300" readonly>
                             </p>
                             <div id="slider-range8"></div>
                         </div>
@@ -1570,14 +1570,14 @@ echo $menuitem;
                             <h5>SATA 600</h5>
                             <p>
                                 <label for="amount_sata600" >Aantal SATA 600 aansluitingen:</label>
-                                <input type="text" id="amount_sata600" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_sata600" readonly >
                             </p>
                             <div id="slider-range9"></div>
                         </div>
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
 
             @elseif($menuitem == "casing")
@@ -1669,7 +1669,7 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
                             <p>
                                 <label for="amount_behuizing" >prijs (Minimum - Maximum):</label>
-                                <input type="text" id="amount_behuizing" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_behuizing" readonly >
                             </p>
                             <div id="slider-range14"></div>
                         </div>
@@ -1677,7 +1677,7 @@ echo $menuitem;
                             <h5>Schrijfsnelheid</h5>
                             <p>
                                 <label for="amount_behuizing_uitbreiding" >Aantal uitbreidingssloten:</label>
-                                <input type="text" id="amount_behuizing_uitbreiding" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly >
                             </p>
                             <div id="slider-range18"></div>
                         </div>
@@ -1862,7 +1862,7 @@ echo $menuitem;
                             <h5>Schrijfsnelheid</h5>
                             <p>
                                 <label for="amount_behuizing_3bay" >3,5'' bays:</label>
-                                <input type="text" id="amount_behuizing_3bay" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_behuizing_3bay" readonly >
                             </p>
                             <div id="slider-range15"></div>
                         </div>
@@ -1870,7 +1870,7 @@ echo $menuitem;
                             <h5>Schrijfsnelheid</h5>
                             <p>
                                 <label for="amount_behuizing_2bay" >2,5'' bays:</label>
-                                <input type="text" id="amount_behuizing_2bay" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_behuizing_2bay" readonly >
                             </p>
                             <div id="slider-range16"></div>
                         </div>
@@ -1878,14 +1878,14 @@ echo $menuitem;
                             <h5>Schrijfsnelheid</h5>
                             <p>
                                 <label for="amount_behuizing_5bay" >5,25'' bays:</label>
-                                <input type="text" id="amount_behuizing_5bay" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_behuizing_5bay" readonly >
                             </p>
                             <div id="slider-range17"></div>
                         </div>
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
 
             @elseif($menuitem == "ssd")
@@ -1957,7 +1957,7 @@ echo $menuitem;
                             <h5>Prijs (minimum - maximum)</h5>
                             <p>
                                 <label for="amount_ssd" >prijs (Minimum - Maximum):</label>
-                                <input type="text" id="amount_ssd" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input  class="slider_label" type="text" id="amount_ssd" readonly >
                             </p>
                             <div id="slider-range11"></div>
                         </div>
@@ -2033,7 +2033,7 @@ echo $menuitem;
                             <h5>Schrijfsnelheid</h5>
                             <p>
                                 <label for="amount_ssd_schrijf" >schrijfsnelheid (Minimum - Maximum):</label>
-                                <input type="text" id="amount_ssd_schrijf" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_ssd_schrijf" readonly >
                             </p>
                             <div id="slider-range12"></div>
                         </div>
@@ -2041,14 +2041,14 @@ echo $menuitem;
                             <h5>Leessnelheid</h5>
                             <p>
                                 <label for="amount_ssd_lees" >leessnelheid (Minimum - Maximum):</label>
-                                <input type="text" id="amount_ssd_lees" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_ssd_lees" readonly >
                             </p>
                             <div id="slider-range13"></div>
                         </div>
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
 
             @elseif($menuitem == "bluraydvd")
@@ -2093,7 +2093,7 @@ echo $menuitem;
                         <div class="brander_cost" >
                             <h5>Prijs (minimum - maximum)</h5>
                             <p>
-                                <input type="text" id="amount_brander" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                                <input class="slider_label" type="text" id="amount_brander" readonly ">
                             </p>
                             <div id="slider-range25"></div>
                         </div>
@@ -2145,7 +2145,7 @@ echo $menuitem;
                     </div>
                 </form>
                 <div class="col-md-12">
-                    <input type="submit" value="Onderdeel opslaan" id="submit_proces">
+                    <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @endif
         </div>

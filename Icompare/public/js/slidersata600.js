@@ -7,6 +7,7 @@ $(function() {
         min: 0,
         max: 10,
         value: 4,
+
         slide: function( event, ui ) {
             $( "#amount_sata600" ).val( ui.value );
         }
