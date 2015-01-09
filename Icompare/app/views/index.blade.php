@@ -10,7 +10,7 @@ if (!Session::has('menuitem')) {
     Session::put('menuitem', 'powersupply');
 }
 $menuitem = Session::get('menuitem');
-//echo $menuitem;
+echo $menuitem;
 //var_dump($menuitem);
 ?>
 
@@ -431,7 +431,7 @@ $menuitem = Session::get('menuitem');
                 <div class="col-md-12">
                     <input type="submit" value="Onderdeel opslaan" id="submit_proces">
                 </div>
-            @elseif($menuitem == "internehardeschijf")
+            @elseif($menuitem == "internalharddrive")
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="HDD_opslag_table">
@@ -480,17 +480,6 @@ $menuitem = Session::get('menuitem');
                                 <td><input type="checkbox" name="HDD_formaat2" value="3,5 inch"></td>
                             </tr>
                         </table>
-                        <div class="HDD_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
-
-                            <p>
-                                <label for="amount_hdd">prijs (Minimum - Maximum):</label>
-                                <input type="text" id="amount_hdd" readonly
-                                       style="border:0; color:#f6931f; font-weight:bold;">
-                            </p>
-
-                            <div id="slider-range10"></div>
-                        </div>
                         <table class="HDD_snelheid_table" cellspacing="1px">
                             <tr>
                                 <td colspan="4"><h5>HDD schrijfsnelheid</h5></td>
@@ -575,6 +564,17 @@ $menuitem = Session::get('menuitem');
                                 <td><input type="checkbox" name="HDD_aansluiting2" value="s-ata(III)"></td>
                             </tr>
                         </table>
+                        <div class="HDD_cost">
+                            <h5>Prijs (minimum - maximum)</h5>
+
+                            <p>
+                                <label for="amount_hdd">prijs (Minimum - Maximum):</label>
+                                <input type="text" id="amount_hdd" readonly
+                                       style="border:0; color:#f6931f; font-weight:bold;">
+                            </p>
+
+                            <div id="slider-range10"></div>
+                        </div>
                     </div>
                 </form>
                 <div class="col-md-12">
@@ -2051,7 +2051,7 @@ $menuitem = Session::get('menuitem');
                     <input type="submit" value="Onderdeel opslaan" id="submit_proces">
                 </div>
 
-            @elseif($menuitem == "blu-raydvd")
+            @elseif($menuitem == "bluraydvd")
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="branders_merk_table">
