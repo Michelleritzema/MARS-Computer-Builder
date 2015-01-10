@@ -6,12 +6,28 @@
  */
 
 session_start();
-if (!Session::has('menuitem')) {
-    Session::put('menuitem', 'powersupply');
-}
+if (!Session::has('menuitem')) { Session::put('menuitem', 'powersupply'); }
+if (!Session::has('cpu_p4')) { Session::put('cpu_p4', '0'); }
+if (!Session::has('cpu_p8')) { Session::put('cpu_p8', '0'); }
+if (!Session::has('cpu_p4+p4')) { Session::put('cpu_p4+p4', '-'); }
+if (!Session::has('powersupply_certificate')) { Session::put('powersupply_certificate', '-'); }
+if (!Session::has('powersupply_brand1')) { Session::put('powersupply_brand1', '0'); }
+if (!Session::has('powersupply_brand2')) { Session::put('powersupply_brand2', '0'); }
+if (!Session::has('powersupply_brand3')) { Session::put('powersupply_brand3', '0'); }
+if (!Session::has('powersupply_brand4')) { Session::put('powersupply_brand4', '0'); }
+if (!Session::has('powersupply_brand5')) { Session::put('powersupply_brand5', '0'); }
+if (!Session::has('pci_express_6pin')) { Session::put('pci_express_6pin', '-'); }
+if (!Session::has('pci_express_6pin2pin')) { Session::put('pci_express_6pin2pin', '-'); }
+if (!Session::has('powersupply_price_min')) { Session::put('powersupply_price_min', '-'); }
+if (!Session::has('powersupply_price_max')) { Session::put('powersupply_price_max', '-'); }
+if (!Session::has('powersupply_power_min')) { Session::put('powersupply_power_min', '-'); }
+if (!Session::has('powersupply_power_max')) { Session::put('powersupply_power_max', '-'); }
+if (!Session::has('s-ata_min')) { Session::put('s-ata_min', '-'); }
+if (!Session::has('s-ata_max')) { Session::put('s-ata_max', '-'); }
+
 $menuitem = Session::get('menuitem');
-echo $menuitem;
-//var_dump($menuitem);
+$cpu_p4 = Session::get('cpu_p4');
+//echo $menuitem . "<br>";
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +56,7 @@ echo $menuitem;
             <div class="accordion-section">
                 <a class="accordion-section-title" href="#accordion-1">Meer informatie over deze site
                     <span class="intro_arrow" href="#accordion-1"></span>
-                    <!--{{ HTML::image('images/arrow_down.png', 'intro arrow', array('id' => 'intro_arrow_span')) }}-->
                 </a>
-
                 <div id="accordion-1" class="accordion-section-content">
                     <p>
                         Mauris interdum fringilla augue vitae tincidunt. Curabitur vitae tortor id eros euismod
@@ -58,124 +72,76 @@ echo $menuitem;
         <div class="parts-buttons col-md-12">
             <a href="voeding">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/voeding.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Voeding</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/voeding.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Voeding</td></tr>
                 </table>
             </a>
             <a href="processorkoeler">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/processorkoelers.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Processor<br>koeler</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/processorkoelers.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Processor<br>koeler</td></tr>
                 </table>
             </a>
             <a href="internehardeschijf">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/internehardeschijven.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Harde schijf</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/internehardeschijven.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Harde schijf</td></tr>
                 </table>
             </a>
             <a href="geluidskaart">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/geluidkaarten.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Geluidskaart</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/geluidkaarten.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Geluidskaart</td></tr>
                 </table>
             </a>
             <a href="PCI">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/PCI.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">PCI express</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/PCI.gif"></td></tr>
+                    <tr class="link_row"><td class="link">PCI express</td></tr>
                 </table>
             </a>
             <a href="videokaart">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/videokaart.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Videokaart</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/videokaart.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Videokaart</td></tr>
                 </table>
             </a>
         </div>
         <div class="parts-buttons col-md-12">
             <a href="processor">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/processor.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Processor</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/processor.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Processor</td></tr>
                 </table>
             </a>
             <a href="internalmemory">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/internalmemory.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Intern<br>geheugen</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/internalmemory.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Intern<br>geheugen</td></tr>
                 </table>
             </a>
             <a href="motherboard">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/motherboard.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Moederbord</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/motherboard.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Moederbord</td></tr>
                 </table>
             </a>
             <a href="casing">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/casing.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Behuizing</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/casing.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Behuizing</td></tr>
                 </table>
             </a>
             <a href="ssd">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/ssd.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">SSD</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/ssd.gif"></td></tr>
+                    <tr class="link_row"><td class="link">SSD</td></tr>
                 </table>
             </a>
             <a href="blu-raydvd">
                 <table class="col-xs-2">
-                    <tr>
-                        <td class="link_image"><img src="images/blu-rayDVD.gif"></td>
-                    </tr>
-                    <tr class="link_row">
-                        <td class="link">Blu-Ray<br>DVD</td>
-                    </tr>
+                    <tr><td class="link_image"><img src="images/blu-rayDVD.gif"></td></tr>
+                    <tr class="link_row"><td class="link">Blu-Ray<br>DVD</td></tr>
                 </table>
             </a>
         </div>
@@ -210,75 +176,82 @@ echo $menuitem;
             @if($menuitem == "powersupply")
                 <form>
                     <div class="col-md-6 left_div">
-                        <table class="voeding_cpup4_table" cellspacing="1px">
+                        <table class="voeding_cpu_table">
+                            <tr><td colspan="2"><h5>CPU Aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een 4-pin en/of 8-pin voedingsstekker voor de processor.')) }}
+                            </h5></td></tr>
                             <tr>
-                                <td colspan="2"><h5>CPU P4</h5></td>
+                                <td style="width:50%">CPU P4</td>
+                                <td style="width:50%">CPU P8</td>
                             </tr>
+                            <tr>
+                                <td><input type="checkbox" name="voeding_cpup4" value="1"></td>
+                                <td><input type="checkbox" name="voeding_cpup8" value="1"></td>
+                            </tr>
+                        </table>
+                        <table class="voeding_cpu+_table">
+                            <tr><td colspan="4"><h5> CPU P4+P4 Aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Twee keer 4-pin voedingsstekker voor de processor aan één kabel.')) }}
+                            </h5></td></tr>
+                            <tr>
+                                <td style="width:25%">0</td>
+                                <td style="width:25%">1</td>
+                                <td style="width:25%">2</td>
+                                <td style="width:25%">Geen voorkeur</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="voeding_FDD" value="1"></td>
+                                <td><input type="radio" name="voeding_FDD" value="1"></td>
+                                <td><input type="radio" name="voeding_FDD" value="1"></td>
+                                <td><input type="radio" name="voeding_FDD" value="1"></td>
+                            </tr>
+                        </table>
+                        <table class="voeding_modulair_table">
+                            <tr><td colspan="2" style="position:relative"><h5>Modulair
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een modulaire voeding heeft afneembare kabels. Alleen de benodigde kabels sluit je aan op de voeding en op de componenten. Dit zorgt ervoor dat je geen losse kabels in de computerkast hebt liggen. Een niet-modulaire voeding heeft vaste kabels.')) }}
+                            </h5></td></tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_cpup4" value="1"></td>
-                                <td><input type="radio" name="voeding_cpup4" value="1"></td>
+                                <td><input type="radio" name="voeding_modulair" value="1"></td>
+                                <td><input type="radio" name="voeding_modulair" value="1"></td>
                             </tr>
                         </table>
-                        <table class="voeding_cpup8_table" cellspacing="1px">
+                        <table class="voeding_certificering_table">
+                            <tr><td colspan="3"><h5>Certificering
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Geeft aan of de voeding een 80 PLUS certificaat voor zijn efficiëntie heeft gekregen. Voor twee vergelijkbare voedingen geldt: hoe beter het certificaat, hoe hoger de efficiëntie en hoe lager het energieverbruik.')) }}
+                            </h5></td></tr>
                             <tr>
-                                <td colspan="2"><h5>CPU P8</h5></td>
+                                <td style="width:33.3%">80 PLUS</td>
+                                <td style="width:33.3%">80 PLUS Bronze</td>
+                                <td style="width:33.3%">80 PLUS Silver</td>
                             </tr>
                             <tr>
-                                <td style="width:50%">Ja</td>
-                                <td style="width:50%">Nee</td>
+                                <td><input type="radio" name="voeding_certificering" value="1"></td>
+                                <td><input type="radio" name="voeding_certificering" value="2"></td>
+                                <td><input type="radio" name="voeding_certificering" value="3"></td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_cpup8" value="1"></td>
-                                <td><input type="radio" name="voeding_cpup8" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="voeding_FDD_table" cellspacing="1px">
-                            <tr>
-                                <td colspan="3"><h5>CPU P4+P4</h5></td>
+                                <td style="width:33.3%">80 PLUS Gold</td>
+                                <td style="width:33.3%">Geen certificering</td>
+                                <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td style="width:33%">0</td>
-                                <td style="width:33%">1</td>
-                                <td style="width:33%">2</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
+                                <td><input type="radio" name="voeding_certificering" value="4"></td>
+                                <td><input type="radio" name="voeding_certificering" value="5"></td>
+                                <td><input type="radio" name="voeding_certificering" value="6"></td>
                             </tr>
                         </table>
-                        <div class="specification_table" id="voeding_PCI">
-                            <h5>PCI Express pin (minimum - maximum)</h5>
-
-                            <p style="padding:0 44%">
-                                <input class="slider_label" type="text" id="voeding_pci" readonly >
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range21"></div>
-                        </div>
-                        <div class="voeding_sata specification_table">
-                            <h5>S-ATA aansluitingen (minimum - maximum)</h5>
-
-                            <p style="padding:0 44%">
-                                <input class="slider_label" type="text" id="voeding_sata" readonly >
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range22">
-
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 right_div">
                         <table class="voeding_merk_table">
-                            <tr>
-                                <td colspan="5"><h5>Merk voeding</h5></td>
-                            </tr>
+                            <tr><td colspan="5"><h5>Merk van de voeding
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></td></tr>
                             <tr>
                                 <td style="width:20%">Be quiet!</td>
                                 <td style="width:20%">Cooler Master</td>
@@ -294,61 +267,81 @@ echo $menuitem;
                                 <td><input type="checkbox" name="voeding_merk5" value="5"></td>
                             </tr>
                         </table>
-                        <table class="voeding_certificering_table">
+                    </div>
+                    <div class="col-md-6 right_div">
+                        <table class="pci_express_6pin_table">
+                            <tr><td colspan="4"><h5>PCI Express 6-pin
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een 6-pin voedingsstekker voor de videokaart.')) }}
+                            </h5></td></tr>
                             <tr>
-                                <td colspan="5"><h5>Certificering</h5></td>
+                                <td style="width:25%">0</td>
+                                <td style="width:25%">1</td>
+                                <td style="width:25%">2</td>
+                                <td style="width:25%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td style="width:20%">Geen</td>
-                                <td style="width:20%">80 PLUS</td>
-                                <td style="width:20%">80 PLUS Bronze</td>
-                                <td style="width:20%">80 PLUS Silver</td>
-                                <td style="width:20%">80 PLUS Gold</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="voeding_certificering" value="1"></td>
-                                <td><input type="radio" name="voeding_certificering" value="2"></td>
-                                <td><input type="radio" name="voeding_certificering" value="3"></td>
-                                <td><input type="radio" name="voeding_certificering" value="4"></td>
-                                <td><input type="radio" name="voeding_certificering" value="5"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
                             </tr>
                         </table>
-                        <table class="voeding_modulair_table">
+                        <table class="pci_express_6pin2pin_table">
+                            <tr><td colspan="6"><h5>PCI Express 6+2-pin
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een 6-pin en 2-pin voedingsstekker voor de videokaart.')) }}
+                            </h5></td></tr>
                             <tr>
-                                <td colspan="2"><h5>Modulair</h5></td>
+                                <td style="width:16.6%">0</td>
+                                <td style="width:16.6%">1</td>
+                                <td style="width:16.6%">2</td>
+                                <td style="width:16.6%">3</td>
+                                <td style="width:16.6%">4</td>
+                                <td style="width:16.6%">5</td>
                             </tr>
                             <tr>
-                                <td style="width:50%">Ja</td>
-                                <td style="width:50%">Nee</td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_modulair" value="1"></td>
-                                <td><input type="radio" name="voeding_modulair" value="1"></td>
+                                <td style="width:16.6%">6</td>
+                                <td style="width:16.6%">7</td>
+                                <td style="width:16.6%">8</td>
+                                <td colspan="3" style="width:16.6%">Geen voorkeur</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td colspan="3"><input type="radio" name="voeding_merk" value="1"></td>
                             </tr>
                         </table>
                         <div class="specification_table" id="voeding_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
-
-                            <p style="padding:0 41%">
-                                <input class="slider_label" type="text" id="amount_voeding" readonly>
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range19"></div>
+                            <h5>Prijs<br><span class="annotation">(minimum - maximum)</span></h5>
+                            <p><input class="slider_label" type="text" id="amount_voeding" readonly></p>
+                            <div class="specification_table_slider" id="slider_powersupply_price"></div>
                         </div>
                         <div class="voeding_vermogen specification_table">
-                            <h5>Vermogen (minimum - maximum)</h5>
-
-                            <p style="padding:0 35%">
-                                <input class="slider_label" type="text" id="voeding_vermogen" readonly >
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range20"></div>
+                            <h5>Vermogen (in Watt)<br><span class="annotation">(minimum - maximum)</span></h5>
+                            <p><input class="slider_label" type="text" id="voeding_vermogen" readonly></p>
+                            <div class="specification_table_slider" id="slider_powersupply_power"></div>
+                        </div>
+                        <div class="voeding_sata specification_table">
+                            <h5>S-ATA aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een voedingsstekker voor een optische drive of harde schijf.')) }}
+                                <br><span class="annotation">(minimum - maximum)</span>
+                            </h5>
+                            <p><input class="slider_label" type="text" id="voeding_sata" readonly></p>
+                            <div class="specification_table_slider" id="slider_sata"></div>
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
             @elseif($menuitem == "processorcooler")
                 <form>
                     <div class="col-md-6 left_div">
@@ -385,8 +378,8 @@ echo $menuitem;
                             <h5>Diameter ventilator (in cm)</h5>
 
                             <p style="padding:0 48%">
-                                <input  class="slider_label" type="text" id="koeler_diameter" readonly
-                                       >
+                                <input class="slider_label" type="text" id="koeler_diameter" readonly
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range27"></div>
@@ -395,8 +388,8 @@ echo $menuitem;
                             <h5>Rotatiesnelheid (minimum - maximum)</h5>
 
                             <p style="padding:0 42%">
-                                <input  class="slider_label" type="text" id="koeler_rotatie" readonly
-                                      >
+                                <input class="slider_label" type="text" id="koeler_rotatie" readonly
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range28"></div>
@@ -421,7 +414,7 @@ echo $menuitem;
 
                             <p style="padding:0 42%">
                                 <input class="slider_label" type="text" id="amount_koeler" readonly
-                                       >
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range26"></div>
@@ -570,7 +563,7 @@ echo $menuitem;
                             <p>
                                 <label for="amount_hdd">prijs (Minimum - Maximum):</label>
                                 <input class="slider_label" type="text" id="amount_hdd" readonly
-                                       >
+                                        >
                             </p>
 
                             <div id="slider-range10"></div>
@@ -714,7 +707,7 @@ echo $menuitem;
 
                             <p style="padding:0 42%">
                                 <input class="slider_label" type="text" id="amount_geluid" readonly
-                                      >
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range24"></div>
@@ -784,7 +777,7 @@ echo $menuitem;
 
                             <p style="padding:0 42%">
                                 <input class="slider_label" type="text" id="amount_pci" readonly
-                                       >
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range23"></div>
@@ -1054,7 +1047,7 @@ echo $menuitem;
 
                             <p style="padding:0 42%">
                                 <input class="slider_label" type="text" id="amount_GPU_prijs" readonly
-                                       >
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range3"></div>
@@ -1063,8 +1056,8 @@ echo $menuitem;
                             <h5>Gewenst videogeheugen (minimum - maximum)</h5>
 
                             <p style="padding:0 36%">
-                                <input  class="slider_label" type="text" id="amount_GPU_geheugen" readonly
-                                       >
+                                <input class="slider_label" type="text" id="amount_GPU_geheugen" readonly
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range4"></div>
@@ -1116,7 +1109,7 @@ echo $menuitem;
 
                             <p style="padding:0 41%">
                                 <input class="slider_label" type="text" id="amount" readonly
-                                      >
+                                        >
                             </p>
 
                             <div class="specification_table_slider" id="slider-range2"></div>
@@ -1162,8 +1155,8 @@ echo $menuitem;
                             <h5>Kloksnelheid (minimum - maximum)</h5>
 
                             <p>
-                                <input  class="slider_label" type="text" id="speed" readonly
-                                       >
+                                <input class="slider_label" type="text" id="speed" readonly
+                                        >
                             </p>
 
                             <div id="slider-range1"></div>
@@ -1230,12 +1223,14 @@ echo $menuitem;
                                 <td><input type="radio" name="RAM_game2" value="1"></td>
                             </tr>
                         </table>
-                        <div class="RAM_cost" >
+                        <div class="RAM_cost">
                             <h5>Prijs (minimum - maximum)</h5>
+
                             <p>
-                                <label for="amount_ram" >prijs (Minimum - Maximum):</label>
-                                <input class="slider_label" type="text" id="amount_ram" readonly >
+                                <label for="amount_ram">prijs (Minimum - Maximum):</label>
+                                <input class="slider_label" type="text" id="amount_ram" readonly>
                             </p>
+
                             <div id="slider-range5"></div>
                         </div>
                     </div>
@@ -1372,20 +1367,24 @@ echo $menuitem;
                                 <td><input type="radio" name="moederbord_wifi2" value="1"></td>
                             </tr>
                         </table>
-                        <div class="moederbord_cost" >
+                        <div class="moederbord_cost">
                             <h5>Prijs (minimum - maximum)</h5>
+
                             <p>
-                                <label for="amount_moederbord" >prijs (Minimum - Maximum):</label>
-                                <input class="slider_label" type="text" id="amount_moederbord" readonly >
+                                <label for="amount_moederbord">prijs (Minimum - Maximum):</label>
+                                <input class="slider_label" type="text" id="amount_moederbord" readonly>
                             </p>
+
                             <div id="slider-range6"></div>
                         </div>
-                        <div class="moederbord_usb" >
+                        <div class="moederbord_usb">
                             <h5>aantal USB 3.0 poorten aanwezig</h5>
+
                             <p>
-                                <label for="amount_usb" >Aantal USB 3.0 poorten:</label>
-                                <input   class="slider_label" type="text" id="amount_usb" readonly >
+                                <label for="amount_usb">Aantal USB 3.0 poorten:</label>
+                                <input class="slider_label" type="text" id="amount_usb" readonly>
                             </p>
+
                             <div id="slider-range7"></div>
                         </div>
                     </div>
@@ -1558,20 +1557,24 @@ echo $menuitem;
                             </tr>
                         </table>
 
-                        <div class="moederbord_SATA300" >
+                        <div class="moederbord_SATA300">
                             <h5>SATA 300</h5>
+
                             <p>
-                                <label for="amount_sata300" >Aantal SATA 300 aansluitingen:</label>
+                                <label for="amount_sata300">Aantal SATA 300 aansluitingen:</label>
                                 <input class="slider_label" type="text" id="amount_sata300" readonly>
                             </p>
+
                             <div id="slider-range8"></div>
                         </div>
-                        <div class="moederbord_SATA600" >
+                        <div class="moederbord_SATA600">
                             <h5>SATA 600</h5>
+
                             <p>
-                                <label for="amount_sata600" >Aantal SATA 600 aansluitingen:</label>
-                                <input class="slider_label" type="text" id="amount_sata600" readonly >
+                                <label for="amount_sata600">Aantal SATA 600 aansluitingen:</label>
+                                <input class="slider_label" type="text" id="amount_sata600" readonly>
                             </p>
+
                             <div id="slider-range9"></div>
                         </div>
                     </div>
@@ -1665,20 +1668,24 @@ echo $menuitem;
                                 <td><input type="radio" name="behuizing_water2" value="1"></td>
                             </tr>
                         </table>
-                        <div class="behuizing_prijs" >
+                        <div class="behuizing_prijs">
                             <h5>Prijs (minimum - maximum)</h5>
+
                             <p>
-                                <label for="amount_behuizing" >prijs (Minimum - Maximum):</label>
-                                <input class="slider_label" type="text" id="amount_behuizing" readonly >
+                                <label for="amount_behuizing">prijs (Minimum - Maximum):</label>
+                                <input class="slider_label" type="text" id="amount_behuizing" readonly>
                             </p>
+
                             <div id="slider-range14"></div>
                         </div>
-                        <div class="behuizing_uitbreiding" >
+                        <div class="behuizing_uitbreiding">
                             <h5>Schrijfsnelheid</h5>
+
                             <p>
-                                <label for="amount_behuizing_uitbreiding" >Aantal uitbreidingssloten:</label>
-                                <input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly >
+                                <label for="amount_behuizing_uitbreiding">Aantal uitbreidingssloten:</label>
+                                <input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly>
                             </p>
+
                             <div id="slider-range18"></div>
                         </div>
                     </div>
@@ -1828,7 +1835,7 @@ echo $menuitem;
                                 <td>2</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="behuizing_usb31"value="1"></td>
+                                <td><input type="checkbox" name="behuizing_usb31" value="1"></td>
                                 <td><input type="checkbox" name="behuizing_usb32" value="2"></td>
                             </tr>
                         </table>
@@ -1858,28 +1865,34 @@ echo $menuitem;
                                 <td><input type="radio" name="behuizing_esata2" value="1"></td>
                             </tr>
                         </table>
-                        <div class="behuizing_3,5bay" >
+                        <div class="behuizing_3,5bay">
                             <h5>Schrijfsnelheid</h5>
+
                             <p>
-                                <label for="amount_behuizing_3bay" >3,5'' bays:</label>
-                                <input class="slider_label" type="text" id="amount_behuizing_3bay" readonly >
+                                <label for="amount_behuizing_3bay">3,5'' bays:</label>
+                                <input class="slider_label" type="text" id="amount_behuizing_3bay" readonly>
                             </p>
+
                             <div id="slider-range15"></div>
                         </div>
-                        <div class="behuizing_2,5bay" >
+                        <div class="behuizing_2,5bay">
                             <h5>Schrijfsnelheid</h5>
+
                             <p>
-                                <label for="amount_behuizing_2bay" >2,5'' bays:</label>
-                                <input class="slider_label" type="text" id="amount_behuizing_2bay" readonly >
+                                <label for="amount_behuizing_2bay">2,5'' bays:</label>
+                                <input class="slider_label" type="text" id="amount_behuizing_2bay" readonly>
                             </p>
+
                             <div id="slider-range16"></div>
                         </div>
-                        <div class="behuizing_5,25bay" >
+                        <div class="behuizing_5,25bay">
                             <h5>Schrijfsnelheid</h5>
+
                             <p>
-                                <label for="amount_behuizing_5bay" >5,25'' bays:</label>
-                                <input class="slider_label" type="text" id="amount_behuizing_5bay" readonly >
+                                <label for="amount_behuizing_5bay">5,25'' bays:</label>
+                                <input class="slider_label" type="text" id="amount_behuizing_5bay" readonly>
                             </p>
+
                             <div id="slider-range17"></div>
                         </div>
                     </div>
@@ -1953,12 +1966,14 @@ echo $menuitem;
                                 <td><input type="radio" name="SDD_formaat3" value="1"></td>
                             </tr>
                         </table>
-                        <div class="SSD_cost" >
+                        <div class="SSD_cost">
                             <h5>Prijs (minimum - maximum)</h5>
+
                             <p>
-                                <label for="amount_ssd" >prijs (Minimum - Maximum):</label>
-                                <input  class="slider_label" type="text" id="amount_ssd" readonly >
+                                <label for="amount_ssd">prijs (Minimum - Maximum):</label>
+                                <input class="slider_label" type="text" id="amount_ssd" readonly>
                             </p>
+
                             <div id="slider-range11"></div>
                         </div>
                     </div>
@@ -2029,20 +2044,24 @@ echo $menuitem;
                                 <td><input type="radio" name="SSD_soort2" value="1"></td>
                             </tr>
                         </table>
-                        <div class="SSD_schrijf" >
+                        <div class="SSD_schrijf">
                             <h5>Schrijfsnelheid</h5>
+
                             <p>
-                                <label for="amount_ssd_schrijf" >schrijfsnelheid (Minimum - Maximum):</label>
-                                <input class="slider_label" type="text" id="amount_ssd_schrijf" readonly >
+                                <label for="amount_ssd_schrijf">schrijfsnelheid (Minimum - Maximum):</label>
+                                <input class="slider_label" type="text" id="amount_ssd_schrijf" readonly>
                             </p>
+
                             <div id="slider-range12"></div>
                         </div>
-                        <div class="SSD_lees" >
+                        <div class="SSD_lees">
                             <h5>Leessnelheid</h5>
+
                             <p>
-                                <label for="amount_ssd_lees" >leessnelheid (Minimum - Maximum):</label>
-                                <input class="slider_label" type="text" id="amount_ssd_lees" readonly >
+                                <label for="amount_ssd_lees">leessnelheid (Minimum - Maximum):</label>
+                                <input class="slider_label" type="text" id="amount_ssd_lees" readonly>
                             </p>
+
                             <div id="slider-range13"></div>
                         </div>
                     </div>
@@ -2090,11 +2109,13 @@ echo $menuitem;
                                 <td><input type="radio" name="brander_type2" value="1"></td>
                             </tr>
                         </table>
-                        <div class="brander_cost" >
+                        <div class="brander_cost">
                             <h5>Prijs (minimum - maximum)</h5>
+
                             <p>
                                 <input class="slider_label" type="text" id="amount_brander" readonly ">
                             </p>
+
                             <div id="slider-range25"></div>
                         </div>
                     </div>
@@ -2148,6 +2169,9 @@ echo $menuitem;
                     <a href="#" class="myButton">Onderdeel opslaan </a>
                 </div>
             @endif
+            <div class="col-md-12">
+                <a href="#" class="myButton">Onderdeel opslaan </a>
+            </div>
         </div>
     </div>
     <div class="sidebar col-md-2">

@@ -241,15 +241,13 @@ tbody tr td {
 .specification_table_slider {
     display: inline-block;
     width: 90%;
-
-
-
 }
 
 .slider_label {
     border: 0;
     color: #00B5FC;
     font-weight: bold;
+    text-align: center;
 }
 
 .myButton {
@@ -292,4 +290,15 @@ tbody tr td {
 .myButton:active {
     position:relative;
     top:1px;
+}
+
+.annotation {
+    font-size: 10pt;
+    color: #7C949E;
+    font-weight: lighter;
+}
+
+.help_icon {
+    width: 13px;
+    vertical-align: text-top;
 }

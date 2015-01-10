@@ -250,32 +250,34 @@ $(function() {
     " tot " + $( "#slider-range18" ).slider( "values", 1 ));
 });
 
+// Voeding - Prijs
 $(function() {
-    $( "#slider-range19" ).slider({
+    $( "#slider_powersupply_price" ).slider({
         range: true,
         min: 0,
-        max: 375,
-        values: [ 50, 250 ],
+        max: 400,
+        values: [ 50, 200 ],
         slide: function( event, ui ) {
-            $( "#amount_voeding" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
+            $( "#amount_voeding" ).val( "€" + ui.values[ 0 ] + " tot €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_voeding" ).val("€" + $( "#slider-range19" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range19" ).slider( "values", 1 ));
+    $( "#amount_voeding" ).val("€" + $( "#slider_powersupply_price" ).slider( "values", 0 ) +
+    " tot €" + $( "#slider_powersupply_price" ).slider( "values", 1 ));
 });
 
+// Voeding - Vermogen
 $(function() {
-    $( "#slider-range20" ).slider({
+    $( "#slider_powersupply_power" ).slider({
         range: true,
         min: 350,
         max: 1500,
         values: [ 400, 1000 ],
         slide: function( event, ui ) {
-            $( "#voeding_vermogen" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ] + " watt"  );
+            $( "#voeding_vermogen" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]);
         }
     });
-    $( "#voeding_vermogen" ).val( + $( "#slider-range20" ).slider( "values", 0 ) +
-    " tot " + $( "#slider-range20" ).slider( "values", 1 ) + " watt");
+    $( "#voeding_vermogen" ).val( + $( "#slider_powersupply_power" ).slider( "values", 0 ) +
+    " tot " + $( "#slider_powersupply_power" ).slider( "values", 1 ));
 });
 
 $(function() {
@@ -292,18 +294,19 @@ $(function() {
     " tot " + $( "#slider-range21" ).slider( "values", 1 ));
 });
 
+// Voeding - S-ATA
 $(function() {
-    $( "#slider-range22" ).slider({
+    $( "#slider_sata" ).slider({
         range: true,
-        min: 3,
-        max: 20,
-        values: [ 5, 15 ],
+        min: 0,
+        max: 12,
+        values: [ 0, 4 ],
         slide: function( event, ui ) {
             $( "#voeding_sata" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
         }
     });
-    $( "#voeding_sata" ).val( + $( "#slider-range22" ).slider( "values", 0 ) +
-    " tot " + $( "#slider-range22" ).slider( "values", 1 ));
+    $( "#voeding_sata" ).val( + $( "#slider_sata" ).slider( "values", 0 ) +
+    " tot " + $( "#slider_sata" ).slider( "values", 1 ));
 });
 
 $(function() {
