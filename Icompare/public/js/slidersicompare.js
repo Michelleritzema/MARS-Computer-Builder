@@ -259,6 +259,10 @@ $(function() {
         values: [ 50, 200 ],
         slide: function( event, ui ) {
             $( "#amount_voeding" ).val( "€" + ui.values[ 0 ] + " tot €" + ui.values[ 1 ]  );
+        },
+        stop: function(event, ui) {
+            // when the user stopped changing the slider
+            $.POST("to.php",{first_value:ui.values[0], second_value:ui.values[1]},function(data){});
         }
     });
     $( "#amount_voeding" ).val("€" + $( "#slider_powersupply_price" ).slider( "values", 0 ) +

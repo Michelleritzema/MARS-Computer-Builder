@@ -10,6 +10,7 @@ if (!Session::has('menuitem')) { Session::put('menuitem', 'powersupply'); }
 if (!Session::has('cpu_p4')) { Session::put('cpu_p4', '0'); }
 if (!Session::has('cpu_p8')) { Session::put('cpu_p8', '0'); }
 if (!Session::has('cpu_p4+p4')) { Session::put('cpu_p4+p4', '-'); }
+if (!Session::has('powersupply_modular')) { Session::put('powersupply_modular', '-'); }
 if (!Session::has('powersupply_certificate')) { Session::put('powersupply_certificate', '-'); }
 if (!Session::has('powersupply_brand1')) { Session::put('powersupply_brand1', '0'); }
 if (!Session::has('powersupply_brand2')) { Session::put('powersupply_brand2', '0'); }
@@ -28,6 +29,25 @@ if (!Session::has('s-ata_max')) { Session::put('s-ata_max', '-'); }
 $menuitem = Session::get('menuitem');
 $cpu_p4 = Session::get('cpu_p4');
 //echo $menuitem . "<br>";
+
+echo Session::get('cpu_p4');
+echo Session::get('cpu_p8');
+echo Session::get('cpu_p4+p4');
+echo Session::get('powersupply_modular');
+echo Session::get('powersupply_certificate');
+echo Session::get('powersupply_brand1');
+echo Session::get('powersupply_brand2');
+echo Session::get('powersupply_brand3');
+echo Session::get('powersupply_brand4');
+echo Session::get('powersupply_brand5');
+echo Session::get('pci_express_6pin');
+echo Session::get('pci_express_6pin2pin');
+echo Session::get('powersupply_price_min');
+echo Session::get('powersupply_price_max');
+echo Session::get('powersupply_power_min');
+echo Session::get('powersupply_power_max');
+echo Session::get('s-ata_min');
+echo Session::get('s-ata_max');
 ?>
 
 <!DOCTYPE html>
@@ -187,13 +207,13 @@ $cpu_p4 = Session::get('cpu_p4');
         </div>
         <div class="col-md-12 specification">
             @if($menuitem == "powersupply")
-                <form>
+                {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
                         <table class="voeding_cpu_table">
                             <tr><th colspan="2"><h5>CPU Aansluiting
-                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                        'alt' => 'test', 'title'=> 'Een 4-pin en/of 8-pin voedingsstekker voor de processor.')) }}
-                                    </h5></th></tr>
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een 4-pin en/of 8-pin voedingsstekker voor de processor.')) }}
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:50%">CPU P4</td>
                                 <td style="width:50%">CPU P8</td>
@@ -215,10 +235,10 @@ $cpu_p4 = Session::get('cpu_p4');
                                 <td style="width:25%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
-                                <td><input type="radio" name="voeding_FDD" value="1"></td>
+                                <td><input type="radio" name="voeding_cpup4p4" value="1"></td>
+                                <td><input type="radio" name="voeding_cpup4p4" value="2"></td>
+                                <td><input type="radio" name="voeding_cpup4p4" value="3"></td>
+                                <td><input type="radio" name="voeding_cpup4p4" value="4"></td>
                             </tr>
                         </table>
                         <table class="voeding_modulair_table">
@@ -232,7 +252,7 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                             <tr>
                                 <td><input type="radio" name="voeding_modulair" value="1"></td>
-                                <td><input type="radio" name="voeding_modulair" value="1"></td>
+                                <td><input type="radio" name="voeding_modulair" value="2"></td>
                             </tr>
                         </table>
                         <table class="voeding_certificering_table">
@@ -274,10 +294,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="voeding_merk1" value="1"></td>
-                                <td><input type="checkbox" name="voeding_merk2" value="2"></td>
-                                <td><input type="checkbox" name="voeding_merk3" value="3"></td>
-                                <td><input type="checkbox" name="voeding_merk4" value="4"></td>
-                                <td><input type="checkbox" name="voeding_merk5" value="5"></td>
+                                <td><input type="checkbox" name="voeding_merk2" value="1"></td>
+                                <td><input type="checkbox" name="voeding_merk3" value="1"></td>
+                                <td><input type="checkbox" name="voeding_merk4" value="1"></td>
+                                <td><input type="checkbox" name="voeding_merk5" value="1"></td>
                             </tr>
                         </table>
                     </div>
@@ -294,10 +314,10 @@ $cpu_p4 = Session::get('cpu_p4');
                                 <td style="width:25%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_pci6" value="1"></td>
+                                <td><input type="radio" name="voeding_pci6" value="2"></td>
+                                <td><input type="radio" name="voeding_pci6" value="3"></td>
+                                <td><input type="radio" name="voeding_pci6" value="4"></td>
                             </tr>
                         </table>
                         <table class="pci_express_6pin2pin_table">
@@ -314,12 +334,12 @@ $cpu_p4 = Session::get('cpu_p4');
                                 <td style="width:16.6%">5</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="1"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="2"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="3"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="4"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="5"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="6"></td>
                             </tr>
                             <tr>
                                 <td style="width:16.6%">6</td>
@@ -328,10 +348,10 @@ $cpu_p4 = Session::get('cpu_p4');
                                 <td colspan="3" style="width:16.6%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td><input type="radio" name="voeding_merk" value="1"></td>
-                                <td colspan="3"><input type="radio" name="voeding_merk" value="1"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="7"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="8"></td>
+                                <td><input type="radio" name="voeding_pci6+2" value="9"></td>
+                                <td colspan="3"><input type="radio" name="voeding_pci6+2" value="10"></td>
                             </tr>
                         </table>
                         <div class="specification_table" id="voeding_cost">
@@ -354,7 +374,9 @@ $cpu_p4 = Session::get('cpu_p4');
                             <div class="specification_table_slider" id="slider_sata"></div>
                         </div>
                     </div>
-                </form>
+                        <input class="myButton" type="submit" value="Onderdeel opslaan">
+                    </div>
+                {{ Form::close() }}
             @elseif($menuitem == "processorcooler")
                 <form>
                     <div class="col-md-6 left_div">
@@ -2185,11 +2207,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                     </div>
                 </form>
-
             @endif
-            <div class="col-md-12">
-                <a href="#" class="myButton">Onderdeel opslaan </a>
-            </div>
         </div>
     </div>
     <div class="sidebar col-md-2">

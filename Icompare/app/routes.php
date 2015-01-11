@@ -29,6 +29,8 @@ Route::get('/casing', 'HomeController@showCasing');
 Route::get('/ssd', 'HomeController@showSSD');
 Route::get('/blu-raydvd', 'HomeController@showBlurayDVD');
 
+Route::post('powersupply', 'SessionController@determineSection');
+
 Route::get('/test', function()
 {
 	return View::make('php_to_java');

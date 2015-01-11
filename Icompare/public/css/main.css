@@ -104,6 +104,10 @@ body {
     text-align: center !important;
 }
 
+.left_div table, .right_div table{
+    text-align: center !important;
+}
+
 table {
     width:100%;
 }
