@@ -124,8 +124,9 @@ $(function() {
     $( "#amount_sata600" ).val( $( "#slider-range9" ).slider( "value" ) );
 });
 
+// Harddisk drive - Prijs
 $(function() {
-    $( "#slider-range10" ).slider({
+    $( "#slider_harddiskdrive_price" ).slider({
         range: true,
         min: 0,
         max: 275,
@@ -134,8 +135,8 @@ $(function() {
             $( "#amount_hdd" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_hdd" ).val( "€" + $( "#slider-range10" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range10" ).slider( "values", 1 ));
+    $( "#amount_hdd" ).val( "€" + $( "#slider_harddiskdrive_price" ).slider( "values", 0 ) +
+    " - €" + $( "#slider_harddiskdrive_price" ).slider( "values", 1 ));
 });
 
 $(function() {
@@ -313,8 +314,9 @@ $(function() {
     " tot " + $( "#slider_sata" ).slider( "values", 1 ));
 });
 
+// PCI - Prijs
 $(function() {
-    $( "#slider-range23" ).slider({
+    $( "#pci_price" ).slider({
         range: true,
         min: 0,
         max: 80,
@@ -323,12 +325,13 @@ $(function() {
             $( "#amount_pci" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_pci" ).val( "€" + $( "#slider-range23" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range23" ).slider( "values", 1 ));
+    $( "#amount_pci" ).val( "€" + $( "#pci_price" ).slider( "values", 0 ) +
+    " - €" + $( "#pci_price" ).slider( "values", 1 ));
 });
 
+// Geluidskaart - Prijs
 $(function() {
-    $( "#slider-range24" ).slider({
+    $( "#soundcard_price" ).slider({
         range: true,
         min: 0,
         max: 200,
@@ -337,8 +340,8 @@ $(function() {
             $( "#amount_geluid" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_geluid" ).val( + $( "#slider-range24" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range24" ).slider( "values", 1 ));
+    $( "#amount_geluid" ).val( + $( "#soundcard_price" ).slider( "values", 0 ) +
+    " - €" + $( "#soundcard_price" ).slider( "values", 1 ));
 });
 
 $(function() {
@@ -355,8 +358,9 @@ $(function() {
     " - €" + $( "#slider-range25" ).slider( "values", 1 ));
 });
 
+// Processor koeler - Prijs
 $(function() {
-    $( "#slider-range26" ).slider({
+    $( "#slider_processorcooler_price" ).slider({
         range: true,
         min: 0,
         max: 110,
@@ -365,12 +369,13 @@ $(function() {
             $( "#amount_koeler" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_koeler" ).val( "€" + $( "#slider-range26" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range26" ).slider( "values", 1 ));
+    $( "#amount_koeler" ).val( "€" + $( "#slider_processorcooler_price" ).slider( "values", 0 ) +
+    " - €" + $( "#slider_processorcooler_price" ).slider( "values", 1 ));
 });
 
+// Processor koeler - Diameter
 $(function() {
-$( "#slider-range27" ).slider({
+$( "#slider_processorcooler_diameter" ).slider({
     range: "min",
     min: 6,
     max: 14,
@@ -379,11 +384,12 @@ $( "#slider-range27" ).slider({
         $( "#koeler_diameter" ).val( ui.value );
     }
 });
-$( "#koeler_diameter" ).val( $( "#slider-range27" ).slider( "value" ) );
+$( "#koeler_diameter" ).val( $( "#slider_processorcooler_diameter" ).slider( "value" ) );
 });
 
+// Processor koeler - Rotatiesnelheid
 $(function() {
-    $( "#slider-range28" ).slider({
+    $( "#slider_processorcooler_rotation" ).slider({
         range: true,
         min: 800,
         max: 3300,
@@ -392,6 +398,6 @@ $(function() {
             $( "#koeler_rotatie" ).val(  ui.values[ 0 ] + " - " + ui.values[ 1 ]  );
         }
     });
-    $( "#koeler_rotatie" ).val( $( "#slider-range28" ).slider( "values", 0 ) +
-    " - " + $( "#slider-range28" ).slider( "values", 1 ));
+    $( "#koeler_rotatie" ).val( $( "#slider_processorcooler_rotation" ).slider( "values", 0 ) +
+    " - " + $( "#slider_processorcooler_rotation" ).slider( "values", 1 ));
 });
