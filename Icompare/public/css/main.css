@@ -133,6 +133,7 @@ h5 {
     font-weight: bold;
     font-size:11pt;
     text-align:center;
+
 }/*
 .processor {
     margin-left: 25px;
@@ -236,6 +237,7 @@ tbody tr td {
 
 .specification_table h5 {
     margin-bottom: 0;
+    color:black;
 }
 
 .specification_table_slider {

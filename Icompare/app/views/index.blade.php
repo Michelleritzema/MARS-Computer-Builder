@@ -59,13 +59,26 @@ $cpu_p4 = Session::get('cpu_p4');
                 </a>
                 <div id="accordion-1" class="accordion-section-content">
                     <p>
-                        Mauris interdum fringilla augue vitae tincidunt. Curabitur vitae tortor id eros euismod
-                        ultrices. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-                        Praesent nulla mi, rutrum ut feugiat at, vestibulum ut neque? Cras tincidunt enim vel aliquet
-                        facilisis. Duis congue ullamcorper vehicula. Proin nunc lacus, semper sit amet elit sit amet,
-                        aliquet pulvinar erat. Nunc pretium quis sapien eu rhoncus. Suspendisse ornare gravida mi,
-                        et placerat tellus tempor vitae.
-                    </p>
+                    <h4 style="font-weight: bold;">Welkom bij Icompare de nieuwste website voor het samen  stellen  van een pc<h4/>
+                        <br/>
+                        Wij van icompare  bieden de mogelijkheid om snel en zonder moeite je eigen
+                        computers samen te stellen met een paar klikken heb je eigen custmized pc.
+                        <br/>
+                        <br/>
+                        Kies bij elk component je gewenste eigenschappen
+                        en stel een eigen profiel samen
+                        druk op creeer profiel en krijg in  een oogopslag
+                        te zien waar je  de onderdelen kunt kopen
+                        <br/>
+                        <br/>
+
+                        wacht niet langer en stel snel je eigen pc samen
+                        nu met icompare
+                        <br/>
+                        <br/>
+                        <br/>
+                        <p style="font-style: italic;"> *niet alle vinkjes hoeven aan gekruist te worden</p>
+                   </p>
                 </div>
             </div>
         </div>
@@ -177,10 +190,10 @@ $cpu_p4 = Session::get('cpu_p4');
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="voeding_cpu_table">
-                            <tr><td colspan="2"><h5>CPU Aansluiting
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Een 4-pin en/of 8-pin voedingsstekker voor de processor.')) }}
-                            </h5></td></tr>
+                            <tr><th colspan="2"><h5>CPU Aansluiting
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Een 4-pin en/of 8-pin voedingsstekker voor de processor.')) }}
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:50%">CPU P4</td>
                                 <td style="width:50%">CPU P8</td>
@@ -191,10 +204,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <table class="voeding_cpu+_table">
-                            <tr><td colspan="4"><h5> CPU P4+P4 Aansluiting
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Twee keer 4-pin voedingsstekker voor de processor aan één kabel.')) }}
-                            </h5></td></tr>
+                            <tr><th colspan="4"><h5> CPU P4+P4 Aansluiting
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Twee keer 4-pin voedingsstekker voor de processor aan één kabel.')) }}
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:25%">0</td>
                                 <td style="width:25%">1</td>
@@ -209,10 +222,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <table class="voeding_modulair_table">
-                            <tr><td colspan="2" style="position:relative"><h5>Modulair
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Een modulaire voeding heeft afneembare kabels. Alleen de benodigde kabels sluit je aan op de voeding en op de componenten. Dit zorgt ervoor dat je geen losse kabels in de computerkast hebt liggen. Een niet-modulaire voeding heeft vaste kabels.')) }}
-                            </h5></td></tr>
+                            <tr><th colspan="2" style="position:relative"><h5>Modulair
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Een modulaire voeding heeft afneembare kabels. Alleen de benodigde kabels sluit je aan op de voeding en op de componenten. Dit zorgt ervoor dat je geen losse kabels in de computerkast hebt liggen. Een niet-modulaire voeding heeft vaste kabels.')) }}
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
                                 <td style="width:50%">Nee</td>
@@ -223,10 +236,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <table class="voeding_certificering_table">
-                            <tr><td colspan="3"><h5>Certificering
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Geeft aan of de voeding een 80 PLUS certificaat voor zijn efficiëntie heeft gekregen. Voor twee vergelijkbare voedingen geldt: hoe beter het certificaat, hoe hoger de efficiëntie en hoe lager het energieverbruik.')) }}
-                            </h5></td></tr>
+                            <tr><th colspan="3"><h5>Certificering
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Geeft aan of de voeding een 80 PLUS certificaat voor zijn efficiëntie heeft gekregen. Voor twee vergelijkbare voedingen geldt: hoe beter het certificaat, hoe hoger de efficiëntie en hoe lager het energieverbruik.')) }}
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:33.3%">80 PLUS</td>
                                 <td style="width:33.3%">80 PLUS Bronze</td>
@@ -249,9 +262,9 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <table class="voeding_merk_table">
-                            <tr><td colspan="5"><h5>Merk van de voeding
-                                <br><span class="annotation">(optioneel)</span>
-                            </h5></td></tr>
+                            <tr><th colspan="5"><h5>Merk van de voeding
+                                        <br><span class="annotation">(optioneel)</span>
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:20%">Be quiet!</td>
                                 <td style="width:20%">Cooler Master</td>
@@ -270,10 +283,10 @@ $cpu_p4 = Session::get('cpu_p4');
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="pci_express_6pin_table">
-                            <tr><td colspan="4"><h5>PCI Express 6-pin
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Een 6-pin voedingsstekker voor de videokaart.')) }}
-                            </h5></td></tr>
+                            <tr><th colspan="4"><h5>PCI Express 6-pin
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Een 6-pin voedingsstekker voor de videokaart.')) }}
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:25%">0</td>
                                 <td style="width:25%">1</td>
@@ -288,10 +301,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <table class="pci_express_6pin2pin_table">
-                            <tr><td colspan="6"><h5>PCI Express 6+2-pin
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Een 6-pin en 2-pin voedingsstekker voor de videokaart.')) }}
-                            </h5></td></tr>
+                            <tr><th colspan="6"><h5>PCI Express 6+2-pin
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Een 6-pin en 2-pin voedingsstekker voor de videokaart.')) }}
+                                    </h5></th></tr>
                             <tr>
                                 <td style="width:16.6%">0</td>
                                 <td style="width:16.6%">1</td>
@@ -337,7 +350,7 @@ $cpu_p4 = Session::get('cpu_p4');
                                 'alt' => 'test', 'title'=> 'Een voedingsstekker voor een optische drive of harde schijf.')) }}
                                 <br><span class="annotation">(minimum - maximum)</span>
                             </h5>
-                            <p><input class="slider_label" type="text" id="voeding_sata" readonly></p>
+                              <p><input class="slider_label" type="text" id="voeding_sata" readonly></p>
                             <div class="specification_table_slider" id="slider_sata"></div>
                         </div>
                     </div>
@@ -347,7 +360,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 left_div">
                         <table class="koeler_merk_table">
                             <tr>
-                                <td colspan="4"><h5>Merk koeler</h5></td>
+                                <th colspan="4"><h5>Merk koeler</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:25%">Be quiet!</td>
@@ -375,9 +388,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="koeler_diameterventilator specification_table">
-                            <h5>Diameter ventilator (in cm)</h5>
+                            <h5>Diameter ventilator</h5>
+                            <span class="annotation">(in cm)</span>
 
-                            <p style="padding:0 48%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="koeler_diameter" readonly
                                         >
                             </p>
@@ -385,9 +399,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             <div class="specification_table_slider" id="slider-range27"></div>
                         </div>
                         <div class="koeler_rotatiesnelheid specification_table">
-                            <h5>Rotatiesnelheid (minimum - maximum)</h5>
+                            <h5>Rotatiesnelheid </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 42%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="koeler_rotatie" readonly
                                         >
                             </p>
@@ -398,7 +413,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="koeler_methode_table">
                             <tr>
-                                <td colspan="2"><h5>Koel methode</h5></td>
+                                <th colspan="2"><h5>Koel methode</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Lucht</td>
@@ -410,9 +425,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="koeler_cost specification_table">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 42%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="amount_koeler" readonly
                                         >
                             </p>
@@ -421,9 +437,8 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
+
             @elseif($menuitem == "internalharddrive")
                 <form>
                     <div class="col-md-6 left_div">
@@ -462,7 +477,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="HDD_formaat_table">
                             <tr>
-                                <td colspan="2"><h5>formaat</h5></td>
+                                <th colspan="2"><h5>formaat</h5></th>
                             </tr>
                             <tr>
                                 <td>2,5 inch (Laptop)</td>
@@ -475,7 +490,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="HDD_snelheid_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>HDD schrijfsnelheid</h5></td>
+                                <th colspan="4"><h5>HDD schrijfsnelheid</h5></th>
                             </tr>
                             <tr>
                                 <td>5400 rpm</td>
@@ -504,7 +519,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="HDD_merk_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>Merk HDD</h5></td>
+                                <th colspan="4"><h5>Merk HDD</h5></th>
                             </tr>
                             <tr>
                                 <td>LaCie</td>
@@ -521,7 +536,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="HDD_cache_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Buffer / cache</h5></td>
+                                <th colspan="3"><h5>Buffer / cache</h5></th>
                             </tr>
                             <tr>
                                 <td>8 MB</td>
@@ -546,7 +561,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="HDD_aansluiting_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>aansluiting HDD</h5></td>
+                                <th colspan="2"><h5>aansluiting HDD</h5></th>
                             </tr>
                             <tr>
                                 <td>S-ATA(II)</td>
@@ -558,10 +573,12 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="HDD_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs</h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <label for="amount_hdd">prijs (Minimum - Maximum):</label>
+
+
                                 <input class="slider_label" type="text" id="amount_hdd" readonly
                                         >
                             </p>
@@ -570,16 +587,13 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
 
             @elseif($menuitem == "soundcard")
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="geluid_optisch_table">
                             <tr>
-                                <td colspan="2"><h5>Optische ingang</h5></td>
+                                <th colspan="2"><h5>Optische ingang</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -592,7 +606,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="geluid_sample_table">
                             <tr>
-                                <td colspan="6"><h5>Sample frequentie</h5></td>
+                                <th colspan="6"><h5>Sample frequentie</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:16.6%">8</td>
@@ -629,7 +643,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="geluid_aiso_table">
                             <tr>
-                                <td colspan="6"><h5>AISO Sample frequentie</h5></td>
+                                <th colspan="6"><h5>AISO Sample frequentie</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:16.6%">44,1</td>
@@ -650,7 +664,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="geluid_processor_table">
                             <tr>
-                                <td colspan="3"><h5>Audio processor</h5></td>
+                                <th colspan="3"><h5>Audio processor</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Asus AV100</td>
@@ -663,7 +677,7 @@ $cpu_p4 = Session::get('cpu_p4');
                                 <td><input type="checkbox" name="geluid_processor3" value="3"></td>
                             </tr>
                             <tr>
-                                <td style="width:33.3%">C-Media CMI8888DHT</td>
+                                <td style="width:33.3%">CMI8888DHT</td>
                                 <td style="width:33.3%">Sound Core3D</td>
                                 <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
@@ -676,7 +690,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="geluid_merk_table">
                             <tr>
-                                <td colspan="3"><h5>Geluidskaart merk</h5></td>
+                                <th colspan="3"><h5>Geluidskaart merk</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Asus</td>
@@ -691,7 +705,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="geluid_kanalen_table">
                             <tr>
-                                <td colspan="2"><h5>Speaker kanalen</h5></td>
+                                <th colspan="2"><h5>Speaker kanalen</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">5.1 Surround</td>
@@ -703,9 +717,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="geluid_cost specification_table">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 42%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="amount_geluid" readonly
                                         >
                             </p>
@@ -714,7 +729,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                         <table class="geluid_minijack_table">
                             <tr>
-                                <td colspan="2"><h5>3,5 mm mini-jack</h5></td>
+                                <th colspan="2"><h5>3,5 mm mini-jack</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -727,7 +742,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="geluid_hoofdtelefoonaansluiting_table">
                             <tr>
-                                <td colspan="2"><h5>Hoofdtelefoon aansluiting</h5></td>
+                                <th colspan="2"><h5>Hoofdtelefoon aansluiting</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -740,15 +755,13 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
             @elseif($menuitem == "PCI")
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="pci_usb_table">
                             <tr>
-                                <td colspan="2"><h5>USB-poort</h5></td>
+                                <th colspan="2"><h5>USB-poort</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -761,7 +774,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="pci_firewire_table">
                             <tr>
-                                <td colspan="2"><h5>FireWire</h5></td>
+                                <th colspan="2"><h5>FireWire</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -773,9 +786,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="pci_cost specification_table">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 42%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="amount_pci" readonly
                                         >
                             </p>
@@ -786,7 +800,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="pci_esata_table">
                             <tr>
-                                <td colspan="2"><h5>e-SATA aansluiting aanwezig</h5></td>
+                                <th colspan="2"><h5>e-SATA aansluiting aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -799,7 +813,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="pci_sata_table">
                             <tr>
-                                <td colspan="2"><h5>SATA aansluiting aanwezig</h5></td>
+                                <th colspan="2"><h5>SATA aansluiting aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -812,15 +826,13 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
             @elseif($menuitem == "videocard")
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="GPU_producer_table">
                             <tr>
-                                <td colspan="2"><h5>Fabrikant videokaart</h5></td>
+                                <th colspan="2"><h5>Fabrikant videokaart</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA</td>
@@ -833,7 +845,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="GPU_type_AMD_table">
                             <tr>
-                                <td colspan="2"><h5>AMD videokaart</h5></td>
+                                <th colspan="2"><h5>AMD videokaart</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R9 270X</td>
@@ -878,7 +890,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="GPU_type_NVIDIA_table">
                             <tr>
-                                <td colspan="2"><h5>NVIDIA videokaart</h5></td>
+                                <th colspan="2"><h5>NVIDIA videokaart</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA FX5500</td>
@@ -923,7 +935,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="GPU_brand_table">
                             <tr>
-                                <td colspan="3"><h5>Merk videokaart</h5></td>
+                                <tg colspan="3"><h5>Merk videokaart</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Asus</td>
@@ -948,7 +960,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="GPU_geheugen_type_table">
                             <tr>
-                                <td colspan="3"><h5>Type geheugen</h5></td>
+                                <th colspan="3"><h5>Type geheugen</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">DDR2</td>
@@ -965,7 +977,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="GPU_memory_table">
                             <tr>
-                                <td colspan="3"><h5>Brandbreedte geheugenbus</h5></td>
+                                <th colspan="3"><h5>Brandbreedte geheugenbus</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">64</td>
@@ -990,7 +1002,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table>
                             <tr>
-                                <td colspan="2"><h5>Aantal DVI-I aansluitingen</h5></td>
+                                <th colspan="2"><h5>Aantal DVI-I aansluitingen</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">0</td>
@@ -1003,7 +1015,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table>
                             <tr>
-                                <td colspan="3"><h5>Aantal DVI-D aansluitingen</h5></td>
+                                <th colspan="3"><h5>Aantal DVI-D aansluitingen</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">0</td>
@@ -1018,7 +1030,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table>
                             <tr>
-                                <td colspan="2"><h5>HDMI aansluitingen</h5></td>
+                                <th colspan="2"><h5>HDMI aansluitingen</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">1</td>
@@ -1031,7 +1043,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table>
                             <tr>
-                                <td colspan="2"><h5>VGA-poort</h5></td>
+                                <th colspan="2"><h5>VGA-poort</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -1043,9 +1055,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="GPU_cost specification_table">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 42%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="amount_GPU_prijs" readonly
                                         >
                             </p>
@@ -1053,9 +1066,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             <div class="specification_table_slider" id="slider-range3"></div>
                         </div>
                         <div class="GPU_memory specification_table">
-                            <h5>Gewenst videogeheugen (minimum - maximum)</h5>
+                            <h5>Gewenst videogeheugen </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 36%">
+                            <p style="">
                                 <input class="slider_label" type="text" id="amount_GPU_geheugen" readonly
                                         >
                             </p>
@@ -1064,15 +1078,13 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
             @elseif($menuitem == "processor")
                 <form>
                     <div class="col-md-6 left_div">
                         <table class="brand_table">
                             <tr>
-                                <td colspan="2"><h5>Merk processor</h5></td>
+                                <th colspan="2"><h5>Merk processor</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Intel</td>
@@ -1085,7 +1097,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="core_table">
                             <tr>
-                                <td colspan="2"><h5>Aantal processorkernen</h5></td>
+                                <th colspan="2"><h5>Aantal processorkernen</h5></th>
                             </tr>
                             <tr>
                                 <td style="width:50%">Dual core</td>
@@ -1105,9 +1117,10 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="processor_cost specification_table">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
-                            <p style="padding:0 41%">
+                            <p style="%">
                                 <input class="slider_label" type="text" id="amount" readonly
                                         >
                             </p>
@@ -1118,7 +1131,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="serie_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Processor serie</h5></td>
+                                <th colspan="3"><h5>Processor serie</h5></th>
                             </tr>
                             <tr>
                                 <td>A10</td>
@@ -1152,7 +1165,8 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="processor_speed">
-                            <h5>Kloksnelheid (minimum - maximum)</h5>
+                            <h5>Kloksnelheid </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
                                 <input class="slider_label" type="text" id="speed" readonly
@@ -1164,9 +1178,7 @@ $cpu_p4 = Session::get('cpu_p4');
 
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
 
             @elseif($menuitem == "internalmemory")
                 <form>
@@ -1194,7 +1206,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="RAM_klok_table">
                             <tr>
-                                <td colspan="4"><h5>Kloksnelheid geheugenmodule</h5></td>
+                                <th colspan="4"><h5>Kloksnelheid geheugenmodule</h5></th>
                             </tr>
                             <tr>
                                 <td>667 MHz</td>
@@ -1211,7 +1223,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="RAM_game_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>Geheugen geschikt voor gaming</h5></td>
+                                <th colspan="4"><h5>Geheugen geschikt voor gaming</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1224,10 +1236,11 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="RAM_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <label for="amount_ram">prijs (Minimum - Maximum):</label>
+
                                 <input class="slider_label" type="text" id="amount_ram" readonly>
                             </p>
 
@@ -1237,7 +1250,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="RAM_geschikt_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>Geheugen geschikt voor:</h5></td>
+                                <th colspan="4"><h5>Geheugen geschikt voor:</h5></th>
                             </tr>
                             <tr>
                                 <td>Desktop</td>
@@ -1254,7 +1267,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="RAM_type_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>Geheugen type</h5></td>
+                                <th colspan="4"><h5>Geheugen type</h5></th>
                             </tr>
                             <tr>
                                 <td>DDR2</td>
@@ -1271,7 +1284,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="RAM_kanalen_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Aantal geheugenkanalen</h5></td>
+                                <th colspan="3"><h5>Aantal geheugenkanalen</h5></th>
                             </tr>
                             <tr>
                                 <td>Single Channel</td>
@@ -1286,7 +1299,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="RAM_Merk_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Merk RAM geheugen</h5></td>
+                                <th colspan="3"><h5>Merk RAM geheugen</h5></th>
                             </tr>
                             <tr>
                                 <td>Corsair</td>
@@ -1309,9 +1322,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
 
             @elseif($menuitem == "motherboard")
                 <form>
@@ -1333,7 +1344,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="Moederbord_formaat_table">
                             <tr>
-                                <td colspan="3"><h5>Moederbord formaat</h5></td>
+                                <th colspan="3"><h5>Moederbord formaat</h5></th>
                             </tr>
                             <tr>
                                 <td>ATX</td>
@@ -1356,7 +1367,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_wifi_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>wifi</h5></td>
+                                <th colspan="2"><h5>wifi</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1368,10 +1379,12 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="moederbord_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
+
 
                             <p>
-                                <label for="amount_moederbord">prijs (Minimum - Maximum):</label>
+
                                 <input class="slider_label" type="text" id="amount_moederbord" readonly>
                             </p>
 
@@ -1391,7 +1404,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="moederbord_geheugenslot_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>aantal geheugenslots</h5></td>
+                                <th colspan="3"><h5>aantal geheugenslots</h5></th>
                             </tr>
                             <tr>
                                 <td>2</td>
@@ -1406,7 +1419,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_HDMI_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>HDMI</h5></td>
+                                <th colspan="2"><h5>HDMI</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1419,7 +1432,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_ethernet_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>Ethernetpoorten</h5></td>
+                                <th colspan="2"><h5>Ethernetpoorten</h5></th>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -1432,7 +1445,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_DVI_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>DVI</h5></td>
+                                <th colspan="2"><h5>DVI</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1446,7 +1459,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_VGA_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>VGA-poort</h5></td>
+                                <th colspan="2"><h5>VGA-poort</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1460,7 +1473,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_displayport_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>DisplayPort aanwezig</h5></td>
+                                <th colspan="2"><h5>DisplayPort aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1474,7 +1487,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_RAID_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>RAID configuratie</h5></td>
+                                <th colspan="4"><h5>RAID configuratie</h5></th>
                             </tr>
                             <tr>
                                 <td>RAID-0</td>
@@ -1491,7 +1504,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_audiokanalen_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>Aantal audiokanalen</h5></td>
+                                <th colspan="2"><h5>Aantal audiokanalen</h5></th>
                             </tr>
                             <tr>
                                 <td>5.1</td>
@@ -1505,7 +1518,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_audioprocessor_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Audio processor</h5></td>
+                                <th colspan="3"><h5>Audio processor</h5></th>
                             </tr>
                             <tr>
                                 <td>Realtek ALC1150</td>
@@ -1530,7 +1543,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_geheugen_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Geheugen type</h5></td>
+                                <th colspan="3"><h5>Geheugen type</h5></th>
                             </tr>
                             <tr>
                                 <td>DDR3</td>
@@ -1545,7 +1558,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="moederbord_msata_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>mSATA-aansluiting aanwezig</h5></td>
+                                <th colspan="2"><h5>mSATA-aansluiting aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1579,9 +1592,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
 
             @elseif($menuitem == "casing")
                 <form>
@@ -1608,7 +1619,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_computer_table">
                             <tr>
-                                <td colspan="3"><h5>computerbehuizing</h5></td>
+                                <th colspan="3"><h5>computerbehuizing</h5></th>
                             </tr>
                             <tr>
                                 <td>Cube</td>
@@ -1631,7 +1642,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_fan_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>fan controller</h5></td>
+                                <th colspan="2"><h5>fan controller</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1644,7 +1655,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_stof_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>stoffilter</h5></td>
+                                <th colspan="2"><h5>stoffilter</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1657,7 +1668,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_water_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>waterkoeling aanwezig</h5></td>
+                                <th colspan="2"><h5>waterkoeling aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1669,10 +1680,11 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="behuizing_prijs">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <label for="amount_behuizing">prijs (Minimum - Maximum):</label>
+
                                 <input class="slider_label" type="text" id="amount_behuizing" readonly>
                             </p>
 
@@ -1683,6 +1695,7 @@ $cpu_p4 = Session::get('cpu_p4');
 
                             <p>
                                 <label for="amount_behuizing_uitbreiding">Aantal uitbreidingssloten:</label>
+                                <br/>
                                 <input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly>
                             </p>
 
@@ -1692,7 +1705,7 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="behuizing_merk_table" cellspacing="1px">
                             <tr>
-                                <td colspan="5"><h5>behuizing merk</h5></td>
+                                <th colspan="5"><h5>behuizing merk</h5></th>
                             </tr>
                             <tr>
                                 <td>Antec</td>
@@ -1711,7 +1724,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_led_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5> LED display aanwezig</h5></td>
+                                <th colspan="2"><h5> LED display aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1724,7 +1737,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_Ruisreductie_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>Ruisreductie aanwezig</h5></td>
+                                <th colspan="2"><h5>Ruisreductie aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1737,7 +1750,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_Geluid_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>Geluidsdempende matten aanwezig</h5></td>
+                                <th colspan="2"><h5>Geluidsdempende matten aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1750,7 +1763,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_paneel_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>Paneeldeur aanwezig</h5></td>
+                                <th colspan="2"><h5>Paneeldeur aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>Ja</td>
@@ -1763,7 +1776,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_kleur_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>kleur behuizing</h5></td>
+                                <th colspan="4"><h5>kleur behuizing</h5></th>
                             </tr>
                             <tr>
                                 <td>Grijs</td>
@@ -1782,7 +1795,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_materiaal_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>Materiaal behuizing</h5></td>
+                                <th colspan="3"><h5>Materiaal behuizing</h5></th>
                             </tr>
                             <tr>
                                 <td>Aluminium</td>
@@ -1809,7 +1822,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_usb2_table" cellspacing="1px">
                             <tr>
-                                <td colspan="5"><h5>aantal USB 2.0 poorten aanwezig</h5></td>
+                                <th colspan="5"><h5>aantal USB 2.0 poorten aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>0</td>
@@ -1828,7 +1841,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_usb3_table" cellspacing="1px">
                             <tr>
-                                <td colspan="5"><h5>aantal USB 3.0 poorten aanwezig</h5></td>
+                                <th colspan="5"><h5>aantal USB 3.0 poorten aanwezig</h5></th>
                             </tr>
                             <tr>
                                 <td>1</td>
@@ -1841,7 +1854,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_firewire_table" cellspacing="1px">
                             <tr>
-                                <td colspan="5"><h5>firewire poorten</h5></td>
+                                <th colspan="5"><h5>firewire poorten</h5></th>
                             </tr>
                             <tr>
                                 <td>0</td>
@@ -1854,7 +1867,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="behuizing_eSATA_table" cellspacing="1px">
                             <tr>
-                                <td colspan="5"><h5>eSATA aansluitingen</h5></td>
+                                <th colspan="5"><h5>eSATA aansluitingen</h5></th>
                             </tr>
                             <tr>
                                 <td>0</td>
@@ -1870,6 +1883,7 @@ $cpu_p4 = Session::get('cpu_p4');
 
                             <p>
                                 <label for="amount_behuizing_3bay">3,5'' bays:</label>
+                                <br/>
                                 <input class="slider_label" type="text" id="amount_behuizing_3bay" readonly>
                             </p>
 
@@ -1880,6 +1894,7 @@ $cpu_p4 = Session::get('cpu_p4');
 
                             <p>
                                 <label for="amount_behuizing_2bay">2,5'' bays:</label>
+                                <br/>
                                 <input class="slider_label" type="text" id="amount_behuizing_2bay" readonly>
                             </p>
 
@@ -1890,6 +1905,7 @@ $cpu_p4 = Session::get('cpu_p4');
 
                             <p>
                                 <label for="amount_behuizing_5bay">5,25'' bays:</label>
+                                <br/>
                                 <input class="slider_label" type="text" id="amount_behuizing_5bay" readonly>
                             </p>
 
@@ -1897,9 +1913,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
 
             @elseif($menuitem == "ssd")
                 <form>
@@ -1953,7 +1967,8 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="SDD_formaat_table">
                             <tr>
-                                <td colspan="3"><h5>formaat</h5></td>
+                                <th colspan="5" ></th>
+                                    <h5>formaat</h5>
                             </tr>
                             <tr>
                                 <td>2,5 inch</td>
@@ -1967,10 +1982,11 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="SSD_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <label for="amount_ssd">prijs (Minimum - Maximum):</label>
+
                                 <input class="slider_label" type="text" id="amount_ssd" readonly>
                             </p>
 
@@ -1980,7 +1996,8 @@ $cpu_p4 = Session::get('cpu_p4');
                     <div class="col-md-6 right_div">
                         <table class="SDD_merk_table" cellspacing="1px">
                             <tr>
-                                <td colspan="4"><h5>SSD merk</h5></td>
+
+                                    <h5>SSD merk</h5>
                             </tr>
                             <tr>
                                 <td>AMD</td>
@@ -2007,7 +2024,9 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="SSD_controller_table" cellspacing="1px">
                             <tr>
-                                <td colspan="3"><h5>SSD-controller</h5></td>
+
+                                    <h5>SSD-controller</h5>
+
                             </tr>
                             <tr>
                                 <td>Indilinx</td>
@@ -2033,7 +2052,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <table class="SSD_soort_table" cellspacing="1px">
                             <tr>
-                                <td colspan="2"><h5>Soort geheugen</h5></td>
+                               <h5>Soort geheugen</h5>
                             </tr>
                             <tr>
                                 <td>Multi Level Cell (MLC)</td>
@@ -2046,9 +2065,10 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                         <div class="SSD_schrijf">
                             <h5>Schrijfsnelheid</h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <label for="amount_ssd_schrijf">schrijfsnelheid (Minimum - Maximum):</label>
+
                                 <input class="slider_label" type="text" id="amount_ssd_schrijf" readonly>
                             </p>
 
@@ -2056,9 +2076,10 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                         <div class="SSD_lees">
                             <h5>Leessnelheid</h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <label for="amount_ssd_lees">leessnelheid (Minimum - Maximum):</label>
+
                                 <input class="slider_label" type="text" id="amount_ssd_lees" readonly>
                             </p>
 
@@ -2066,9 +2087,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </div>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
 
             @elseif($menuitem == "bluraydvd")
                 <form>
@@ -2110,7 +2129,8 @@ $cpu_p4 = Session::get('cpu_p4');
                             </tr>
                         </table>
                         <div class="brander_cost">
-                            <h5>Prijs (minimum - maximum)</h5>
+                            <h5>Prijs </h5>
+                            <span class="annotation">(minimum - maximum)</span>
 
                             <p>
                                 <input class="slider_label" type="text" id="amount_brander" readonly ">
@@ -2165,9 +2185,7 @@ $cpu_p4 = Session::get('cpu_p4');
                         </table>
                     </div>
                 </form>
-                <div class="col-md-12">
-                    <a href="#" class="myButton">Onderdeel opslaan </a>
-                </div>
+
             @endif
             <div class="col-md-12">
                 <a href="#" class="myButton">Onderdeel opslaan </a>
@@ -2180,3 +2198,7 @@ $cpu_p4 = Session::get('cpu_p4');
 </div>
 </body>
 </html>
+
+
+
+
