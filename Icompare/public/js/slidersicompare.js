@@ -405,3 +405,20 @@ $(function() {
     $( "#koeler_rotatie" ).val( $( "#slider_processorcooler_rotation" ).slider( "values", 0 ) +
     " - " + $( "#slider_processorcooler_rotation" ).slider( "values", 1 ));
 });
+
+document.forms[0].GPU_producer1.addEventListener("click", EnableDisableToolTip);
+
+function EnableDisableToolTip() {
+    if (document.forms[0].GPU_producer1.checked) {
+        $( "#GPU_producer1" ).click(function() {
+            $('.GPU_type_NVIDIA_table').toggle("slide", { direction: "right" }, 1000);
+            document.getElementById(GPU_type_AMD_table).style.display = 'block';
+        });
+    }
+    else if (!document.forms[0].GPU_producer1.checked) {
+        $( "#GPU_producer2" ).click(function() {
+            $('.GPU_type_AMD_table').toggle("slide", { direction: "right" }, 1000);
+            document.getElementById(GPU_type_NVIDIA_table).style.display = 'block';
+        });
+    }
+}

@@ -78,6 +78,51 @@ if (!Session::has('pci_sata')) { Session::put('pci_sata', '-'); }
 if (!Session::has('pci_esata')) { Session::put('pci_esata', '-'); }
 if (!Session::has('pci_price_min')) { Session::put('pci_price_min', '-'); }
 if (!Session::has('pci_price_max')) { Session::put('pci_price_max', '-'); }
+if (!Session::has('GPU_producer1'))  { Session::put('GPU_producer1','0'); }
+if (!Session::has('GPU_producer2'))  { Session::put('GPU_producer2','0'); }
+if (!Session::has('GPU_type_AMD1'))  { Session::put('GPU_type_AMD1','0'); }
+if (!Session::has('GPU_type_AMD2'))  { Session::put('GPU_type_AMD2','0'); }
+if (!Session::has('GPU_type_AMD3'))  { Session::put('GPU_type_AMD3','0'); }
+if (!Session::has('GPU_type_AMD4'))  { Session::put('GPU_type_AMD4','0'); }
+if (!Session::has('GPU_type_AMD5'))  { Session::put('GPU_type_AMD5','0'); }
+if (!Session::has('GPU_type_AMD6'))  { Session::put('GPU_type_AMD6','0'); }
+if (!Session::has('GPU_type_AMD7'))  { Session::put('GPU_type_AMD7','0'); }
+if (!Session::has('GPU_type_AMD8'))  { Session::put('GPU_type_AMD8','0'); }
+if (!Session::has('GPU_type_AMD9'))  { Session::put('GPU_type_AMD9','0'); }
+if (!Session::has('GPU_type_AMD10'))  { Session::put('GPU_type_AMD10','0'); }
+if (!Session::has('GPU_type_NVIDIA1'))  { Session::put('GPU_type_NVIDIA1','0'); }
+if (!Session::has('GPU_type_NVIDIA2'))  { Session::put('GPU_type_NVIDIA2','0'); }
+if (!Session::has('GPU_type_NVIDIA3'))  { Session::put('GPU_type_NVIDIA3','0'); }
+if (!Session::has('GPU_type_NVIDIA4'))  { Session::put('GPU_type_NVIDIA4','0'); }
+if (!Session::has('GPU_type_NVIDIA5'))  { Session::put('GPU_type_NVIDIA5','0'); }
+if (!Session::has('GPU_type_NVIDIA6'))  { Session::put('GPU_type_NVIDIA6','0'); }
+if (!Session::has('GPU_type_NVIDIA7'))  { Session::put('GPU_type_NVIDIA7','0'); }
+if (!Session::has('GPU_type_NVIDIA8'))  { Session::put('GPU_type_NVIDIA8','0'); }
+if (!Session::has('GPU_type_NVIDIA9'))  { Session::put('GPU_type_NVIDIA9','0'); }
+if (!Session::has('GPU_type_NVIDIA10'))  { Session::put('GPU_type_NVIDIA10','0'); }
+if (!Session::has('GPU_brand1'))  { Session::put('GPU_brand1','0'); }
+if (!Session::has('GPU_brand2'))  { Session::put('GPU_brand2','0'); }
+if (!Session::has('GPU_brand3'))  { Session::put('GPU_brand3','0'); }
+if (!Session::has('GPU_brand4'))  { Session::put('GPU_brand4','0'); }
+if (!Session::has('GPU_brand5'))  { Session::put('GPU_brand5','0'); }
+if (!Session::has('GPU_brand6'))  { Session::put('GPU_brand6','0'); }
+if (!Session::has('GPU_geheugen_type'))  { Session::put('GPU_geheugen_type','-'); }
+if (!Session::has('GPU_HDMI'))  { Session::put('GPU_HDMI','-'); }
+if (!Session::has('GPU_VGA'))  { Session::put('GPU_VGA','-'); }
+if (!Session::has('GPU_bandwidth_memory'))  { Session::put('GPU_bandwidth_memory','-'); }
+if (!Session::has('GPU_DVI-I'))  { Session::put('GPU_DVI-I','-'); }
+if (!Session::has('GPU_DVI-D'))  { Session::put('GPU_DVI-D','-'); }
+if (!Session::has('GPU_cost'))  { Session::put('GPU_cost','-'); }
+if (!Session::has('GPU_memory'))  { Session::put('GPU_memory',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has(''))  { Session::put('',''); }
+
 
 $menuitem = Session::get('menuitem');
 $cpu_p4 = Session::get('cpu_p4');
@@ -162,6 +207,48 @@ echo Session::get('pci_sata');
 echo Session::get('pci_esata');
 echo Session::get('pci_price_min');
 echo Session::get('pci_price_max');
+echo "videocard: ";
+echo Session::get('GPU_producer1');
+echo Session::get('GPU_producer2');
+echo Session::get('GPU_type_AMD1');
+echo Session::get('GPU_type_AMD2');
+echo Session::get('GPU_type_AMD3');
+echo Session::get('GPU_type_AMD4');
+echo Session::get('GPU_type_AMD5');
+echo Session::get('GPU_type_AMD6');
+echo Session::get('GPU_type_AMD7');
+echo Session::get('GPU_type_AMD8');
+echo Session::get('GPU_type_AMD9');
+echo Session::get('GPU_type_AMD10');
+echo Session::get('GPU_type_NVIDIA1');
+echo Session::get('GPU_type_NVIDIA2');
+echo Session::get('GPU_type_NVIDIA3');
+echo Session::get('GPU_type_NVIDIA4');
+echo Session::get('GPU_type_NVIDIA5');
+echo Session::get('GPU_type_NVIDIA6');
+echo Session::get('GPU_type_NVIDIA7');
+echo Session::get('GPU_type_NVIDIA8');
+echo Session::get('GPU_type_NVIDIA9');
+echo Session::get('GPU_type_NVIDIA10');
+echo Session::get('GPU_brand1');
+echo Session::get('GPU_brand2');
+echo Session::get('GPU_brand3');
+echo Session::get('GPU_brand4');
+echo Session::get('GPU_brand5');
+echo Session::get('GPU_brand6');
+echo Session::get('GPU_geheugen_type');
+echo Session::get('GPU_HDMI');
+echo Session::get('GPU_VGA');
+echo Session::get('GPU_bandwidth_memory');
+echo Session::get('GPU_DVI-I');
+echo Session::get('GPU_DVI-D');
+echo Session::get('GPU_cost');
+echo Session::get('GPU_memory');
+echo Session::get('');
+echo Session::get('');
+echo Session::get('');
+echo Session::get('');
+
 echo "</pre>";
 ?>
 
@@ -195,26 +282,25 @@ echo "</pre>";
                 </a>
                 <div id="accordion-1" class="accordion-section-content">
                     <p>
-                    <h4 style="font-weight: bold;">Welkom bij Icompare de nieuwste website voor het samen  stellen  van een pc<h4/>
-                        <br/>
-                        Wij van icompare  bieden de mogelijkheid om snel en zonder moeite je eigen
-                        computers samen te stellen met een paar klikken heb je eigen custmized pc.
-                        <br/>
-                        <br/>
-                        Kies bij elk component je gewenste eigenschappen
-                        en stel een eigen profiel samen
-                        druk op creeer profiel en krijg in  een oogopslag
-                        te zien waar je  de onderdelen kunt kopen
-                        <br/>
-                        <br/>
+                    <h4 style="font-weight: bold;">Welkom bij Icompare de nieuwe moderne website voor het samen stellen van een eigen computer</h4>
+                    <br/>
+                    Wij van icompare bieden u de mogelijkheid om snel
+                    en zonder moeite een eigen computer samen te stellen.
+                    Met een paar klikken heeft u uw eigen custmized computer gemaakt.
+                    Bij elk onderdeel kiest u de gewenste specificaties van dat onderdeel
+                    om zo een eigen profiel samen te stellen. Wanneer alle specificates zijn ingevuld ingevuld,
+                    dan drukt u op de knop "creëer profiel", daarmee krijgt u in
+                    een oogopslag te zien bij welke winkel u de beste en goedkoopste onderdelen kunt kopen.
 
-                        wacht niet langer en stel snel je eigen pc samen
-                        nu met icompare
-                        <br/>
-                        <br/>
-                        <br/>
-                        <p style="font-style: italic;"> *niet alle vinkjes hoeven aan gekruist te worden</p>
-                   </p>
+                    Wacht niet langer en stel snel uw eigen computer samen met Icompare!
+
+
+                    *niet alle vinkjes hoeven aan gekruist te worden
+                    <br/>
+                    <br/>
+                    <br/>
+                    <p style="font-style: italic;"> *niet alle vinkjes hoeven aan gekruist te worden</p>
+                    </p>
                 </div>
             </div>
         </div>
@@ -2260,7 +2346,7 @@ echo "</pre>";
                             <span class="annotation">(minimum - maximum)</span>
 
                             <p>
-                                <input class="slider_label" type="text" id="amount_brander" readonly ">
+                                <input class="slider_label" type="text" id="amount_brander" readonly>
                             </p>
 
                             <div id="slider-range25"></div>
