@@ -308,3 +308,7 @@ tbody tr td {
     width: 13px;
     vertical-align: text-top;
 }
+
+#amd_hidden, #nvidia_hidden {
+    display: none;
+}

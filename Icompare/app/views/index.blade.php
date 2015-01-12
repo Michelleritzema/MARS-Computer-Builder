@@ -176,6 +176,7 @@ echo "</pre>";
     {{ HTML::script('js/bootstrap.min.js'); }}
     {{ HTML::script('js/intro_accordion.js'); }}
     {{ HTML::script('js/slidersicompare.js'); }}
+    {{ HTML::script('js/hidden_checkbox.js'); }}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -960,112 +961,112 @@ echo "</pre>";
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
                         <table class="GPU_producer_table">
-                            <tr>
-                                <th colspan="2"><h5>Fabrikant videokaart</h5></th>
-                            </tr>
+                            <tr><th colspan="2"><h5>Fabrikant videokaart
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:50%">NVIDIA</td>
                                 <td style="width:50%">AMD</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_producer1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_producer2" value="2"></td>
+                                <td><input id="GPU_producer1" type="checkbox" name="GPU_producer1" value="1"></td>
+                                <td><input id="GPU_producer2" type="checkbox" name="GPU_producer2" value="1"></td>
                             </tr>
                         </table>
-                        <table class="GPU_type_AMD_table">
-                            <tr>
-                                <th colspan="2"><h5>AMD videokaart</h5></th>
-                            </tr>
+                        <table id="amd_hidden" class="GPU_type_AMD_table">
+                            <tr><th colspan="2"><h5>AMD videokaart
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R9 270X</td>
                                 <td style="width:50%">AMD Radeon R9 270</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="GPU_type_AMD1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD2" value="2"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD2" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R7 240</td>
                                 <td style="width:50%">AMD Radeon HD 6450</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD3" value="3"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD4" value="4"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD3" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD4" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R9 280</td>
                                 <td style="width:50%">AMD Radeon R9 280X</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD5" value="5"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD6" value="6"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD5" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD6" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R9 290</td>
                                 <td style="width:50%">AMD Radeon R9 290X</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD7" value="7"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD8" value="8"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD7" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD8" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R7 250</td>
                                 <td style="width:50%">AMD Radeon HD 3450 AGP</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD9" value="9"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD10" value="10"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD9" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_AMD10" value="1"></td>
                             </tr>
                         </table>
-                        <table class="GPU_type_NVIDIA_table">
-                            <tr>
-                                <th colspan="2"><h5>NVIDIA videokaart</h5></th>
-                            </tr>
+                        <table id="nvidia_hidden" class="GPU_type_NVIDIA_table">
+                            <tr><th colspan="2"><h5>NVIDIA videokaart
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:50%">NVIDIA FX5500</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 780</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="GPU_type_NVIDIA1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA2" value="2"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA2" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GTX 980</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 970</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA3" value="3"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA4" value="4"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA3" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA4" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GT 730</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 660</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA5" value="5"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA6" value="6"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA5" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA6" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GTX 750</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 760</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA7" value="7"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA8" value="8"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA7" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA8" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GT 740</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 770</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA9" value="9"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA10" value="10"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA9" value="1"></td>
+                                <td><input type="checkbox" name="GPU_type_NVIDIA10" value="1"></td>
                             </tr>
                         </table>
                         <table class="GPU_brand_table">
-                            <tr>
-                                <tg colspan="3"><h5>Merk videokaart</h5></th>
-                            </tr>
+                            <tr><th colspan="3"><h5>Merk videokaart
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:33.3%">Asus</td>
                                 <td style="width:33.3%">Club 3D</td>
@@ -1073,8 +1074,8 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="GPU_brand1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_brand2" value="2"></td>
-                                <td><input type="checkbox" name="GPU_brand3" value="3"></td>
+                                <td><input type="checkbox" name="GPU_brand2" value="1"></td>
+                                <td><input type="checkbox" name="GPU_brand3" value="1"></td>
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Sapphire</td>
@@ -1082,70 +1083,108 @@ echo "</pre>";
                                 <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_brand4" value="4"></td>
-                                <td><input type="checkbox" name="GPU_brand5" value="5"></td>
-                                <td><input type="checkbox" name="GPU_brand6" value="6"></td>
+                                <td><input type="checkbox" name="GPU_brand4" value="1"></td>
+                                <td><input type="checkbox" name="GPU_brand5" value="1"></td>
+                                <td><input type="checkbox" name="GPU_brand6" value="1"></td>
                             </tr>
                         </table>
                         <table class="GPU_geheugen_type_table">
+                            <tr><th colspan="4"><h5>Type geheugen
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Het type geheugen dat gebruikt wordt. GDDR geheugen is speciaal ontworpen voor gebruik in videokaarten terwijl DDR geheugen dat niet is. Hoe hoger het getal, hoe hoger de snelheid.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>Type geheugen</h5></th>
+                                <td style="width:25%">DDR2</td>
+                                <td style="width:25%">DDR3</td>
+                                <td style="width:25%">GDDR5</td>
+                                <td style="width:25%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td style="width:33.3%">DDR2</td>
-                                <td style="width:33.3%">DDR3</td>
-                                <td style="width:33.3%">GDDR5</td>
+                                <td><input type="radio" name="GPU_geheugen_type" value="1"></td>
+                                <td><input type="radio" name="GPU_geheugen_type" value="2"></td>
+                                <td><input type="radio" name="GPU_geheugen_type" value="3"></td>
+                                <td><input type="radio" name="GPU_geheugen_type" value="4"></td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr><th colspan="3"><h5>HDMI aansluitingen
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Met een HDMI-aansluiting is High Definition apparatuur digitaal te koppelen. Via HDMI kunnen zowel beeld als geluid tegelijk worden getransporteerd. Hierbij gaat er geen kwaliteit verloren bij resoluties tot 1080p.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:33.3%">0</td>
+                                <td style="width:33.3%">1</td>
+                                <td style="width:33.3%">2</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_geheugen_type" value="1"></td>
-                                <td><input type="radio" name="GPU_geheugen_type" value="1"></td>
-                                <td><input type="radio" name="GPU_geheugen_type" value="1"></td>
+                                <td><input type="radio" name="GPU_HDMI" value="1"></td>
+                                <td><input type="radio" name="GPU_HDMI" value="2"></td>
+                                <td><input type="radio" name="GPU_HDMI" value="3"></td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr><th colspan="2"><h5>VGA-poort
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een VGA-aansluiting (ook wel 15-pin D-sub genoemd) maakt het mogelijk om PC&#39;s op monitoren, tv&#39;s of beamers aan te sluiten.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="GPU_VGA1" value="1"></td>
+                                <td><input type="radio" name="GPU_VGA2" value="2"></td>
                             </tr>
                         </table>
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="GPU_memory_table">
+                            <tr><th colspan="6"><h5>Brandbreedte geheugenbus
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Wat is de bandbreedte van het geheugen? Hoe hoger, hoe beter.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>Brandbreedte geheugenbus</h5></th>
-                            </tr>
-                            <tr>
-                                <td style="width:33.3%">64</td>
-                                <td style="width:33.3%">128</td>
-                                <td style="width:33.3%">192</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:33.3%">256</td>
-                                <td style="width:33.3%">384</td>
-                                <td style="width:33.3%">512</td>
+                                <td style="width:16.6%">64</td>
+                                <td style="width:16.6%">128</td>
+                                <td style="width:16.6%">192</td>
+                                <td style="width:16.6%">256</td>
+                                <td style="width:16.6%">384</td>
+                                <td style="width:16.6%">512</td>
                             </tr>
                             <tr>
                                 <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
+                                <td><input type="radio" name="GPU_bandwidth_memory" value="2"></td>
+                                <td><input type="radio" name="GPU_bandwidth_memory" value="3"></td>
+                                <td><input type="radio" name="GPU_bandwidth_memory" value="4"></td>
+                                <td><input type="radio" name="GPU_bandwidth_memory" value="5"></td>
+                                <td><input type="radio" name="GPU_bandwidth_memory" value="6"></td>
+                            </tr>
+                            <tr>
+                                <td style="width:16.6%" colspan="6">Geen voorkeur</td>
+                            </tr>
+                            <tr>
+                                <td colspan="6"><input type="radio" name="GPU_bandwidth_memory" value="7"></td>
                             </tr>
                         </table>
                         <table>
+                            <tr><th colspan="2"><h5>DVI-I aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een aansluiting die zowel analoge als digitale beelden naar de monitor kan sturen.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Aantal DVI-I aansluitingen</h5></th>
-                            </tr>
-                            <tr>
-                                <td style="width:50%">0</td>
-                                <td style="width:50%">1</td>
+                                <td style="width:50%">ja</td>
+                                <td style="width:50%">nee</td>
                             </tr>
                             <tr>
                                 <td><input type="radio" name="GPU_DVI-I" value="1"></td>
-                                <td><input type="radio" name="GPU_DVI-I" value="1"></td>
+                                <td><input type="radio" name="GPU_DVI-I" value="2"></td>
                             </tr>
                         </table>
                         <table>
-                            <tr>
-                                <th colspan="3"><h5>Aantal DVI-D aansluitingen</h5></th>
-                            </tr>
+                            <tr><th colspan="3"><h5>DVI-D aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een aansluiting die digitale beelden naar de monitor stuurt.')) }}
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:33.3%">0</td>
                                 <td style="width:33.3%">1</td>
@@ -1153,57 +1192,19 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="GPU_DVI-D" value="1"></td>
-                                <td><input type="radio" name="GPU_DVI-D" value="1"></td>
-                                <td><input type="radio" name="GPU_DVI-D" value="1"></td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <th colspan="2"><h5>HDMI aansluitingen</h5></th>
-                            </tr>
-                            <tr>
-                                <td style="width:50%">1</td>
-                                <td style="width:50%">2</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="GPU_HDMI" value="1"></td>
-                                <td><input type="radio" name="GPU_HDMI" value="1"></td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <th colspan="2"><h5>VGA-poort</h5></th>
-                            </tr>
-                            <tr>
-                                <td style="width:50%">Ja</td>
-                                <td style="width:50%">Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="GPU_VGA1" value="1"></td>
-                                <td><input type="radio" name="GPU_VGA2" value="1"></td>
+                                <td><input type="radio" name="GPU_DVI-D" value="2"></td>
+                                <td><input type="radio" name="GPU_DVI-D" value="3"></td>
                             </tr>
                         </table>
                         <div class="GPU_cost specification_table">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p style="">
-                                <input class="slider_label" type="text" id="amount_GPU_prijs" readonly
-                                        >
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range3"></div>
+                            <h5>Prijs </h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_GPU_prijs" readonly></p>
+                            <div class="specification_table_slider" id="videocard_price"></div>
                         </div>
                         <div class="GPU_memory specification_table">
-                            <h5>Gewenst videogeheugen </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p style="">
-                                <input class="slider_label" type="text" id="amount_GPU_geheugen" readonly
-                                        >
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range4"></div>
+                            <h5>Gewenst videogeheugen</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_GPU_geheugen" readonly></p>
+                            <div class="specification_table_slider" id="videocard_memory"></div>
                         </div>
                     </div>
                     <div class="col-md-12">

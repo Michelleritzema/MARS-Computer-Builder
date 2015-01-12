@@ -29,8 +29,9 @@ $(function() {
     " - €" + $( "#slider-range2" ).slider( "values", 1 ));
 });
 
+// Videokaart - Prijs
 $(function() {
-    $( "#slider-range3" ).slider({
+    $( "#videocard_price" ).slider({
         range: true,
         min: 0,
         max: 1000,
@@ -39,12 +40,13 @@ $(function() {
             $( "#amount_GPU_prijs" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_GPU_prijs" ).val( "€" + $( "#slider-range3" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range3" ).slider( "values", 1 ));
+    $( "#amount_GPU_prijs" ).val( "€" + $( "#videocard_price" ).slider( "values", 0 ) +
+    " - €" + $( "#videocard_price" ).slider( "values", 1 ));
 });
 
+// Videokaart - Geheugen
 $(function() {
-    $( "#slider-range4" ).slider({
+    $( "#videocard_memory" ).slider({
         range: true,
         min: 256,
         max: 8192,
@@ -53,8 +55,8 @@ $(function() {
             $( "#amount_GPU_geheugen" ).val( + ui.values[ 0 ] + " MB - " + ui.values[ 1 ] + " MB" );
         }
     });
-    $( "#amount_GPU_geheugen" ).val(  + $( "#slider-range4" ).slider( "values", 0 ) +
-    " MB - " + $( "#slider-range4" ).slider( "values", 1 ) + "MB" );
+    $( "#amount_GPU_geheugen" ).val(  + $( "#videocard_memory" ).slider( "values", 0 ) +
+    " MB - " + $( "#videocard_memory" ).slider( "values", 1 ) + "MB" );
 });
 
 $(function() {
