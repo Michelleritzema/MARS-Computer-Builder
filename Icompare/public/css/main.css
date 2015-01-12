@@ -271,7 +271,7 @@ tbody tr td {
     -moz-border-radius:6px;
     -webkit-border-radius:6px;
     border-radius:6px;
-    border:1px solid #84bbf3;
+    border:0px;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;

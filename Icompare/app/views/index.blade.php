@@ -206,8 +206,8 @@ echo Session::get('pci_firewire');
 echo Session::get('pci_sata');
 echo Session::get('pci_esata');
 echo Session::get('pci_price_min');
-echo Session::get('pci_price_max');
-echo "videocard: ";
+echo Session::get('pci_price_max') . "<br>";
+echo "Videocard: ";
 echo Session::get('GPU_producer1');
 echo Session::get('GPU_producer2');
 echo Session::get('GPU_type_AMD1');
@@ -1439,12 +1439,12 @@ echo "</pre>";
                                 <td style="width:16.6%">32 GB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="RAM-geheugen1" value="1"></td>
-                                <td><input type="checkbox" name="RAM-geheugen2" value="1"></td>
-                                <td><input type="checkbox" name="RAM-geheugen3" value="1"></td>
-                                <td><input type="checkbox" name="RAM-geheugen4" value="1"></td>
-                                <td><input type="checkbox" name="RAM-geheugen5" value="1"></td>
-                                <td><input type="checkbox" name="RAM-geheugen6" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geheugen1" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geheugen2" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geheugen3" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geheugen4" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geheugen5" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geheugen6" value="1"></td>
                             </tr>
                         </table>
                         <table class="RAM_klok_table">
@@ -1456,10 +1456,10 @@ echo "</pre>";
                                 <td style="width:25%">1600 MHz</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="RAM-klok" value="1"></td>
-                                <td><input type="radio" name="RAM-klok" value="2"></td>
-                                <td><input type="radio" name="RAM-klok" value="3"></td>
-                                <td><input type="radio" name="RAM-klok" value="4"></td>
+                                <td><input type="radio" name="RAM_klok" value="1"></td>
+                                <td><input type="radio" name="RAM_klok" value="1"></td>
+                                <td><input type="radio" name="RAM_klok" value="1"></td>
+                                <td><input type="radio" name="RAM_klok" value="1"></td>
                             </tr>
                         </table>
                         <table class="RAM_game_table">
@@ -1470,7 +1470,7 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="RAM_game" value="1"></td>
-                                <td><input type="radio" name="RAM_game" value="2"></td>
+                                <td><input type="radio" name="RAM_game" value="1"></td>
                             </tr>
                         </table>
                     </div>
@@ -1503,9 +1503,9 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="RAM_type" value="1"></td>
-                                <td><input type="radio" name="RAM_type" value="2"></td>
-                                <td><input type="radio" name="RAM_type" value="3"></td>
-                                <td><input type="radio" name="RAM_type" value="4"></td>
+                                <td><input type="radio" name="RAM_type" value="1"></td>
+                                <td><input type="radio" name="RAM_type" value="1"></td>
+                                <td><input type="radio" name="RAM_type" value="1"></td>
                             </tr>
                         </table>
                         <table class="RAM_kanalen_table">
@@ -1520,8 +1520,8 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="RAM_kanalen" value="1"></td>
-                                <td><input type="radio" name="RAM_kanalen" value="2"></td>
-                                <td><input type="radio" name="RAM_kanalen" value="3"></td>
+                                <td><input type="radio" name="RAM_kanalen" value="1"></td>
+                                <td><input type="radio" name="RAM_kanalen" value="1"></td>
                             </tr>
                         </table>
                         <div class="RAM_cost specification_table">
@@ -1538,267 +1538,235 @@ echo "</pre>";
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
                         <table class="Moederbord_merk_table">
+                            <tr><th colspan="3"><h5>Moederbord merk
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>moederbord merk</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Asrock</td>
-                                <td>Asus</td>
-                                <td>MSI</td>
+                                <td style="width:33.3%">Asrock</td>
+                                <td style="width:33.3%">Asus</td>
+                                <td style="width:33.3%">MSI</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="moederbord_merk1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_merk2" value="2"></td>
-                                <td><input type="checkbox" name="moederbord_merk3" value="3"></td>
+                                <td><input type="checkbox" name="moederbord_merk2" value="1"></td>
+                                <td><input type="checkbox" name="moederbord_merk3" value="1"></td>
                             </tr>
                         </table>
                         <table class="Moederbord_formaat_table">
+                            <tr><th colspan="3"><h5>Moederbord formaat
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'De moederborden die passen in deze computerbehuizing.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>Moederbord formaat</h5></th>
+                                <td style="width:33.3%">ATX</td>
+                                <td style="width:33.3%">E-ATX</td>
+                                <td style="width:33.3%">Micro-ATX</td>
                             </tr>
                             <tr>
-                                <td>ATX</td>
-                                <td>E-ATX</td>
-                                <td>Micro-ATX</td>
+                                <td><input type="radio" name="moederbord_merk" value="1"></td>
+                                <td><input type="radio" name="moederbord_merk" value="2"></td>
+                                <td><input type="radio" name="moederbord_merk" value="3"></td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_merk4" value="1"></td>
-                                <td><input type="radio" name="moederbord_merk5" value="1"></td>
-                                <td><input type="radio" name="moederbord_merk6" value="1"></td>
+                                <td style="width:33.3%">Mini-ITX</td>
+                                <td style="width:33.3%"></td>
+                                <td style="width:33.3%">XL-ATX</td>
                             </tr>
                             <tr>
-                                <td>Mini-ITX</td>
-                                <td>XL-ATX</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_merk4" value="1"></td>
-                                <td><input type="radio" name="moederbord_merk5" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="moederbord_wifi_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>wifi</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_wifi1" value="1"></td>
-                                <td><input type="radio" name="moederbord_wifi2" value="1"></td>
+                                <td><input type="radio" name="moederbord_merk" value="4"></td>
+                                <td></td>
+                                <td><input type="radio" name="moederbord_merk" value="5"></td>
                             </tr>
                         </table>
-                        <div class="moederbord_cost">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-
-                            <p>
-
-                                <input class="slider_label" type="text" id="amount_moederbord" readonly>
-                            </p>
-
-                            <div id="slider-range6"></div>
+                        <table class="moederbord_wifi_table">
+                            <tr><th colspan="2"><h5>Wifi</h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="moederbord_wifi" value="1"></td>
+                                <td><input type="radio" name="moederbord_wifi" value="2"></td>
+                            </tr>
+                        </table>
+                        <table class="moederbord_geheugenslot_table">
+                            <tr><th colspan="3"><h5>Aantal geheugenslots
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Geeft aan hoeveel geheugenmodules tegelijk op het moederbord geplaatst kunnen worden.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:33.3%">2</td>
+                                <td style="width:33.3%">4</td>
+                                <td style="width:33.3%">8</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="moederbord_geheugen" value="1"></td>
+                                <td><input type="radio" name="moederbord_geheugen" value="2"></td>
+                                <td><input type="radio" name="moederbord_geheugen" value="3"></td>
+                            </tr>
+                        </table>
+                        <table class="moederbord_HDMI_table">
+                            <tr><th colspan="2"><h5>HDMI
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'HDMI is een type aansluiting waarbij je heel eenvoudig beeld en geluid via één kabel kan doorsturen naar een ander apparaat zoals bijvoorbeeld: een groter scherm, een televisie of een mediaspeler. Deze aansluiting is universeel en is dus op bijna alle multimedia-apparaten terug te vinden.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="moederbord_HDMI" value="1"></td>
+                                <td><input type="radio" name="moederbord_HDMI" value="2"></td>
+                            </tr>
+                        </table>
+                        <table class="moederbord_VGA_table">
+                            <tr><th colspan="2"><h5>VGA-poort
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een VGA-aansluiting (ook wel 15-pin D-sub genoemd) maakt het mogelijk om PC&#39;s op monitoren, tv&#39;s of beamers aan te sluiten.')) }}
+                                    </h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="moederbord_VGA" value="1"></td>
+                                <td><input type="radio" name="moederbord_VGA" value="2"></td>
+                            </tr>
+                        </table>
+                        <table class="moederbord_displayport_table">
+                            <tr><th colspan="2"><h5>DisplayPort
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Digitale video en audio-aansluiting. DisplayPort wordt voornamelijk gebruikt bij Apple producten.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="moederbord_displayport" value="1"></td>
+                                <td><input type="radio" name="moederbord_displayport" value="2"></td>
+                            </tr>
+                        </table>
+                        <div class="moederbord_cost specification_table">
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_moederbord" readonly></p>
+                            <div class="specification_table_slider" id="motherboard_price"></div>
                         </div>
-                        <div class="moederbord_usb">
-                            <h5>aantal USB 3.0 poorten aanwezig</h5>
-
-                            <p>
-                                <label for="amount_usb">Aantal USB 3.0 poorten:</label>
-                                <input class="slider_label" type="text" id="amount_usb" readonly>
-                            </p>
-
-                            <div id="slider-range7"></div>
+                        <div class="moederbord_usb specification_table">
+                            <h5>Aantal USB 3.0 poorten</h5>
+                            <p><input class="slider_label" type="text" id="amount_usb" readonly></p>
+                            <div class="specification_table_slider" id="motherboard_ports"></div>
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
-                        <table class="moederbord_geheugenslot_table" cellspacing="1px">
+                        <table class="moederbord_ethernet_table">
+                            <tr><th colspan="2"><h5>Aantal ethernetpoorten
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Het aantal ethernet-poorten waarover het product beschikt. Via deze poorten sluit je andere netwerkapparaten aan.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>aantal geheugenslots</h5></th>
+                                <td style="width:50%">1</td>
+                                <td style="width:50%">2</td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>4</td>
-                                <td>8</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="moederbord_geheugen1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_geheugen2" value="2"></td>
-                                <td><input type="checkbox" name="moederbord_geheugen3" value="3"></td>
-                            </tr>
-                        </table>
-                        <table class="moederbord_HDMI_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>HDMI</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_HDMI1" value="1"></td>
-                                <td><input type="radio" name="moederbord_HDMI2" value="1"></td>
+                                <td><input type="radio" name="moederbord_ethernet" value="1"></td>
+                                <td><input type="radio" name="moederbord_ethernet" value="2"></td>
                             </tr>
                         </table>
-                        <table class="moederbord_ethernet_table" cellspacing="1px">
+                        <table class="moederbord_DVI_table">
+                            <tr><th colspan="2"><h5>DVI
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'De Digital Visual Interface (DVI) zorgt voor een ongerepte overdracht van videosignalen, bijvoorbeeld van uw pc naar een monitor. DVI kent 3 versies: DVI-D (alleen digitaal), DVI-A (alleen analoog) en DVI-I (digitaal & analoog).')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Ethernetpoorten</h5></th>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_ethernet1" value="1"></td>
-                                <td><input type="radio" name="moederbord_ethernet2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="moederbord_DVI_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>DVI</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_DVI1" value="1"></td>
-                                <td><input type="radio" name="moederbord_DVI2" value="1"></td>
+                                <td><input type="radio" name="moederbord_DVI" value="1"></td>
+                                <td><input type="radio" name="moederbord_DVI" value="2"></td>
                             </tr>
                         </table>
-                        <table class="moederbord_VGA_table" cellspacing="1px">
+                        <table class="moederbord_RAID_table">
+                            <tr><th colspan="4"><h5>RAID configuratie
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'RAID staat voor Redundant Array of Independent Disks. Met RAID kan je data opslaan en/of verdelen over meerdere schijven. Dit zorgt voor snelheidswinst bij bestanden lezen en/of beveiliging tegen gegevensverlies.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>VGA-poort</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_VGA1" value="1"></td>
-                                <td><input type="radio" name="moederbord_VGA2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="moederbord_displayport_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>DisplayPort aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_displayport1" value="1"></td>
-                                <td><input type="radio" name="moederbord_displayport2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="moederbord_RAID_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="4"><h5>RAID configuratie</h5></th>
-                            </tr>
-                            <tr>
-                                <td>RAID-0</td>
-                                <td>RAID-1</td>
-                                <td>RAID-5</td>
-                                <td>RAID-10</td>
+                                <td style="width:25%">RAID-0</td>
+                                <td style="width:25%">RAID-1</td>
+                                <td style="width:25%">RAID-5</td>
+                                <td style="width:25%">RAID-10</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="moederbord_raid1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_raid2" value="2"></td>
-                                <td><input type="checkbox" name="moederbord_raid3" value="3"></td>
-                                <td><input type="checkbox" name="moederbord_raid4" value="4"></td>
+                                <td><input type="checkbox" name="moederbord_raid2" value="1"></td>
+                                <td><input type="checkbox" name="moederbord_raid3" value="1"></td>
+                                <td><input type="checkbox" name="moederbord_raid4" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%" colspan="2">JBOD</td>
+                                <td style="width:25%" colspan="2">Geen</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input type="checkbox" name="moederbord_raid5" value="1"></td>
+                                <td colspan="2"><input type="checkbox" name="moederbord_raid6" value="1"></td>
                             </tr>
                         </table>
-                        <table class="moederbord_audiokanalen_table" cellspacing="1px">
+                        <table class="moederbord_audiokanalen_table">
+                            <tr><th colspan="2"><h5>Audiokanaal
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Het aantal audiokanalen geeft aan hoeveel speakers aangesloten kunnen worden. Bij een 5.1 opstelling worden er twee frontspeakers, 2 surroundspeakers, een centerspeaker en een (sub)woofer aangesloten. Bij een 7.1 opstelling worden daar nog twee rearspeakers aan toegevoegd.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Aantal audiokanalen</h5></th>
+                                <td style="width:50%">5.1</td>
+                                <td style="width:50%">7.1</td>
                             </tr>
                             <tr>
-                                <td>5.1</td>
-                                <td>7.1</td>
+                                <td><input type="radio" name="moederbord_audiokanalen" value="1"></td>
+                                <td><input type="radio" name="moederbord_audiokanalen" value="2"></td>
+                            </tr>
+                        </table>
+                        <table class="moederbord_geheugen_table">
+                            <tr><th colspan="3"><h5>Geheugen type
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'DDR3 is de naam van de vernieuwde DDR-geheugenstandaard die ontwikkeld is als de opvolger van DDR2. Het reduceert het energieverbruik met 40% vergeleken met DDR2.')) }}
 
+                                    </h5></th></tr>
+                            <tr>
+                                <td style="width:33.3%">DDR3</td>
+                                <td style="width:33.3%">DIMM</td>
+                                <td style="width:33.3%">DIMM DDR4</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="moederbord_audiokanalen1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_audiokanalen2" value="1"></td>
+                                <td><input type="radio" name="moederbord_geheugen" value="1"></td>
+                                <td><input type="radio" name="moederbord_geheugen" value="2"></td>
+                                <td><input type="radio" name="moederbord_geheugen" value="3"></td>
                             </tr>
                         </table>
-                        <table class="moederbord_audioprocessor_table" cellspacing="1px">
+                        <table class="moederbord_msata_table">
+                            <tr><th colspan="2"><h5>mSATA-aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'mSATA is een variant van SATA bedoeld voor harde schijven in mobiele apparaten. mSATA-SSD-schijven kunnen vaak direct op het moederbord zonder tussenkomst van een SATA kabel worden aangesloten.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>Audio processor</h5></th>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td>Realtek ALC1150</td>
-                                <td>SupremeFX</td>
-                                <td>Realtek ALC892</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="moederbord_audiopro1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_audiopro2" value="2"></td>
-                                <td><input type="checkbox" name="moederbord_audiopro3" value="3"></td>
-                            </tr>
-                            <tr>
-                                <td>ROG SupremeFX black</td>
-                                <td>SupremeFX Impact</td>
-                                <td>SupremeFX 2014</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="moederbord_audiopro4" value="4"></td>
-                                <td><input type="checkbox" name="moederbord_audiopro5" value="5"></td>
-                                <td><input type="checkbox" name="moederbord_audiopro6" value="6"></td>
+                                <td><input type="radio" name="moederbord_msata" value="1"></td>
+                                <td><input type="radio" name="moederbord_msata" value="2"></td>
                             </tr>
                         </table>
-                        <table class="moederbord_geheugen_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="3"><h5>Geheugen type</h5></th>
-                            </tr>
-                            <tr>
-                                <td>DDR3</td>
-                                <td>DIMM</td>
-                                <td>DIMM DDR4</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="moederbord_geheugen1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_geheugen2" value="2"></td>
-                                <td><input type="checkbox" name="moederbord_geheugen3" value="3"></td>
-                            </tr>
-                        </table>
-                        <table class="moederbord_msata_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>mSATA-aansluiting aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="moederbord_msata1" value="1"></td>
-                                <td><input type="radio" name="moederbord_msata2" value="1"></td>
-                            </tr>
-                        </table>
-
-                        <div class="moederbord_SATA300">
-                            <h5>SATA 300</h5>
-
-                            <p>
-                                <label for="amount_sata300">Aantal SATA 300 aansluitingen:</label>
-                                <input class="slider_label" type="text" id="amount_sata300" readonly>
-                            </p>
-
-                            <div id="slider-range8"></div>
+                        <div class="moederbord_SATA300 specification_table">
+                            <h5>Aantal SATA 300 aansluitingen</h5>
+                            <p><input class="slider_label" type="text" id="amount_sata300" readonly></p>
+                            <div class="specification_table_slider" id="motherboard_sata300"></div>
                         </div>
-                        <div class="moederbord_SATA600">
-                            <h5>SATA 600</h5>
-
-                            <p>
-                                <label for="amount_sata600">Aantal SATA 600 aansluitingen:</label>
-                                <input class="slider_label" type="text" id="amount_sata600" readonly>
-                            </p>
-
-                            <div id="slider-range9"></div>
+                        <div class="moederbord_SATA600 specification_table">
+                            <h5>Aantal SATA 600 aansluitingen</h5>
+                            <p><input class="slider_label" type="text" id="amount_sata600" readonly></p>
+                            <div class="specification_table_slider" id="motherboard_sata600"></div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2131,171 +2099,149 @@ echo "</pre>";
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
                         <table class="SDD_opslag_table">
+                            <tr><th colspan="5"><h5>Opslag capaciteit</h5></th></tr>
                             <tr>
-                                <th colspan="5"><h5>Opslag capaciteit</h5></th>
-                            </tr>
-                            <tr>
-                                <td>30 GB</td>
-                                <td>60 GB</td>
-                                <td>64 GB</td>
-                                <td>80 GB</td>
-                                <td>120 GB</td>
+                                <td style="width:20%">30 GB</td>
+                                <td style="width:20%">60 GB</td>
+                                <td style="width:20%">64 GB</td>
+                                <td style="width:20%">80 GB</td>
+                                <td style="width:20%">120 GB</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="SDD_opslag1" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag2" value="2"></td>
-                                <td><input type="checkbox" name="SDD_opslag3" value="3"></td>
-                                <td><input type="checkbox" name="SDD_opslag4" value="4"></td>
-                                <td><input type="checkbox" name="SDD_opslag5" value="5"></td>
+                                <td><input type="checkbox" name="SDD_opslag2" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag3" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag4" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag5" value="1"></td>
                             </tr>
                             <tr>
-                                <td>128 GB</td>
-                                <td>180 GB</td>
-                                <td>240 GB</td>
-                                <td>250 GB</td>
-                                <td>256 GB</td>
+                                <td style="width:20%">128 GB</td>
+                                <td style="width:20%">180 GB</td>
+                                <td style="width:20%">240 GB</td>
+                                <td style="width:20%">250 GB</td>
+                                <td style="width:20%">256 GB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SDD_opslag6" value="6"></td>
-                                <td><input type="checkbox" name="SDD_opslag7" value="7"></td>
-                                <td><input type="checkbox" name="SDD_opslag8" value="8"></td>
-                                <td><input type="checkbox" name="SDD_opslag9" value="9"></td>
-                                <td><input type="checkbox" name="SDD_opslag10" value="10"></td>
+                                <td><input type="checkbox" name="SDD_opslag6" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag7" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag8" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag9" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag10" value="1"></td>
                             </tr>
                             <tr>
-                                <td>480 GB</td>
-                                <td>500 GB</td>
-                                <td>512 GB</td>
-                                <td>960 GB</td>
-                                <td>1 TB</td>
+                                <td style="width:20%">480 GB</td>
+                                <td style="width:20%">500 GB</td>
+                                <td style="width:20%">512 GB</td>
+                                <td style="width:20%">960 GB</td>
+                                <td style="width:20%">1 TB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SDD_opslag11" value="11"></td>
-                                <td><input type="checkbox" name="SDD_opslag12" value="12"></td>
-                                <td><input type="checkbox" name="SDD_opslag13" value="13"></td>
-                                <td><input type="checkbox" name="SDD_opslag14" value="14"></td>
-                                <td><input type="checkbox" name="SDD_opslag15" value="15"></td>
+                                <td><input type="checkbox" name="SDD_opslag11" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag12" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag13" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag14" value="1"></td>
+                                <td><input type="checkbox" name="SDD_opslag15" value="1"></td>
                             </tr>
                         </table>
                         <table class="SDD_formaat_table">
+                            <tr><th colspan="5"></th><h5>Formaat
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Een 2,5 inch SSD is geschikt voor laptops. Een mSATA SSD is geschikt voor directe aansluiting op een mSATA-aansluiting.')) }}
+                            </h5></tr>
                             <tr>
-                                <th colspan="5" ></th>
-                                    <h5>formaat</h5>
+                                <td style="width:33.3%">2,5 inch</td>
+                                <td style="width:33.3%">mSATA</td>
+                                <td style="width:33.3%">M.2</td>
                             </tr>
                             <tr>
-                                <td>2,5 inch</td>
-                                <td>mSATA</td>
-                                <td>M.2</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="SDD_formaat1" value="1"></td>
-                                <td><input type="radio" name="SDD_formaat2" value="1"></td>
-                                <td><input type="radio" name="SDD_formaat3" value="1"></td>
-                            </tr>
-                        </table>
-                        <div class="SSD_cost">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p>
-
-                                <input class="slider_label" type="text" id="amount_ssd" readonly>
-                            </p>
-
-                            <div id="slider-range11"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 right_div">
-                        <table class="SDD_merk_table" cellspacing="1px">
-                            <tr>
-
-                                    <h5>SSD merk</h5>
-                            </tr>
-                            <tr>
-                                <td>AMD</td>
-                                <td>Crucial</td>
-                                <td>Intel</td>
-                                <td>Kingston</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="SSD_merk1" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk2" value="2"></td>
-                                <td><input type="checkbox" name="SSD_merk3" value="3"></td>
-                                <td><input type="checkbox" name="SSD_merk4" value="4"></td>
-                            </tr>
-                            <tr>
-                                <td>OCZ</td>
-                                <td>Samsung</td>
-                                <td>SanDisk</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="SSD_merk5" value="5"></td>
-                                <td><input type="checkbox" name="SSD_merk6" value="6"></td>
-                                <td><input type="checkbox" name="SSD_merk7" value="7"></td>
-                            </tr>
-                        </table>
-                        <table class="SSD_controller_table" cellspacing="1px">
-                            <tr>
-
-                                    <h5>SSD-controller</h5>
-
-                            </tr>
-                            <tr>
-                                <td>Indilinx</td>
-                                <td>Intel</td>
-                                <td>Marvell</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="SSD_controller1" value="1"></td>
-                                <td><input type="checkbox" name="SSD_controller2" value="2"></td>
-                                <td><input type="checkbox" name="SSD_controller3" value="3"></td>
-
-                            </tr>
-                            <tr>
-                                <td>Samsung</td>
-                                <td>SandForce</td>
-                                <td>Phison</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="SSD_controller1" value="4"></td>
-                                <td><input type="checkbox" name="SSD_controller2" value="5"></td>
-                                <td><input type="checkbox" name="SSD_controller4" value="6"></td>
+                                <td><input type="radio" name="SDD_formaat" value="1"></td>
+                                <td><input type="radio" name="SDD_formaat" value="2"></td>
+                                <td><input type="radio" name="SDD_formaat" value="3"></td>
                             </tr>
                         </table>
                         <table class="SSD_soort_table" cellspacing="1px">
+                            <tr><h5>Soort geheugen {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Van welk soort geheugen maakt deze SSD gebruik? SLC wordt vaak in een zakelijke omgeving gebruikt en MLC is gangbaar bij consumentenproducten.')) }}
+                            </h5></tr>
                             <tr>
-                               <h5>Soort geheugen</h5>
+                                <td style="width:50%">Multi Level Cell (MLC)</td>
+                                <td style="width:50%">Triple Level Cell (TLC)</td>
                             </tr>
                             <tr>
-                                <td>Multi Level Cell (MLC)</td>
-                                <td>Triple Level Cell (TLC)</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="SSD_soort1" value="1"></td>
-                                <td><input type="radio" name="SSD_soort2" value="1"></td>
+                                <td><input type="radio" name="SSD_soort" value="1"></td>
+                                <td><input type="radio" name="SSD_soort" value="2"></td>
                             </tr>
                         </table>
-                        <div class="SSD_schrijf">
-                            <h5>Schrijfsnelheid</h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p>
-
-                                <input class="slider_label" type="text" id="amount_ssd_schrijf" readonly>
-                            </p>
-
-                            <div id="slider-range12"></div>
+                        <div class="SSD_cost specification_table">
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_ssd" readonly></p>
+                            <div class="specification_table_slider" id="ssd_price"></div>
                         </div>
-                        <div class="SSD_lees">
-                            <h5>Leessnelheid</h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p>
-
-                                <input class="slider_label" type="text" id="amount_ssd_lees" readonly>
-                            </p>
-
-                            <div id="slider-range13"></div>
+                    </div>
+                    <div class="col-md-6 right_div">
+                        <table class="SDD_merk_table">
+                            <tr><h5>SSD merk<br><span class="annotation">(optioneel)</span></h5></tr>
+                            <tr>
+                                <td style="width:25%">AMD</td>
+                                <td style="width:25%">Crucial</td>
+                                <td style="width:25%">Intel</td>
+                                <td style="width:25%">Kingston</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="SSD_merk1" value="1"></td>
+                                <td><input type="checkbox" name="SSD_merk2" value="1"></td>
+                                <td><input type="checkbox" name="SSD_merk3" value="1"></td>
+                                <td><input type="checkbox" name="SSD_merk4" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width:25%">OCZ</td>
+                                <td style="width:25%">Samsung</td>
+                                <td style="width:25%">SanDisk</td>
+                                <td style="width:25%">Geen voorkeur</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="SSD_merk5" value="1"></td>
+                                <td><input type="checkbox" name="SSD_merk6" value="1"></td>
+                                <td><input type="checkbox" name="SSD_merk7" value="1"></td>
+                                <td><input type="checkbox" name="SSD_merk8" value="1"></td>
+                            </tr>
+                        </table>
+                        <table class="SSD_controller_table" cellspacing="1px">
+                            <tr><h5>SSD-controller
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'De fabrikant van de controller van de SSD')) }}
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></tr>
+                            <tr>
+                                <td style="width:33.3%">Indilinx</td>
+                                <td style="width:33.3%">Intel</td>
+                                <td style="width:33.3%">Marvell</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="SSD_controller1" value="1"></td>
+                                <td><input type="checkbox" name="SSD_controller2" value="1"></td>
+                                <td><input type="checkbox" name="SSD_controller3" value="1"></td>
+                            </tr>
+                            <tr>
+                                <td style="width:33.3%">Samsung</td>
+                                <td style="width:33.3%">SandForce</td>
+                                <td style="width:33.3%">Phison</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="SSD_controller4" value="1"></td>
+                                <td><input type="checkbox" name="SSD_controller5" value="1"></td>
+                                <td><input type="checkbox" name="SSD_controller6" value="1"></td>
+                            </tr>
+                        </table>
+                        <div class="SSD_schrijf specification_table">
+                            <h5>Schrijfsnelheid</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_ssd_schrijf" readonly></p>
+                            <div class="specification_table_slider" id="ssd_writespeed"></div>
+                        </div>
+                        <div class="SSD_lees specification_table">
+                            <h5>Leessnelheid</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_ssd_lees" readonly></p>
+                            <div class="specification_table_slider" id="ssd_readspeed"></div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2306,94 +2252,89 @@ echo "</pre>";
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
                         <table class="branders_merk_table">
+                            <tr><th colspan="3"><h5>Brander merk
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>Brander merk</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Asus</td>
-                                <td>Freecom</td>
-                                <td>Apple</td>
+                                <td style="width:33.3%">Asus</td>
+                                <td style="width:33.3%">Freecom</td>
+                                <td style="width:33.3%">Apple</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="brander_merk1" value="1"></td>
-                                <td><input type="checkbox" name="brander_merk2" value="2"></td>
-                                <td><input type="checkbox" name="brander_merk3" value="3"></td>
+                                <td><input type="checkbox" name="brander_merk2" value="1"></td>
+                                <td><input type="checkbox" name="brander_merk3" value="1"></td>
                             </tr>
                             <tr>
-                                <td>LG</td>
-                                <td>Samsung</td>
+                                <td style="width:33.3%">LG</td>
+                                <td style="width:33.3%">Samsung</td>
+                                <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="brander_merk4" value="4"></td>
-                                <td><input type="checkbox" name="brander_merk5" value="5"></td>
+                                <td><input type="checkbox" name="brander_merk4" value="1"></td>
+                                <td><input type="checkbox" name="brander_merk5" value="1"></td>
+                                <td><input type="checkbox" name="brander_merk6" value="1"></td>
                             </tr>
                         </table>
                         <table class="brander_type_table">
+                            <tr><th colspan="2"><h5>Driver type
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Externe drives zijn aan te sluiten via een USB of eSATA kabel op een laptop, netbook of PC. Interne drives worden geplaatst in een PC en intern voorzien van voeding- en datakabels.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Driver type</h5></th>
+                                <td style="width:50%">Intern</td>
+                                <td style="width:50%">Extern</td>
                             </tr>
                             <tr>
-                                <td>Intern</td>
-                                <td>Extern</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="brander_type1" value="1"></td>
-                                <td><input type="radio" name="brander_type2" value="1"></td>
+                                <td><input type="radio" name="brander_type" value="1"></td>
+                                <td><input type="radio" name="brander_type" value="2"></td>
                             </tr>
                         </table>
-                        <div class="brander_cost">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p>
-                                <input class="slider_label" type="text" id="amount_brander" readonly>
-                            </p>
-
-                            <div id="slider-range25"></div>
+                        <div class="brander_cost specification_table">
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_brander" readonly></p>
+                            <div class="specification_table_slider" id="slider-range25"></div>
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="brander_speelt_table">
+                            <tr><th colspan="4"><h5>Speelt van disc</h5></th></tr>
                             <tr>
-                                <th colspan="4"><h5>Speelt van disc</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Blu-ray</td>
-                                <td>DVD</td>
-                                <td>CD</td>
-                                <td>Floppy</td>
+                                <td style="width:25%">Blu-ray</td>
+                                <td style="width:25%">DVD</td>
+                                <td style="width:25%">CD</td>
+                                <td style="width:25%">Floppy</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="brander_speelt1" value="1"></td>
-                                <td><input type="checkbox" name="brander_speelt2" value="2"></td>
-                                <td><input type="checkbox" name="brander_speelt3" value="3"></td>
-                                <td><input type="checkbox" name="brander_speelt4" value="4"></td>
+                                <td><input type="checkbox" name="brander_speelt2" value="1"></td>
+                                <td><input type="checkbox" name="brander_speelt3" value="1"></td>
+                                <td><input type="checkbox" name="brander_speelt4" value="1"></td>
                             </tr>
                         </table>
                         <table class="brander_besturing_table">
+                            <tr><th colspan="2"><h5>Besturingsysteem</h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Besturingsysteem</h5></th>
+                                <td style="width:50%">Windows</td>
+                                <td style="width:50%">Mac OS X</td>
                             </tr>
                             <tr>
-                                <td>Windows</td>
-                                <td>Mac OS X</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="brander_besturing1" value="1"></td>
-                                <td><input type="checkbox" name="brander_besturing2" value="2"></td>
+                                <td><input type="radio" name="brander_besturing" value="1"></td>
+                                <td><input type="radio" name="brander_besturing" value="2"></td>
                             </tr>
                         </table>
                         <table class="brander_ladetype_table">
+                            <tr><th colspan="2"><h5>Type lade
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Het plaatsen van een datadrager in een optische drive is mogelijk op verschillende manieren. De schuiflade schuift naar buiten, zodat de datadrager hierop te plaatsen is. Bij Slotloading steek je de datadrager in de optische drive.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Type lade</h5></th>
+                                <td style="width:50%">Lade</td>
+                                <td style="width:50%">Slot-in</td>
                             </tr>
                             <tr>
-                                <td>Lade</td>
-                                <td>Slot-in</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="brander_ladetype1" value="1"></td>
-                                <td><input type="radio" name="brander_ladetype2" value="1"></td>
+                                <td><input type="radio" name="brander_ladetype" value="1"></td>
+                                <td><input type="radio" name="brander_ladetype" value="2"></td>
                             </tr>
                         </table>
                     </div>

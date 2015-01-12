@@ -75,8 +75,9 @@ $(function() {
     " - €" + $( "#ram_price" ).slider( "values", 1 ));
 });
 
+// Moederbord - Prijs
 $(function() {
-    $( "#slider-range6" ).slider({
+    $( "#motherboard_price" ).slider({
         range: true,
         min: 0,
         max: 450,
@@ -85,13 +86,14 @@ $(function() {
             $( "#amount_moederbord" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_moederbord" ).val( "€" + $( "#slider-range6" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range6" ).slider( "values", 1 ));
+    $( "#amount_moederbord" ).val( "€" + $( "#motherboard_price" ).slider( "values", 0 ) +
+    " - €" + $( "#motherboard_price" ).slider( "values", 1 ));
 });
 
+// Moederbord - Poorten
 $(function() {
-    $( "#slider-range7" ).slider({
-        range: "max",
+    $( "#motherboard_ports" ).slider({
+        range: "min",
         min: 0,
         max: 14,
         value: 3,
@@ -99,12 +101,13 @@ $(function() {
             $( "#amount_usb" ).val( ui.value );
         }
     });
-    $( "#amount_usb" ).val( $( "#slider-range7" ).slider( "value" ) );
+    $( "#amount_usb" ).val( $( "#motherboard_ports" ).slider( "value" ) );
 });
 
+// Moederbord - SATA 300
 $(function() {
-    $( "#slider-range8" ).slider({
-        range: "max",
+    $( "#motherboard_sata300" ).slider({
+        range: "min",
         min: 0,
         max: 6,
         value: 3,
@@ -112,12 +115,13 @@ $(function() {
             $( "#amount_sata300" ).val( ui.value );
         }
     });
-    $( "#amount_sata300" ).val( $( "#slider-range8" ).slider( "value" ) );
+    $( "#amount_sata300" ).val( $( "#motherboard_sata300" ).slider( "value" ) );
 });
 
+// Moederbord - SATA 600
 $(function() {
-    $( "#slider-range9" ).slider({
-        range: "max",
+    $( "#motherboard_sata600" ).slider({
+        range: "min",
         min: 0,
         max: 10,
         value: 4,
@@ -125,7 +129,7 @@ $(function() {
             $( "#amount_sata600" ).val( ui.value );
         }
     });
-    $( "#amount_sata600" ).val( $( "#slider-range9" ).slider( "value" ) );
+    $( "#amount_sata600" ).val( $( "#motherboard_sata600" ).slider( "value" ) );
 });
 
 // Harddisk drive - Prijs
@@ -143,8 +147,9 @@ $(function() {
     " - €" + $( "#slider_harddiskdrive_price" ).slider( "values", 1 ));
 });
 
+// SSD - Prijs
 $(function() {
-    $( "#slider-range11" ).slider({
+    $( "#ssd_price" ).slider({
         range: true,
         min: 0,
         max: 575,
@@ -153,12 +158,13 @@ $(function() {
             $( "#amount_ssd" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_ssd" ).val( "€" + $( "#slider-range11" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range11" ).slider( "values", 1 ));
+    $( "#amount_ssd" ).val( "€" + $( "#ssd_price" ).slider( "values", 0 ) +
+    " - €" + $( "#ssd_price" ).slider( "values", 1 ));
 });
 
+// SSD = schrijfsnelheid
 $(function() {
-    $( "#slider-range12" ).slider({
+    $( "#ssd_writespeed" ).slider({
         range: true,
         min: 100,
         max: 530,
@@ -167,12 +173,13 @@ $(function() {
             $( "#amount_ssd_schrijf" ).val(  + ui.values[ 0 ] + " - " + ui.values[ 1 ] + "MB/s"  );
         }
     });
-    $( "#amount_ssd_schrijf" ).val( + $( "#slider-range12" ).slider( "values", 0 ) +
-    " - " + $( "#slider-range12" ).slider( "values", 1 ) + "MB/s");
+    $( "#amount_ssd_schrijf" ).val( + $( "#ssd_writespeed" ).slider( "values", 0 ) +
+    " - " + $( "#ssd_writespeed" ).slider( "values", 1 ) + "MB/s");
 });
 
+// SSD - leessnelheid
 $(function() {
-    $( "#slider-range13" ).slider({
+    $( "#ssd_readspeed" ).slider({
         range: true,
         min: 420,
         max: 555,
@@ -181,8 +188,8 @@ $(function() {
             $( "#amount_ssd_lees" ).val(  + ui.values[ 0 ] + " -" + ui.values[ 1 ] + "MB/s"  );
         }
     });
-    $( "#amount_ssd_lees" ).val( + $( "#slider-range13" ).slider( "values", 0 ) +
-    " - " + $( "#slider-range13" ).slider( "values", 1 ) + "MB/s");
+    $( "#amount_ssd_lees" ).val( + $( "#ssd_readspeed" ).slider( "values", 0 ) +
+    " - " + $( "#ssd_readspeed" ).slider( "values", 1 ) + "MB/s");
 });
 
 $(function() {
