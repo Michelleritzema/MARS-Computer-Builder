@@ -110,16 +110,41 @@ if (!Session::has('GPU_geheugen_type'))  { Session::put('GPU_geheugen_type','-')
 if (!Session::has('GPU_HDMI'))  { Session::put('GPU_HDMI','-'); }
 if (!Session::has('GPU_VGA'))  { Session::put('GPU_VGA','-'); }
 if (!Session::has('GPU_bandwidth_memory'))  { Session::put('GPU_bandwidth_memory','-'); }
-if (!Session::has('GPU_DVI-I'))  { Session::put('GPU_DVI-I','-'); }
-if (!Session::has('GPU_DVI-D'))  { Session::put('GPU_DVI-D','-'); }
+if (!Session::has('GPU_DVII'))  { Session::put('GPU_DVII','-'); }
+if (!Session::has('GPU_DVID'))  { Session::put('GPU_DVID','-'); }
 if (!Session::has('GPU_cost'))  { Session::put('GPU_cost','-'); }
 if (!Session::has('GPU_memory'))  { Session::put('GPU_memory',''); }
-if (!Session::has(''))  { Session::put('',''); }
-if (!Session::has(''))  { Session::put('',''); }
-if (!Session::has(''))  { Session::put('',''); }
-if (!Session::has(''))  { Session::put('',''); }
-if (!Session::has(''))  { Session::put('',''); }
-if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has('processor_brand1'))  { Session::put('processor_brand1','0'); }
+if (!Session::has('processor_brand2'))  { Session::put('processor_brand2','0'); }
+if (!Session::has('processor_core1'))  { Session::put('processor_core1','0'); }
+if (!Session::has('processor_core2'))  { Session::put('processor_core2','0'); }
+if (!Session::has('processor_core3'))  { Session::put('processor_core3','0'); }
+if (!Session::has('processor_core4'))  { Session::put('processor_core4','0'); }
+if (!Session::has('processor_cost'))  { Session::put('processor_cost','-'); }
+if (!Session::has('processor_serie1'))  { Session::put('processor_serie1','0'); }
+if (!Session::has('processor_serie2'))  { Session::put('processor_serie2','0'); }
+if (!Session::has('processor_serie3'))  { Session::put('processor_serie3','0'); }
+if (!Session::has('processor_serie4'))  { Session::put('processor_serie4','0'); }
+if (!Session::has('processor_serie5'))  { Session::put('processor_serie5','0'); }
+if (!Session::has('processor_serie6'))  { Session::put('processor_serie6','0'); }
+if (!Session::has('processor_serie7'))  { Session::put('processor_serie7','0'); }
+if (!Session::has('processor_serie8'))  { Session::put('processor_serie8','0'); }
+if (!Session::has('processor_speed'))  { Session::put('processor_speed','0'); }
+if (!Session::has('RAM_merk1'))  { Session::put('RAM_merk1','0'); }
+if (!Session::has('RAM_merk2'))  { Session::put('RAM_merk2','0'); }
+if (!Session::has('RAM_merk3'))  { Session::put('RAM_merk3','0'); }
+if (!Session::has('RAM_merk4'))  { Session::put('RAM_merk4','0'); }
+if (!Session::has('RAM_merk5'))  { Session::put('RAM_merk5','0'); }
+if (!Session::has('RAM_merk6'))  { Session::put('RAM_merk6','0'); }
+if (!Session::has('RAM_geheugen1'))  { Session::put('RAM_geheugen1','0'); }
+if (!Session::has('RAM_geheugen2'))  { Session::put('RAM_geheugen2','0'); }
+if (!Session::has('RAM_geheugen3'))  { Session::put('RAM_geheugen3','0'); }
+if (!Session::has('RAM_geheugen4'))  { Session::put('RAM_geheugen4','0'); }
+if (!Session::has('RAM_geheugen5'))  { Session::put('RAM_geheugen5','0'); }
+if (!Session::has('RAM_geheugen6'))  { Session::put('RAM_geheugen6','0'); }
+if (!Session::has('RAM_klok'))  { Session::put('RAM_klok','-'); }
+if (!Session::has('RAM_type'))  { Session::put('RAM_type','-'); }
+if (!Session::has('RAM_kanalen'))  { Session::put('RAM_kanalen','-'); }
 if (!Session::has(''))  { Session::put('',''); }
 if (!Session::has(''))  { Session::put('',''); }
 
@@ -206,8 +231,8 @@ echo Session::get('pci_firewire');
 echo Session::get('pci_sata');
 echo Session::get('pci_esata');
 echo Session::get('pci_price_min');
-echo Session::get('pci_price_max') . "<br>";
-echo "Videocard: ";
+echo Session::get('pci_price_max');
+echo "videocard: ";
 echo Session::get('GPU_producer1');
 echo Session::get('GPU_producer2');
 echo Session::get('GPU_type_AMD1');
@@ -240,15 +265,46 @@ echo Session::get('GPU_geheugen_type');
 echo Session::get('GPU_HDMI');
 echo Session::get('GPU_VGA');
 echo Session::get('GPU_bandwidth_memory');
-echo Session::get('GPU_DVI-I');
-echo Session::get('GPU_DVI-D');
+echo Session::get('GPU_DVII');
+echo Session::get('GPU_DVID');
 echo Session::get('GPU_cost');
 echo Session::get('GPU_memory');
+echo "Processor: ";
+echo Session::get('processor_brand1');
+echo Session::get('processor_brand2');
+echo Session::get('processor_core1');
+echo Session::get('processor_core2');
+echo Session::get('processor_core3');
+echo Session::get('processor_core4');
+echo Session::get('processor_cost');
+echo Session::get('processor_serie1');
+echo Session::get('processor_serie2');
+echo Session::get('processor_serie3');
+echo Session::get('processor_serie4');
+echo Session::get('processor_serie5');
+echo Session::get('processor_serie6');
+echo Session::get('processor_serie7');
+echo Session::get('processor_serie8');
+echo Session::get('processor_serie9');
+echo Session::get('processor_speed');
+echo "InternalMemory: ";
+echo Session::get('RAM_merk1');
+echo Session::get('RAM_merk2');
+echo Session::get('RAM_merk3');
+echo Session::get('RAM_merk4');
+echo Session::get('RAM_merk5');
+echo Session::get('RAM_merk6');
+echo Session::get('RAM_geheugen1');
+echo Session::get('RAM_geheugen2');
+echo Session::get('RAM_geheugen3');
+echo Session::get('RAM_geheugen4');
+echo Session::get('RAM_geheugen5');
+echo Session::get('RAM_geheugen6');
+echo Session::get('RAM_klok');
+echo Session::get('RAM_type');
+echo Session::get('RAM_kanalen');
 echo Session::get('');
 echo Session::get('');
-echo Session::get('');
-echo Session::get('');
-
 echo "</pre>";
 ?>
 
@@ -2339,7 +2395,21 @@ echo "</pre>";
                         </table>
                     </div>
                     <div class="col-md-12">
-                        <input class="myButton" type="submit" value="Onderdeel opslaan">
+                        <input type="submit" value="Creëer profiel" class="myButtonCreer">
+                        <ul style="color:#ffffff">
+                            <li>Voeding</li>
+                            <li>Processor koeler</li>
+                            <li>Harde Schijf</li>
+                            <li>Geluidskaart</li>
+                            <li>PCI express</li>
+                            <li>Videokaart</li>
+                            <li>Processor</li>
+                            <li>Intern geheugen</li>
+                            <li>Moederbord</li>
+                            <li>Behuizing</li>
+                            <li>SSD</li>
+                            <li>BLu-Ray DVD</li>
+                        </ul>
                     </div>
                 {{ Form::close() }}
             @endif

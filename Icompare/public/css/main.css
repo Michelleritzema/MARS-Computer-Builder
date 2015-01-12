@@ -312,3 +312,47 @@ tbody tr td {
 #amd_hidden, #nvidia_hidden {
     display: none;
 }
+
+.myButtonCreer {
+    -moz-box-shadow:inset 0px 1px 0px 0px #d8ffff;
+    -webkit-box-shadow:inset 0px 1px 0px 0px #d8ffff;
+    box-shadow:inset 0px 1px 0px 0px #d8ffff;
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00B5FC), color-stop(1, #009FDE));
+    background:-moz-linear-gradient(top, #00B5FC 5%, #009FDE 100%);
+    background:-webkit-linear-gradient(top, #00B5FC 5%, #009FDE 100%);
+    background:-o-linear-gradient(top, #00B5FC 5%, #009FDE 100%);
+    background:-ms-linear-gradient(top, #00B5FC 5%, #009FDE 100%);
+    background:linear-gradient(to bottom,#00B5FC 5%, #009FDE 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);
+    background-color: #afffe7;
+    -moz-border-radius:6px;
+    -webkit-border-radius:6px;
+    border-radius:6px;
+    border:1px solid #70a4c9;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #435d9d;
+}
+
+.myButtonCreer:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #009FDE), color-stop(1, #00B5FC));
+    background: -moz-linear-gradient(top, #009FDE 5%, #00B5FC 100%);
+    background: -webkit-linear-gradient(top, #009FDE 5%, #00B5FC 100%);
+    background: -o-linear-gradient(top, #009FDE 5%, #00B5FC 100%);
+    background: -ms-linear-gradient(top, #009FDE 5%, #00B5FC 100%);
+    background: linear-gradient(to bottom, #009FDE 5%, #00B5FC 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff', GradientType=0);
+    text-decoration: none;
+    background-color: #435d9d;
+}
+
+.myButtonCreer:active {
+    position: relative;
+    top: 1px;
+}
