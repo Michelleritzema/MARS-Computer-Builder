@@ -296,30 +296,39 @@ echo "</pre>";
         </div>
         <div class="col-md-12 title">
             @if($menuitem == "motherboard")
-                Moederbord
+                Moederbord {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Het moederbord verbindt alle componenten van je computer met elkaar en zorgt dat deze kunnen communiceren. Een moederbord en processor kunnen alleen met elkaar communiceren wanneer ze hetzelfde socket hebben.')) }}
             @elseif($menuitem == "bluraydvd")
-                Blu-Ray & DVD
+                Blu-Ray & DVD {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Een optische drive (of brander) is geschikt voor het lezen en branden van lege schijven (cd-rom, dvd en blu-ray). Een dvd brander is geschikt voor het lezen en schrijven van dvd- en cd-rom-schijven. Met een blu-ray brander is het mogelijk om alle type schijven te lezen en te schrijven.')) }}
             @elseif($menuitem == "ssd")
-                SSD
+                SSD {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Een SSD (Solid State Drive) is een compact opslagmedium dat, anders dan een traditionele harde schijf, gebruik maakt van flashgeheugen. Het flashgeheugen van een SSD werkt vele malen sneller dan een traditionele harde schijf. Dit maakt een SSD bijzonder geschikt als upgrade voor je computer, maar ook voor je laptop.')) }}
             @elseif($menuitem == "soundcard")
-                Geluidskaart
+                Geluidskaart {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Een geluidskaart verzorgt de audio binnen een laptop of PC. De standaard onboard geluidskaart van een laptop of PC is vaak niet in staat om hoogwaardig geluid te produceren. Met een dedicated geluidskaart (extern of intern) bereik je dit wel en geniet je meer van films, muziek en games.')) }}
             @elseif($menuitem == "casing")
-                Behuizing
+                Behuizing {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Bij het in elkaar zetten van een PC, is de type behuizing bepalend voor welk type moederbord erin past, hoeveel uitbreidings sloten er beschikbaar zijn en hoeveel harde schijven je kan plaatsen. Computerbehuizingen zijn er in verschillende maten en voor verschillende soorten moederenborden.')) }}
             @elseif($menuitem == "powersupply")
-                Voeding
+                Voeding {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'De PC-voeding zorgt ervoor dat de componenten van je computer van voldoende stroom worden voorzien. Een game-computer heeft een voeding met meer vermogen nodig dan een basis-computer.')) }}
             @elseif($menuitem == "PCI")
                 PCI express {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                     'alt' => 'test', 'title'=> 'PCI Express kaarten zijn uitbreidingen die je snel en makkelijk kan inbouwen in een PC. Met een uitbreidingskaart creëer je extra interfaces om apparatuur op aan te sluiten of om een draadloze verbinding op te zetten. PCI express kaarten zijn er voor uitbreiding van het aantal poorten voor firewire, USB, SATA en voor netwerkverbindingen.')) }}
             @elseif($menuitem == "processorcooler")
-                Processor koeler
+                Processor koeler {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'De processorkoeler zorgt ervoor dat de hitte die de processor van je computer produceert, afgevoerd wordt. Veel processoren worden geleverd met een koeler. Vaak produceren deze meegeleverde koelers (te) veel geluid en/of koelen ze niet optimaal.')) }}
             @elseif($menuitem == "internalharddrive")
                 Interne harde schrijf
             @elseif($menuitem == "internalmemory")
-                Intern geheugen
+                Intern geheugen {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'RAM-geheugen, ook wel intern geheugen of werkgeheugen genoemd, wordt door computers gebruikt om snel te functioneren.')) }}
             @elseif($menuitem == "videocard")
                 Videokaart
             @elseif($menuitem == "processor")
-                Processor
+                Processor {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'De processor is het hart van je computer en bepaalt voor het grootste gedeelte de snelheid ervan. De prestaties van de processor worden onder andere bepaald door de serie, kloksnelheid, het aantal kernen (cores) en de hoeveelheid cache.')) }}
             @endif
         </div>
         <div class="col-md-12 specification">
@@ -1215,97 +1224,87 @@ echo "</pre>";
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
                         <table class="brand_table">
-                            <tr>
-                                <th colspan="2"><h5>Merk processor</h5></th>
-                            </tr>
+                            <tr><th colspan="2"><h5>Merk processor
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
                                 <td style="width:50%">Intel</td>
                                 <td style="width:50%">AMD</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="processor_brand1" value="1"></td>
-                                <td><input type="checkbox" name="processor_brand2" value="2"></td>
+                                <td><input type="checkbox" name="processor_brand2" value="1"></td>
                             </tr>
                         </table>
                         <table class="core_table">
+                            <tr><th colspan="4"><h5>Aantal processorkernen
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'De aantal rekenkamers die de processor heeft. Een single-core processor zien we terug in basic computers. dual-core heeft 2 core&#39;s en kan twee taken tegelijk berekenen. Dit maakt de computer een stuk sneller met het bewerken van computertaken. Zo telt zich dat op naar triple, quad, hexa, octo.')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="2"><h5>Aantal processorkernen</h5></th>
-                            </tr>
-                            <tr>
-                                <td style="width:50%">Dual core</td>
-                                <td style="width:50%">Quad core</td>
+                                <td style="width:25%">Dual core</td>
+                                <td style="width:25%">Quad core</td>
+                                <td style="width:25%">6-core</td>
+                                <td style="width:25%">8-core</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="processor_core1" value="1"></td>
-                                <td><input type="checkbox" name="processor_core2" value="2"></td>
-                            </tr>
-                            <tr>
-                                <td style="width:50%">6-core</td>
-                                <td style="width:50%">8-core</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="processor_core3" value="3"></td>
-                                <td><input type="checkbox" name="processor_core4" value="4"></td>
+                                <td><input type="checkbox" name="processor_core2" value="1"></td>
+                                <td><input type="checkbox" name="processor_core3" value="1"></td>
+                                <td><input type="checkbox" name="processor_core4" value="1"></td>
                             </tr>
                         </table>
                         <div class="processor_cost specification_table">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p style="%">
-                                <input class="slider_label" type="text" id="amount" readonly
-                                        >
-                            </p>
-
-                            <div class="specification_table_slider" id="slider-range2"></div>
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount" readonly></p>
+                            <div class="specification_table_slider" id="processor_price"></div>
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
-                        <table class="serie_table" cellspacing="1px">
+                        <table class="serie_table">
+                            <tr><th colspan="3"><h5>Processor serie
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Zowel AMD als Intel produceren processoren in verschillende series. Een serie is bedoeld voor bepaald gebruik. Zo zijn Core i3 processoren geschikt voor internet & office werkzaamheden en Core i7 processoren voor veeleisende multitasking en gaming. Binnen een serie zijn verschillende modellen processoren verkrijgbaar. Van welke serie is deze processor onderdeel?')) }}
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="3"><h5>Processor serie</h5></th>
+                                <td style="width:33.3%">A10</td>
+                                <td style="width:33.3%">A6</td>
+                                <td style="width:33.3%">A8</td>
                             </tr>
                             <tr>
-                                <td>A10</td>
-                                <td>A6</td>
-                                <td>A8</td>
+                                <td><input type="checkbox" name="processor_serie1" value="1"></td>
+                                <td><input type="checkbox" name="processor_serie2" value="1"></td>
+                                <td><input type="checkbox" name="processor_serie3" value="1"></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_serie" value="A10"></td>
-                                <td><input type="checkbox" name="processor_serie" value="A6"></td>
-                                <td><input type="checkbox" name="processor_serie" value="A8"></td>
+                                <td style="width:33.3%">Core i3</td>
+                                <td style="width:33.3%">Core i5</td>
+                                <td style="width:33.3%">Core i7</td>
                             </tr>
                             <tr>
-                                <td>Core i3</td>
-                                <td>Core i5</td>
-                                <td>Core i7</td>
+                                <td><input type="checkbox" name="processor_serie4" value="1"></td>
+                                <td><input type="checkbox" name="processor_serie5" value="1"></td>
+                                <td><input type="checkbox" name="processor_serie6" value="1"></td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_serie" value="Core i3"></td>
-                                <td><input type="checkbox" name="processor_serie" value="Core i5"></td>
-                                <td><input type="checkbox" name="processor_serie" value="Core i7"></td>
+                                <td style="width:33.3%">FX</td>
+                                <td style="width:33.3%">Pentium</td>
+                                <td style="width:33.3%">Sempron</td>
                             </tr>
                             <tr>
-                                <td>FX</td>
-                                <td>Pentium</td>
-                                <td>Sempron</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="processor_serie" value="FX"></td>
-                                <td><input type="checkbox" name="processor_serie" value="Pentium"></td>
-                                <td><input type="checkbox" name="processor_serie" value="Sempron"></td>
+                                <td><input type="checkbox" name="processor_serie7" value="1"></td>
+                                <td><input type="checkbox" name="processor_serie8" value="1"></td>
+                                <td><input type="checkbox" name="processor_serie9" value="1"></td>
                             </tr>
                         </table>
-                        <div class="processor_speed">
-                            <h5>Kloksnelheid </h5>
+                        <div class="processor_speed specification_table">
+                            <h5>Kloksnelheid
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'De processor is het hart van het apparaat en voert alle opdrachten uit. Hoe meer functies je tegelijk gebruikt, hoe langer de processor over opdrachten doet. Met een hogere kloksnelheid werkt een processor sneller. Verschillende merken of families processoren met dezelfde kloksnelheid kunnen in de praktijk een verschillende verwerkingssnelheid hebben.')) }}
+                            </h5>
                             <span class="annotation">(minimum - maximum)</span>
-
-                            <p>
-                                <input class="slider_label" type="text" id="speed" readonly
-                                        >
-                            </p>
-
-                            <div id="slider-range1"></div>
+                            <p><input class="slider_label" type="text" id="speed" readonly></p>
+                            <div class="specification_table_slider" id="slider-range1"></div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1315,143 +1314,135 @@ echo "</pre>";
             @elseif($menuitem == "internalmemory")
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
-                        <table class="RAM_geheugen_table">
+                        <table class="RAM_Merk_table">
+                            <tr><th colspan="3"><h5>Merk geheugen
+                                <br><span class="annotation">(optioneel)</span>
+                            </h5></th></tr>
                             <tr>
-                                <th colspan="6"><h5>RAM-geheugen</h5></th>
-                            </tr>
-                            <tr>
-                                <td>1 GB</td>
-                                <td>2 GB</td>
-                                <td>4 GB</td>
-                                <td>8 GB</td>
-                                <td>16 GB</td>
-                                <td>32 GB</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="RAM-geheugen1" value="1"></td>
-                                <td><input type="checkbox" name="RAM-geheugen2" value="2"></td>
-                                <td><input type="checkbox" name="RAM-geheugen3" value="3"></td>
-                                <td><input type="checkbox" name="RAM-geheugen4" value="4"></td>
-                                <td><input type="checkbox" name="RAM-geheugen5" value="5"></td>
-                                <td><input type="checkbox" name="RAM-geheugen6" value="6"></td>
-                            </tr>
-                        </table>
-                        <table class="RAM_klok_table">
-                            <tr>
-                                <th colspan="4"><h5>Kloksnelheid geheugenmodule</h5></th>
-                            </tr>
-                            <tr>
-                                <td>667 MHz</td>
-                                <td>800 MHz</td>
-                                <td>1333 MHz</td>
-                                <td>1600 MHz</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="RAM-klok1" value="1"></td>
-                                <td><input type="checkbox" name="RAM-klok2" value="2"></td>
-                                <td><input type="checkbox" name="RAM-klok3" value="3"></td>
-                                <td><input type="checkbox" name="RAM-klok4" value="4"></td>
-                            </tr>
-                        </table>
-                        <table class="RAM_game_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="4"><h5>Geheugen geschikt voor gaming</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="RAM_game1" value="1"></td>
-                                <td><input type="radio" name="RAM_game2" value="1"></td>
-                            </tr>
-                        </table>
-                        <div class="RAM_cost">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
-
-                            <p>
-
-                                <input class="slider_label" type="text" id="amount_ram" readonly>
-                            </p>
-
-                            <div id="slider-range5"></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 right_div">
-                        <table class="RAM_geschikt_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="4"><h5>Geheugen geschikt voor:</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Desktop</td>
-                                <td>Laptop</td>
-                                <td>NAS</td>
-                                <td>Mac</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="RAM_geschikt1" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geschikt2" value="2"></td>
-                                <td><input type="checkbox" name="RAM_geschikt3" value="3"></td>
-                                <td><input type="checkbox" name="RAM_geschikt4" value="4"></td>
-                            </tr>
-                        </table>
-                        <table class="RAM_type_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="4"><h5>Geheugen type</h5></th>
-                            </tr>
-                            <tr>
-                                <td>DDR2</td>
-                                <td>DDR3</td>
-                                <td>DIMM DDR3</td>
-                                <td>DIMM DDR4</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="RAM_type1" value="1"></td>
-                                <td><input type="radio" name="RAM_type2" value="1"></td>
-                                <td><input type="radio" name="RAM_type3" value="1"></td>
-                                <td><input type="radio" name="RAM_type4" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="RAM_kanalen_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="3"><h5>Aantal geheugenkanalen</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Single Channel</td>
-                                <td>Dual Channel</td>
-                                <td>Quad Channel</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="RAM_kanalen1" value="1"></td>
-                                <td><input type="radio" name="RAM_kanalen2" value="1"></td>
-                                <td><input type="radio" name="RAM_kanalen3" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="RAM_Merk_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="3"><h5>Merk RAM geheugen</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Corsair</td>
-                                <td>Crucial</td>
-                                <td>Kingston</td>
+                                <td style="width:33.3%">Corsair</td>
+                                <td style="width:33.3%">Crucial</td>
+                                <td style="width:33.3%">Kingston</td>
                             </tr>
                             <tr>
                                 <td><input type="checkbox" name="RAM_merk1" value="1"></td>
-                                <td><input type="checkbox" name="RAM_merk2" value="2"></td>
-                                <td><input type="checkbox" name="RAM_merk3" value="3"></td>
+                                <td><input type="checkbox" name="RAM_merk2" value="1"></td>
+                                <td><input type="checkbox" name="RAM_merk3" value="1"></td>
                             </tr>
                             <tr>
-                                <td>Qnap</td>
-                                <td>Synology</td>
+                                <td style="width:33.3%">Qnap</td>
+                                <td style="width:33.3%">Synology</td>
+                                <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="RAM_merk4" value="4"></td>
-                                <td><input type="checkbox" name="RAM_merk5" value="5"></td>
+                                <td><input type="checkbox" name="RAM_merk4" value="1"></td>
+                                <td><input type="checkbox" name="RAM_merk5" value="1"></td>
+                                <td><input type="checkbox" name="RAM_merk6" value="1"></td>
                             </tr>
                         </table>
+                        <table class="RAM_geheugen_table">
+                            <tr><th colspan="6"><h5>RAM-geheugen
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'RAM staat voor Random Access Memory, en wordt ook wel het werkgeheugen genoemd. Hoe meer RAM-geheugen, hoe soepeler het apparaat jouw opdrachten verwerkt.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:16.6%">1 GB</td>
+                                <td style="width:16.6%">2 GB</td>
+                                <td style="width:16.6%">4 GB</td>
+                                <td style="width:16.6%">8 GB</td>
+                                <td style="width:16.6%">16 GB</td>
+                                <td style="width:16.6%">32 GB</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="RAM-geheugen1" value="1"></td>
+                                <td><input type="checkbox" name="RAM-geheugen2" value="1"></td>
+                                <td><input type="checkbox" name="RAM-geheugen3" value="1"></td>
+                                <td><input type="checkbox" name="RAM-geheugen4" value="1"></td>
+                                <td><input type="checkbox" name="RAM-geheugen5" value="1"></td>
+                                <td><input type="checkbox" name="RAM-geheugen6" value="1"></td>
+                            </tr>
+                        </table>
+                        <table class="RAM_klok_table">
+                            <tr><th colspan="4"><h5>Kloksnelheid geheugenmodule</h5></th></tr>
+                            <tr>
+                                <td style="width:25%">667 MHz</td>
+                                <td style="width:25%">800 MHz</td>
+                                <td style="width:25%">1333 MHz</td>
+                                <td style="width:25%">1600 MHz</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="RAM-klok" value="1"></td>
+                                <td><input type="radio" name="RAM-klok" value="2"></td>
+                                <td><input type="radio" name="RAM-klok" value="3"></td>
+                                <td><input type="radio" name="RAM-klok" value="4"></td>
+                            </tr>
+                        </table>
+                        <table class="RAM_game_table">
+                            <tr><th colspan="2"><h5>Geheugen geschikt voor gaming</h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="RAM_game" value="1"></td>
+                                <td><input type="radio" name="RAM_game" value="2"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6 right_div">
+                        <table class="RAM_geschikt_table">
+                            <tr><th colspan="4"><h5>Geheugen geschikt voor:</h5></th></tr>
+                            <tr>
+                                <td style="width:25%">Desktop</td>
+                                <td style="width:25%">Laptop</td>
+                                <td style="width:25%">NAS</td>
+                                <td style="width:25%">Mac</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="RAM_geschikt1" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geschikt2" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geschikt3" value="1"></td>
+                                <td><input type="checkbox" name="RAM_geschikt4" value="1"></td>
+                            </tr>
+                        </table>
+                        <table class="RAM_type_table">
+                            <tr><th colspan="4"><h5>Geheugen type
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'Van welk type geheugen maakt dit product gebruik? DDR2 is de tweede versie van Double Data Rate. Het grootste verschil met DDR is dat er 4 bits tegelijk worden uitgelezen, in plaats van de gebruikelijke 2 bits. Hierdoor is er tweemaal zoveel bandbreedte ten opzichte van DDR. De buffer van DDR3 betreft 8 bit.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:25%">DDR2</td>
+                                <td style="width:25%">DDR3</td>
+                                <td style="width:25%">DIMM DDR3</td>
+                                <td style="width:25%">DIMM DDR4</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="RAM_type" value="1"></td>
+                                <td><input type="radio" name="RAM_type" value="2"></td>
+                                <td><input type="radio" name="RAM_type" value="3"></td>
+                                <td><input type="radio" name="RAM_type" value="4"></td>
+                            </tr>
+                        </table>
+                        <table class="RAM_kanalen_table">
+                            <tr><th colspan="3"><h5>Geheugenkanaal
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                               'alt' => 'test', 'title'=> 'Geeft aan over hoeveel kanalen het geheugen dat op het moederbord geplaatst is de beschikking heeft. Bij Dual channel heeft het geheugen de beschikking over twee kanalen. Bij Quad channel heeft het geheugen de beschikking over 4 kanalen. Hoe meer kanalen, hoe sneller het geheugen kan werken.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:33.3%">Single Channel</td>
+                                <td style="width:33.3%">Dual Channel</td>
+                                <td style="width:33.3%">Quad Channel</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="RAM_kanalen" value="1"></td>
+                                <td><input type="radio" name="RAM_kanalen" value="2"></td>
+                                <td><input type="radio" name="RAM_kanalen" value="3"></td>
+                            </tr>
+                        </table>
+                        <div class="RAM_cost specification_table">
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_ram" readonly></p>
+                            <div class="specification_table_slider" id="ram_price"></div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <input class="myButton" type="submit" value="Onderdeel opslaan">

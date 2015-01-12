@@ -15,8 +15,9 @@ $(function() {
     " MHz - " + $( "#slider-range1" ).slider( "values", 1 ) + "MHz" );
 });
 
+// Processor - Prijs
 $(function() {
-    $( "#slider-range2" ).slider({
+    $( "#processor_price" ).slider({
         range: true,
         min: 0,
         max: 990,
@@ -25,8 +26,8 @@ $(function() {
             $( "#amount" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount" ).val( "€" + $( "#slider-range2" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range2" ).slider( "values", 1 ));
+    $( "#amount" ).val( "€" + $( "#processor_price" ).slider( "values", 0 ) +
+    " - €" + $( "#processor_price" ).slider( "values", 1 ));
 });
 
 // Videokaart - Prijs
@@ -59,8 +60,9 @@ $(function() {
     " MB - " + $( "#videocard_memory" ).slider( "values", 1 ) + "MB" );
 });
 
+// RAM - Prijs
 $(function() {
-    $( "#slider-range5" ).slider({
+    $( "#ram_price" ).slider({
         range: true,
         min: 0,
         max: 275,
@@ -69,8 +71,8 @@ $(function() {
             $( "#amount_ram" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
         }
     });
-    $( "#amount_ram" ).val( "€" + $( "#slider-range5" ).slider( "values", 0 ) +
-    " - €" + $( "#slider-range5" ).slider( "values", 1 ));
+    $( "#amount_ram" ).val( "€" + $( "#ram_price" ).slider( "values", 0 ) +
+    " - €" + $( "#ram_price" ).slider( "values", 1 ));
 });
 
 $(function() {
