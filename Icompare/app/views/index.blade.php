@@ -1064,8 +1064,8 @@ echo "</pre>";
                                 <td style="width:50%">AMD</td>
                             </tr>
                             <tr>
-                                <td><input id="GPU_producer1" type="checkbox" name="GPU_producer1" value="1"></td>
-                                <td><input id="GPU_producer2" type="checkbox" name="GPU_producer2" value="1"></td>
+                                <td><input id="GPU_producer1" type="checkbox" name="GPU_producer1" value="1" onclick="EnableDisableNvidia()"></td>
+                                <td><input id="GPU_producer2" type="checkbox" name="GPU_producer2" value="1" onclick="EnableDisableAMD()"></td>
                             </tr>
                         </table>
                         <table id="amd_hidden" class="GPU_type_AMD_table">
