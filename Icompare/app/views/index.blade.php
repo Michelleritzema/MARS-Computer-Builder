@@ -51,6 +51,8 @@ if (!Session::has('hdd_storagecapacity5')) { Session::put('hdd_storagecapacity5'
 if (!Session::has('hdd_storagecapacity6')) { Session::put('hdd_storagecapacity6', '0'); }
 if (!Session::has('hdd_storagecapacity7')) { Session::put('hdd_storagecapacity7', '0'); }
 if (!Session::has('hdd_storagecapacity8')) { Session::put('hdd_storagecapacity8', '0'); }
+if (!Session::has('hdd_storagecapacity9')) { Session::put('hdd_storagecapacity9', '0'); }
+if (!Session::has('hdd_storagecapacity10')) { Session::put('hdd_storagecapacity10', '0'); }
 if (!Session::has('hdd_connection')) { Session::put('hdd_connection', '-'); }
 if (!Session::has('hdd_buffer')) { Session::put('hdd_buffer', '-'); }
 if (!Session::has('hdd_speed')) { Session::put('hdd_speed', '-'); }
@@ -120,7 +122,8 @@ if (!Session::has('processor_core1'))  { Session::put('processor_core1','0'); }
 if (!Session::has('processor_core2'))  { Session::put('processor_core2','0'); }
 if (!Session::has('processor_core3'))  { Session::put('processor_core3','0'); }
 if (!Session::has('processor_core4'))  { Session::put('processor_core4','0'); }
-if (!Session::has('processor_cost'))  { Session::put('processor_cost','-'); }
+if (!Session::has('processor_cost_min'))  { Session::put('processor_cost_min','-'); }
+if (!Session::has('processor_cost_max'))  { Session::put('processor_cost_max','-'); }
 if (!Session::has('processor_serie1'))  { Session::put('processor_serie1','0'); }
 if (!Session::has('processor_serie2'))  { Session::put('processor_serie2','0'); }
 if (!Session::has('processor_serie3'))  { Session::put('processor_serie3','0'); }
@@ -129,7 +132,8 @@ if (!Session::has('processor_serie5'))  { Session::put('processor_serie5','0'); 
 if (!Session::has('processor_serie6'))  { Session::put('processor_serie6','0'); }
 if (!Session::has('processor_serie7'))  { Session::put('processor_serie7','0'); }
 if (!Session::has('processor_serie8'))  { Session::put('processor_serie8','0'); }
-if (!Session::has('processor_speed'))  { Session::put('processor_speed','0'); }
+if (!Session::has('processor_speed_min'))  { Session::put('processor_speed_min','-'); }
+if (!Session::has('processor_speed_max'))  { Session::put('processor_speed_max','-'); }
 if (!Session::has('RAM_merk1'))  { Session::put('RAM_merk1','0'); }
 if (!Session::has('RAM_merk2'))  { Session::put('RAM_merk2','0'); }
 if (!Session::has('RAM_merk3'))  { Session::put('RAM_merk3','0'); }
@@ -143,10 +147,15 @@ if (!Session::has('RAM_geheugen4'))  { Session::put('RAM_geheugen4','0'); }
 if (!Session::has('RAM_geheugen5'))  { Session::put('RAM_geheugen5','0'); }
 if (!Session::has('RAM_geheugen6'))  { Session::put('RAM_geheugen6','0'); }
 if (!Session::has('RAM_klok'))  { Session::put('RAM_klok','-'); }
+if (!Session::has('RAM_game'))  { Session::put('RAM_game','-'); }
+if (!Session::has('RAM_geschikt1'))  { Session::put('RAM_geschikt1','0'); }
+if (!Session::has('RAM_geschikt2'))  { Session::put('RAM_geschikt2','0'); }
+if (!Session::has('RAM_geschikt3'))  { Session::put('RAM_geschikt3','0'); }
+if (!Session::has('RAM_geschikt4'))  { Session::put('RAM_geschikt4','0'); }
 if (!Session::has('RAM_type'))  { Session::put('RAM_type','-'); }
 if (!Session::has('RAM_kanalen'))  { Session::put('RAM_kanalen','-'); }
-if (!Session::has(''))  { Session::put('',''); }
-if (!Session::has(''))  { Session::put('',''); }
+if (!Session::has('RAM_price_min'))  { Session::put('RAM_price_min','-'); }
+if (!Session::has('RAM_price_max'))  { Session::put('RAM_price_max','-'); }
 
 
 $menuitem = Session::get('menuitem');
@@ -203,6 +212,8 @@ echo Session::get('hdd_storagecapacity5');
 echo Session::get('hdd_storagecapacity6');
 echo Session::get('hdd_storagecapacity7');
 echo Session::get('hdd_storagecapacity8');
+echo Session::get('hdd_storagecapacity9');
+echo Session::get('hdd_storagecapacity10');
 echo Session::get('hdd_connection');
 echo Session::get('hdd_buffer');
 echo Session::get('hdd_speed');
@@ -231,7 +242,7 @@ echo Session::get('pci_firewire');
 echo Session::get('pci_sata');
 echo Session::get('pci_esata');
 echo Session::get('pci_price_min');
-echo Session::get('pci_price_max');
+echo Session::get('pci_price_max') . "<br>";
 echo "videocard: ";
 echo Session::get('GPU_producer1');
 echo Session::get('GPU_producer2');
@@ -268,7 +279,7 @@ echo Session::get('GPU_bandwidth_memory');
 echo Session::get('GPU_DVII');
 echo Session::get('GPU_DVID');
 echo Session::get('GPU_cost');
-echo Session::get('GPU_memory');
+echo Session::get('GPU_memory') . "<br>";
 echo "Processor: ";
 echo Session::get('processor_brand1');
 echo Session::get('processor_brand2');
@@ -276,7 +287,8 @@ echo Session::get('processor_core1');
 echo Session::get('processor_core2');
 echo Session::get('processor_core3');
 echo Session::get('processor_core4');
-echo Session::get('processor_cost');
+echo Session::get('processor_cost_min');
+echo Session::get('processor_cost_max');
 echo Session::get('processor_serie1');
 echo Session::get('processor_serie2');
 echo Session::get('processor_serie3');
@@ -286,7 +298,8 @@ echo Session::get('processor_serie6');
 echo Session::get('processor_serie7');
 echo Session::get('processor_serie8');
 echo Session::get('processor_serie9');
-echo Session::get('processor_speed');
+echo Session::get('processor_speed_min');
+echo Session::get('processor_speed_max') . "<br>";
 echo "InternalMemory: ";
 echo Session::get('RAM_merk1');
 echo Session::get('RAM_merk2');
@@ -301,10 +314,15 @@ echo Session::get('RAM_geheugen4');
 echo Session::get('RAM_geheugen5');
 echo Session::get('RAM_geheugen6');
 echo Session::get('RAM_klok');
+echo Session::get('RAM_game');
+echo Session::get('RAM_geschikt1');
+echo Session::get('RAM_geschikt2');
+echo Session::get('RAM_geschikt3');
+echo Session::get('RAM_geschikt4');
 echo Session::get('RAM_type');
 echo Session::get('RAM_kanalen');
-echo Session::get('');
-echo Session::get('');
+echo Session::get('RAM_price_min');
+echo Session::get('RAM_price_max') . "<br>";
 echo "</pre>";
 ?>
 
@@ -338,24 +356,16 @@ echo "</pre>";
                 </a>
                 <div id="accordion-1" class="accordion-section-content">
                     <p>
-                    <h4 style="font-weight: bold;">Welkom bij Icompare de nieuwe moderne website voor het samen stellen van een eigen computer</h4>
-                    <br/>
-                    Wij van icompare bieden u de mogelijkheid om snel
-                    en zonder moeite een eigen computer samen te stellen.
-                    Met een paar klikken heeft u uw eigen custmized computer gemaakt.
-                    Bij elk onderdeel kiest u de gewenste specificaties van dat onderdeel
-                    om zo een eigen profiel samen te stellen. Wanneer alle specificates zijn ingevuld ingevuld,
-                    dan drukt u op de knop "creëer profiel", daarmee krijgt u in
-                    een oogopslag te zien bij welke winkel u de beste en goedkoopste onderdelen kunt kopen.
-
-                    Wacht niet langer en stel snel uw eigen computer samen met Icompare!
-
-
-                    *niet alle vinkjes hoeven aan gekruist te worden
-                    <br/>
-                    <br/>
-                    <br/>
-                    <p style="font-style: italic;"> *niet alle vinkjes hoeven aan gekruist te worden</p>
+                        <h4 style="font-weight: bold;">Welkom bij Icompare, de nieuwe moderne website voor het samenstellen van je eigen computer</h4><br>
+                        Wij van icompare bieden u de mogelijkheid om snel en zonder moeite een eigen computer samen te stellen.
+                        Met een paar klikken heeft u uw eigen custmized computer gemaakt. Bij elk onderdeel kiest u de gewenste
+                        specificaties van dat onderdeel om zo een ideaal resultaat te krijgen. Wanneer alle specificates zijn
+                        ingevuld ingevuld, drukt u op de knop "creëer profiel". Dan krijgt u in één oogopslag te zien bij welke
+                        winkel u de beste en goedkoopste onderdelen kunt kopen.<br><br>
+                        Wacht niet langer en stel snel uw eigen computer samen met Icompare!<br><br>
+                        *tabellen waar optioneel bij staat hoeven niet ingevuld te worden, maar het invullen geeft wel een nauwkeuriger
+                        resultaat.<br><br><br>
+                        <p style="font-style: italic;"> *niet alle vinkjes hoeven aan gekruist te worden</p>
                     </p>
                 </div>
             </div>
@@ -619,7 +629,7 @@ echo "</pre>";
                                 <td><input type="radio" name="voeding_pci6+2" value="7"></td>
                                 <td><input type="radio" name="voeding_pci6+2" value="8"></td>
                                 <td><input type="radio" name="voeding_pci6+2" value="9"></td>
-                                <td colspan="3"><input type="radio" name="voeding_pci6+2" value="10"></td>
+                                <td colspan="3"><input type="radio" name="voeding_pci6+2" value="a"></td>
                             </tr>
                         </table>
                         <div class="specification_table" id="voeding_cost">
@@ -915,9 +925,9 @@ echo "</pre>";
                                 <td><input type="radio" name="geluid_sample" value="7"></td>
                                 <td><input type="radio" name="geluid_sample" value="8"></td>
                                 <td><input type="radio" name="geluid_sample" value="9"></td>
-                                <td><input type="radio" name="geluid_sample" value="10"></td>
-                                <td><input type="radio" name="geluid_sample" value="11"></td>
-                                <td><input type="radio" name="geluid_sample" value="12"></td>
+                                <td><input type="radio" name="geluid_sample" value="a"></td>
+                                <td><input type="radio" name="geluid_sample" value="b"></td>
+                                <td><input type="radio" name="geluid_sample" value="c"></td>
                             </tr>
                             <tr>
                                 <td style="width:16.6%" colspan="6">Geen voorkeur</td>
@@ -1283,8 +1293,8 @@ echo "</pre>";
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_VGA1" value="1"></td>
-                                <td><input type="radio" name="GPU_VGA2" value="2"></td>
+                                <td><input type="radio" name="GPU_VGA" value="1"></td>
+                                <td><input type="radio" name="GPU_VGA" value="2"></td>
                             </tr>
                         </table>
                     </div>
@@ -1513,9 +1523,9 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="RAM_klok" value="1"></td>
-                                <td><input type="radio" name="RAM_klok" value="1"></td>
-                                <td><input type="radio" name="RAM_klok" value="1"></td>
-                                <td><input type="radio" name="RAM_klok" value="1"></td>
+                                <td><input type="radio" name="RAM_klok" value="2"></td>
+                                <td><input type="radio" name="RAM_klok" value="3"></td>
+                                <td><input type="radio" name="RAM_klok" value="4"></td>
                             </tr>
                         </table>
                         <table class="RAM_game_table">
@@ -1526,7 +1536,7 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="RAM_game" value="1"></td>
-                                <td><input type="radio" name="RAM_game" value="1"></td>
+                                <td><input type="radio" name="RAM_game" value="2"></td>
                             </tr>
                         </table>
                     </div>
@@ -1576,8 +1586,8 @@ echo "</pre>";
                             </tr>
                             <tr>
                                 <td><input type="radio" name="RAM_kanalen" value="1"></td>
-                                <td><input type="radio" name="RAM_kanalen" value="1"></td>
-                                <td><input type="radio" name="RAM_kanalen" value="1"></td>
+                                <td><input type="radio" name="RAM_kanalen" value="2"></td>
+                                <td><input type="radio" name="RAM_kanalen" value="3"></td>
                             </tr>
                         </table>
                         <div class="RAM_cost specification_table">
@@ -2395,28 +2405,28 @@ echo "</pre>";
                         </table>
                     </div>
                     <div class="col-md-12">
-                        <input type="submit" value="Creëer profiel" class="myButtonCreer">
-                        <ul style="color:#ffffff">
-                            <li>Voeding</li>
-                            <li>Processor koeler</li>
-                            <li>Harde Schijf</li>
-                            <li>Geluidskaart</li>
-                            <li>PCI express</li>
-                            <li>Videokaart</li>
-                            <li>Processor</li>
-                            <li>Intern geheugen</li>
-                            <li>Moederbord</li>
-                            <li>Behuizing</li>
-                            <li>SSD</li>
-                            <li>BLu-Ray DVD</li>
-                        </ul>
+                        <input class="myButton" type="submit" value="Onderdeel opslaan">
                     </div>
                 {{ Form::close() }}
             @endif
         </div>
     </div>
     <div class="sidebar col-md-2">
-        <input type="submit" value="Creëer profiel" id="create_profile">
+        <ul id="item_list" style="color:#ffffff">
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Voeding</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Processor koeler</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'harddiskdrive_state')) }} Harde Schijf</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'soundcard_state')) }} Geluidskaart</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'pci_state')) }} PCI express</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'videocard_state')) }} Videokaart</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'processor_state')) }} Processor</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'internalmemory_state')) }} Intern geheugen</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Moederbord</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Behuizing</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} SSD</li>
+            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} BLu-Ray DVD</li>
+        </ul>
+        <input type="submit" value="Creëer profiel" class="myButtonCreer">
     </div>
 </div>
 </body>

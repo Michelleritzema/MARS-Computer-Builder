@@ -200,6 +200,10 @@ class SessionController extends BaseController
         $hdd_storagecapacity7 = isset($temp) ? Input::get('HDD_opslag7') : '0';
         $temp = Input::get('HDD_opslag8');
         $hdd_storagecapacity8 = isset($temp) ? Input::get('HDD_opslag8') : '0';
+        $temp = Input::get('HDD_opslag9');
+        $hdd_storagecapacity9 = isset($temp) ? Input::get('HDD_opslag9') : '0';
+        $temp = Input::get('HDD_opslag10');
+        $hdd_storagecapacity10 = isset($temp) ? Input::get('HDD_opslag10') : '0';
         $temp = Input::get('HDD_aansluiting');
         if (isset($temp)) {
             $hdd_connection = Input::get('HDD_aansluiting');
@@ -232,6 +236,8 @@ class SessionController extends BaseController
         Session::put('hdd_storagecapacity6', $hdd_storagecapacity6);
         Session::put('hdd_storagecapacity7', $hdd_storagecapacity7);
         Session::put('hdd_storagecapacity8', $hdd_storagecapacity8);
+        Session::put('hdd_storagecapacity9', $hdd_storagecapacity9);
+        Session::put('hdd_storagecapacity10', $hdd_storagecapacity10);
         Session::put('hdd_connection', $hdd_connection);
         Session::put('hdd_buffer', $hdd_buffer);
         Session::put('hdd_speed', $hdd_speed);
@@ -433,15 +439,15 @@ class SessionController extends BaseController
         } else {
             $GPU_bandwidth_memory = '-';
         }
-        $temp = Input::get('GPU_DVII');
+        $temp = Input::get('GPU_DVI-I');
         if (isset($temp)) {
-            $GPU_DVII = Input::get('GPU_DVII');
+            $GPU_DVII = Input::get('GPU_DVI-I');
         } else {
             $GPU_DVII = '-';
         }
-        $temp = Input::get('GPU_DVID');
+        $temp = Input::get('GPU_DVI-D');
         if (isset($temp)) {
-            $GPU_DVID = Input::get('GPU_DVID');
+            $GPU_DVID = Input::get('GPU_DVI-D');
         } else {
             $GPU_DVID = '-';
         }
@@ -528,7 +534,8 @@ class SessionController extends BaseController
         $processor_serie7 = isset($temp) ? Input::get('processor_serie7') : '0';
         $temp = Input::get('processor_serie8');
         $processor_serie8 = isset($temp) ? Input::get('processor_serie8') : '0';
-        $temp = Input::get('processor_cost');
+
+        /*$temp = Input::get('processor_cost');
         if (isset($temp)) {
             $processor_cost = Input::get('processor_cost');
         } else {
@@ -539,7 +546,7 @@ class SessionController extends BaseController
             $processor_speed = Input::get('processor_speed');
         } else {
             $processor_speed = '-';
-        }
+        }*/
 
         Session::put('processor_brand1', $processor_brand1);
         Session::put('processor_brand2', $processor_brand2);
@@ -555,8 +562,10 @@ class SessionController extends BaseController
         Session::put('processor_serie6', $processor_serie6);
         Session::put('processor_serie7', $processor_serie7);
         Session::put('processor_serie8', $processor_serie8);
-        Session::put('processor_cost', $processor_cost);
-        Session::put('processor_speed', $processor_speed);
+        //Session::put('processor_cost_min', $processor_cost_min);
+        //Session::put('processor_cost_max', $processor_cost_max);
+        //Session::put('processor_speed_min', $processor_speed_min);
+        //Session::put('processor_speed_max', processor_speed_max);
 
         Session::put('menuitem', 'internalmemory');
     }
@@ -577,15 +586,15 @@ class SessionController extends BaseController
         $RAM_merk6 = isset($temp) ? Input::get('RAM_merk6') : '0';
         $temp = Input::get('RAM_geheugen1');
         $RAM_geheugen1 = isset($temp) ? Input::get('RAM_geheugen1') : '0';
-        $temp = Input::get('RAM_geheugen1');
+        $temp = Input::get('RAM_geheugen2');
         $RAM_geheugen2 = isset($temp) ? Input::get('RAM_geheugen2') : '0';
-        $temp = Input::get('RAM_geheugen1');
+        $temp = Input::get('RAM_geheugen3');
         $RAM_geheugen3 = isset($temp) ? Input::get('RAM_geheugen3') : '0';
-        $temp = Input::get('RAM_geheugen1');
+        $temp = Input::get('RAM_geheugen4');
         $RAM_geheugen4 = isset($temp) ? Input::get('RAM_geheugen4') : '0';
-        $temp = Input::get('RAM_geheugen1');
+        $temp = Input::get('RAM_geheugen5');
         $RAM_geheugen5 = isset($temp) ? Input::get('RAM_geheugen5') : '0';
-        $temp = Input::get('RAM_geheugen1');
+        $temp = Input::get('RAM_geheugen6');
         $RAM_geheugen6 = isset($temp) ? Input::get('RAM_geheugen6') : '0';
         $temp = Input::get('RAM_klok');
         if (isset($temp)) {
@@ -593,6 +602,20 @@ class SessionController extends BaseController
         } else {
             $RAM_klok = '-';
         }
+        $temp = Input::get('RAM_game');
+        if (isset($temp)) {
+            $RAM_game = Input::get('RAM_game');
+        } else {
+            $RAM_game = '-';
+        }
+        $temp = Input::get('RAM_geschikt1');
+        $RAM_geschikt1 = isset($temp) ? Input::get('RAM_geschikt1') : '0';
+        $temp = Input::get('RAM_geschikt2');
+        $RAM_geschikt2 = isset($temp) ? Input::get('RAM_geschikt2') : '0';
+        $temp = Input::get('RAM_geschikt3');
+        $RAM_geschikt3 = isset($temp) ? Input::get('RAM_geschikt3') : '0';
+        $temp = Input::get('RAM_geschikt4');
+        $RAM_geschikt4 = isset($temp) ? Input::get('RAM_geschikt4') : '0';
         $temp = Input::get('RAM_type');
         if (isset($temp)) {
             $RAM_type = Input::get('RAM_type');
@@ -619,8 +642,21 @@ class SessionController extends BaseController
         Session::put('RAM_geheugen5', $RAM_geheugen5);
         Session::put('RAM_geheugen6', $RAM_geheugen6);
         Session::put('RAM_klok', $RAM_klok);
+        Session::put('RAM_game', $RAM_game);
+        Session::put('RAM_geschikt1', $RAM_geschikt1);
+        Session::put('RAM_geschikt2', $RAM_geschikt2);
+        Session::put('RAM_geschikt3', $RAM_geschikt3);
+        Session::put('RAM_geschikt4', $RAM_geschikt4);
         Session::put('RAM_type', $RAM_type);
+        Session::put('RAM_kanalen', $RAM_kanalen);
+        //Session::put('RAM_price_min', $RAM_price_min);
+        //Session::put('RAM_price_max', $RAM_price_max);
 
         Session::put('menuitem', 'motherboard');
     }
+
+    public function saveMotherboard() {
+        Session::put('menuitem', 'casing');
+    }
+
 }

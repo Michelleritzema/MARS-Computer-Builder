@@ -14,9 +14,10 @@ body {
     width: 100%;
 }
 .sidebar {
-	background: #899CA9;
-	text-align: left;
+	background: #333;
+	text-align: center;
 	text-decoration: none;
+    padding-top: 20px;
 }
 .sidebar .sidebarlinks {
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
@@ -328,7 +329,7 @@ tbody tr td {
     -moz-border-radius:6px;
     -webkit-border-radius:6px;
     border-radius:6px;
-    border:1px solid #70a4c9;
+    border:0px solid #70a4c9;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
@@ -338,6 +339,7 @@ tbody tr td {
     padding:6px 24px;
     text-decoration:none;
     text-shadow:0px 1px 0px #435d9d;
+    margin: 20px 0;
 }
 
 .myButtonCreer:hover {
@@ -355,4 +357,18 @@ tbody tr td {
 .myButtonCreer:active {
     position: relative;
     top: 1px;
+}
+
+#item_list {
+    text-align: left;
+    list-style-type: none;
+    padding-left: 5%;
+}
+
+#item_list li {
+    padding: 4px 0;
+}
+
+.list_state {
+    margin-right: 6px;
 }
