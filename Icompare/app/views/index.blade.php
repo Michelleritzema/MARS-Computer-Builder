@@ -632,15 +632,27 @@ echo "</pre>";
                                 <td colspan="3"><input type="radio" name="voeding_pci6+2" value="a"></td>
                             </tr>
                         </table>
+
+
+
                         <div class="specification_table" id="voeding_cost">
-                            <h5>Prijs<br><span class="annotation">(minimum - maximum)</span></h5>
-                            <p><input class="slider_label" type="text" id="amount_voeding" readonly></p>
+                            <h5>Prijs<br>
+                                <span class="annotation">(minimum - maximum)</span></h5>
+                            <p>
+                                <input class="slider_label" type="text" id="amount_voeding" readonly></p>
+
                             <div class="specification_table_slider" id="slider_powersupply_price"></div>
+                            <input name="voeding_cost0" type="hidden"  value="60" id="voeding_cost0" style="background: red">
+                            <input name="voeding_cost1" type="hidden" value="200" id="voeding_cost1" style="background: yellow">
                         </div>
+
                         <div class="voeding_vermogen specification_table">
                             <h5>Vermogen (in Watt)<br><span class="annotation">(minimum - maximum)</span></h5>
                             <p><input class="slider_label" type="text" id="voeding_vermogen" readonly></p>
                             <div class="specification_table_slider" id="slider_powersupply_power"></div>
+
+                            <input name="Powersupply_power0" type="hidden" value="410" type="hidden"  id="Powersupply_power0" style="background: red">
+                            <input name="Powersupply_power1" type="hidden" value="60" type="hidden" id="Powersupply_power1" style="background: yellow">
                         </div>
                         <div class="voeding_sata specification_table">
                             <h5>S-ATA aansluiting
@@ -650,6 +662,9 @@ echo "</pre>";
                             </h5>
                               <p><input class="slider_label" type="text" id="voeding_sata" readonly></p>
                             <div class="specification_table_slider" id="slider_sata"></div>
+
+                            <input name="Sata-connection0"  type="hidden" value="0" id="Sata-connection0" style="background: red">
+                            <input name="Sata-connection1"  type="hidden" value="4" id="Sata-connection1" style="background: yellow">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -692,7 +707,11 @@ echo "</pre>";
                                 <input class="slider_label" type="text" id="amount_koeler" readonly>
                             </p>
                             <div class="specification_table_slider" id="slider_processorcooler_price"></div>
+                            <input name="ProcessorCoolerP0" type="hidden" value= "60" id="ProcessorCoolerP0" style="background: red">
+                            <input name="ProcessorCoolerP1"  type="hidden" value= "100" id="ProcessorCoolerP1" style="background: yellow">
+
                         </div>
+
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="koeler_methode_table">
@@ -713,11 +732,21 @@ echo "</pre>";
                             <h5>Diameter ventilator</h5><span class="annotation">(in cm)</span>
                             <p><input class="slider_label" type="text" id="koeler_diameter" readonly></p>
                             <div class="specification_table_slider" id="slider_processorcooler_diameter"></div>
+
+                            <input name="ProcessorCoolerVentilatorDm0"  type="hidden" value= "9" id="ProcessorCoolerVentilatorDm0" style="background: red">
+
+
+
+
                         </div>
                         <div class="koeler_rotatiesnelheid specification_table">
                             <h5>Rotatiesnelheid </h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="koeler_rotatie" readonly></p>
                             <div class="specification_table_slider" id="slider_processorcooler_rotation"></div>
+
+                            <input name="ProcessorCoolerRSpeed0"  type="hidden" value= "800" id="ProcessorCoolerRSpeed0" style="background: red">
+                            <input name="ProcessorCoolerRSpeed1" type="hidden"  value= "1200" id="ProcessorCoolerRSpeed1" style="background: yellow">
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -870,6 +899,11 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_hdd" readonly></p>
                             <div class="specification_table_slider" id="slider_harddiskdrive_price"></div>
+
+                            <input name="harddiskdrive_price0" type="hidden"  value="60" id="harddiskdrive_price0" style="background: red">
+                            <input name="harddiskdrive_price1" type="hidden"  value="160" id="harddiskdrive_price1" style="background: yellow">
+
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1044,6 +1078,10 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_geluid" readonly></p>
                             <div class="specification_table_slider" id="soundcard_price"></div>
+
+                            <input name="soundcard_price0" type="hidden" value="60" id="soundcard_price0" style="background: red">
+                            <input name="soundcard_price1" type="hidden" value="100" id="soundcard_price1" style="background: yellow">
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1112,6 +1150,10 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_pci" readonly></p>
                             <div class="specification_table_slider" id="pci_price"></div>
+                            <input name="pci_price0" type="hidden"  value="20" id="pci_price0" style="background: red">
+                            <input name="pci_price1" type="hidden" value="60" id="pci_price1" style="background: yellow">
+
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1359,13 +1401,21 @@ echo "</pre>";
                         </table>
                         <div class="GPU_cost specification_table">
                             <h5>Prijs </h5><span class="annotation">(minimum - maximum)</span>
-                            <p><input class="slider_label" type="text" id="amount_GPU_prijs" readonly></p>
-                            <div class="specification_table_slider" id="videocard_price"></div>
+                            <p><input class="slider_label"   type="text" id="amount_GPU_prijs" readonly></p>
+                            <div class="specification_table_slider" type="hidden"  id="videocard_price"></div>
+
+                            <input name="videocard_price0" type="hidden" value="100" id="videocard_price0" style="background: red">
+                            <input name="videocard_price1"  type="hidden" value="600" id="videocard_price1" style="background: yellow">
+
+
                         </div>
                         <div class="GPU_memory specification_table">
                             <h5>Gewenst videogeheugen</h5><span class="annotation">(minimum - maximum)</span>
-                            <p><input class="slider_label" type="text" id="amount_GPU_geheugen" readonly></p>
+                            <p><input class="slider_label"  type="text" id="amount_GPU_geheugen" readonly></p>
                             <div class="specification_table_slider" id="videocard_memory"></div>
+
+                            <input name="videocard_memoryMb0" type="hidden"  value="516" id="videocard_memoryMb0" style="background: red">
+                            <input name="videocard_memoryMb1" type="hidden"  value="4096" id="videocard_memoryMb1" style="background: yellow">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1410,6 +1460,8 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount" readonly></p>
                             <div class="specification_table_slider" id="processor_price"></div>
+                            <input name="processor_price0"  type="hidden" value="100" id="processor_price0" style="background: red">
+                            <input name="processor_price1"  type="hidden" value="400" id="processor_price1" style="background: yellow">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -1457,6 +1509,10 @@ echo "</pre>";
                             <span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="speed" readonly></p>
                             <div class="specification_table_slider" id="slider-range1"></div>
+
+                            <input name="processor_clocking0" type="hidden" value="1450" id="processor_clocking0" style="background: red">
+                            <input name="processor_clocking1"  type="hidden" value="2510"  id="processor_clocking1" style="background: yellow">
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1594,6 +1650,9 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ram" readonly></p>
                             <div class="specification_table_slider" id="ram_price"></div>
+                            <input name="ram_price0"  type="hidden" value="60" id="ram_price0" style="background: red">
+                            <input name="ram_price"1  type="hidden"  value="120" id="ram_price1" style="background: yellow">
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1717,11 +1776,16 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_moederbord" readonly></p>
                             <div class="specification_table_slider" id="motherboard_price"></div>
+                            <input name="motherboard_price0"  type="hidden" value="100" id="motherboard_price0" style="background: red">
+                            <input name="motherboard_price1" type="hidden"  value="260" id="motherboard_price1" style="background: yellow">
+
                         </div>
                         <div class="moederbord_usb specification_table">
                             <h5>Aantal USB 3.0 poorten</h5>
                             <p><input class="slider_label" type="text" id="amount_usb" readonly></p>
                             <div class="specification_table_slider" id="motherboard_ports"></div>
+                            <input name="Usb_port0" type="hidden" value="3" id="Usb_port0" style="background: red">
+
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -1828,11 +1892,15 @@ echo "</pre>";
                             <h5>Aantal SATA 300 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata300" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata300"></div>
+                            <input name="motherboard_sata600connection0"  type="hidden" value="3" id="motherboard_sata300connection0" style="background: red">
+
                         </div>
                         <div class="moederbord_SATA600 specification_table">
                             <h5>Aantal SATA 600 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata600" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata600"></div>
+                            <input name="motherboard_sata600connection0" type="hidden"  value="4" id="motherboard_sata600connection0" style="background: red">
+
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1841,327 +1909,289 @@ echo "</pre>";
                 {{ Form::close() }}
             @elseif($menuitem == "casing")
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
-                    <div class="col-md-6 left_div">
-                        <table class="behuizing_formaat_table">
-                            <tr>
-                                <th colspan="3"><h5>formaat moederbord</h5></th>
-                            </tr>
-                            <tr>
-                                <td>ATX</td>
-                                <td>DTX</td>
-                                <td>E-ATX</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="behuizing_formaat1" value="ATX"></td>
-                                <td><input type="checkbox" name="behuizing_formaat2" value="DTX"></td>
-                                <td><input type="checkbox" name="behuizing_formaat3" value="E-ATX"></td>
-                            </tr>
-                            <tr>
-                                <td>Micro-ATX</td>
-                                <td>Mini-ITX</td>
-                                <td>XL-ATX</td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_computer_table">
-                            <tr>
-                                <th colspan="3"><h5>computerbehuizing</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Cube</td>
-                                <td>Full Tower</td>
-                                <td>HTPC</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="behuizing_computer1" value="Cube"></td>
-                                <td><input type="checkbox" name="behuizing_computer2" value="Full Tower"></td>
-                                <td><input type="checkbox" name="behuizing_computer3" value="HTPC"></td>
-                            </tr>
-                            <tr>
-                                <td>Miditower</td>
-                                <td>Mini Tower</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="behuizing_computer4" value="Miditower"></td>
-                                <td><input type="checkbox" name="behuizing_computer5" value="Mini tower"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_fan_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>fan controller</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_fan1" value="1"></td>
-                                <td><input type="radio" name="behuizing_fan2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_stof_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>stoffilter</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_stof1" value="1"></td>
-                                <td><input type="radio" name="behuizing_stof2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_water_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>waterkoeling aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_water1" value="1"></td>
-                                <td><input type="radio" name="behuizing_water2" value="1"></td>
-                            </tr>
-                        </table>
-                        <div class="behuizing_prijs">
-                            <h5>Prijs </h5>
-                            <span class="annotation">(minimum - maximum)</span>
+                <div class="col-md-6 left_div">
+                    <table class="behuizing_merk_table">
+                        <tr><th colspan="5"><h5>Behuizing merk
+                                    <br><span class="annotation">(optioneel)</span>
+                                </h5></th></tr>
+                        <tr>
+                            <td style="width:20%">Antec</td>
+                            <td style="width:20%">CoolerMaster</td>
+                            <td style="width:20%">Corsair</td>
+                            <td style="width:20%">Fractal Design</td>
+                            <td style="width:20%">SilverStone</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="behuizing_merk1" value="1"></td>
+                            <td><input type="checkbox" name="behuizing_merk2" value="2"></td>
+                            <td><input type="checkbox" name="behuizing_merk3" value="3"></td>
+                            <td><input type="checkbox" name="behuising_merk4" value="4"></td>
+                            <td><input type="checkbox" name="behuising_merk5" value="5"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%" colspan="5">Geen voorkeur</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5"><input type="checkbox" name="behuizing_merk6" value="1"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_computer_table">
+                        <tr><th colspan="5"><h5>Model computerbehuizing
+                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                    'alt' => 'test', 'title'=> 'Welk model heeft deze computerbehuizing. Meest voorkomende vorm is een Tower computerbehuizing.')) }}
+                                </h5></th></tr>
+                        <tr>
+                            <td style="width:20%">Cube</td>
+                            <td style="width:20%">Full Tower</td>
+                            <td style="width:20%">HTPC</td>
+                            <td style="width:20%">Miditower</td>
+                            <td style="width:20%">Mini Tower</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_computer" value="1"></td>
+                            <td><input type="radio" name="behuizing_computer" value="2"></td>
+                            <td><input type="radio" name="behuizing_computer" value="3"></td>
+                            <td><input type="radio" name="behuizing_computer" value="4"></td>
+                            <td><input type="radio" name="behuizing_computer" value="5"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_fan_table">
+                        <tr><th colspan="2"><h5>Fan controller</h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_fan" value="1"></td>
+                            <td><input type="radio" name="behuizing_fan" value="2"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_stof_table">
+                        <tr><th colspan="2"><h5>Stoffilter</h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_stof" value="1"></td>
+                            <td><input type="radio" name="behuizing_stof" value="2"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_water_table">
+                        <tr><th colspan="2"><h5>Voorziening waterkoeling</h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_water" value="1"></td>
+                            <td><input type="radio" name="behuizing_water" value="2"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_led_table">
+                        <tr><th colspan="2"><h5>LED display aanwezig</h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_led" value="1"></td>
+                            <td><input type="radio" name="behuizing_led" value="2"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_Ruisreductie_table">
+                        <tr><th colspan="2"><h5>Ruisreductie aanwezig</h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_ruis" value="1"></td>
+                            <td><input type="radio" name="behuizing_ruis" value="2"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_Geluid_table">
+                        <tr><th colspan="2"><h5>Geluidsdempende matten</h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_geluid" value="1"></td>
+                            <td><input type="radio" name="behuizing_geluid" value="2"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_paneel_table" cellspacing="1px">
+                        <tr><th colspan="2"><h5>Paneeldeur
+                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                    'alt' => 'test', 'title'=> 'Zit er een deur in het paneel aan de voorzijde?')) }}
+                                </h5></th></tr>
+                        <tr>
+                            <td style="width:50%">Ja</td>
+                            <td style="width:50%">Nee</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_paneel" value="1"></td>
+                            <td><input type="radio" name="behuizing_paneel" value="2"></td>
+                        </tr>
+                    </table>
+                    <div class="behuizing_prijs specification_table">
+                        <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                        <p><input class="slider_label" type="text" id="amount_behuizing" readonly></p>
+                        <div class="specification_table_slider" id="slider-range14"></div>
+                        <input name="casing_Price0" type="hidden" value="100" id="casing_Price0" style="background: red">
+                        <input name="casing_Price1"  type="hidden" value="160" id="casing_Price1" style="background: yellow">
 
-                            <p>
-
-                                <input class="slider_label" type="text" id="amount_behuizing" readonly>
-                            </p>
-
-                            <div id="slider-range14"></div>
-                        </div>
-                        <div class="behuizing_uitbreiding">
-                            <h5>Schrijfsnelheid</h5>
-
-                            <p>
-                                <label for="amount_behuizing_uitbreiding">Aantal uitbreidingssloten:</label>
-                                <br/>
-                                <input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly>
-                            </p>
-
-                            <div id="slider-range18"></div>
-                        </div>
                     </div>
-                    <div class="col-md-6 right_div">
-                        <table class="behuizing_merk_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="5"><h5>behuizing merk</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Antec</td>
-                                <td>CoolerMaster</td>
-                                <td>Corsair</td>
-                                <td>Fractal Design</td>
-                                <td>SilverStone</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="behuizing_merk1" value="1"></td>
-                                <td><input type="checkbox" name="behuizing_merk2" value="2"></td>
-                                <td><input type="checkbox" name="behuizing_merk3" value="3"></td>
-                                <td><input type="checkbox" name="behuising_merk4" value="4"></td>
-                                <td><input type="checkbox" name="behuising_merk5" value="5"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_led_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5> LED display aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_led1" value="1"></td>
-                                <td><input type="radio" name="behuizing_led2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_Ruisreductie_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>Ruisreductie aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_ruis1" value="1"></td>
-                                <td><input type="radio" name="behuizing_ruis2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_Geluid_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>Geluidsdempende matten aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_geluid1" value="1"></td>
-                                <td><input type="radio" name="behuizing_geluid2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_paneel_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="2"><h5>Paneeldeur aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Ja</td>
-                                <td>Nee</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_paneel1" value="1"></td>
-                                <td><input type="radio" name="behuizing_paneel2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_kleur_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="4"><h5>kleur behuizing</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Grijs</td>
-                                <td>Oranje</td>
-                                <td>Wit</td>
-                                <td>Zwart</td>
-                                <td>Geen voorkeur</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_kleur1" value="1"></td>
-                                <td><input type="radio" name="behuizing_kleur2" value="1"></td>
-                                <td><input type="radio" name="behuizing_kleur3" value="1"></td>
-                                <td><input type="radio" name="behuizing_kleur4" value="1"></td>
-                                <td><input type="radio" name="behuizing_kleur5" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_materiaal_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="3"><h5>Materiaal behuizing</h5></th>
-                            </tr>
-                            <tr>
-                                <td>Aluminium</td>
-                                <td>Kunststof</td>
-                                <td>Plastic</td>
-                                <td>Polymeer</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_materiaal1" value="1"></td>
-                                <td><input type="radio" name="behuizing_materiaal2" value="1"></td>
-                                <td><input type="radio" name="behuizing_materiaal3" value="1"></td>
-                                <td><input type="radio" name="behuizing_materiaal4" value="1"></td>
-                            </tr>
-                            <tr>
-                                <td>Rubber</td>
-                                <td>Staal</td>
-                                <td>Geen voorkeur</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_materiaal5" value="1"></td>
-                                <td><input type="radio" name="behuizing_materiaal6" value="1"></td>
-                                <td><input type="radio" name="behuizing_materiaal7" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_usb2_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="5"><h5>aantal USB 2.0 poorten aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                                <td>5</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="behuizing_usb21" value="1"></td>
-                                <td><input type="checkbox" name="behuizing_usb22" value="2"></td>
-                                <td><input type="checkbox" name="behuizing_usb23" value="3"></td>
-                                <td><input type="checkbox" name="behuizing_usb24" value="4"></td>
-                                <td><input type="checkbox" name="behuizing_usb25" value="5"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_usb3_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="5"><h5>aantal USB 3.0 poorten aanwezig</h5></th>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox" name="behuizing_usb31" value="1"></td>
-                                <td><input type="checkbox" name="behuizing_usb32" value="2"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_firewire_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="5"><h5>firewire poorten</h5></th>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_firewire1" value="1"></td>
-                                <td><input type="radio" name="behuizing_firewire2" value="1"></td>
-                            </tr>
-                        </table>
-                        <table class="behuizing_eSATA_table" cellspacing="1px">
-                            <tr>
-                                <th colspan="5"><h5>eSATA aansluitingen</h5></th>
-                            </tr>
-                            <tr>
-                                <td>0</td>
-                                <td>1</td>
-                            </tr>
-                            <tr>
-                                <td><input type="radio" name="behuizing_esata1" value="1"></td>
-                                <td><input type="radio" name="behuizing_esata2" value="1"></td>
-                            </tr>
-                        </table>
-                        <div class="behuizing_3,5bay">
-                            <h5>Schrijfsnelheid</h5>
+                    <div class="behuizing_uitbreiding specification_table">
+                        <h5>Aantal uitbreidingssloten</h5><span class="annotation">(minimum - maximum)</span>
+                        <p><input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly></p>
+                        <div class="specification_table_slider" id="slider-range18"></div>
+                        <input name="casing_expansion_0"  type="hidden"  value="3" id="casing_expansion_0" style="background: red">
+                        <input name="casing_expansion_1"  type="hidden" value="7" id="casing_expansion_1" style="background: yellow">
 
-                            <p>
-                                <label for="amount_behuizing_3bay">3,5'' bays:</label>
-                                <br/>
-                                <input class="slider_label" type="text" id="amount_behuizing_3bay" readonly>
-                            </p>
-
-                            <div id="slider-range15"></div>
-                            <input name="casing_writespeed_0" id="casing_writespeed_0" style="background: red">
-                            <input name="casing_writespeed_1" id="casing_writespeed_1" style="background: yellow">
-                        </div>
-                        <div class="behuizing_2,5bay">
-                            <h5>Schrijfsnelheid</h5>
-
-                            <p>
-                                <label for="amount_behuizing_2bay">2,5'' bays:</label>
-                                <br/>
-                                <input class="slider_label" type="text" id="amount_behuizing_2bay" readonly>
-                            </p>
-
-                            <div id="slider-range16"></div>
-                        </div>
-                        <div class="behuizing_5,25bay">
-                            <h5>Schrijfsnelheid</h5>
-
-                            <p>
-                                <label for="amount_behuizing_5bay">5,25'' bays:</label>
-                                <br/>
-                                <input class="slider_label" type="text" id="amount_behuizing_5bay" readonly>
-                            </p>
-
-                            <div id="slider-range17"></div>
-                        </div>
                     </div>
-                    <div class="col-md-12">
-                        <input class="myButton" type="submit" value="Onderdeel opslaan">
+                </div>
+                <div class="col-md-6 right_div">
+                    <table class="behuizing_kleur_table">
+                        <tr><th colspan="4"><h5>Kleur behuizing</h5></th></tr>
+                        <tr>
+                            <td style="width:25%">Grijs</td>
+                            <td style="width:25%">Oranje</td>
+                            <td style="width:25%">Wit</td>
+                            <td style="width:25%">Zwart</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_kleur" value="1"></td>
+                            <td><input type="radio" name="behuizing_kleur" value="2"></td>
+                            <td><input type="radio" name="behuizing_kleur" value="3"></td>
+                            <td><input type="radio" name="behuizing_kleur" value="4"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:25%" colspan="4">Geen voorkeur</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4"><input type="radio" name="behuizing_kleur" value="5"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_materiaal_table">
+                        <tr><th colspan="3"><h5>Materiaal behuizing</h5></th></tr>
+                        <tr>
+                            <td style="width:25%">Aluminium</td>
+                            <td style="width:25%">Kunststof</td>
+                            <td style="width:25%">Plastic</td>
+                            <td style="width:25%">Polymeer</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_materiaal" value="1"></td>
+                            <td><input type="radio" name="behuizing_materiaal" value="2"></td>
+                            <td><input type="radio" name="behuizing_materiaal" value="3"></td>
+                            <td><input type="radio" name="behuizing_materiaal" value="4"></td>
+                        </tr>
+                        <tr>
+                            <td style="width:25%">Rubber</td>
+                            <td style="width:25%">Staal</td>
+                            <td style="width:25%" colspan="2">Geen voorkeur</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_materiaal" value="5"></td>
+                            <td><input type="radio" name="behuizing_materiaal" value="6"></td>
+                            <td colspan="2"><input type="radio" name="behuizing_materiaal" value="7"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_usb2_table">
+                        <tr><th colspan="3"><h5>Aantal USB 2.0 poorten
+                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                    'alt' => 'test', 'title'=> 'USB is een veelgebruikte standaard voor de aansluiting van randapparatuur bij computers. USB 2.0 is de meest gebruikte versie. Via USB 2.0 kunnen gegevens met een snelheid van 35 MB/s doorgevoerd worden.')) }}
+                                </h5></th></tr>
+                        <tr>
+                            <td style="width:33.3%">0</td>
+                            <td style="width:33.3%">1</td>
+                            <td style="width:33.3%">2</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="behuizing_usb2_1" value="1"></td>
+                            <td><input type="checkbox" name="behuizing_usb2_2" value="1"></td>
+                            <td><input type="checkbox" name="behuizing_usb2_3" value="1"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_usb3_table">
+                        <tr><th colspan="3"><h5>Aantal USB 3.0 poorten
+                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                    'alt' => 'test', 'title'=> 'USB is een veelgebruikte standaard voor de aansluiting van randapparatuur bij computers. Via USB 3.0 kunnen gegevens met een snelheid van 625 MB/s doorgevoerd worden.')) }}
+                                </h5></th></tr>
+                        <tr>
+                            <td style="width:33.3%">0</td>
+                            <td style="width:33.3%">1</td>
+                            <td style="width:33.3%">2</td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" name="behuizing_usb3_1" value="1"></td>
+                            <td><input type="checkbox" name="behuizing_usb3_2" value="1"></td>
+                            <td><input type="checkbox" name="behuizing_usb3_3" value="1"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_firewire_table">
+                        <tr><th colspan="3"><h5>Firewire poort</h5></th></tr>
+                        <tr>
+                            <td style="width:33.3%">0</td>
+                            <td style="width:33.3%">1</td>
+                            <td style="width:33.3%">Geen voorkeur</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_firewire" value="1"></td>
+                            <td><input type="radio" name="behuizing_firewire" value="2"></td>
+                            <td><input type="radio" name="behuizing_firewire" value="3"></td>
+                        </tr>
+                    </table>
+                    <table class="behuizing_eSATA_table">
+                        <tr><th colspan="3"><h5>eSATA aansluitingen
+                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                    'alt' => 'test', 'title'=> 'eSATA is een computerbus ontworpen voor het transport van gegevens tussen het moederbord en externe opslagmedia. eSATA is een aangepaste versie van SATA. De kabels zijn langer en de connector is steviger.')) }}
+                                </h5></th></tr>
+                        <tr>
+                            <td style="width:33.3%">0</td>
+                            <td style="width:33.3%">1</td>
+                            <td style="width:33.3%">Geen voorkeur</td>
+                        </tr>
+                        <tr>
+                            <td><input type="radio" name="behuizing_esata" value="1"></td>
+                            <td><input type="radio" name="behuizing_esata" value="2"></td>
+                            <td><input type="radio" name="behuizing_esata" value="3"></td>
+                        </tr>
+                    </table>
+                    <div class="behuizing_2,5bay specification_table">
+                        <h5>2,5'' Bays (HDD/SSD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Hoeveel 2,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 2,5 inch bay is geschikt voor een harde schijf of SSD.')) }}
+                        </h5>
+                        <p><input class="slider_label" type="text" id="amount_behuizing_2bay" readonly></p>
+                        <div class="specification_table_slider" id="slider-range16"></div>
+                        <input name="casing_HDD/SSD_0"  type="hidden" id="casing_HDD/SSD_0" value="2" style="background: red">
+                        <input name="casing_HDD/SSD_1"  type="hidden" id="casing_HDD/SSD_1" value="5" style="background: yellow">
                     </div>
+                    <div class="behuizing_3,5bay specification_table">
+                        <h5>3,5'' Bays (HDD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Hoeveel 3,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 3,5 inch bay is geschikt voor een harde schijf.')) }}
+                        </h5>
+                        <p><input class="slider_label" type="text" id="amount_behuizing_3bay" readonly></p>
+                        <div class="specification_table_slider" id="slider-range15"></div>
+                        <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value="2" style="background: red">
+                        <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value="5" style="background: yellow">
+                    </div>
+
+                    <div class="behuizing_5,25bay specification_table">
+                        <h5>5,25'' Bays {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                    'alt' => 'test', 'title'=> 'Hoeveel 5,25 inch bays zijn er beschikbaar in deze computerbehuizing? Een 5,25 inch bay is geschikt voor een optische drive, een harde schijf (met behulp van een bracket), of andere uitbreidingen.')) }}
+                        </h5>
+                        <p><input class="slider_label" type="text" id="amount_behuizing_5bay" readonly></p>
+                        <div class="specification_table_slider" id="slider-range17"></div>
+                        <input name="casing_Bayss"  type="hidden" id="casing_Bayss0" value="2" style="background: red">
+                        <input name="casing_Bayss1"  type="hidden" id="casing_Bayss1" value="5" style="background: yellow">
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <input class="myButton" type="submit" value="Onderdeel opslaan">
+                </div>
                 {{ Form::close() }}
             @elseif($menuitem == "ssd")
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
@@ -2244,6 +2274,8 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd" readonly></p>
                             <div class="specification_table_slider" id="ssd_price"></div>
+                            <input name="casing_Bayss" type="hidden" id="ssd_price0" value="2" style="background: red">
+                            <input name="casing_Bayss1"  type="hidden" id="ssd_price1" value="5" style="background: yellow">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -2305,11 +2337,15 @@ echo "</pre>";
                             <h5>Schrijfsnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_schrijf" readonly></p>
                             <div class="specification_table_slider" id="ssd_writespeed"></div>
+                            <input name="ssd_writespeed0" type="hidden" id="ssd_writespeed0" value="2" style="background: red">
+                            <input name="ssd_writespeed1" type="hidden" id="ssd_writespeed1" value="5" style="background: yellow">
                         </div>
                         <div class="SSD_lees specification_table">
                             <h5>Leessnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_lees" readonly></p>
                             <div class="specification_table_slider" id="ssd_readspeed"></div>
+                            <input name="ssd_readspeed0" type="hidden" id="ssd_readspeed0" value="2" style="background: red">
+                            <input name="ssd_readspeed1" type="hidden" id="ssd_readspeed1" value="5" style="background: yellow">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2362,6 +2398,8 @@ echo "</pre>";
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_brander" readonly></p>
                             <div class="specification_table_slider" id="slider-range25"></div>
+                            <input name="Blu-RayDVD_price0" type="hidden" value="60" id="Blu-RayDVD_price0" style="background: red">
+                            <input name="Blu-RayDVD_price1"  type="hidden" value="100" id="Blu-RayDVD_price1" style="background: yellow">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -2415,14 +2453,14 @@ echo "</pre>";
     </div>
     <div class="sidebar col-md-2">
         <ul id="item_list" style="color:#ffffff">
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Voeding</li>
+            <li>{{ HTML::image('images/checked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Voeding</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Processor koeler</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'harddiskdrive_state')) }} Harde Schijf</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'soundcard_state')) }} Geluidskaart</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'pci_state')) }} PCI express</li>
+            <li>{{ HTML::image('images/checked.png', 'unchecked', array('class' => 'list_state', 'id' => 'pci_state')) }} PCI express</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'videocard_state')) }} Videokaart</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'processor_state')) }} Processor</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'internalmemory_state')) }} Intern geheugen</li>
+            <li>{{ HTML::image('images/checked.png', 'unchecked', array('class' => 'list_state', 'id' => 'internalmemory_state')) }} Intern geheugen</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Moederbord</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Behuizing</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} SSD</li>
