@@ -156,7 +156,146 @@ if (!Session::has('RAM_type'))  { Session::put('RAM_type','-'); }
 if (!Session::has('RAM_kanalen'))  { Session::put('RAM_kanalen','-'); }
 if (!Session::has('RAM_price_min'))  { Session::put('RAM_price_min','-'); }
 if (!Session::has('RAM_price_max'))  { Session::put('RAM_price_max','-'); }
-
+if (!Session::has('moederbord_merk1'))  { Session::put('moederbord_merk1','0'); }
+if (!Session::has('moederbord_merk2'))  { Session::put('moederbord_merk2','0'); }
+if (!Session::has('moederbord_merk3'))  { Session::put('moederbord_merk3','0'); }
+if (!Session::has('moederbord_format'))  { Session::put('moederbord_format','-'); }
+if (!Session::has('moederbord_wifi'))  { Session::put('moederbord_wifi','-'); }
+if (!Session::has('moederbord_geheugen'))  { Session::put('moederbord_geheugen','-'); }
+if (!Session::has('moederbord_HDMI'))  { Session::put('moederbord_HDMI','-'); }
+if (!Session::has('moederbord_VGA'))  { Session::put('moederbord_VGA','-'); }
+if (!Session::has('moederbord_displayport'))  { Session::put('moederbord_displayport','-'); }
+if (!Session::has('moederbord_price_min'))  { Session::put('moederbord_price_min','-'); }
+if (!Session::has('moederbord_price_max'))  { Session::put('moederbord_price_max','-'); }
+if (!Session::has('moederbord_usb'))  { Session::put('moederbord_usb','-'); }
+if (!Session::has('moederbord_ethernet'))  { Session::put('moederbord_ethernet','-'); }
+if (!Session::has('moederbord_DVI'))  { Session::put('moederbord_DVI','-'); }
+if (!Session::has('moederbord_raid1'))  { Session::put('moederbord_raid1','0'); }
+if (!Session::has('moederbord_raid2'))  { Session::put('moederbord_raid2','0'); }
+if (!Session::has('moederbord_raid3'))  { Session::put('moederbord_raid3','0'); }
+if (!Session::has('moederbord_raid4'))  { Session::put('moederbord_raid4','0'); }
+if (!Session::has('moederbord_raid5'))  { Session::put('moederbord_raid5','0'); }
+if (!Session::has('moederbord_raid6'))  { Session::put('moederbord_raid6','0'); }
+if (!Session::has('moederbord_audiokanalen'))  { Session::put('moederbord_audiokanalen','-'); }
+if (!Session::has('moederbord_geheugen'))  { Session::put('moederbord_geheugen','-'); }
+if (!Session::has('moederbord_msata'))  { Session::put('moederbord_msata','-'); }
+if (!Session::has('moederbord_SATA300'))  { Session::put('moederbord_SATA300','-'); }
+if (!Session::has('moederbord_SATA600'))  { Session::put('moederbord_SATA600','-'); }
+if (!Session::has('behuizing_merk1'))  { Session::put('behuizing_merk1','0'); }
+if (!Session::has('behuizing_merk2'))  { Session::put('behuizing_merk2','0'); }
+if (!Session::has('behuizing_merk3'))  { Session::put('behuizing_merk3','0'); }
+if (!Session::has('behuizing_merk4'))  { Session::put('behuizing_merk4','0'); }
+if (!Session::has('behuizing_merk5'))  { Session::put('behuizing_merk5','0'); }
+if (!Session::has('behuizing_merk6'))  { Session::put('behuizing_merk6','0'); }
+if (!Session::has('behuizing_computer'))  { Session::put('behuizing_computer','-'); }
+if (!Session::has('behuizing_fan'))  { Session::put('behuizing_fan','-'); }
+if (!Session::has('behuizing_stof'))  { Session::put('behuizing_stof','-'); }
+if (!Session::has('behuizing_water'))  { Session::put('behuizing_water','-'); }
+if (!Session::has('behuizing_led'))  { Session::put('behuizing_led','-'); }
+if (!Session::has('behuizing_ruis'))  { Session::put('behuizing_ruis','-'); }
+if (!Session::has('behuizing_geluid'))  { Session::put('behuizing_geluid','-'); }
+if (!Session::has('behuizing_paneel'))  { Session::put('behuizing_paneel','-'); }
+if (!Session::has('behuizing_price_min'))  { Session::put('behuizing_price_min','-'); }
+if (!Session::has('behuizing_price_max'))  { Session::put('behuizing_price_max','-'); }
+if (!Session::has('behuizing_uitbreiding_min'))  { Session::put('behuizing_uitbreiding_min','-'); }
+if (!Session::has('behuizing_uitbreiding_max'))  { Session::put('behuizing_uitbreiding_max','-'); }
+if (!Session::has('behuizing_kleur'))  { Session::put('behuizing_kleur','-'); }
+if (!Session::has('behuizing_materiaal'))  { Session::put('behuizing_materiaal','-'); }
+if (!Session::has('behuizing_usb2_1'))  { Session::put('behuizing_usb2_1','0'); }
+if (!Session::has('behuizing_usb2_2'))  { Session::put('behuizing_usb2_2','0'); }
+if (!Session::has('behuizing_usb2_3'))  { Session::put('behuizing_usb2_3','0'); }
+if (!Session::has('behuizing_usb3_1'))  { Session::put('behuizing_usb3_1','0'); }
+if (!Session::has('behuizing_usb3_2'))  { Session::put('behuizing_usb3_2','0'); }
+if (!Session::has('behuizing_usb3_3'))  { Session::put('behuizing_usb3_3','0'); }
+if (!Session::has('behuizing_firewire'))  { Session::put('behuizing_firewire','-'); }
+if (!Session::has('behuizing_esata'))  { Session::put('behuizing_esata','-'); }
+if (!Session::has('behuizing_2,5bay'))  { Session::put('behuizing_2,5bay','-'); }
+if (!Session::has('behuizing_3,5bay'))  { Session::put('behuizing_3,5bay','-'); }
+if (!Session::has('behuizing_5,25bay'))  { Session::put('behuizing_5,25bay','-'); }
+if (!Session::has('behuizing_merk1'))  { Session::put('behuizing_merk1','0'); }
+if (!Session::has('behuizing_merk2'))  { Session::put('behuizing_merk2','0'); }
+if (!Session::has('behuizing_merk3'))  { Session::put('behuizing_merk3','0'); }
+if (!Session::has('behuizing_merk4'))  { Session::put('behuizing_merk4','0'); }
+if (!Session::has('behuizing_merk5'))  { Session::put('behuizing_merk5','0'); }
+if (!Session::has('behuizing_merk6'))  { Session::put('behuizing_merk6','0'); }
+if (!Session::has('behuizing_computer'))  { Session::put('behuizing_computer','-'); }
+if (!Session::has('behuizing_fan'))  { Session::put('behuizing_fan','-'); }
+if (!Session::has('behuizing_stof'))  { Session::put('behuizing_stof','-'); }
+if (!Session::has('behuizing_water'))  { Session::put('behuizing_water','-'); }
+if (!Session::has('behuizing_led'))  { Session::put('behuizing_led','-'); }
+if (!Session::has('behuizing_ruis'))  { Session::put('behuizing_ruis','-'); }
+if (!Session::has('behuizing_geluid'))  { Session::put('behuizing_geluid','-'); }
+if (!Session::has('behuizing_paneel'))  { Session::put('behuizing_paneel','-'); }
+if (!Session::has('behuizing_prijs'))  { Session::put('behuizing_prijs','-'); }
+if (!Session::has('behuizing_uitbreiding'))  { Session::put('behuizing_uitbreiding','-'); }
+if (!Session::has('behuizing_kleur'))  { Session::put('behuizing_kleur','-'); }
+if (!Session::has('behuizing_materiaal'))  { Session::put('behuizing_materiaal','-'); }
+if (!Session::has('behuizing_usb2_1'))  { Session::put('behuizing_usb2_1','0'); }
+if (!Session::has('behuizing_usb2_2'))  { Session::put('behuizing_usb2_2','0'); }
+if (!Session::has('behuizing_usb2_3'))  { Session::put('behuizing_usb2_3','0'); }
+if (!Session::has('behuizing_usb3_1'))  { Session::put('behuizing_usb3_1','0'); }
+if (!Session::has('behuizing_usb3_2'))  { Session::put('behuizing_usb3_2','0'); }
+if (!Session::has('behuizing_usb3_3'))  { Session::put('behuizing_usb3_3','0'); }
+if (!Session::has('behuizing_firewire'))  { Session::put('behuizing_firewire','-'); }
+if (!Session::has('behuizing_esata'))  { Session::put('behuizing_esata','-'); }
+if (!Session::has('behuizing_2_5bay_min'))  { Session::put('behuizing_2_5bay_min','-'); }
+if (!Session::has('behuizing_2_5bay_max'))  { Session::put('behuizing_2_5bay_max','-'); }
+if (!Session::has('behuizing_3_5bay_min'))  { Session::put('behuizing_3_5bay_min','-'); }
+if (!Session::has('behuizing_3_5bay_max'))  { Session::put('behuizing_3_5bay_max','-'); }
+if (!Session::has('behuizing_5_25bay_min'))  { Session::put('behuizing_5_25bay_min','-'); }
+if (!Session::has('behuizing_5_25bay_max'))  { Session::put('behuizing_5_25bay_max','-'); }
+if (!Session::has('SDD_opslag1'))  { Session::put('SDD_opslag1','0'); }
+if (!Session::has('SDD_opslag2'))  { Session::put('SDD_opslag2','0'); }
+if (!Session::has('SDD_opslag3'))  { Session::put('SDD_opslag3','0'); }
+if (!Session::has('SDD_opslag4'))  { Session::put('SDD_opslag4','0'); }
+if (!Session::has('SDD_opslag5'))  { Session::put('SDD_opslag5','0'); }
+if (!Session::has('SDD_opslag6'))  { Session::put('SDD_opslag6','0'); }
+if (!Session::has('SDD_opslag7'))  { Session::put('SDD_opslag7','0'); }
+if (!Session::has('SDD_opslag8'))  { Session::put('SDD_opslag8','0'); }
+if (!Session::has('SDD_opslag9'))  { Session::put('SDD_opslag9','0'); }
+if (!Session::has('SDD_opslag10'))  { Session::put('SDD_opslag10','0'); }
+if (!Session::has('SDD_opslag11'))  { Session::put('SDD_opslag11','0'); }
+if (!Session::has('SDD_opslag12'))  { Session::put('SDD_opslag12','0'); }
+if (!Session::has('SDD_opslag13'))  { Session::put('SDD_opslag13','0'); }
+if (!Session::has('SDD_opslag14'))  { Session::put('SDD_opslag14','0'); }
+if (!Session::has('SDD_opslag15'))  { Session::put('SDD_opslag15','0'); }
+if (!Session::has('SDD_formaat'))  { Session::put('SDD_formaat','-'); }
+if (!Session::has('SSD_soort'))  { Session::put('SSD_soort','-'); }
+if (!Session::has('SSD_price_min'))  { Session::put('SSD_price_min','-'); }
+if (!Session::has('SSD_price_max'))  { Session::put('SSD_price_max','-'); }
+if (!Session::has('SSD_merk1'))  { Session::put('SSD_merk1','0'); }
+if (!Session::has('SSD_merk2'))  { Session::put('SSD_merk2','0'); }
+if (!Session::has('SSD_merk3'))  { Session::put('SSD_merk3','0'); }
+if (!Session::has('SSD_merk4'))  { Session::put('SSD_merk4','0'); }
+if (!Session::has('SSD_merk5'))  { Session::put('SSD_merk5','0'); }
+if (!Session::has('SSD_merk6'))  { Session::put('SSD_merk6','0'); }
+if (!Session::has('SSD_merk7'))  { Session::put('SSD_merk7','0'); }
+if (!Session::has('SSD_merk8'))  { Session::put('SSD_merk8','0'); }
+if (!Session::has('SSD_controller1'))  { Session::put('SSD_controller1','0'); }
+if (!Session::has('SSD_controller2'))  { Session::put('SSD_controller2','0'); }
+if (!Session::has('SSD_controller3'))  { Session::put('SSD_controller3','0'); }
+if (!Session::has('SSD_controller4'))  { Session::put('SSD_controller4','0'); }
+if (!Session::has('SSD_controller5'))  { Session::put('SSD_controller5','0'); }
+if (!Session::has('SSD_controller6'))  { Session::put('SSD_controller6','0'); }
+if (!Session::has('SSD_schrijf_min'))  { Session::put('SSD_schrijf_min','-'); }
+if (!Session::has('SSD_schrijf_max'))  { Session::put('SSD_schrijf_max','-'); }
+if (!Session::has('SSD_lees_min'))  { Session::put('SSD_lees_min','-'); }
+if (!Session::has('SSD_lees_max'))  { Session::put('SSD_lees_max','-'); }
+if (!Session::has('brander_merk1'))  { Session::put('brander_merk1','0'); }
+if (!Session::has('brander_merk2'))  { Session::put('brander_merk2','0'); }
+if (!Session::has('brander_merk3'))  { Session::put('brander_merk3','0'); }
+if (!Session::has('brander_merk4'))  { Session::put('brander_merk4','0'); }
+if (!Session::has('brander_merk5'))  { Session::put('brander_merk5','0'); }
+if (!Session::has('brander_merk6'))  { Session::put('brander_merk6','0'); }
+if (!Session::has('brander_type'))  { Session::put('brander_type','-'); }
+if (!Session::has('brander_price_min'))  { Session::put('brander_price_min','-'); }
+if (!Session::has('brander_price_max'))  { Session::put('brander_price_max','-'); }
+if (!Session::has('brander_speelt1'))  { Session::put('brander_speelt1','0'); }
+if (!Session::has('brander_speelt2'))  { Session::put('brander_speelt2','0'); }
+if (!Session::has('brander_speelt3'))  { Session::put('brander_speelt3','0'); }
+if (!Session::has('brander_speelt4'))  { Session::put('brander_speelt4','0'); }
+if (!Session::has('brander_besturing'))  { Session::put('brander_besturing','-'); }
+if (!Session::has('brander_ladetype'))  { Session::put('brander_ladetype','-'); }
 
 $menuitem = Session::get('menuitem');
 $cpu_p4 = Session::get('cpu_p4');
@@ -243,7 +382,7 @@ echo Session::get('pci_sata');
 echo Session::get('pci_esata');
 echo Session::get('pci_price_min');
 echo Session::get('pci_price_max') . "<br>";
-echo "videocard: ";
+echo "Videokaart: ";
 echo Session::get('GPU_producer1');
 echo Session::get('GPU_producer2');
 echo Session::get('GPU_type_AMD1');
@@ -300,7 +439,7 @@ echo Session::get('processor_serie8');
 echo Session::get('processor_serie9');
 echo Session::get('processor_speed_min');
 echo Session::get('processor_speed_max') . "<br>";
-echo "InternalMemory: ";
+echo "Intern geheugen: ";
 echo Session::get('RAM_merk1');
 echo Session::get('RAM_merk2');
 echo Session::get('RAM_merk3');
@@ -323,6 +462,121 @@ echo Session::get('RAM_type');
 echo Session::get('RAM_kanalen');
 echo Session::get('RAM_price_min');
 echo Session::get('RAM_price_max') . "<br>";
+echo "Moederbord: ";
+echo Session::get('moederbord_merk1');
+echo Session::get('moederbord_merk2');
+echo Session::get('moederbord_merk3');
+echo Session::get('moederbord_format');
+echo Session::get('moederbord_wifi');
+echo Session::get('moederbord_geheugen');
+echo Session::get('moederbord_HDMI');
+echo Session::get('moederbord_VGA');
+echo Session::get('moederbord_displayport');
+echo Session::get('moederbord_price_min');
+echo Session::get('moederbord_price_max');
+echo Session::get('moederbord_usb');
+echo Session::get('moederbord_ethernet');
+echo Session::get('moederbord_DVI');
+echo Session::get('moederbord_raid1');
+echo Session::get('moederbord_raid2');
+echo Session::get('moederbord_raid3');
+echo Session::get('moederbord_raid4');
+echo Session::get('moederbord_raid5');
+echo Session::get('moederbord_raid6');
+echo Session::get('moederbord_audiokanalen');
+echo Session::get('moederbord_geheugen');
+echo Session::get('moederbord_msata');
+echo Session::get('moederbord_SATA300');
+echo Session::get('moederbord_SATA600') . "<br>";
+echo "Behuizing: ";
+echo Session::get('behuizing_merk1');
+echo Session::get('behuizing_merk2');
+echo Session::get('behuizing_merk3');
+echo Session::get('behuizing_merk4');
+echo Session::get('behuizing_merk5');
+echo Session::get('behuizing_merk6');
+echo Session::get('behuizing_computer');
+echo Session::get('behuizing_fan');
+echo Session::get('behuizing_stof');
+echo Session::get('behuizing_water');
+echo Session::get('behuizing_led');
+echo Session::get('behuizing_ruis');
+echo Session::get('behuizing_geluid');
+echo Session::get('behuizing_paneel');
+echo Session::get('behuizing_price_min');
+echo Session::get('behuizing_price_max');
+echo Session::get('behuizing_uitbreiding_min');
+echo Session::get('behuizing_uitbreiding_max');
+echo Session::get('behuizing_kleur');
+echo Session::get('behuizing_materiaal');
+echo Session::get('behuizing_usb2_1');
+echo Session::get('behuizing_usb2_2');
+echo Session::get('behuizing_usb2_3');
+echo Session::get('behuizing_usb3_1');
+echo Session::get('behuizing_usb3_2');
+echo Session::get('behuizing_usb3_3');
+echo Session::get('behuizing_firewire');
+echo Session::get('behuizing_esata');
+echo Session::get('behuizing_2_5bay_min');
+echo Session::get('behuizing_2_5bay_max');
+echo Session::get('behuizing_3_5bay_min');
+echo Session::get('behuizing_3_5bay_max');
+echo Session::get('behuizing_5_25bay_min');
+echo Session::get('behuizing_5_25bay_max') . "<br>";
+echo "SSD: ";
+echo Session::get('SDD_opslag1');
+echo Session::get('SDD_opslag2');
+echo Session::get('SDD_opslag3');
+echo Session::get('SDD_opslag4');
+echo Session::get('SDD_opslag5');
+echo Session::get('SDD_opslag6');
+echo Session::get('SDD_opslag7');
+echo Session::get('SDD_opslag8');
+echo Session::get('SDD_opslag9');
+echo Session::get('SDD_opslag10');
+echo Session::get('SDD_opslag11');
+echo Session::get('SDD_opslag12');
+echo Session::get('SDD_opslag13');
+echo Session::get('SDD_opslag14');
+echo Session::get('SDD_opslag15');
+echo Session::get('SDD_formaat');
+echo Session::get('SSD_soort');
+echo Session::get('SSD_price_min');
+echo Session::get('SSD_price_max');
+echo Session::get('SSD_merk1');
+echo Session::get('SSD_merk2');
+echo Session::get('SSD_merk3');
+echo Session::get('SSD_merk4');
+echo Session::get('SSD_merk5');
+echo Session::get('SSD_merk6');
+echo Session::get('SSD_merk7');
+echo Session::get('SSD_merk8');
+echo Session::get('SSD_controller1');
+echo Session::get('SSD_controller2');
+echo Session::get('SSD_controller3');
+echo Session::get('SSD_controller4');
+echo Session::get('SSD_controller5');
+echo Session::get('SSD_controller6');
+echo Session::get('SSD_schrijf_min');
+echo Session::get('SSD_schrijf_max');
+echo Session::get('SSD_lees_min');
+echo Session::get('SSD_lees_max') . "<br>";
+echo "Blu-ray & DVD: ";
+echo Session::get('brander_merk1');
+echo Session::get('brander_merk2');
+echo Session::get('brander_merk3');
+echo Session::get('brander_merk4');
+echo Session::get('brander_merk5');
+echo Session::get('brander_merk6');
+echo Session::get('brander_type');
+echo Session::get('brander_price_min');
+echo Session::get('brander_price_max');
+echo Session::get('brander_speelt1');
+echo Session::get('brander_speelt2');
+echo Session::get('brander_speelt3');
+echo Session::get('brander_speelt4');
+echo Session::get('brander_besturing');
+echo Session::get('brander_ladetype');
 echo "</pre>";
 ?>
 
@@ -2466,7 +2720,7 @@ echo "</pre>";
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} SSD</li>
             <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} BLu-Ray DVD</li>
         </ul>
-        <input type="submit" value="Creëer profiel" class="myButtonCreer">
+        <a href="awaiting_response" class="myButtonCreer">Creëer profiel</a>
     </div>
 </div>
 </body>

@@ -40,3 +40,8 @@ Route::get('/testboxes', function()
 {
 	return View::make('testboxes');
 });
+
+Route::get('/awaiting_response', function()
+{
+	return View::make('awaiting_response');
+});

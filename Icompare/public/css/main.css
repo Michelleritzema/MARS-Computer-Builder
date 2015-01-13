@@ -349,11 +349,13 @@ tbody tr td {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff', GradientType=0);
     text-decoration: none;
     background-color: #435d9d;
+    color:#ffffff;
 }
 
 .myButtonCreer:active {
     position: relative;
     top: 1px;
+    color:#ffffff;
 }
 
 #item_list {
