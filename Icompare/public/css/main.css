@@ -315,9 +315,6 @@ tbody tr td {
 }
 
 .myButtonCreer {
-    -moz-box-shadow:inset 0px 1px 0px 0px #d8ffff;
-    -webkit-box-shadow:inset 0px 1px 0px 0px #d8ffff;
-    box-shadow:inset 0px 1px 0px 0px #d8ffff;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #00B5FC), color-stop(1, #009FDE));
     background:-moz-linear-gradient(top, #00B5FC 5%, #009FDE 100%);
     background:-webkit-linear-gradient(top, #00B5FC 5%, #009FDE 100%);

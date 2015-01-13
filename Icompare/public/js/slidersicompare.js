@@ -197,6 +197,7 @@ $(function() {
         range: true,
         min: 0,
         max: 310,
+        step: 20,
         values: [ 100, 150 ],
         slide: function( event, ui ) {
             $( "#amount_behuizing" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
@@ -214,6 +215,8 @@ $(function() {
         values: [ 2, 5 ],
         slide: function( event, ui ) {
             $( "#amount_behuizing_3bay" ).val(  + ui.values[ 0 ] + " tot " + ui.values[ 1 ]  );
+            document.getElementById("casing_writespeed_0").value = ui.values[0];
+            document.getElementById("casing_writespeed_1").value = ui.values[1];
         }
     });
     $( "#amount_behuizing_3bay" ).val( + $( "#slider-range15" ).slider( "values", 0 ) +

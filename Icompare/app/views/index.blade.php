@@ -2133,6 +2133,8 @@ echo "</pre>";
                             </p>
 
                             <div id="slider-range15"></div>
+                            <input name="casing_writespeed_0" id="casing_writespeed_0" style="background: red">
+                            <input name="casing_writespeed_1" id="casing_writespeed_1" style="background: yellow">
                         </div>
                         <div class="behuizing_2,5bay">
                             <h5>Schrijfsnelheid</h5>
