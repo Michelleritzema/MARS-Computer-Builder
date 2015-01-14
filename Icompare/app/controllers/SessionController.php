@@ -1,55 +1,39 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Michelle
+ * Created by: Michelle
  * Date: 11/01/2015
  */
 
-class SessionController extends BaseController
-{
+class SessionController extends BaseController {
 
-    public function determineSection()
-    {
-        if (Session::has('menuitem')) {
+    public function determineSection() {
+        if(Session::has('menuitem')) {
             $menuitem = Session::get('menuitem');
-            //echo $menuitem . "<br>";
             switch ($menuitem) {
                 case "powersupply":
-                    $this->savePowerSupply();
-                    break;
+                    $this->savePowerSupply(); break;
                 case "processorcooler":
-                    $this->saveProcessorCooler();
-                    break;
+                    $this->saveProcessorCooler(); break;
                 case "internalharddrive":
-                    $this->saveHardDiskDrive();
-                    break;
+                    $this->saveHardDiskDrive(); break;
                 case "soundcard":
-                    $this->saveSoundcard();
-                    break;
+                    $this->saveSoundcard(); break;
                 case "PCI":
-                    $this->savePCI();
-                    break;
+                    $this->savePCI(); break;
                 case "videocard":
-                    $this->saveVideocard();
-                    break;
+                    $this->saveVideocard(); break;
                 case "processor":
-                    $this->saveProcessor();
-                    break;
+                    $this->saveProcessor(); break;
                 case "internalmemory":
-                    $this->saveInternalMemory();
-                    break;
+                    $this->saveInternalMemory(); break;
                 case "motherboard":
-                    $this->saveMotherboard();
-                    break;
+                    $this->saveMotherboard(); break;
                 case "casing":
-                    $this->saveCasing();
-                    break;
+                    $this->saveCasing(); break;
                 case "ssd":
-                    $this->saveSSD();
-                    break;
+                    $this->saveSSD(); break;
                 case "bluraydvd":
-                    $this->saveBlurayDVD();
-                    break;
+                    $this->saveBlurayDVD(); break;
                 default :
                     break;
             }
@@ -57,30 +41,11 @@ class SessionController extends BaseController
         }
     }
 
-    public function savePowerSupply()
-    {
+    public function savePowerSupply() {
         $temp = Input::get('voeding_cpup4');
         $voeding_cpup4 = isset($temp) ? Input::get('voeding_cpup4') : '0';
         $temp = Input::get('voeding_cpup8');
         $voeding_cpup8 = isset($temp) ? Input::get('voeding_cpup8') : '0';
-        $temp = Input::get('voeding_cpup4p4');
-        if (isset($temp)) {
-            $voeding_cpup4p4 = Input::get('voeding_cpup4p4');
-        } else {
-            $voeding_cpup4p4 = '-';
-        }
-        $temp = Input::get('voeding_modulair');
-        if (isset($temp)) {
-            $voeding_modulair = Input::get('voeding_modulair');
-        } else {
-            $voeding_modulair = '-';
-        }
-        $temp = Input::get('voeding_certificering');
-        if (isset($temp)) {
-            $voeding_certificering = Input::get('voeding_certificering');
-        } else {
-            $voeding_certificering = '-';
-        }
         $temp = Input::get('voeding_merk1');
         $voeding_merk1 = isset($temp) ? Input::get('voeding_merk1') : '0';
         $temp = Input::get('voeding_merk2');
@@ -91,18 +56,22 @@ class SessionController extends BaseController
         $voeding_merk4 = isset($temp) ? Input::get('voeding_merk4') : '0';
         $temp = Input::get('voeding_merk5');
         $voeding_merk5 = isset($temp) ? Input::get('voeding_merk5') : '0';
+
+        $temp = Input::get('voeding_cpup4p4');
+        if (isset($temp)) { $voeding_cpup4p4 = Input::get('voeding_cpup4p4'); }
+        else { $voeding_cpup4p4 = '-'; }
+        $temp = Input::get('voeding_modulair');
+        if (isset($temp)) { $voeding_modulair = Input::get('voeding_modulair'); }
+        else { $voeding_modulair = '-'; }
+        $temp = Input::get('voeding_certificering');
+        if (isset($temp)) { $voeding_certificering = Input::get('voeding_certificering'); }
+        else { $voeding_certificering = '-'; }
         $temp = Input::get('voeding_pci6');
-        if (isset($temp)) {
-            $voeding_pci6 = Input::get('voeding_pci6');
-        } else {
-            $voeding_pci6 = '-';
-        }
+        if (isset($temp)) { $voeding_pci6 = Input::get('voeding_pci6'); }
+        else { $voeding_pci6 = '-'; }
         $temp = Input::get('voeding_pci6+2');
-        if (isset($temp)) {
-            $voeding_pci6_2 = Input::get('voeding_pci6+2');
-        } else {
-            $voeding_pci6_2 = '-';
-        }
+        if (isset($temp)) { $voeding_pci6_2 = Input::get('voeding_pci6+2'); }
+        else { $voeding_pci6_2 = '-'; }
 
         Session::put('cpu_p4', $voeding_cpup4);
         Session::put('cpu_p8', $voeding_cpup8);
@@ -116,7 +85,6 @@ class SessionController extends BaseController
         Session::put('powersupply_brand5', $voeding_merk5);
         Session::put('pci_express_6pin', $voeding_pci6);
         Session::put('pci_express_6pin2pin', $voeding_pci6_2);
-
         //echo Session::get('powersupply_price_min');
         //echo Session::get('powersupply_price_max');
         //echo Session::get('powersupply_power_min');
@@ -124,6 +92,11 @@ class SessionController extends BaseController
         //echo Session::get('s-ata_min');
         //echo Session::get('s-ata_max');
 
+        if($voeding_cpup4p4 != '-' && $voeding_modulair != '-' && $voeding_certificering != '-' && $voeding_pci6 != '-' && $voeding_pci6_2 != '-') {
+            Session::put('powersupply_check', 'yes');
+        } else {
+            Session::put('powersupply_check', '-');
+        }
         Session::put('menuitem', 'processorcooler');
     }
 
@@ -145,11 +118,8 @@ class SessionController extends BaseController
         $processorcooler_brand7 = isset($temp) ? Input::get('koeler_merk7') : '0';
 
         $temp = Input::get('koeler_type');
-        if (isset($temp)) {
-            $processorcooler_method = Input::get('koeler_type');
-        } else {
-            $processorcooler_method = '-';
-        }
+        if (isset($temp)) { $processorcooler_method = Input::get('koeler_type'); }
+        else { $processorcooler_method = '-'; }
 
         Session::put('processorcooler_brand1', $processorcooler_brand1);
         Session::put('processorcooler_brand2', $processorcooler_brand2);
@@ -165,6 +135,11 @@ class SessionController extends BaseController
         //Session::put('processorcooler_rotation_min', $processorcooler_rotation_min);
         //Session::put('processorcooler_rotation_max', $processorcooler_rotation_max);
 
+        if($processorcooler_method != '-') {
+            Session::put('processorcooler_check', 'yes');
+        } else {
+            Session::put('processorcooler_check', '-');
+        }
         Session::put('menuitem', 'internalharddrive');
     }
 
@@ -178,12 +153,6 @@ class SessionController extends BaseController
         $hdd_brand3 = isset($temp) ? Input::get('HDD_merk3') : '0';
         $temp = Input::get('HDD_merk4');
         $hdd_brand4 = isset($temp) ? Input::get('HDD_merk4') : '0';
-        $temp = Input::get('HDD_formaat');
-        if (isset($temp)) {
-            $hdd_format = Input::get('HDD_formaat');
-        } else {
-            $hdd_format = '-';
-        }
         $temp = Input::get('HDD_opslag1');
         $hdd_storagecapacity1 = isset($temp) ? Input::get('HDD_opslag1') : '0';
         $temp = Input::get('HDD_opslag2');
@@ -204,24 +173,19 @@ class SessionController extends BaseController
         $hdd_storagecapacity9 = isset($temp) ? Input::get('HDD_opslag9') : '0';
         $temp = Input::get('HDD_opslag10');
         $hdd_storagecapacity10 = isset($temp) ? Input::get('HDD_opslag10') : '0';
+
+        $temp = Input::get('HDD_formaat');
+        if (isset($temp)) { $hdd_format = Input::get('HDD_formaat'); }
+        else { $hdd_format = '-'; }
         $temp = Input::get('HDD_aansluiting');
-        if (isset($temp)) {
-            $hdd_connection = Input::get('HDD_aansluiting');
-        } else {
-            $hdd_connection = '-';
-        }
+        if (isset($temp)) { $hdd_connection = Input::get('HDD_aansluiting'); }
+        else { $hdd_connection = '-'; }
         $temp = Input::get('HDD_cache');
-        if (isset($temp)) {
-            $hdd_buffer = Input::get('HDD_cache');
-        } else {
-            $hdd_buffer = '-';
-        }
+        if (isset($temp)) { $hdd_buffer = Input::get('HDD_cache'); }
+        else { $hdd_buffer = '-'; }
         $temp = Input::get('HDD_snelheid');
-        if (isset($temp)) {
-            $hdd_speed = Input::get('HDD_snelheid');
-        } else {
-            $hdd_speed = '-';
-        }
+        if (isset($temp)) { $hdd_speed = Input::get('HDD_snelheid'); }
+        else { $hdd_speed = '-'; }
 
         Session::put('hdd_brand1', $hdd_brand1);
         Session::put('hdd_brand2', $hdd_brand2);
@@ -242,6 +206,11 @@ class SessionController extends BaseController
         Session::put('hdd_buffer', $hdd_buffer);
         Session::put('hdd_speed', $hdd_speed);
 
+        if($hdd_format != '-' && $hdd_connection != '-' && $hdd_buffer != '-' && $hdd_speed != '-') {
+            Session::put('internalharddrive_check', 'yes');
+        } else {
+            Session::put('internalharddrive_check', '-');
+        }
         Session::put('menuitem', 'soundcard');
     }
 
