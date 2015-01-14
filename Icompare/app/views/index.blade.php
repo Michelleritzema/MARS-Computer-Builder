@@ -6,7 +6,34 @@
  */
 
 session_start();
+
 if (!Session::has('menuitem')) { Session::put('menuitem', 'powersupply'); }
+$menuitem = Session::get('menuitem');
+if (!Session::has('powersupply_check')) { Session::put('powersupply_check', '-'); }
+$powersupply_check = Session::get('powersupply_check');
+if (!Session::has('processorcooler_check')) { Session::put('processorcooler_check', '-'); }
+$processorcooler_check = Session::get('processorcooler_check');
+if (!Session::has('internalharddrive_check')) { Session::put('internalharddrive_check', '-'); }
+$internalharddrive_check = Session::get('internalharddrive_check');
+if (!Session::has('soundcard_check')) { Session::put('soundcard_check', '-'); }
+$soundcard_check = Session::get('soundcard_check');
+if (!Session::has('pci_check')) { Session::put('pci_check', '-'); }
+$pci_check = Session::get('pci_check');
+if (!Session::has('videocard_check')) { Session::put('videocard_check', '-'); }
+$videocard_check = Session::get('videocard_check');
+if (!Session::has('processor_check')) { Session::put('processor_check', '-'); }
+$processor_check = Session::get('processor_check');
+if (!Session::has('internalmemory_check')) { Session::put('internalmemory_check', '-'); }
+$internalmemory_check = Session::get('internalmemory_check');
+if (!Session::has('motherboard_check')) { Session::put('motherboard_check', '-'); }
+$motherboard_check = Session::get('motherboard_check');
+if (!Session::has('casing_check')) { Session::put('casing_check', '-'); }
+$casing_check = Session::get('casing_check');
+if (!Session::has('ssd_check')) { Session::put('ssd_check', '-'); }
+$ssd_check = Session::get('ssd_check');
+if (!Session::has('bluraydvd_check')) { Session::put('bluraydvd_check', '-'); }
+$bluraydvd_check = Session::get('bluraydvd_check');
+
 if (!Session::has('cpu_p4')) { Session::put('cpu_p4', '0'); }
 if (!Session::has('cpu_p8')) { Session::put('cpu_p8', '0'); }
 if (!Session::has('cpu_p4+p4')) { Session::put('cpu_p4+p4', '-'); }
@@ -297,311 +324,58 @@ if (!Session::has('brander_speelt4'))  { Session::put('brander_speelt4','0'); }
 if (!Session::has('brander_besturing'))  { Session::put('brander_besturing','-'); }
 if (!Session::has('brander_ladetype'))  { Session::put('brander_ladetype','-'); }
 
-$menuitem = Session::get('menuitem');
-$cpu_p4 = Session::get('cpu_p4');
-//echo $menuitem . "<br>";
-
 echo "<pre>";
 echo "<h4>Sessie variabelen</h4>";
 echo "Voeding: ";
-echo Session::get('cpu_p4');
-echo Session::get('cpu_p8');
-echo Session::get('cpu_p4+p4');
-echo Session::get('powersupply_modular');
-echo Session::get('powersupply_certificate');
-echo Session::get('powersupply_brand1');
-echo Session::get('powersupply_brand2');
-echo Session::get('powersupply_brand3');
-echo Session::get('powersupply_brand4');
-echo Session::get('powersupply_brand5');
-echo Session::get('pci_express_6pin');
-echo Session::get('pci_express_6pin2pin');
-echo Session::get('powersupply_price_min');
-echo Session::get('powersupply_price_max');
-echo Session::get('powersupply_power_min');
-echo Session::get('powersupply_power_max');
-echo Session::get('s-ata_min');
-echo Session::get('s-ata_max') . "<br>";
+echo Session::get('cpu_p4');echo Session::get('cpu_p8');echo Session::get('cpu_p4+p4');echo Session::get('powersupply_modular');echo Session::get('powersupply_certificate');echo Session::get('powersupply_brand1');echo Session::get('powersupply_brand2');echo Session::get('powersupply_brand3');echo Session::get('powersupply_brand4');echo Session::get('powersupply_brand5');
+echo Session::get('pci_express_6pin');echo Session::get('pci_express_6pin2pin');echo Session::get('powersupply_price_min');echo Session::get('powersupply_price_max');echo Session::get('powersupply_power_min');echo Session::get('powersupply_power_max');echo Session::get('s-ata_min');echo Session::get('s-ata_max') . "<br>";
 echo "Processor koeler: ";
-echo Session::get('processorcooler_brand1');
-echo Session::get('processorcooler_brand2');
-echo Session::get('processorcooler_brand3');
-echo Session::get('processorcooler_brand4');
-echo Session::get('processorcooler_brand5');
-echo Session::get('processorcooler_brand6');
-echo Session::get('processorcooler_brand7');
-echo Session::get('processorcooler_brand8');
-echo Session::get('processorcooler_price_min');
-echo Session::get('processorcooler_price_max');
-echo Session::get('processorcooler_method');
-echo Session::get('processorcooler_diameter');
-echo Session::get('processorcooler_rotation_min');
-echo Session::get('processorcooler_rotation_max') . "<br>";
+echo Session::get('processorcooler_brand1');echo Session::get('processorcooler_brand2');echo Session::get('processorcooler_brand3');echo Session::get('processorcooler_brand4');echo Session::get('processorcooler_brand5');echo Session::get('processorcooler_brand6');echo Session::get('processorcooler_brand7');echo Session::get('processorcooler_brand8');
+echo Session::get('processorcooler_price_min');echo Session::get('processorcooler_price_max');echo Session::get('processorcooler_method');echo Session::get('processorcooler_diameter');echo Session::get('processorcooler_rotation_min');echo Session::get('processorcooler_rotation_max') . "<br>";
 echo "Harde schijf: ";
-echo Session::get('hdd_brand1');
-echo Session::get('hdd_brand2');
-echo Session::get('hdd_brand3');
-echo Session::get('hdd_brand4');
-echo Session::get('hdd_format');
-echo Session::get('hdd_storagecapacity1');
-echo Session::get('hdd_storagecapacity2');
-echo Session::get('hdd_storagecapacity3');
-echo Session::get('hdd_storagecapacity4');
-echo Session::get('hdd_storagecapacity5');
-echo Session::get('hdd_storagecapacity6');
-echo Session::get('hdd_storagecapacity7');
-echo Session::get('hdd_storagecapacity8');
-echo Session::get('hdd_storagecapacity9');
-echo Session::get('hdd_storagecapacity10');
-echo Session::get('hdd_connection');
-echo Session::get('hdd_buffer');
-echo Session::get('hdd_speed');
-echo Session::get('hdd_price_min');
-echo Session::get('hdd_price_max') . "<br>";
+echo Session::get('hdd_brand1');echo Session::get('hdd_brand2');echo Session::get('hdd_brand3');echo Session::get('hdd_brand4');echo Session::get('hdd_format');echo Session::get('hdd_storagecapacity1');echo Session::get('hdd_storagecapacity2');echo Session::get('hdd_storagecapacity3');echo Session::get('hdd_storagecapacity4');
+echo Session::get('hdd_storagecapacity5');echo Session::get('hdd_storagecapacity6');echo Session::get('hdd_storagecapacity7');echo Session::get('hdd_storagecapacity8');echo Session::get('hdd_storagecapacity9');echo Session::get('hdd_storagecapacity10');echo Session::get('hdd_connection');echo Session::get('hdd_buffer');
+echo Session::get('hdd_speed');echo Session::get('hdd_price_min');echo Session::get('hdd_price_max') . "<br>";
 echo "Geluidskaart: ";
-echo Session::get('soundcard_brand1');
-echo Session::get('soundcard_brand2');
-echo Session::get('soundcard_sample');
-echo Session::get('soundcard_aiso');
-echo Session::get('soundcard_port');
-echo Session::get('soundcard_processor1');
-echo Session::get('soundcard_processor2');
-echo Session::get('soundcard_processor3');
-echo Session::get('soundcard_processor4');
-echo Session::get('soundcard_processor5');
-echo Session::get('soundcard_processor6');
-echo Session::get('soundcard_channel');
-echo Session::get('soundcard_headphone');
-echo Session::get('soundcard_jack');
-echo Session::get('soundcard_price_min');
-echo Session::get('soundcard_price_max') . "<br>";
+echo Session::get('soundcard_brand1');echo Session::get('soundcard_brand2');echo Session::get('soundcard_sample');echo Session::get('soundcard_aiso');echo Session::get('soundcard_port');echo Session::get('soundcard_processor1');echo Session::get('soundcard_processor2');echo Session::get('soundcard_processor3');echo Session::get('soundcard_processor4');
+echo Session::get('soundcard_processor5');echo Session::get('soundcard_processor6');echo Session::get('soundcard_channel');echo Session::get('soundcard_headphone');echo Session::get('soundcard_jack');echo Session::get('soundcard_price_min');echo Session::get('soundcard_price_max') . "<br>";
 echo "PCI express: ";
-echo Session::get('pci_usb');
-echo Session::get('pci_firewire');
-echo Session::get('pci_sata');
-echo Session::get('pci_esata');
-echo Session::get('pci_price_min');
-echo Session::get('pci_price_max') . "<br>";
+echo Session::get('pci_usb');echo Session::get('pci_firewire');echo Session::get('pci_sata');echo Session::get('pci_esata');echo Session::get('pci_price_min');echo Session::get('pci_price_max') . "<br>";
 echo "Videokaart: ";
-echo Session::get('GPU_producer1');
-echo Session::get('GPU_producer2');
-echo Session::get('GPU_type_AMD1');
-echo Session::get('GPU_type_AMD2');
-echo Session::get('GPU_type_AMD3');
-echo Session::get('GPU_type_AMD4');
-echo Session::get('GPU_type_AMD5');
-echo Session::get('GPU_type_AMD6');
-echo Session::get('GPU_type_AMD7');
-echo Session::get('GPU_type_AMD8');
-echo Session::get('GPU_type_AMD9');
-echo Session::get('GPU_type_AMD10');
-echo Session::get('GPU_type_NVIDIA1');
-echo Session::get('GPU_type_NVIDIA2');
-echo Session::get('GPU_type_NVIDIA3');
-echo Session::get('GPU_type_NVIDIA4');
-echo Session::get('GPU_type_NVIDIA5');
-echo Session::get('GPU_type_NVIDIA6');
-echo Session::get('GPU_type_NVIDIA7');
-echo Session::get('GPU_type_NVIDIA8');
-echo Session::get('GPU_type_NVIDIA9');
-echo Session::get('GPU_type_NVIDIA10');
-echo Session::get('GPU_brand1');
-echo Session::get('GPU_brand2');
-echo Session::get('GPU_brand3');
-echo Session::get('GPU_brand4');
-echo Session::get('GPU_brand5');
-echo Session::get('GPU_brand6');
-echo Session::get('GPU_geheugen_type');
-echo Session::get('GPU_HDMI');
-echo Session::get('GPU_VGA');
-echo Session::get('GPU_bandwidth_memory');
-echo Session::get('GPU_DVII');
-echo Session::get('GPU_DVID');
-echo Session::get('GPU_cost');
-echo Session::get('GPU_memory') . "<br>";
+echo Session::get('GPU_producer1');echo Session::get('GPU_producer2');echo Session::get('GPU_type_AMD1');echo Session::get('GPU_type_AMD2');echo Session::get('GPU_type_AMD3');echo Session::get('GPU_type_AMD4');echo Session::get('GPU_type_AMD5');echo Session::get('GPU_type_AMD6');echo Session::get('GPU_type_AMD7');echo Session::get('GPU_type_AMD8');
+echo Session::get('GPU_type_AMD9');echo Session::get('GPU_type_AMD10');echo Session::get('GPU_type_NVIDIA1');echo Session::get('GPU_type_NVIDIA2');echo Session::get('GPU_type_NVIDIA3');echo Session::get('GPU_type_NVIDIA4');echo Session::get('GPU_type_NVIDIA5');echo Session::get('GPU_type_NVIDIA6');echo Session::get('GPU_type_NVIDIA7');echo Session::get('GPU_type_NVIDIA8');
+echo Session::get('GPU_type_NVIDIA9');echo Session::get('GPU_type_NVIDIA10');echo Session::get('GPU_brand1');echo Session::get('GPU_brand2');echo Session::get('GPU_brand3');echo Session::get('GPU_brand4');echo Session::get('GPU_brand5');echo Session::get('GPU_brand6');echo Session::get('GPU_geheugen_type');echo Session::get('GPU_HDMI');
+echo Session::get('GPU_VGA');echo Session::get('GPU_bandwidth_memory');echo Session::get('GPU_DVII');echo Session::get('GPU_DVID');echo Session::get('GPU_cost');echo Session::get('GPU_memory') . "<br>";
 echo "Processor: ";
-echo Session::get('processor_brand1');
-echo Session::get('processor_brand2');
-echo Session::get('processor_core1');
-echo Session::get('processor_core2');
-echo Session::get('processor_core3');
-echo Session::get('processor_core4');
-echo Session::get('processor_cost_min');
-echo Session::get('processor_cost_max');
-echo Session::get('processor_serie1');
-echo Session::get('processor_serie2');
-echo Session::get('processor_serie3');
-echo Session::get('processor_serie4');
-echo Session::get('processor_serie5');
-echo Session::get('processor_serie6');
-echo Session::get('processor_serie7');
-echo Session::get('processor_serie8');
-echo Session::get('processor_serie9');
-echo Session::get('processor_speed_min');
-echo Session::get('processor_speed_max') . "<br>";
+echo Session::get('processor_brand1');echo Session::get('processor_brand2');echo Session::get('processor_core1');echo Session::get('processor_core2');echo Session::get('processor_core3');echo Session::get('processor_core4');echo Session::get('processor_cost_min');echo Session::get('processor_cost_max');echo Session::get('processor_serie1');echo Session::get('processor_serie2');
+echo Session::get('processor_serie3');echo Session::get('processor_serie4');echo Session::get('processor_serie5');echo Session::get('processor_serie6');echo Session::get('processor_serie7');echo Session::get('processor_serie8');echo Session::get('processor_serie9');echo Session::get('processor_speed_min');echo Session::get('processor_speed_max') . "<br>";
 echo "Intern geheugen: ";
-echo Session::get('RAM_merk1');
-echo Session::get('RAM_merk2');
-echo Session::get('RAM_merk3');
-echo Session::get('RAM_merk4');
-echo Session::get('RAM_merk5');
-echo Session::get('RAM_merk6');
-echo Session::get('RAM_geheugen1');
-echo Session::get('RAM_geheugen2');
-echo Session::get('RAM_geheugen3');
-echo Session::get('RAM_geheugen4');
-echo Session::get('RAM_geheugen5');
-echo Session::get('RAM_geheugen6');
-echo Session::get('RAM_klok');
-echo Session::get('RAM_game');
-echo Session::get('RAM_geschikt1');
-echo Session::get('RAM_geschikt2');
-echo Session::get('RAM_geschikt3');
-echo Session::get('RAM_geschikt4');
-echo Session::get('RAM_type');
-echo Session::get('RAM_kanalen');
-echo Session::get('RAM_price_min');
-echo Session::get('RAM_price_max') . "<br>";
+echo Session::get('RAM_merk1');echo Session::get('RAM_merk2');echo Session::get('RAM_merk3');echo Session::get('RAM_merk4');echo Session::get('RAM_merk5');echo Session::get('RAM_merk6');echo Session::get('RAM_geheugen1');echo Session::get('RAM_geheugen2');echo Session::get('RAM_geheugen3');echo Session::get('RAM_geheugen4');
+echo Session::get('RAM_geheugen5');echo Session::get('RAM_geheugen6');echo Session::get('RAM_klok');echo Session::get('RAM_game');echo Session::get('RAM_geschikt1');echo Session::get('RAM_geschikt2');echo Session::get('RAM_geschikt3');echo Session::get('RAM_geschikt4');echo Session::get('RAM_type');echo Session::get('RAM_kanalen');
+echo Session::get('RAM_price_min');echo Session::get('RAM_price_max') . "<br>";
 echo "Moederbord: ";
-echo Session::get('moederbord_merk1');
-echo Session::get('moederbord_merk2');
-echo Session::get('moederbord_merk3');
-echo Session::get('moederbord_format');
-echo Session::get('moederbord_wifi');
-echo Session::get('moederbord_geheugen');
-echo Session::get('moederbord_HDMI');
-echo Session::get('moederbord_VGA');
-echo Session::get('moederbord_displayport');
-echo Session::get('moederbord_price_min');
-echo Session::get('moederbord_price_max');
-echo Session::get('moederbord_usb');
-echo Session::get('moederbord_ethernet');
-echo Session::get('moederbord_DVI');
-echo Session::get('moederbord_raid1');
-echo Session::get('moederbord_raid2');
-echo Session::get('moederbord_raid3');
-echo Session::get('moederbord_raid4');
-echo Session::get('moederbord_raid5');
-echo Session::get('moederbord_raid6');
-echo Session::get('moederbord_audiokanalen');
-echo Session::get('moederbord_geheugen');
-echo Session::get('moederbord_msata');
-echo Session::get('moederbord_SATA300');
-echo Session::get('moederbord_SATA600') . "<br>";
+echo Session::get('moederbord_merk1');echo Session::get('moederbord_merk2');echo Session::get('moederbord_merk3');echo Session::get('moederbord_format');echo Session::get('moederbord_wifi');echo Session::get('moederbord_geheugen');echo Session::get('moederbord_HDMI');echo Session::get('moederbord_VGA');echo Session::get('moederbord_displayport');echo Session::get('moederbord_price_min');
+echo Session::get('moederbord_price_max');echo Session::get('moederbord_usb');echo Session::get('moederbord_ethernet');echo Session::get('moederbord_DVI');echo Session::get('moederbord_raid1');echo Session::get('moederbord_raid2');echo Session::get('moederbord_raid3');echo Session::get('moederbord_raid4');echo Session::get('moederbord_raid5');echo Session::get('moederbord_raid6');
+echo Session::get('moederbord_audiokanalen');echo Session::get('moederbord_geheugen');echo Session::get('moederbord_msata');echo Session::get('moederbord_SATA300');echo Session::get('moederbord_SATA600') . "<br>";
 echo "Behuizing: ";
-echo Session::get('behuizing_merk1');
-echo Session::get('behuizing_merk2');
-echo Session::get('behuizing_merk3');
-echo Session::get('behuizing_merk4');
-echo Session::get('behuizing_merk5');
-echo Session::get('behuizing_merk6');
-echo Session::get('behuizing_computer');
-echo Session::get('behuizing_fan');
-echo Session::get('behuizing_stof');
-echo Session::get('behuizing_water');
-echo Session::get('behuizing_led');
-echo Session::get('behuizing_ruis');
-echo Session::get('behuizing_geluid');
-echo Session::get('behuizing_paneel');
-echo Session::get('behuizing_price_min');
-echo Session::get('behuizing_price_max');
-echo Session::get('behuizing_uitbreiding_min');
-echo Session::get('behuizing_uitbreiding_max');
-echo Session::get('behuizing_kleur');
-echo Session::get('behuizing_materiaal');
-echo Session::get('behuizing_usb2_1');
-echo Session::get('behuizing_usb2_2');
-echo Session::get('behuizing_usb2_3');
-echo Session::get('behuizing_usb3_1');
-echo Session::get('behuizing_usb3_2');
-echo Session::get('behuizing_usb3_3');
-echo Session::get('behuizing_firewire');
-echo Session::get('behuizing_esata');
-echo Session::get('behuizing_2_5bay_min');
-echo Session::get('behuizing_2_5bay_max');
-echo Session::get('behuizing_3_5bay_min');
-echo Session::get('behuizing_3_5bay_max');
-echo Session::get('behuizing_5_25bay_min');
-echo Session::get('behuizing_5_25bay_max') . "<br>";
+echo Session::get('behuizing_merk1');echo Session::get('behuizing_merk2');echo Session::get('behuizing_merk3');echo Session::get('behuizing_merk4');echo Session::get('behuizing_merk5');echo Session::get('behuizing_merk6');echo Session::get('behuizing_computer');echo Session::get('behuizing_fan');echo Session::get('behuizing_stof');echo Session::get('behuizing_water');
+echo Session::get('behuizing_led');echo Session::get('behuizing_ruis');echo Session::get('behuizing_geluid');echo Session::get('behuizing_paneel');echo Session::get('behuizing_price_min');echo Session::get('behuizing_price_max');echo Session::get('behuizing_uitbreiding_min');echo Session::get('behuizing_uitbreiding_max');echo Session::get('behuizing_kleur');
+echo Session::get('behuizing_materiaal');echo Session::get('behuizing_usb2_1');echo Session::get('behuizing_usb2_2');echo Session::get('behuizing_usb2_3');echo Session::get('behuizing_usb3_1');echo Session::get('behuizing_usb3_2');echo Session::get('behuizing_usb3_3');echo Session::get('behuizing_firewire');echo Session::get('behuizing_esata');echo Session::get('behuizing_2_5bay_min');
+echo Session::get('behuizing_2_5bay_max');echo Session::get('behuizing_3_5bay_min');echo Session::get('behuizing_3_5bay_max');echo Session::get('behuizing_5_25bay_min');echo Session::get('behuizing_5_25bay_max') . "<br>";
 echo "SSD: ";
-echo Session::get('SDD_opslag1');
-echo Session::get('SDD_opslag2');
-echo Session::get('SDD_opslag3');
-echo Session::get('SDD_opslag4');
-echo Session::get('SDD_opslag5');
-echo Session::get('SDD_opslag6');
-echo Session::get('SDD_opslag7');
-echo Session::get('SDD_opslag8');
-echo Session::get('SDD_opslag9');
-echo Session::get('SDD_opslag10');
-echo Session::get('SDD_opslag11');
-echo Session::get('SDD_opslag12');
-echo Session::get('SDD_opslag13');
-echo Session::get('SDD_opslag14');
-echo Session::get('SDD_opslag15');
-echo Session::get('SDD_formaat');
-echo Session::get('SSD_soort');
-echo Session::get('SSD_price_min');
-echo Session::get('SSD_price_max');
-echo Session::get('SSD_merk1');
-echo Session::get('SSD_merk2');
-echo Session::get('SSD_merk3');
-echo Session::get('SSD_merk4');
-echo Session::get('SSD_merk5');
-echo Session::get('SSD_merk6');
-echo Session::get('SSD_merk7');
-echo Session::get('SSD_merk8');
-echo Session::get('SSD_controller1');
-echo Session::get('SSD_controller2');
-echo Session::get('SSD_controller3');
-echo Session::get('SSD_controller4');
-echo Session::get('SSD_controller5');
-echo Session::get('SSD_controller6');
-echo Session::get('SSD_schrijf_min');
-echo Session::get('SSD_schrijf_max');
-echo Session::get('SSD_lees_min');
-echo Session::get('SSD_lees_max') . "<br>";
+echo Session::get('SDD_opslag1');echo Session::get('SDD_opslag2');echo Session::get('SDD_opslag3');echo Session::get('SDD_opslag4');echo Session::get('SDD_opslag5');echo Session::get('SDD_opslag6');echo Session::get('SDD_opslag7');echo Session::get('SDD_opslag8');echo Session::get('SDD_opslag9');echo Session::get('SDD_opslag10');
+echo Session::get('SDD_opslag11');echo Session::get('SDD_opslag12');echo Session::get('SDD_opslag13');echo Session::get('SDD_opslag14');echo Session::get('SDD_opslag15');echo Session::get('SDD_formaat');echo Session::get('SSD_soort');echo Session::get('SSD_price_min');echo Session::get('SSD_price_max');echo Session::get('SSD_merk1');
+echo Session::get('SSD_merk2');echo Session::get('SSD_merk3');echo Session::get('SSD_merk4');echo Session::get('SSD_merk5');echo Session::get('SSD_merk6');echo Session::get('SSD_merk7');echo Session::get('SSD_merk8');echo Session::get('SSD_controller1');echo Session::get('SSD_controller2');echo Session::get('SSD_controller3');
+echo Session::get('SSD_controller4');echo Session::get('SSD_controller5');echo Session::get('SSD_controller6');echo Session::get('SSD_schrijf_min');echo Session::get('SSD_schrijf_max');echo Session::get('SSD_lees_min');echo Session::get('SSD_lees_max') . "<br>";
 echo "Blu-ray & DVD: ";
-echo Session::get('brander_merk1');
-echo Session::get('brander_merk2');
-echo Session::get('brander_merk3');
-echo Session::get('brander_merk4');
-echo Session::get('brander_merk5');
-echo Session::get('brander_merk6');
-echo Session::get('brander_type');
-echo Session::get('brander_price_min');
-echo Session::get('brander_price_max');
-echo Session::get('brander_speelt1');
-echo Session::get('brander_speelt2');
-echo Session::get('brander_speelt3');
-echo Session::get('brander_speelt4');
-echo Session::get('brander_besturing');
-echo Session::get('brander_ladetype');
+echo Session::get('brander_merk1');echo Session::get('brander_merk2');echo Session::get('brander_merk3');echo Session::get('brander_merk4');echo Session::get('brander_merk5');echo Session::get('brander_merk6');echo Session::get('brander_type');echo Session::get('brander_price_min');echo Session::get('brander_price_max');echo Session::get('brander_speelt1');
+echo Session::get('brander_speelt2');echo Session::get('brander_speelt3');echo Session::get('brander_speelt4');echo Session::get('brander_besturing');echo Session::get('brander_ladetype');
 echo "</pre>";
 ?>
 
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <title>Icompare</title>
-    {{ HTML::style('css/bootstrap.min.css'); }}
-    {{ HTML::style('css/main.css'); }}
-    {{ HTML::script('js/jquery-1.11.1.min.js'); }}
-    {{ HTML::script('js/bootstrap.min.js'); }}
-    {{ HTML::script('js/intro_accordion.js'); }}
-    {{ HTML::script('js/slidersicompare.js'); }}
-    {{ HTML::script('js/hidden_checkbox.js'); }}
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="/resources/demos/style.css">
-</head>
-<body>
-<div class="container">
-    <div class="banner">
-        {{ HTML::image('images/banner_blue_shadow.png', 'Icompare banner', array('class' => 'banner_img')) }}
-    </div>
+@extends('layout.template')
+
+@section('content')
     <div class="content col-md-10">
         <div class="intro_accordion">
             <div class="accordion-section">
@@ -2705,23 +2479,71 @@ echo "</pre>";
             @endif
         </div>
     </div>
+@stop
+@section('sidebar')
     <div class="sidebar col-md-2">
-        <ul id="item_list" style="color:#ffffff">
-            <li>{{ HTML::image('images/checked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Voeding</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Processor koeler</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'harddiskdrive_state')) }} Harde Schijf</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'soundcard_state')) }} Geluidskaart</li>
-            <li>{{ HTML::image('images/checked.png', 'unchecked', array('class' => 'list_state', 'id' => 'pci_state')) }} PCI express</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'videocard_state')) }} Videokaart</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'processor_state')) }} Processor</li>
-            <li>{{ HTML::image('images/checked.png', 'unchecked', array('class' => 'list_state', 'id' => 'internalmemory_state')) }} Intern geheugen</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Moederbord</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} Behuizing</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} SSD</li>
-            <li>{{ HTML::image('images/unchecked.png', 'unchecked', array('class' => 'list_state', 'id' => 'powersupply_state')) }} BLu-Ray DVD</li>
+        <ul id="item_list">
+            @if($powersupply_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="powersupply_state"/> Voeding</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="powersupply_state"/> Voeding</li>
+            @endif
+            @if($processorcooler_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="processorcooler_state"/> Processor koeler</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="processorcooler_state"/> Processor koeler</li>
+            @endif
+            @if($internalharddrive_check  == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="internalharddrive_state"/> Harde Schijf</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="internalharddrive_state"/> Harde Schijf</li>
+            @endif
+            @if($soundcard_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="soundcard_state"/> Geluidskaart</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="soundcard_state"/> Geluidskaart</li>
+            @endif
+            @if($pci_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="pci_state"/> PCI express</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="pci_state"/> PCI express</li>
+            @endif
+            @if($videocard_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="videocard_state"/> Videokaart</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="videocard_state"/> Videokaart</li>
+            @endif
+            @if($processor_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="processor_state"/> Processor</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="processor_state"/> Processor</li>
+            @endif
+            @if($internalmemory_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="internalmemory_state"/> Intern geheugen</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="internalmemory_state"/> Intern geheugen</li>
+            @endif
+            @if($motherboard_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="motherboard_state"/> Moederbord</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="motherboard_state"/> Moederbord</li>
+            @endif
+            @if($casing_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="casing_state"/> Behuizing</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="casing_state"/> Behuizing</li>
+            @endif
+            @if($ssd_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="ssd_state"/> SSD</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="ssd_state"/> SSD</li>
+            @endif
+            @if($bluraydvd_check == "-")
+                <li><img src="images/unchecked.png" class="list_state", id="bluraydvd_state"/> BLu-Ray & DVD</li>
+            @else
+                <li><img src="images/checked.png" class="list_state", id="bluraydvd_state"/> Blu-ray & DVD</li>
+            @endif
         </ul>
         <a href="awaiting_response" class="myButtonCreer">Creëer profiel</a>
     </div>
-</div>
-</body>
-</html>
+@stop
