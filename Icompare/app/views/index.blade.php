@@ -1,3 +1,25 @@
+<!--
+* Dit onderdeel is geschreven door:
+* Anny, Michelle, Randa & Sander
+*
+* Anny:     - Hidden inputs toegevoegd voor de sliders
+*           - De values gezet van de sliders
+*           - De drop-down accordion met informatie over de website
+* Michelle: - Het skelet van de website
+*           - Het tonen van eerder ingevulde onderdelen via sessie variabelen
+*           - Het checken of een onderdeel volledig ingevuld is d.m.v. sessie variabelen
+* Randa:    - Het menu van onderdelen
+*           - Banner
+*           - Logo
+*           - Kleurschema bepaald
+* Sander:   - Het bepalen van checkbox of radio
+*           - De sliders gemaakt
+*           - Min, max, steps, values en ranges bepaald
+*
+* Document is voor het laatst, op 16-01-2015, nagekeken door:
+* Michelle
+-->
+
 @include('include.session_start')
 
 <?php
@@ -14,7 +36,180 @@ $motherboard_check = Session::get('motherboard_check');
 $casing_check = Session::get('casing_check');
 $ssd_check = Session::get('ssd_check');
 $bluraydvd_check = Session::get('bluraydvd_check');
+
+switch(Session::get('powersupply_price_min')) {
+    case "1": $voeding_cost0 = "0"; break;
+    case "2": $voeding_cost0 = "40"; break;
+    case "3": $voeding_cost0 = "80"; break;
+    case "4": $voeding_cost0 = "120"; break;
+    case "5": $voeding_cost0 = "160"; break;
+    case "6": $voeding_cost0 = "200"; break;
+    case "7": $voeding_cost0 = "240"; break;
+    case "8": $voeding_cost0 = "280"; break;
+    case "9": $voeding_cost0 = "320"; break;
+    case "a": $voeding_cost0 = "360"; break;
+    case "b": $voeding_cost0 = "400"; break;
+    default: $voeding_cost0 = "40"; break;
+}
+switch(Session::get('powersupply_price_max')) {
+    case "1": $voeding_cost1 = "0"; break;
+    case "2": $voeding_cost1 = "40"; break;
+    case "3": $voeding_cost1 = "80"; break;
+    case "4": $voeding_cost1 = "120"; break;
+    case "5": $voeding_cost1 = "160"; break;
+    case "6": $voeding_cost1 = "200"; break;
+    case "7": $voeding_cost1 = "240"; break;
+    case "8": $voeding_cost1 = "280"; break;
+    case "9": $voeding_cost1 = "320"; break;
+    case "a": $voeding_cost1 = "360"; break;
+    case "b": $voeding_cost1 = "400"; break;
+    default: $voeding_cost1 = "200"; break;
+}
+switch(Session::get('powersupply_power_min')) {
+    case "1": $Powersupply_power0 = "400"; break;
+    case "2": $Powersupply_power0 = "450"; break;
+    case "3": $Powersupply_power0 = "500"; break;
+    case "4": $Powersupply_power0 = "550"; break;
+    case "5": $Powersupply_power0 = "600"; break;
+    case "6": $Powersupply_power0 = "650"; break;
+    case "7": $Powersupply_power0 = "700"; break;
+    case "8": $Powersupply_power0 = "750"; break;
+    case "9": $Powersupply_power0 = "800"; break;
+    case "a": $Powersupply_power0 = "850"; break;
+    case "b": $Powersupply_power0 = "900"; break;
+    case "c": $Powersupply_power0 = "950"; break;
+    case "d": $Powersupply_power0 = "1000"; break;
+    default: $Powersupply_power0 = "400"; break;
+}
+switch(Session::get('powersupply_power_max')) {
+    case "1": $Powersupply_power1 = "400"; break;
+    case "2": $Powersupply_power1 = "450"; break;
+    case "3": $Powersupply_power1 = "500"; break;
+    case "4": $Powersupply_power1 = "550"; break;
+    case "5": $Powersupply_power1 = "600"; break;
+    case "6": $Powersupply_power1 = "650"; break;
+    case "7": $Powersupply_power1 = "700"; break;
+    case "8": $Powersupply_power1 = "750"; break;
+    case "9": $Powersupply_power1 = "800"; break;
+    case "a": $Powersupply_power1 = "850"; break;
+    case "b": $Powersupply_power1 = "900"; break;
+    case "c": $Powersupply_power1 = "950"; break;
+    case "d": $Powersupply_power1 = "1000"; break;
+    default: $Powersupply_power1 = "1000"; break;
+}
+switch(Session::get('s-ata_min')) {
+    case "1": echo "check"; $Sataconnection0 = "0"; break;
+    case "2": $Sataconnection0 = "1"; break;
+    case "3": $Sataconnection0 = "2"; break;
+    case "4": $Sataconnection0 = "3"; break;
+    case "5": $Sataconnection0 = "4"; break;
+    case "6": $Sataconnection0 = "5"; break;
+    case "7": $Sataconnection0 = "6"; break;
+    case "8": $Sataconnection0 = "7"; break;
+    case "9": $Sataconnection0 = "8"; break;
+    case "a": $Sataconnection0 = "9"; break;
+    case "b": $Sataconnection0 = "10"; break;
+    case "c": $Sataconnection0 = "11"; break;
+    case "d": $Sataconnection0 = "12"; break;
+    default: $Sataconnection0 = "0"; break;
+}
+switch(Session::get('s-ata_max')) {
+    case "1": $Sataconnection1 = "0"; break;
+    case "2": $Sataconnection1 = "1"; break;
+    case "3": $Sataconnection1 = "2"; break;
+    case "4": $Sataconnection1 = "3"; break;
+    case "5": $Sataconnection1 = "4"; break;
+    case "6": $Sataconnection1 = "5"; break;
+    case "7": $Sataconnection1 = "6"; break;
+    case "8": $Sataconnection1 = "7"; break;
+    case "9": $Sataconnection1 = "8"; break;
+    case "a": $Sataconnection1 = "9"; break;
+    case "b": $Sataconnection1 = "10"; break;
+    case "c": $Sataconnection1 = "11"; break;
+    case "d": $Sataconnection1 = "12"; break;
+    default: $Sataconnection1 = "4"; break;
+}
+switch(Session::get('processorcooler_price_min')) {
+    case "1": $ProcessorCoolerP0 = "0"; break;
+    case "2": $ProcessorCoolerP0 = "20"; break;
+    case "3": $ProcessorCoolerP0 = "40"; break;
+    case "4": $ProcessorCoolerP0 = "60"; break;
+    case "5": $ProcessorCoolerP0 = "80"; break;
+    case "6": $ProcessorCoolerP0 = "100"; break;
+    case "7": $ProcessorCoolerP0 = "120"; break;
+    default: $ProcessorCoolerP0 = "60"; break;
+}
+switch(Session::get('processorcooler_price_max')) {
+    case "1": $ProcessorCoolerP1 = "0"; break;
+    case "2": $ProcessorCoolerP1 = "20"; break;
+    case "3": $ProcessorCoolerP1 = "40"; break;
+    case "4": $ProcessorCoolerP1 = "60"; break;
+    case "5": $ProcessorCoolerP1 = "80"; break;
+    case "6": $ProcessorCoolerP1 = "100"; break;
+    case "7": $ProcessorCoolerP1 = "120"; break;
+    default: $ProcessorCoolerP1 = "100"; break;
+}
+switch(Session::get('processorcooler_diameter')) {
+    case "1": $ProcessorCoolerVentilatorDm0 = "6"; break;
+    case "2": $ProcessorCoolerVentilatorDm0 = "7"; break;
+    case "3": $ProcessorCoolerVentilatorDm0 = "8"; break;
+    case "4": $ProcessorCoolerVentilatorDm0 = "9"; break;
+    case "5": $ProcessorCoolerVentilatorDm0 = "10"; break;
+    case "6": $ProcessorCoolerVentilatorDm0 = "11"; break;
+    case "7": $ProcessorCoolerVentilatorDm0 = "12"; break;
+    case "8": $ProcessorCoolerVentilatorDm0 = "13"; break;
+    case "9": $ProcessorCoolerVentilatorDm0 = "14"; break;
+    default: $ProcessorCoolerVentilatorDm0 = "9"; break;
+}
+switch(Session::get('processorcooler_rotation_min')) {
+    case "800": $ProcessorCoolerRSpeed0 = "800"; break;
+    case "1000": $ProcessorCoolerRSpeed0 = "1000"; break;
+    case "1200": $ProcessorCoolerRSpeed0 = "1200"; break;
+    case "1400": $ProcessorCoolerRSpeed0 = "1400"; break;
+    case "1600": $ProcessorCoolerRSpeed0 = "1600"; break;
+    case "1800": $ProcessorCoolerRSpeed0 = "1800"; break;
+    case "2000": $ProcessorCoolerRSpeed0 = "2000"; break;
+    case "2200": $ProcessorCoolerRSpeed0 = "2200"; break;
+    case "2400": $ProcessorCoolerRSpeed0 = "2400"; break;
+    case "2600": $ProcessorCoolerRSpeed0 = "2600"; break;
+    case "2800": $ProcessorCoolerRSpeed0 = "2800"; break;
+    case "3000": $ProcessorCoolerRSpeed0 = "3000"; break;
+    case "3200": $ProcessorCoolerRSpeed0 = "3200"; break;
+    case "3400": $ProcessorCoolerRSpeed0 = "3400"; break;
+    default: $ProcessorCoolerRSpeed0 = "800"; break;
+}
+switch(Session::get('processorcooler_rotation_max')) {
+    case "800": $ProcessorCoolerRSpeed1 = "800"; break;
+    case "1000": $ProcessorCoolerRSpeed1 = "1000"; break;
+    case "1200": $ProcessorCoolerRSpeed1 = "1200"; break;
+    case "1400": $ProcessorCoolerRSpeed1 = "1400"; break;
+    case "1600": $ProcessorCoolerRSpeed1 = "1600"; break;
+    case "1800": $ProcessorCoolerRSpeed1 = "1800"; break;
+    case "2000": $ProcessorCoolerRSpeed1 = "2000"; break;
+    case "2200": $ProcessorCoolerRSpeed1 = "2200"; break;
+    case "2400": $ProcessorCoolerRSpeed1 = "2400"; break;
+    case "2600": $ProcessorCoolerRSpeed1 = "2600"; break;
+    case "2800": $ProcessorCoolerRSpeed1 = "2800"; break;
+    case "3000": $ProcessorCoolerRSpeed1 = "3000"; break;
+    case "3200": $ProcessorCoolerRSpeed1 = "3200"; break;
+    case "3400": $ProcessorCoolerRSpeed1 = "3400"; break;
+    default: $ProcessorCoolerRSpeed1 = "1200"; break;
+}
 ?>
+
+<script type="text/javascript">
+    var voeding_cost0 = '<?php echo $voeding_cost0; ?>';
+    var voeding_cost1 = '<?php echo $voeding_cost1; ?>';
+    var Powersupply_power0 = '<?php echo $Powersupply_power0; ?>';
+    var Powersupply_power1 = '<?php echo $Powersupply_power1; ?>';
+    var Sataconnection0 = '<?php echo $Sataconnection0; ?>';
+    var Sataconnection1 = '<?php echo $Sataconnection1; ?>';
+    var ProcessorCoolerP0 = '<?php echo $ProcessorCoolerP0; ?>';
+    var ProcessorCoolerP1 = '<?php echo $ProcessorCoolerP1; ?>';
+    var ProcessorCoolerVentilatorDm0 = '<?php echo $ProcessorCoolerVentilatorDm0; ?>';
+    var ProcessorCoolerRSpeed0 = '<?php echo $ProcessorCoolerRSpeed0; ?>';
+    var ProcessorCoolerRSpeed1 = '<?php echo $ProcessorCoolerRSpeed1; ?>';
+</script>
 
 @extends('layout.template')
 
@@ -369,15 +564,15 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                             <h5>Prijs<br><span class="annotation">(minimum - maximum)</span></h5>
                             <p><input class="slider_label" type="text" id="amount_voeding" readonly></p>
                             <div class="specification_table_slider" id="slider_powersupply_price"></div>
-                            <input name="voeding_cost0" type="hidden"  value="60" id="voeding_cost0">
-                            <input name="voeding_cost1" type="hidden" value="200" id="voeding_cost1">
+                            <input name="voeding_cost0" type="hidden" value={{$voeding_cost0}} id="voeding_cost0">
+                            <input name="voeding_cost1" type="hidden" value={{$voeding_cost1}} id="voeding_cost1">
                         </div>
                         <div class="voeding_vermogen specification_table">
                             <h5>Vermogen (in Watt)<br><span class="annotation">(minimum - maximum)</span></h5>
                             <p><input class="slider_label" type="text" id="voeding_vermogen" readonly></p>
                             <div class="specification_table_slider" id="slider_powersupply_power"></div>
-                            <input name="Powersupply_power0" type="hidden" value="410" type="hidden"  id="Powersupply_power0">
-                            <input name="Powersupply_power1" type="hidden" value="60" type="hidden" id="Powersupply_power1">
+                            <input name="Powersupply_power0" type="hidden" value="400" type="hidden"  id="Powersupply_power0">
+                            <input name="Powersupply_power1" type="hidden" value="1000" type="hidden" id="Powersupply_power1">
                         </div>
                         <div class="voeding_sata specification_table">
                             <h5>S-ATA aansluiting
@@ -966,11 +1161,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                @if(Session::get('tmp') == "1")
+                                @if(Session::get('soundcard_port') == "1")
+                                    <td><input type="radio" name="geluid_optisch" value="1" checked></td>
                                 @else
+                                    <td><input type="radio" name="geluid_optisch" value="1"></td>
                                 @endif
-                                <td><input type="radio" name="geluid_optisch" value="1"></td>
-                                <td><input type="radio" name="geluid_optisch" value="2"></td>
+                                @if(Session::get('soundcard_port') == "2")
+                                    <td><input type="radio" name="geluid_optisch" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_optisch" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                     </div>
@@ -983,9 +1183,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">C-Media CMI8786</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="geluid_processor1" value="1"></td>
-                                <td><input type="checkbox" name="geluid_processor2" value="1"></td>
-                                <td><input type="checkbox" name="geluid_processor3" value="1"></td>
+                                @if(Session::get('soundcard_processor1') == "0")
+                                    <td><input type="checkbox" name="geluid_processor1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="geluid_processor1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('soundcard_processor2') == "0")
+                                    <td><input type="checkbox" name="geluid_processor2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="geluid_processor2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('soundcard_processor3') == "0")
+                                    <td><input type="checkbox" name="geluid_processor3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="geluid_processor3" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">CMI8888DHT</td>
@@ -993,9 +1205,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="geluid_processor4" value="1"></td>
-                                <td><input type="checkbox" name="geluid_processor5" value="1"></td>
-                                <td><input type="checkbox" name="geluid_processor6" value="1"></td>
+                                @if(Session::get('soundcard_processor4') == "0")
+                                    <td><input type="checkbox" name="geluid_processor4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="geluid_processor4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('soundcard_processor5') == "0")
+                                    <td><input type="checkbox" name="geluid_processor5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="geluid_processor5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('soundcard_processor6') == "0")
+                                    <td><input type="checkbox" name="geluid_processor6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="geluid_processor6" value="1" checked></td>
+                                @endif
                         </table>
                         <table class="geluid_kanalen_table">
                             <tr><th colspan="2"><h5>Speaker kanalen
@@ -1007,8 +1231,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">7.1 Surround</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="geluid_kanalen" value="1"></td>
-                                <td><input type="radio" name="geluid_kanalen" value="2"></td>
+                                @if(Session::get('soundcard_channel') == "1")
+                                    <td><input type="radio" name="geluid_kanalen" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_kanalen" value="1"></td>
+                                @endif
+                                @if(Session::get('soundcard_channel') == "2")
+                                    <td><input type="radio" name="geluid_kanalen" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_kanalen" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="geluid_hoofdtelefoonaansluiting_table">
@@ -1018,8 +1250,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="geluid_hoofd" value="1"></td>
-                                <td><input type="radio" name="geluid_hoofd" value="2"></td>
+                                @if(Session::get('soundcard_headphone') == "1")
+                                    <td><input type="radio" name="geluid_hoofd" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_hoofd" value="1"></td>
+                                @endif
+                                @if(Session::get('soundcard_headphone') == "2")
+                                    <td><input type="radio" name="geluid_hoofd" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_hoofd" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="geluid_minijack_table">
@@ -1032,18 +1272,24 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="geluid_jack" value="1"></td>
-                                <td><input type="radio" name="geluid_jack" value="2"></td>
+                                @if(Session::get('soundcard_jack') == "1")
+                                    <td><input type="radio" name="geluid_jack" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_jack" value="1"></td>
+                                @endif
+                                @if(Session::get('soundcard_jack') == "2")
+                                    <td><input type="radio" name="geluid_jack" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_jack" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="geluid_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_geluid" readonly></p>
                             <div class="specification_table_slider" id="soundcard_price"></div>
-
-                            <input name="soundcard_price0" type="hidden" value="60" id="soundcard_price0" style="background: red">
-                            <input name="soundcard_price1" type="hidden" value="100" id="soundcard_price1" style="background: yellow">
-
+                            <input name="soundcard_price0" type="hidden" value="60" id="soundcard_price0">
+                            <input name="soundcard_price1" type="hidden" value="100" id="soundcard_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1060,8 +1306,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="pci_usb" value="1"></td>
-                                <td><input type="radio" name="pci_usb" value="2"></td>
+                                @if(Session::get('pci_usb') == "1")
+                                    <td><input type="radio" name="pci_usb" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_usb" value="1"></td>
+                                @endif
+                                @if(Session::get('pci_usb') == "2")
+                                    <td><input type="radio" name="pci_usb" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_usb" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="pci_firewire_table">
@@ -1074,8 +1328,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="pci_firewire" value="1"></td>
-                                <td><input type="radio" name="pci_firewire" value="2"></td>
+                                @if(Session::get('pci_firewire') == "1")
+                                    <td><input type="radio" name="pci_firewire" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_firewire" value="1"></td>
+                                @endif
+                                @if(Session::get('pci_firewire') == "2")
+                                    <td><input type="radio" name="pci_firewire" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_firewire" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                     </div>
@@ -1090,8 +1352,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="pci_sata" value="1"></td>
-                                <td><input type="radio" name="pci_sata" value="2"></td>
+                                @if(Session::get('pci_sata') == "1")
+                                    <td><input type="radio" name="pci_sata" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_sata" value="1"></td>
+                                @endif
+                                @if(Session::get('pci_sata') == "2")
+                                    <td><input type="radio" name="pci_sata" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_sata" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="pci_esata_table">
@@ -1104,18 +1374,24 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="pci_esata" value="1"></td>
-                                <td><input type="radio" name="pci_esata" value="2"></td>
+                                @if(Session::get('pci_esata') == "1")
+                                    <td><input type="radio" name="pci_esata" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_esata" value="1"></td>
+                                @endif
+                                @if(Session::get('pci_esata') == "2")
+                                    <td><input type="radio" name="pci_esata" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="pci_esata" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="pci_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_pci" readonly></p>
                             <div class="specification_table_slider" id="pci_price"></div>
-                            <input name="pci_price0" type="hidden"  value="20" id="pci_price0" style="background: red">
-                            <input name="pci_price1" type="hidden" value="60" id="pci_price1" style="background: yellow">
-
-
+                            <input name="pci_price0" type="hidden"  value="20" id="pci_price0">
+                            <input name="pci_price1" type="hidden" value="60" id="pci_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1147,40 +1423,80 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">AMD Radeon R9 270</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD2" value="1"></td>
+                                @if(Session::get('GPU_type_AMD1') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_AMD2') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD2" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R7 240</td>
                                 <td style="width:50%">AMD Radeon HD 6450</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD3" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD4" value="1"></td>
+                                @if(Session::get('GPU_type_AMD3') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_AMD4') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD4" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R9 280</td>
                                 <td style="width:50%">AMD Radeon R9 280X</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD5" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD6" value="1"></td>
+                                @if(Session::get('GPU_type_AMD5') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_AMD6') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD6" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R9 290</td>
                                 <td style="width:50%">AMD Radeon R9 290X</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD7" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD8" value="1"></td>
+                                @if(Session::get('GPU_type_AMD7') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD7" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD7" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_AMD8') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD8" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD8" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">AMD Radeon R7 250</td>
                                 <td style="width:50%">AMD Radeon HD 3450 AGP</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_AMD9" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_AMD10" value="1"></td>
+                                @if(Session::get('GPU_type_AMD9') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD9" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD9" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_AMD10') == "0")
+                                    <td><input type="checkbox" name="GPU_type_AMD10" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_AMD10" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table id="nvidia_hidden" class="GPU_type_NVIDIA_table">
@@ -1192,40 +1508,80 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">NVIDIA GeForce GTX 780</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA2" value="1"></td>
+                                @if(Session::get('GPU_type_NVIDIA1') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_NVIDIA2') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA2" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GTX 980</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 970</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA3" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA4" value="1"></td>
+                                @if(Session::get('GPU_type_NVIDIA3') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_NVIDIA4') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA4" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GT 730</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 660</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA5" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA6" value="1"></td>
+                                @if(Session::get('GPU_type_NVIDIA5') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_NVIDIA6') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA6" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GTX 750</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 760</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA7" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA8" value="1"></td>
+                                @if(Session::get('GPU_type_NVIDIA7') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA7" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA7" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_NVIDIA8') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA8" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA8" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:50%">NVIDIA GeForce GT 740</td>
                                 <td style="width:50%">NVIDIA GeForce GTX 770</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA9" value="1"></td>
-                                <td><input type="checkbox" name="GPU_type_NVIDIA10" value="1"></td>
+                                @if(Session::get('GPU_type_NVIDIA9') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA9" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA9" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_type_NVIDIA10') == "0")
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA10" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_type_NVIDIA10" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="GPU_brand_table">
@@ -1238,9 +1594,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Gigabyte</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_brand1" value="1"></td>
-                                <td><input type="checkbox" name="GPU_brand2" value="1"></td>
-                                <td><input type="checkbox" name="GPU_brand3" value="1"></td>
+                                @if(Session::get('GPU_brand1') == "0")
+                                    <td><input type="checkbox" name="GPU_brand1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_brand1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_brand2') == "0")
+                                    <td><input type="checkbox" name="GPU_brand2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_brand2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_brand3') == "0")
+                                    <td><input type="checkbox" name="GPU_brand3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_brand3" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Sapphire</td>
@@ -1248,9 +1616,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="GPU_brand4" value="1"></td>
-                                <td><input type="checkbox" name="GPU_brand5" value="1"></td>
-                                <td><input type="checkbox" name="GPU_brand6" value="1"></td>
+                                @if(Session::get('GPU_brand4') == "0")
+                                    <td><input type="checkbox" name="GPU_brand4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_brand4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_brand5') == "0")
+                                    <td><input type="checkbox" name="GPU_brand5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_brand5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('GPU_brand6') == "0")
+                                    <td><input type="checkbox" name="GPU_brand6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="GPU_brand6" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="GPU_geheugen_type_table">
@@ -1265,10 +1645,26 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:25%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_geheugen_type" value="1"></td>
-                                <td><input type="radio" name="GPU_geheugen_type" value="2"></td>
-                                <td><input type="radio" name="GPU_geheugen_type" value="3"></td>
-                                <td><input type="radio" name="GPU_geheugen_type" value="4"></td>
+                                @if(Session::get('GPU_geheugen_type') == "1")
+                                    <td><input type="radio" name="GPU_geheugen_type" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_geheugen_type" value="1"></td>
+                                @endif
+                                @if(Session::get('GPU_geheugen_type') == "2")
+                                    <td><input type="radio" name="GPU_geheugen_type" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_geheugen_type" value="2"></td>
+                                @endif
+                                @if(Session::get('GPU_geheugen_type') == "3")
+                                    <td><input type="radio" name="GPU_geheugen_type" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_geheugen_type" value="3"></td>
+                                @endif
+                                @if(Session::get('GPU_geheugen_type') == "4")
+                                    <td><input type="radio" name="GPU_geheugen_type" value="4" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_geheugen_type" value="4"></td>
+                                @endif
                             </tr>
                         </table>
                         <table>
@@ -1282,9 +1678,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">2</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_HDMI" value="1"></td>
-                                <td><input type="radio" name="GPU_HDMI" value="2"></td>
-                                <td><input type="radio" name="GPU_HDMI" value="3"></td>
+                                @if(Session::get('GPU_HDMI') == "1")
+                                    <td><input type="radio" name="GPU_HDMI" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_HDMI" value="1"></td>
+                                @endif
+                                @if(Session::get('GPU_HDMI') == "2")
+                                    <td><input type="radio" name="GPU_HDMI" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_HDMI" value="2"></td>
+                                @endif
+                                @if(Session::get('GPU_HDMI') == "3")
+                                    <td><input type="radio" name="GPU_HDMI" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_HDMI" value="3"></td>
+                                @endif
                             </tr>
                         </table>
                         <table>
@@ -1297,8 +1705,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_VGA" value="1"></td>
-                                <td><input type="radio" name="GPU_VGA" value="2"></td>
+                                @if(Session::get('GPU_VGA') == "1")
+                                    <td><input type="radio" name="GPU_VGA" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_VGA" value="1"></td>
+                                @endif
+                                @if(Session::get('GPU_VGA') == "2")
+                                    <td><input type="radio" name="GPU_VGA" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_VGA" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                     </div>
@@ -1317,18 +1733,46 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:16.6%">512</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="2"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="3"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="4"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="5"></td>
-                                <td><input type="radio" name="GPU_bandwidth_memory" value="6"></td>
+                                @if(Session::get('GPU_bandwidth_memory') == "1")
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="1"></td>
+                                @endif
+                                @if(Session::get('GPU_bandwidth_memory') == "2")
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="2"></td>
+                                @endif
+                                @if(Session::get('GPU_bandwidth_memory') == "3")
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="3"></td>
+                                @endif
+                                @if(Session::get('GPU_bandwidth_memory') == "4")
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="4" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="4"></td>
+                                @endif
+                                @if(Session::get('GPU_bandwidth_memory') == "5")
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="5" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="5"></td>
+                                @endif
+                                @if(Session::get('GPU_bandwidth_memory') == "6")
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="6" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_bandwidth_memory" value="6"></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:16.6%" colspan="6">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td colspan="6"><input type="radio" name="GPU_bandwidth_memory" value="7"></td>
+                                @if(Session::get('GPU_bandwidth_memory') == "7")
+                                    <td colspan="6"><input type="radio" name="GPU_bandwidth_memory" value="7" checked></td>
+                                @else
+                                    <td colspan="6"><input type="radio" name="GPU_bandwidth_memory" value="7"></td>
+                                @endif
                             </tr>
                         </table>
                         <table>
@@ -1341,8 +1785,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_DVI-I" value="1"></td>
-                                <td><input type="radio" name="GPU_DVI-I" value="2"></td>
+                                @if(Session::get('GPU_DVII') == "1")
+                                    <td><input type="radio" name="GPU_DVI-I" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_DVI-I" value="1"></td>
+                                @endif
+                                @if(Session::get('GPU_DVII') == "2")
+                                    <td><input type="radio" name="GPU_DVI-I" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_DVI-I" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table>
@@ -1356,28 +1808,36 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">2</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="GPU_DVI-D" value="1"></td>
-                                <td><input type="radio" name="GPU_DVI-D" value="2"></td>
-                                <td><input type="radio" name="GPU_DVI-D" value="3"></td>
+                                @if(Session::get('GPU_DVID') == "1")
+                                    <td><input type="radio" name="GPU_DVI-D" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_DVI-D" value="1"></td>
+                                @endif
+                                @if(Session::get('GPU_DVID') == "2")
+                                    <td><input type="radio" name="GPU_DVI-D" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_DVI-D" value="2"></td>
+                                @endif
+                                @if(Session::get('GPU_DVID') == "3")
+                                    <td><input type="radio" name="GPU_DVI-D" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="GPU_DVI-D" value="3"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="GPU_cost specification_table">
                             <h5>Prijs </h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label"   type="text" id="amount_GPU_prijs" readonly></p>
                             <div class="specification_table_slider" type="hidden"  id="videocard_price"></div>
-
-                            <input name="videocard_price0" type="hidden" value="100" id="videocard_price0" style="background: red">
-                            <input name="videocard_price1"  type="hidden" value="600" id="videocard_price1" style="background: yellow">
-
-
+                            <input name="videocard_price0" type="hidden" value="100" id="videocard_price0">
+                            <input name="videocard_price1"  type="hidden" value="600" id="videocard_price1">
                         </div>
                         <div class="GPU_memory specification_table">
                             <h5>Gewenst videogeheugen</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label"  type="text" id="amount_GPU_geheugen" readonly></p>
                             <div class="specification_table_slider" id="videocard_memory"></div>
-
-                            <input name="videocard_memoryMb0" type="hidden"  value="516" id="videocard_memoryMb0" style="background: red">
-                            <input name="videocard_memoryMb1" type="hidden"  value="4096" id="videocard_memoryMb1" style="background: yellow">
+                            <input name="videocard_memoryMb0" type="hidden"  value="516" id="videocard_memoryMb0">
+                            <input name="videocard_memoryMb1" type="hidden"  value="4096" id="videocard_memoryMb1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1396,8 +1856,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">AMD</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_brand1" value="1"></td>
-                                <td><input type="checkbox" name="processor_brand2" value="1"></td>
+                                @if(Session::get('processor_brand1') == "0")
+                                    <td><input type="checkbox" name="processor_brand1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_brand1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_brand2') == "0")
+                                    <td><input type="checkbox" name="processor_brand2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_brand2" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="core_table">
@@ -1412,18 +1880,34 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:25%">8-core</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_core1" value="1"></td>
-                                <td><input type="checkbox" name="processor_core2" value="1"></td>
-                                <td><input type="checkbox" name="processor_core3" value="1"></td>
-                                <td><input type="checkbox" name="processor_core4" value="1"></td>
+                                @if(Session::get('processor_core1') == "0")
+                                    <td><input type="checkbox" name="processor_core1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_core1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_core2') == "0")
+                                    <td><input type="checkbox" name="processor_core2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_core2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_core3') == "0")
+                                    <td><input type="checkbox" name="processor_core3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_core3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_core4') == "0")
+                                    <td><input type="checkbox" name="processor_core4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_core4" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="processor_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount" readonly></p>
                             <div class="specification_table_slider" id="processor_price"></div>
-                            <input name="processor_price0"  type="hidden" value="100" id="processor_price0" style="background: red">
-                            <input name="processor_price1"  type="hidden" value="400" id="processor_price1" style="background: yellow">
+                            <input name="processor_price0"  type="hidden" value="100" id="processor_price0">
+                            <input name="processor_price1"  type="hidden" value="400" id="processor_price1">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -1438,9 +1922,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">A8</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_serie1" value="1"></td>
-                                <td><input type="checkbox" name="processor_serie2" value="1"></td>
-                                <td><input type="checkbox" name="processor_serie3" value="1"></td>
+                                @if(Session::get('processor_serie1') == "0")
+                                    <td><input type="checkbox" name="processor_serie1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_serie2') == "0")
+                                    <td><input type="checkbox" name="processor_serie2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_serie3') == "0")
+                                    <td><input type="checkbox" name="processor_serie3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie3" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Core i3</td>
@@ -1448,9 +1944,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Core i7</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_serie4" value="1"></td>
-                                <td><input type="checkbox" name="processor_serie5" value="1"></td>
-                                <td><input type="checkbox" name="processor_serie6" value="1"></td>
+                                @if(Session::get('processor_serie4') == "0")
+                                    <td><input type="checkbox" name="processor_serie4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_serie5') == "0")
+                                    <td><input type="checkbox" name="processor_serie5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_serie6') == "0")
+                                    <td><input type="checkbox" name="processor_serie6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie6" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">FX</td>
@@ -1458,9 +1966,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Sempron</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="processor_serie7" value="1"></td>
-                                <td><input type="checkbox" name="processor_serie8" value="1"></td>
-                                <td><input type="checkbox" name="processor_serie9" value="1"></td>
+                                @if(Session::get('processor_serie7') == "0")
+                                    <td><input type="checkbox" name="processor_serie7" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie7" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_serie8') == "0")
+                                    <td><input type="checkbox" name="processor_serie8" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie8" value="1" checked></td>
+                                @endif
+                                @if(Session::get('processor_serie9') == "0")
+                                    <td><input type="checkbox" name="processor_serie9" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="processor_serie9" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="processor_speed specification_table">
@@ -1470,11 +1990,9 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                             </h5>
                             <span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="speed" readonly></p>
-                            <div class="specification_table_slider" id="slider-range1"></div>
-
-                            <input name="processor_clocking0" type="hidden" value="1450" id="processor_clocking0" style="background: red">
-                            <input name="processor_clocking1"  type="hidden" value="2510"  id="processor_clocking1" style="background: yellow">
-
+                            <div class="specification_table_slider" id="processor_clockingspeed"></div>
+                            <input name="processor_clocking0" type="hidden" value="1450" id="processor_clocking0">
+                            <input name="processor_clocking1"  type="hidden" value="2510"  id="processor_clocking1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1494,9 +2012,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Kingston</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="RAM_merk1" value="1"></td>
-                                <td><input type="checkbox" name="RAM_merk2" value="1"></td>
-                                <td><input type="checkbox" name="RAM_merk3" value="1"></td>
+                                @if(Session::get('RAM_merk1') == "0")
+                                    <td><input type="checkbox" name="RAM_merk1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_merk1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_merk2') == "0")
+                                    <td><input type="checkbox" name="RAM_merk2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_merk2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_merk3') == "0")
+                                    <td><input type="checkbox" name="RAM_merk3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_merk3" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Qnap</td>
@@ -1504,9 +2034,21 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="RAM_merk4" value="1"></td>
-                                <td><input type="checkbox" name="RAM_merk5" value="1"></td>
-                                <td><input type="checkbox" name="RAM_merk6" value="1"></td>
+                                @if(Session::get('RAM_merk4') == "0")
+                                    <td><input type="checkbox" name="RAM_merk4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_merk4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_merk5') == "0")
+                                    <td><input type="checkbox" name="RAM_merk5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_merk5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_merk6') == "0")
+                                    <td><input type="checkbox" name="RAM_merk6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_merk6" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="RAM_geheugen_table">
@@ -1523,12 +2065,36 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:16.6%">32 GB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="RAM_geheugen1" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geheugen2" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geheugen3" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geheugen4" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geheugen5" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geheugen6" value="1"></td>
+                                @if(Session::get('RAM_geheugen1') == "0")
+                                    <td><input type="checkbox" name="RAM_geheugen1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geheugen1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geheugen2') == "0")
+                                    <td><input type="checkbox" name="RAM_geheugen2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geheugen2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geheugen3') == "0")
+                                    <td><input type="checkbox" name="RAM_geheugen3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geheugen3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geheugen4') == "0")
+                                    <td><input type="checkbox" name="RAM_geheugen4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geheugen4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geheugen5') == "0")
+                                    <td><input type="checkbox" name="RAM_geheugen5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geheugen5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geheugen6') == "0")
+                                    <td><input type="checkbox" name="RAM_geheugen6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geheugen6" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="RAM_klok_table">
@@ -1540,10 +2106,26 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:25%">1600 MHz</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="RAM_klok" value="1"></td>
-                                <td><input type="radio" name="RAM_klok" value="2"></td>
-                                <td><input type="radio" name="RAM_klok" value="3"></td>
-                                <td><input type="radio" name="RAM_klok" value="4"></td>
+                                @if(Session::get('RAM_klok') == "1")
+                                    <td><input type="radio" name="RAM_klok" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_klok" value="1"></td>
+                                @endif
+                                @if(Session::get('RAM_klok') == "2")
+                                    <td><input type="radio" name="RAM_klok" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_klok" value="2"></td>
+                                @endif
+                                @if(Session::get('RAM_klok') == "3")
+                                    <td><input type="radio" name="RAM_klok" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_klok" value="3"></td>
+                                @endif
+                                @if(Session::get('RAM_klok') == "4")
+                                    <td><input type="radio" name="RAM_klok" value="4" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_klok" value="4"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="RAM_game_table">
@@ -1553,8 +2135,16 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="RAM_game" value="1"></td>
-                                <td><input type="radio" name="RAM_game" value="2"></td>
+                                @if(Session::get('RAM_game') == "1")
+                                    <td><input type="radio" name="RAM_game" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_game" value="1"></td>
+                                @endif
+                                @if(Session::get('RAM_game') == "2")
+                                    <td><input type="radio" name="RAM_game" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_game" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                     </div>
@@ -1568,10 +2158,26 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:25%">Mac</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="RAM_geschikt1" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geschikt2" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geschikt3" value="1"></td>
-                                <td><input type="checkbox" name="RAM_geschikt4" value="1"></td>
+                                @if(Session::get('RAM_geschikt1') == "0")
+                                    <td><input type="checkbox" name="RAM_geschikt1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geschikt1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geschikt2') == "0")
+                                    <td><input type="checkbox" name="RAM_geschikt2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geschikt2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geschikt3') == "0")
+                                    <td><input type="checkbox" name="RAM_geschikt3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geschikt3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('RAM_geschikt4') == "0")
+                                    <td><input type="checkbox" name="RAM_geschikt4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="RAM_geschikt4" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="RAM_type_table">
@@ -1586,10 +2192,26 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:25%">DIMM DDR4</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="RAM_type" value="1"></td>
-                                <td><input type="radio" name="RAM_type" value="1"></td>
-                                <td><input type="radio" name="RAM_type" value="1"></td>
-                                <td><input type="radio" name="RAM_type" value="1"></td>
+                                @if(Session::get('RAM_type') == "1")
+                                    <td><input type="radio" name="RAM_type" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_type" value="1"></td>
+                                @endif
+                                @if(Session::get('RAM_type') == "2")
+                                    <td><input type="radio" name="RAM_type" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_type" value="2"></td>
+                                @endif
+                                @if(Session::get('RAM_type') == "3")
+                                    <td><input type="radio" name="RAM_type" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_type" value="3"></td>
+                                @endif
+                                @if(Session::get('RAM_type') == "4")
+                                    <td><input type="radio" name="RAM_type" value="4" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_type" value="4"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="RAM_kanalen_table">
@@ -1603,18 +2225,29 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                                 <td style="width:33.3%">Quad Channel</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="RAM_kanalen" value="1"></td>
-                                <td><input type="radio" name="RAM_kanalen" value="2"></td>
-                                <td><input type="radio" name="RAM_kanalen" value="3"></td>
+                                @if(Session::get('RAM_kanalen') == "1")
+                                    <td><input type="radio" name="RAM_kanalen" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_kanalen" value="1"></td>
+                                @endif
+                                @if(Session::get('RAM_kanalen') == "2")
+                                    <td><input type="radio" name="RAM_kanalen" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_kanalen" value="2"></td>
+                                @endif
+                                @if(Session::get('RAM_kanalen') == "3")
+                                    <td><input type="radio" name="RAM_kanalen" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="RAM_kanalen" value="3"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="RAM_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ram" readonly></p>
                             <div class="specification_table_slider" id="ram_price"></div>
-                            <input name="ram_price0"  type="hidden" value="60" id="ram_price0" style="background: red">
-                            <input name="ram_price"1  type="hidden"  value="120" id="ram_price1" style="background: yellow">
-
+                            <input name="ram_price0"  type="hidden" value="60" id="ram_price0">
+                            <input name="ram_price"1  type="hidden"  value="120" id="ram_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2000,17 +2633,17 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                     <div class="behuizing_prijs specification_table">
                         <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                         <p><input class="slider_label" type="text" id="amount_behuizing" readonly></p>
-                        <div class="specification_table_slider" id="slider-range14"></div>
-                        <input name="casing_Price0" type="hidden" value="100" id="casing_Price0" style="background: red">
-                        <input name="casing_Price1"  type="hidden" value="160" id="casing_Price1" style="background: yellow">
+                        <div class="specification_table_slider" id="casing_price"></div>
+                        <input name="casing_Price0" type="hidden" value="100" id="casing_Price0">
+                        <input name="casing_Price1"  type="hidden" value="160" id="casing_Price1">
 
                     </div>
                     <div class="behuizing_uitbreiding specification_table">
                         <h5>Aantal uitbreidingssloten</h5><span class="annotation">(minimum - maximum)</span>
                         <p><input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly></p>
-                        <div class="specification_table_slider" id="slider-range18"></div>
-                        <input name="casing_expansion_0"  type="hidden"  value="3" id="casing_expansion_0" style="background: red">
-                        <input name="casing_expansion_1"  type="hidden" value="7" id="casing_expansion_1" style="background: yellow">
+                        <div class="specification_table_slider" id="casing_ports"></div>
+                        <input name="casing_expansion_0"  type="hidden"  value="3" id="casing_expansion_0">
+                        <input name="casing_expansion_1"  type="hidden" value="7" id="casing_expansion_1">
 
                     </div>
                 </div>
@@ -2127,18 +2760,18 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                     'alt' => 'test', 'title'=> 'Hoeveel 2,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 2,5 inch bay is geschikt voor een harde schijf of SSD.')) }}
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_2bay" readonly></p>
-                        <div class="specification_table_slider" id="slider-range16"></div>
-                        <input name="casing_HDD/SSD_0"  type="hidden" id="casing_HDD/SSD_0" value="2" style="background: red">
-                        <input name="casing_HDD/SSD_1"  type="hidden" id="casing_HDD/SSD_1" value="5" style="background: yellow">
+                        <div class="specification_table_slider" id="casing_25bays"></div>
+                        <input name="casing_HDD/SSD_0"  type="hidden" id="casing_HDD/SSD_0" value="2">
+                        <input name="casing_HDD/SSD_1"  type="hidden" id="casing_HDD/SSD_1" value="5">
                     </div>
                     <div class="behuizing_3,5bay specification_table">
                         <h5>3,5'' Bays (HDD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                     'alt' => 'test', 'title'=> 'Hoeveel 3,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 3,5 inch bay is geschikt voor een harde schijf.')) }}
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_3bay" readonly></p>
-                        <div class="specification_table_slider" id="slider-range15"></div>
-                        <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value="2" style="background: red">
-                        <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value="5" style="background: yellow">
+                        <div class="specification_table_slider" id="casing_35bays"></div>
+                        <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value="2">
+                        <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value="5">
                     </div>
 
                     <div class="behuizing_5,25bay specification_table">
@@ -2146,9 +2779,9 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                     'alt' => 'test', 'title'=> 'Hoeveel 5,25 inch bays zijn er beschikbaar in deze computerbehuizing? Een 5,25 inch bay is geschikt voor een optische drive, een harde schijf (met behulp van een bracket), of andere uitbreidingen.')) }}
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_5bay" readonly></p>
-                        <div class="specification_table_slider" id="slider-range17"></div>
-                        <input name="casing_Bayss"  type="hidden" id="casing_Bayss0" value="2" style="background: red">
-                        <input name="casing_Bayss1"  type="hidden" id="casing_Bayss1" value="5" style="background: yellow">
+                        <div class="specification_table_slider" id="casing_525bays"></div>
+                        <input name="casing_Bayss0"  type="hidden" id="casing_Bayss0" value="2">
+                        <input name="casing_Bayss1"  type="hidden" id="casing_Bayss1" value="5">
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -2359,9 +2992,9 @@ $bluraydvd_check = Session::get('bluraydvd_check');
                         <div class="brander_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_brander" readonly></p>
-                            <div class="specification_table_slider" id="slider-range25"></div>
-                            <input name="Blu-RayDVD_price0" type="hidden" value="60" id="Blu-RayDVD_price0" style="background: red">
-                            <input name="Blu-RayDVD_price1"  type="hidden" value="100" id="Blu-RayDVD_price1" style="background: yellow">
+                            <div class="specification_table_slider" id="blyraydvd_price"></div>
+                            <input name="Blu-RayDVD_price0" type="hidden" value="60" id="Blu-RayDVD_price0">
+                            <input name="Blu-RayDVD_price1"  type="hidden" value="100" id="Blu-RayDVD_price1">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">

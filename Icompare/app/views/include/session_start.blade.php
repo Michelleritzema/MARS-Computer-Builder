@@ -140,6 +140,7 @@ if (!Session::has('processor_serie5'))  { Session::put('processor_serie5','0'); 
 if (!Session::has('processor_serie6'))  { Session::put('processor_serie6','0'); }
 if (!Session::has('processor_serie7'))  { Session::put('processor_serie7','0'); }
 if (!Session::has('processor_serie8'))  { Session::put('processor_serie8','0'); }
+if (!Session::has('processor_serie9'))  { Session::put('processor_serie9','0'); }
 if (!Session::has('processor_speed_min'))  { Session::put('processor_speed_min','-'); }
 if (!Session::has('processor_speed_max'))  { Session::put('processor_speed_max','-'); }
 if (!Session::has('RAM_merk1'))  { Session::put('RAM_merk1','0'); }
