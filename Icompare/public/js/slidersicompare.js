@@ -29,7 +29,7 @@ $(function() {
 // Processor - Prijs
 $(function() {
     $( "#processor_price" ).slider({
-        range: true, min: 0, max: 1000, step: 20, values: [ 100, 400 ],
+        range: true, min: 0, max: 1000, step: 100, values: [ 100, 400 ],
         slide: function( event, ui ) {
             $( "#amount" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
             document.getElementById("processor_price0").value = ui.values[0];
