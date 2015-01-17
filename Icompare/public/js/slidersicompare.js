@@ -357,7 +357,7 @@ $(function() {
 // Processor koeler - Prijs
 $(function() {
     $( "#slider_processorcooler_price" ).slider({
-        range: true, min: 0, max: 120, step: 20, values: [ 50, 90 ],
+        range: true, min: 0, max: 120, step: 20, values: [ ProcessorCoolerP0, ProcessorCoolerP1 ],
         slide: function( event, ui ) {
             $( "#amount_koeler" ).val( "€" + ui.values[ 0 ] + " - €" + ui.values[ 1 ]  );
             document.getElementById("ProcessorCoolerP0").value = ui.values[0];
@@ -371,7 +371,7 @@ $(function() {
 // Processor koeler - Diameter
 $(function() {
     $( "#slider_processorcooler_diameter" ).slider({
-        range: "min", min: 6, max: 14, value: 9, step: 1,
+        range: "min", min: 6, max: 14, value: ProcessorCoolerVentilatorDm0, step: 1,
         slide: function( event, ui ) {
             $( "#koeler_diameter" ).val( ui.value );
             document.getElementById("ProcessorCoolerVentilatorDm0").value = ui.value;
@@ -383,7 +383,7 @@ $(function() {
 // Processor koeler - Rotatiesnelheid
 $(function() {
     $( "#slider_processorcooler_rotation" ).slider({
-        range: true, min: 800, max: 3400, step: 200, values: [ 500, 1200 ],
+        range: true, min: 800, max: 3400, step: 200, values: [ ProcessorCoolerRSpeed0, ProcessorCoolerRSpeed1 ],
         slide: function( event, ui ) {
             $( "#koeler_rotatie" ).val(  ui.values[ 0 ] + " - " + ui.values[ 1 ]  );
             document.getElementById("ProcessorCoolerRSpeed0").value = ui.values[0];

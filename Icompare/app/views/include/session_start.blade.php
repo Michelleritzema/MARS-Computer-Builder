@@ -186,7 +186,7 @@ if (!Session::has('moederbord_raid4'))  { Session::put('moederbord_raid4','0'); 
 if (!Session::has('moederbord_raid5'))  { Session::put('moederbord_raid5','0'); }
 if (!Session::has('moederbord_raid6'))  { Session::put('moederbord_raid6','0'); }
 if (!Session::has('moederbord_audiokanalen'))  { Session::put('moederbord_audiokanalen','-'); }
-if (!Session::has('moederbord_geheugen'))  { Session::put('moederbord_geheugen','-'); }
+if (!Session::has('moederbord_type'))  { Session::put('moederbord_type','-'); }
 if (!Session::has('moederbord_msata'))  { Session::put('moederbord_msata','-'); }
 if (!Session::has('moederbord_SATA300'))  { Session::put('moederbord_SATA300','-'); }
 if (!Session::has('moederbord_SATA600'))  { Session::put('moederbord_SATA600','-'); }
@@ -221,38 +221,6 @@ if (!Session::has('behuizing_esata'))  { Session::put('behuizing_esata','-'); }
 if (!Session::has('behuizing_2,5bay'))  { Session::put('behuizing_2,5bay','-'); }
 if (!Session::has('behuizing_3,5bay'))  { Session::put('behuizing_3,5bay','-'); }
 if (!Session::has('behuizing_5,25bay'))  { Session::put('behuizing_5,25bay','-'); }
-if (!Session::has('behuizing_merk1'))  { Session::put('behuizing_merk1','0'); }
-if (!Session::has('behuizing_merk2'))  { Session::put('behuizing_merk2','0'); }
-if (!Session::has('behuizing_merk3'))  { Session::put('behuizing_merk3','0'); }
-if (!Session::has('behuizing_merk4'))  { Session::put('behuizing_merk4','0'); }
-if (!Session::has('behuizing_merk5'))  { Session::put('behuizing_merk5','0'); }
-if (!Session::has('behuizing_merk6'))  { Session::put('behuizing_merk6','0'); }
-if (!Session::has('behuizing_computer'))  { Session::put('behuizing_computer','-'); }
-if (!Session::has('behuizing_fan'))  { Session::put('behuizing_fan','-'); }
-if (!Session::has('behuizing_stof'))  { Session::put('behuizing_stof','-'); }
-if (!Session::has('behuizing_water'))  { Session::put('behuizing_water','-'); }
-if (!Session::has('behuizing_led'))  { Session::put('behuizing_led','-'); }
-if (!Session::has('behuizing_ruis'))  { Session::put('behuizing_ruis','-'); }
-if (!Session::has('behuizing_geluid'))  { Session::put('behuizing_geluid','-'); }
-if (!Session::has('behuizing_paneel'))  { Session::put('behuizing_paneel','-'); }
-if (!Session::has('behuizing_prijs'))  { Session::put('behuizing_prijs','-'); }
-if (!Session::has('behuizing_uitbreiding'))  { Session::put('behuizing_uitbreiding','-'); }
-if (!Session::has('behuizing_kleur'))  { Session::put('behuizing_kleur','-'); }
-if (!Session::has('behuizing_materiaal'))  { Session::put('behuizing_materiaal','-'); }
-if (!Session::has('behuizing_usb2_1'))  { Session::put('behuizing_usb2_1','0'); }
-if (!Session::has('behuizing_usb2_2'))  { Session::put('behuizing_usb2_2','0'); }
-if (!Session::has('behuizing_usb2_3'))  { Session::put('behuizing_usb2_3','0'); }
-if (!Session::has('behuizing_usb3_1'))  { Session::put('behuizing_usb3_1','0'); }
-if (!Session::has('behuizing_usb3_2'))  { Session::put('behuizing_usb3_2','0'); }
-if (!Session::has('behuizing_usb3_3'))  { Session::put('behuizing_usb3_3','0'); }
-if (!Session::has('behuizing_firewire'))  { Session::put('behuizing_firewire','-'); }
-if (!Session::has('behuizing_esata'))  { Session::put('behuizing_esata','-'); }
-if (!Session::has('behuizing_2_5bay_min'))  { Session::put('behuizing_2_5bay_min','-'); }
-if (!Session::has('behuizing_2_5bay_max'))  { Session::put('behuizing_2_5bay_max','-'); }
-if (!Session::has('behuizing_3_5bay_min'))  { Session::put('behuizing_3_5bay_min','-'); }
-if (!Session::has('behuizing_3_5bay_max'))  { Session::put('behuizing_3_5bay_max','-'); }
-if (!Session::has('behuizing_5_25bay_min'))  { Session::put('behuizing_5_25bay_min','-'); }
-if (!Session::has('behuizing_5_25bay_max'))  { Session::put('behuizing_5_25bay_max','-'); }
 if (!Session::has('SDD_opslag1'))  { Session::put('SDD_opslag1','0'); }
 if (!Session::has('SDD_opslag2'))  { Session::put('SDD_opslag2','0'); }
 if (!Session::has('SDD_opslag3'))  { Session::put('SDD_opslag3','0'); }
@@ -338,7 +306,7 @@ echo Session::get('RAM_price_min');echo Session::get('RAM_price_max') . "<br>";
 echo "Moederbord: ";
 echo Session::get('moederbord_merk1');echo Session::get('moederbord_merk2');echo Session::get('moederbord_merk3');echo Session::get('moederbord_format');echo Session::get('moederbord_wifi');echo Session::get('moederbord_geheugen');echo Session::get('moederbord_HDMI');echo Session::get('moederbord_VGA');echo Session::get('moederbord_displayport');echo Session::get('moederbord_price_min');
 echo Session::get('moederbord_price_max');echo Session::get('moederbord_usb');echo Session::get('moederbord_ethernet');echo Session::get('moederbord_DVI');echo Session::get('moederbord_raid1');echo Session::get('moederbord_raid2');echo Session::get('moederbord_raid3');echo Session::get('moederbord_raid4');echo Session::get('moederbord_raid5');echo Session::get('moederbord_raid6');
-echo Session::get('moederbord_audiokanalen');echo Session::get('moederbord_geheugen');echo Session::get('moederbord_msata');echo Session::get('moederbord_SATA300');echo Session::get('moederbord_SATA600') . "<br>";
+echo Session::get('moederbord_audiokanalen');echo Session::get('moederbord_type');echo Session::get('moederbord_msata');echo Session::get('moederbord_SATA300');echo Session::get('moederbord_SATA600') . "<br>";
 echo "Behuizing: ";
 echo Session::get('behuizing_merk1');echo Session::get('behuizing_merk2');echo Session::get('behuizing_merk3');echo Session::get('behuizing_merk4');echo Session::get('behuizing_merk5');echo Session::get('behuizing_merk6');echo Session::get('behuizing_computer');echo Session::get('behuizing_fan');echo Session::get('behuizing_stof');echo Session::get('behuizing_water');
 echo Session::get('behuizing_led');echo Session::get('behuizing_ruis');echo Session::get('behuizing_geluid');echo Session::get('behuizing_paneel');echo Session::get('behuizing_price_min');echo Session::get('behuizing_price_max');echo Session::get('behuizing_uitbreiding_min');echo Session::get('behuizing_uitbreiding_max');echo Session::get('behuizing_kleur');

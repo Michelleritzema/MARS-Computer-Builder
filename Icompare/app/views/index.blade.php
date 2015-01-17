@@ -98,7 +98,7 @@ switch(Session::get('powersupply_power_max')) {
     default: $Powersupply_power1 = "1000"; break;
 }
 switch(Session::get('s-ata_min')) {
-    case "1": echo "check"; $Sataconnection0 = "0"; break;
+    case "1": $Sataconnection0 = "0"; break;
     case "2": $Sataconnection0 = "1"; break;
     case "3": $Sataconnection0 = "2"; break;
     case "4": $Sataconnection0 = "3"; break;
@@ -162,37 +162,37 @@ switch(Session::get('processorcooler_diameter')) {
     default: $ProcessorCoolerVentilatorDm0 = "9"; break;
 }
 switch(Session::get('processorcooler_rotation_min')) {
-    case "800": $ProcessorCoolerRSpeed0 = "800"; break;
-    case "1000": $ProcessorCoolerRSpeed0 = "1000"; break;
-    case "1200": $ProcessorCoolerRSpeed0 = "1200"; break;
-    case "1400": $ProcessorCoolerRSpeed0 = "1400"; break;
-    case "1600": $ProcessorCoolerRSpeed0 = "1600"; break;
-    case "1800": $ProcessorCoolerRSpeed0 = "1800"; break;
-    case "2000": $ProcessorCoolerRSpeed0 = "2000"; break;
-    case "2200": $ProcessorCoolerRSpeed0 = "2200"; break;
-    case "2400": $ProcessorCoolerRSpeed0 = "2400"; break;
-    case "2600": $ProcessorCoolerRSpeed0 = "2600"; break;
-    case "2800": $ProcessorCoolerRSpeed0 = "2800"; break;
-    case "3000": $ProcessorCoolerRSpeed0 = "3000"; break;
-    case "3200": $ProcessorCoolerRSpeed0 = "3200"; break;
-    case "3400": $ProcessorCoolerRSpeed0 = "3400"; break;
+    case "1": $ProcessorCoolerRSpeed0 = "800"; break;
+    case "2": $ProcessorCoolerRSpeed0 = "1000"; break;
+    case "3": $ProcessorCoolerRSpeed0 = "1200"; break;
+    case "4": $ProcessorCoolerRSpeed0 = "1400"; break;
+    case "5": $ProcessorCoolerRSpeed0 = "1600"; break;
+    case "6": $ProcessorCoolerRSpeed0 = "1800"; break;
+    case "7": $ProcessorCoolerRSpeed0 = "2000"; break;
+    case "8": $ProcessorCoolerRSpeed0 = "2200"; break;
+    case "9": $ProcessorCoolerRSpeed0 = "2400"; break;
+    case "a": $ProcessorCoolerRSpeed0 = "2600"; break;
+    case "b": $ProcessorCoolerRSpeed0 = "2800"; break;
+    case "c": $ProcessorCoolerRSpeed0 = "3000"; break;
+    case "d": $ProcessorCoolerRSpeed0 = "3200"; break;
+    case "e": $ProcessorCoolerRSpeed0 = "3400"; break;
     default: $ProcessorCoolerRSpeed0 = "800"; break;
 }
 switch(Session::get('processorcooler_rotation_max')) {
-    case "800": $ProcessorCoolerRSpeed1 = "800"; break;
-    case "1000": $ProcessorCoolerRSpeed1 = "1000"; break;
-    case "1200": $ProcessorCoolerRSpeed1 = "1200"; break;
-    case "1400": $ProcessorCoolerRSpeed1 = "1400"; break;
-    case "1600": $ProcessorCoolerRSpeed1 = "1600"; break;
-    case "1800": $ProcessorCoolerRSpeed1 = "1800"; break;
-    case "2000": $ProcessorCoolerRSpeed1 = "2000"; break;
-    case "2200": $ProcessorCoolerRSpeed1 = "2200"; break;
-    case "2400": $ProcessorCoolerRSpeed1 = "2400"; break;
-    case "2600": $ProcessorCoolerRSpeed1 = "2600"; break;
-    case "2800": $ProcessorCoolerRSpeed1 = "2800"; break;
-    case "3000": $ProcessorCoolerRSpeed1 = "3000"; break;
-    case "3200": $ProcessorCoolerRSpeed1 = "3200"; break;
-    case "3400": $ProcessorCoolerRSpeed1 = "3400"; break;
+    case "1": $ProcessorCoolerRSpeed1 = "800"; break;
+    case "2": $ProcessorCoolerRSpeed1 = "1000"; break;
+    case "3": $ProcessorCoolerRSpeed1 = "1200"; break;
+    case "4": $ProcessorCoolerRSpeed1 = "1400"; break;
+    case "5": $ProcessorCoolerRSpeed1 = "1600"; break;
+    case "6": $ProcessorCoolerRSpeed1 = "1800"; break;
+    case "7": $ProcessorCoolerRSpeed1 = "2000"; break;
+    case "8": $ProcessorCoolerRSpeed1 = "2200"; break;
+    case "9": $ProcessorCoolerRSpeed1 = "2400"; break;
+    case "a": $ProcessorCoolerRSpeed1 = "2600"; break;
+    case "b": $ProcessorCoolerRSpeed1 = "2800"; break;
+    case "c": $ProcessorCoolerRSpeed1 = "3000"; break;
+    case "d": $ProcessorCoolerRSpeed1 = "3200"; break;
+    case "e": $ProcessorCoolerRSpeed1 = "3400"; break;
     default: $ProcessorCoolerRSpeed1 = "1200"; break;
 }
 ?>
@@ -208,7 +208,9 @@ switch(Session::get('processorcooler_rotation_max')) {
     var ProcessorCoolerP1 = '<?php echo $ProcessorCoolerP1; ?>';
     var ProcessorCoolerVentilatorDm0 = '<?php echo $ProcessorCoolerVentilatorDm0; ?>';
     var ProcessorCoolerRSpeed0 = '<?php echo $ProcessorCoolerRSpeed0; ?>';
+    //alert(ProcessorCoolerRSpeed0);
     var ProcessorCoolerRSpeed1 = '<?php echo $ProcessorCoolerRSpeed1; ?>';
+    //alert(ProcessorCoolerRSpeed1);
 </script>
 
 @extends('layout.template')
@@ -229,7 +231,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                     <p>Onderstaand ziet u het menu met de 12 onderdelen waaruit een computer bestaat. Bij elk onderdeel
                     kiest u de gewenste specificaties. Hierbij is niet alles verplicht om in te vullen: optionele specificaties
                     worden aangegeven d.m.v. de tekst "optioneel". Aan de rechterkant van het scherm is een lijst met alle onderdelen.
-                    Hier wordt aangegeven wanneer een categorie goed is ingevuld, door middel van een groen vinkje. Wanneer alle
+                    Hier wordt aangegeven wanneer een categorie goed is ingevuld, door middel van een groen vinkje
+                    ({{ HTML::image('images/checked.png', 'checked') }}). Wanneer alle
                     vinkjes groen zijn, kan op de knop "creëer profiel" geklikt worden. De website gaat dan voor u aan de slag en toont
                     een overzicht van de hardware producten die nodig zijn voor uw computer, inclusief de link naar de website waar dit
                     verkrijgbaar is.</p>
@@ -2267,9 +2270,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">MSI</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="moederbord_merk1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_merk2" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_merk3" value="1"></td>
+                                @if(Session::get('moederbord_merk1') == "0")
+                                    <td><input type="checkbox" name="moederbord_merk1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_merk1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('moederbord_merk2') == "0")
+                                    <td><input type="checkbox" name="moederbord_merk2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_merk2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('moederbord_merk3') == "0")
+                                    <td><input type="checkbox" name="moederbord_merk3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_merk3" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="Moederbord_formaat_table">
@@ -2283,9 +2298,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">Micro-ATX</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_merk" value="1"></td>
-                                <td><input type="radio" name="moederbord_merk" value="2"></td>
-                                <td><input type="radio" name="moederbord_merk" value="3"></td>
+                                @if(Session::get('moederbord_format') == "1")
+                                    <td><input type="radio" name="moederbord_format" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_format" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_format') == "2")
+                                    <td><input type="radio" name="moederbord_format" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_format" value="2"></td>
+                                @endif
+                                @if(Session::get('moederbord_format') == "3")
+                                    <td><input type="radio" name="moederbord_format" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_format" value="3"></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Mini-ITX</td>
@@ -2293,9 +2320,17 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">XL-ATX</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_merk" value="4"></td>
+                                @if(Session::get('moederbord_format') == "4")
+                                    <td><input type="radio" name="moederbord_format" value="4" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_format" value="4"></td>
+                                @endif
                                 <td></td>
-                                <td><input type="radio" name="moederbord_merk" value="5"></td>
+                                @if(Session::get('moederbord_format') == "5")
+                                    <td><input type="radio" name="moederbord_format" value="5" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_format" value="5"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_wifi_table">
@@ -2305,8 +2340,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_wifi" value="1"></td>
-                                <td><input type="radio" name="moederbord_wifi" value="2"></td>
+                                @if(Session::get('moederbord_wifi') == "1")
+                                    <td><input type="radio" name="moederbord_wifi" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_wifi" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_wifi') == "2")
+                                    <td><input type="radio" name="moederbord_wifi" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_wifi" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_geheugenslot_table">
@@ -2320,9 +2363,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">8</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_geheugen" value="1"></td>
-                                <td><input type="radio" name="moederbord_geheugen" value="2"></td>
-                                <td><input type="radio" name="moederbord_geheugen" value="3"></td>
+                                @if(Session::get('moederbord_geheugen') == "1")
+                                    <td><input type="radio" name="moederbord_geheugen" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_geheugen" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_geheugen') == "2")
+                                    <td><input type="radio" name="moederbord_geheugen" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_geheugen" value="2"></td>
+                                @endif
+                                @if(Session::get('moederbord_geheugen') == "3")
+                                    <td><input type="radio" name="moederbord_geheugen" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_geheugen" value="3"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_HDMI_table">
@@ -2335,8 +2390,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_HDMI" value="1"></td>
-                                <td><input type="radio" name="moederbord_HDMI" value="2"></td>
+                                @if(Session::get('moederbord_HDMI') == "1")
+                                    <td><input type="radio" name="moederbord_HDMI" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_HDMI" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_HDMI') == "2")
+                                    <td><input type="radio" name="moederbord_HDMI" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_HDMI" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_VGA_table">
@@ -2349,8 +2412,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_VGA" value="1"></td>
-                                <td><input type="radio" name="moederbord_VGA" value="2"></td>
+                                @if(Session::get('moederbord_VGA') == "1")
+                                    <td><input type="radio" name="moederbord_VGA" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_VGA" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_VGA') == "2")
+                                    <td><input type="radio" name="moederbord_VGA" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_VGA" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_displayport_table">
@@ -2363,24 +2434,30 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_displayport" value="1"></td>
-                                <td><input type="radio" name="moederbord_displayport" value="2"></td>
+                                @if(Session::get('moederbord_displayport') == "1")
+                                    <td><input type="radio" name="moederbord_displayport" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_displayport" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_displayport') == "2")
+                                    <td><input type="radio" name="moederbord_displayport" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_displayport" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="moederbord_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_moederbord" readonly></p>
                             <div class="specification_table_slider" id="motherboard_price"></div>
-                            <input name="motherboard_price0"  type="hidden" value="100" id="motherboard_price0" style="background: red">
-                            <input name="motherboard_price1" type="hidden"  value="260" id="motherboard_price1" style="background: yellow">
-
+                            <input name="motherboard_price0"  type="hidden" value="100" id="motherboard_price0">
+                            <input name="motherboard_price1" type="hidden"  value="260" id="motherboard_price1">
                         </div>
                         <div class="moederbord_usb specification_table">
                             <h5>Aantal USB 3.0 poorten</h5>
                             <p><input class="slider_label" type="text" id="amount_usb" readonly></p>
                             <div class="specification_table_slider" id="motherboard_ports"></div>
-                            <input name="Usb_port0" type="hidden" value="3" id="Usb_port0" style="background: red">
-
+                            <input name="Usb_port0" type="hidden" value="3" id="Usb_port0">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -2394,8 +2471,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">2</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_ethernet" value="1"></td>
-                                <td><input type="radio" name="moederbord_ethernet" value="2"></td>
+                                @if(Session::get('moederbord_ethernet') == "1")
+                                    <td><input type="radio" name="moederbord_ethernet" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_ethernet" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_ethernet') == "2")
+                                    <td><input type="radio" name="moederbord_ethernet" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_ethernet" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_DVI_table">
@@ -2408,8 +2493,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_DVI" value="1"></td>
-                                <td><input type="radio" name="moederbord_DVI" value="2"></td>
+                                @if(Session::get('moederbord_DVI') == "1")
+                                    <td><input type="radio" name="moederbord_DVI" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_DVI" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_DVI') == "2")
+                                    <td><input type="radio" name="moederbord_DVI" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_DVI" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_RAID_table">
@@ -2424,18 +2517,42 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:25%">RAID-10</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="moederbord_raid1" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_raid2" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_raid3" value="1"></td>
-                                <td><input type="checkbox" name="moederbord_raid4" value="1"></td>
+                                @if(Session::get('moederbord_raid1') == "0")
+                                    <td><input type="checkbox" name="moederbord_raid1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_raid1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('moederbord_raid2') == "0")
+                                    <td><input type="checkbox" name="moederbord_raid2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_raid2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('moederbord_raid3') == "0")
+                                    <td><input type="checkbox" name="moederbord_raid3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_raid3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('moederbord_raid4') == "0")
+                                    <td><input type="checkbox" name="moederbord_raid4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="moederbord_raid4" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:25%" colspan="2">JBOD</td>
                                 <td style="width:25%" colspan="2">Geen</td>
                             </tr>
                             <tr>
-                                <td colspan="2"><input type="checkbox" name="moederbord_raid5" value="1"></td>
-                                <td colspan="2"><input type="checkbox" name="moederbord_raid6" value="1"></td>
+                                @if(Session::get('moederbord_raid5') == "0")
+                                    <td colspan="2"><input type="checkbox" name="moederbord_raid5" value="1"></td>
+                                @else
+                                    <td colspan="2"><input type="checkbox" name="moederbord_raid5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('moederbord_raid6') == "0")
+                                    <td colspan="2"><input type="checkbox" name="moederbord_raid6" value="1"></td>
+                                @else
+                                    <td colspan="2"><input type="checkbox" name="moederbord_raid6" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_audiokanalen_table">
@@ -2448,8 +2565,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">7.1</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_audiokanalen" value="1"></td>
-                                <td><input type="radio" name="moederbord_audiokanalen" value="2"></td>
+                                @if(Session::get('moederbord_audiokanalen') == "1")
+                                    <td><input type="radio" name="moederbord_audiokanalen" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_audiokanalen" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_audiokanalen') == "2")
+                                    <td><input type="radio" name="moederbord_audiokanalen" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_audiokanalen" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_geheugen_table">
@@ -2464,9 +2589,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">DIMM DDR4</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_geheugen" value="1"></td>
-                                <td><input type="radio" name="moederbord_geheugen" value="2"></td>
-                                <td><input type="radio" name="moederbord_geheugen" value="3"></td>
+                                @if(Session::get('moederbord_type') == "1")
+                                    <td><input type="radio" name="moederbord_type" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_type" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_type') == "2")
+                                    <td><input type="radio" name="moederbord_type" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_type" value="2"></td>
+                                @endif
+                                @if(Session::get('moederbord_type') == "3")
+                                    <td><input type="radio" name="moederbord_type" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_type" value="3"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="moederbord_msata_table">
@@ -2479,23 +2616,29 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Nee</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="moederbord_msata" value="1"></td>
-                                <td><input type="radio" name="moederbord_msata" value="2"></td>
+                                @if(Session::get('moederbord_msata') == "1")
+                                    <td><input type="radio" name="moederbord_msata" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_msata" value="1"></td>
+                                @endif
+                                @if(Session::get('moederbord_msata') == "2")
+                                    <td><input type="radio" name="moederbord_msata" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="moederbord_msata" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="moederbord_SATA300 specification_table">
                             <h5>Aantal SATA 300 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata300" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata300"></div>
-                            <input name="motherboard_sata600connection0"  type="hidden" value="3" id="motherboard_sata300connection0" style="background: red">
-
+                            <input name="motherboard_sata600connection0"  type="hidden" value="3" id="motherboard_sata300connection0">
                         </div>
                         <div class="moederbord_SATA600 specification_table">
                             <h5>Aantal SATA 600 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata600" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata600"></div>
-                            <input name="motherboard_sata600connection0" type="hidden"  value="4" id="motherboard_sata600connection0" style="background: red">
-
+                            <input name="motherboard_sata600connection0" type="hidden"  value="4" id="motherboard_sata600connection0">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2507,8 +2650,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                 <div class="col-md-6 left_div">
                     <table class="behuizing_merk_table">
                         <tr><th colspan="5"><h5>Behuizing merk
-                                    <br><span class="annotation">(optioneel)</span>
-                                </h5></th></tr>
+                            <br><span class="annotation">(optioneel)</span>
+                        </h5></th></tr>
                         <tr>
                             <td style="width:20%">Antec</td>
                             <td style="width:20%">CoolerMaster</td>
@@ -2517,24 +2660,48 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:20%">SilverStone</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="behuizing_merk1" value="1"></td>
-                            <td><input type="checkbox" name="behuizing_merk2" value="2"></td>
-                            <td><input type="checkbox" name="behuizing_merk3" value="3"></td>
-                            <td><input type="checkbox" name="behuising_merk4" value="4"></td>
-                            <td><input type="checkbox" name="behuising_merk5" value="5"></td>
+                            @if(Session::get('behuizing_merk1') == "0")
+                                <td><input type="checkbox" name="behuizing_merk1" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_merk1" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_merk2') == "0")
+                                <td><input type="checkbox" name="behuizing_merk2" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_merk2" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_merk3') == "0")
+                                <td><input type="checkbox" name="behuizing_merk3" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_merk3" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_merk4') == "0")
+                                <td><input type="checkbox" name="behuizing_merk4" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_merk4" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_merk5') == "0")
+                                <td><input type="checkbox" name="behuizing_merk5" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_merk5" value="1" checked></td>
+                            @endif
                         </tr>
                         <tr>
                             <td style="width:20%" colspan="5">Geen voorkeur</td>
                         </tr>
                         <tr>
-                            <td colspan="5"><input type="checkbox" name="behuizing_merk6" value="1"></td>
+                            @if(Session::get('behuizing_merk6') == "0")
+                                <td colspan="5"><input type="checkbox" name="behuizing_merk6" value="1"></td>
+                            @else
+                                <td colspan="5"><input type="checkbox" name="behuizing_merk6" value="1" checked></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_computer_table">
                         <tr><th colspan="5"><h5>Model computerbehuizing
-                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                    'alt' => 'test', 'title'=> 'Welk model heeft deze computerbehuizing. Meest voorkomende vorm is een Tower computerbehuizing.')) }}
-                                </h5></th></tr>
+                            {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                            'alt' => 'test', 'title'=> 'Welk model heeft deze computerbehuizing. Meest voorkomende vorm is een Tower computerbehuizing.')) }}
+                        </h5></th></tr>
                         <tr>
                             <td style="width:20%">Cube</td>
                             <td style="width:20%">Full Tower</td>
@@ -2543,11 +2710,31 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:20%">Mini Tower</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_computer" value="1"></td>
-                            <td><input type="radio" name="behuizing_computer" value="2"></td>
-                            <td><input type="radio" name="behuizing_computer" value="3"></td>
-                            <td><input type="radio" name="behuizing_computer" value="4"></td>
-                            <td><input type="radio" name="behuizing_computer" value="5"></td>
+                            @if(Session::get('behuizing_computer') == "1")
+                                <td><input type="radio" name="behuizing_computer" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_computer" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_computer') == "2")
+                                <td><input type="radio" name="behuizing_computer" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_computer" value="2"></td>
+                            @endif
+                            @if(Session::get('behuizing_computer') == "3")
+                                <td><input type="radio" name="behuizing_computer" value="3" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_computer" value="3"></td>
+                            @endif
+                            @if(Session::get('behuizing_computer') == "4")
+                                <td><input type="radio" name="behuizing_computer" value="4" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_computer" value="4"></td>
+                            @endif
+                            @if(Session::get('behuizing_computer') == "5")
+                                <td><input type="radio" name="behuizing_computer" value="5" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_computer" value="5"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_fan_table">
@@ -2557,8 +2744,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_fan" value="1"></td>
-                            <td><input type="radio" name="behuizing_fan" value="2"></td>
+                            @if(Session::get('behuizing_fan') == "1")
+                                <td><input type="radio" name="behuizing_fan" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_fan" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_fan') == "2")
+                                <td><input type="radio" name="behuizing_fan" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_fan" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_stof_table">
@@ -2568,8 +2763,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_stof" value="1"></td>
-                            <td><input type="radio" name="behuizing_stof" value="2"></td>
+                            @if(Session::get('behuizing_stof') == "1")
+                                <td><input type="radio" name="behuizing_stof" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_stof" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_stof') == "2")
+                                <td><input type="radio" name="behuizing_stof" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_stof" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_water_table">
@@ -2579,8 +2782,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_water" value="1"></td>
-                            <td><input type="radio" name="behuizing_water" value="2"></td>
+                            @if(Session::get('behuizing_water') == "1")
+                                <td><input type="radio" name="behuizing_water" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_water" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_water') == "2")
+                                <td><input type="radio" name="behuizing_water" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_water" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_led_table">
@@ -2590,8 +2801,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_led" value="1"></td>
-                            <td><input type="radio" name="behuizing_led" value="2"></td>
+                            @if(Session::get('behuizing_led') == "1")
+                                <td><input type="radio" name="behuizing_led" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_led" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_led') == "2")
+                                <td><input type="radio" name="behuizing_led" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_led" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_Ruisreductie_table">
@@ -2601,8 +2820,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_ruis" value="1"></td>
-                            <td><input type="radio" name="behuizing_ruis" value="2"></td>
+                            @if(Session::get('behuizing_ruis') == "1")
+                                <td><input type="radio" name="behuizing_ruis" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_ruis" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_ruis') == "2")
+                                <td><input type="radio" name="behuizing_ruis" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_ruis" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_Geluid_table">
@@ -2612,22 +2839,38 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_geluid" value="1"></td>
-                            <td><input type="radio" name="behuizing_geluid" value="2"></td>
+                            @if(Session::get('behuizing_geluid') == "1")
+                                <td><input type="radio" name="behuizing_geluid" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_geluid" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_geluid') == "2")
+                                <td><input type="radio" name="behuizing_geluid" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_geluid" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_paneel_table" cellspacing="1px">
                         <tr><th colspan="2"><h5>Paneeldeur
-                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                    'alt' => 'test', 'title'=> 'Zit er een deur in het paneel aan de voorzijde?')) }}
-                                </h5></th></tr>
+                            {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                            'alt' => 'test', 'title'=> 'Zit er een deur in het paneel aan de voorzijde?')) }}
+                        </h5></th></tr>
                         <tr>
                             <td style="width:50%">Ja</td>
                             <td style="width:50%">Nee</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_paneel" value="1"></td>
-                            <td><input type="radio" name="behuizing_paneel" value="2"></td>
+                            @if(Session::get('behuizing_paneel') == "1")
+                                <td><input type="radio" name="behuizing_paneel" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_paneel" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_paneel') == "2")
+                                <td><input type="radio" name="behuizing_paneel" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_paneel" value="2"></td>
+                            @endif
                         </tr>
                     </table>
                     <div class="behuizing_prijs specification_table">
@@ -2657,16 +2900,36 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:25%">Zwart</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_kleur" value="1"></td>
-                            <td><input type="radio" name="behuizing_kleur" value="2"></td>
-                            <td><input type="radio" name="behuizing_kleur" value="3"></td>
-                            <td><input type="radio" name="behuizing_kleur" value="4"></td>
+                            @if(Session::get('behuizing_kleur') == "1")
+                                <td><input type="radio" name="behuizing_kleur" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_kleur" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_kleur') == "2")
+                                <td><input type="radio" name="behuizing_kleur" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_kleur" value="2"></td>
+                            @endif
+                            @if(Session::get('behuizing_kleur') == "3")
+                                <td><input type="radio" name="behuizing_kleur" value="3" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_kleur" value="3"></td>
+                            @endif
+                            @if(Session::get('behuizing_kleur') == "4")
+                                <td><input type="radio" name="behuizing_kleur" value="4" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_kleur" value="4"></td>
+                            @endif
                         </tr>
                         <tr>
                             <td style="width:25%" colspan="4">Geen voorkeur</td>
                         </tr>
                         <tr>
-                            <td colspan="4"><input type="radio" name="behuizing_kleur" value="5"></td>
+                            @if(Session::get('behuizing_kleur') == "5")
+                                <td colspan="4"><input type="radio" name="behuizing_kleur" value="5" checked></td>
+                            @else
+                                <td colspan="4"><input type="radio" name="behuizing_kleur" value="5"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_materiaal_table">
@@ -2678,10 +2941,27 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:25%">Polymeer</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_materiaal" value="1"></td>
-                            <td><input type="radio" name="behuizing_materiaal" value="2"></td>
-                            <td><input type="radio" name="behuizing_materiaal" value="3"></td>
-                            <td><input type="radio" name="behuizing_materiaal" value="4"></td>
+                            @if(Session::get('behuizing_materiaal') == "1")
+                                <td><input type="radio" name="behuizing_materiaal" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_materiaal" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_materiaal') == "2")
+                                <td><input type="radio" name="behuizing_materiaal" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_materiaal" value="2"></td>
+                            @endif
+                            @if(Session::get('behuizing_materiaal') == "3")
+                                <td><input type="radio" name="behuizing_materiaal" value="3" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_materiaal" value="3"></td>
+                            @endif
+                            @if(Session::get('behuizing_materiaal') == "4")
+                                <td><input type="radio" name="behuizing_materiaal" value="4" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_materiaal" value="4"></td>
+                            @endif
+
                         </tr>
                         <tr>
                             <td style="width:25%">Rubber</td>
@@ -2689,41 +2969,77 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:25%" colspan="2">Geen voorkeur</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_materiaal" value="5"></td>
-                            <td><input type="radio" name="behuizing_materiaal" value="6"></td>
-                            <td colspan="2"><input type="radio" name="behuizing_materiaal" value="7"></td>
+                            @if(Session::get('behuizing_materiaal') == "5")
+                                <td><input type="radio" name="behuizing_materiaal" value="5" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_materiaal" value="5"></td>
+                            @endif
+                            @if(Session::get('behuizing_materiaal') == "6")
+                                <td><input type="radio" name="behuizing_materiaal" value="6" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_materiaal" value="6"></td>
+                            @endif
+                            @if(Session::get('behuizing_materiaal') == "7")
+                                <td colspan="2"><input type="radio" name="behuizing_materiaal" value="7" checked></td>
+                            @else
+                                <td colspan="2"><input type="radio" name="behuizing_materiaal" value="7"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_usb2_table">
                         <tr><th colspan="3"><h5>Aantal USB 2.0 poorten
-                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                    'alt' => 'test', 'title'=> 'USB is een veelgebruikte standaard voor de aansluiting van randapparatuur bij computers. USB 2.0 is de meest gebruikte versie. Via USB 2.0 kunnen gegevens met een snelheid van 35 MB/s doorgevoerd worden.')) }}
-                                </h5></th></tr>
+                            {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                            'alt' => 'test', 'title'=> 'USB is een veelgebruikte standaard voor de aansluiting van randapparatuur bij computers. USB 2.0 is de meest gebruikte versie. Via USB 2.0 kunnen gegevens met een snelheid van 35 MB/s doorgevoerd worden.')) }}
+                        </h5></th></tr>
                         <tr>
                             <td style="width:33.3%">0</td>
                             <td style="width:33.3%">1</td>
                             <td style="width:33.3%">2</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="behuizing_usb2_1" value="1"></td>
-                            <td><input type="checkbox" name="behuizing_usb2_2" value="1"></td>
-                            <td><input type="checkbox" name="behuizing_usb2_3" value="1"></td>
+                            @if(Session::get('behuizing_usb2_1') == "0")
+                                <td><input type="checkbox" name="behuizing_usb2_1" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_usb2_1" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_usb2_2') == "0")
+                                <td><input type="checkbox" name="behuizing_usb2_2" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_usb2_2" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_usb2_3') == "0")
+                                <td><input type="checkbox" name="behuizing_usb2_3" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_usb2_3" value="1" checked></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_usb3_table">
                         <tr><th colspan="3"><h5>Aantal USB 3.0 poorten
-                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                    'alt' => 'test', 'title'=> 'USB is een veelgebruikte standaard voor de aansluiting van randapparatuur bij computers. Via USB 3.0 kunnen gegevens met een snelheid van 625 MB/s doorgevoerd worden.')) }}
-                                </h5></th></tr>
+                            {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                            'alt' => 'test', 'title'=> 'USB is een veelgebruikte standaard voor de aansluiting van randapparatuur bij computers. Via USB 3.0 kunnen gegevens met een snelheid van 625 MB/s doorgevoerd worden.')) }}
+                        </h5></th></tr>
                         <tr>
                             <td style="width:33.3%">0</td>
                             <td style="width:33.3%">1</td>
                             <td style="width:33.3%">2</td>
                         </tr>
                         <tr>
-                            <td><input type="checkbox" name="behuizing_usb3_1" value="1"></td>
-                            <td><input type="checkbox" name="behuizing_usb3_2" value="1"></td>
-                            <td><input type="checkbox" name="behuizing_usb3_3" value="1"></td>
+                            @if(Session::get('behuizing_usb3_1') == "0")
+                                <td><input type="checkbox" name="behuizing_usb3_1" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_usb3_1" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_usb3_2') == "0")
+                                <td><input type="checkbox" name="behuizing_usb3_2" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_usb3_2" value="1" checked></td>
+                            @endif
+                            @if(Session::get('behuizing_usb3_3') == "0")
+                                <td><input type="checkbox" name="behuizing_usb3_3" value="1"></td>
+                            @else
+                                <td><input type="checkbox" name="behuizing_usb3_3" value="1" checked></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_firewire_table">
@@ -2734,30 +3050,54 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <td style="width:33.3%">Geen voorkeur</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_firewire" value="1"></td>
-                            <td><input type="radio" name="behuizing_firewire" value="2"></td>
-                            <td><input type="radio" name="behuizing_firewire" value="3"></td>
+                            @if(Session::get('behuizing_firewire') == "1")
+                                <td><input type="radio" name="behuizing_firewire" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_firewire" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_firewire') == "2")
+                                <td><input type="radio" name="behuizing_firewire" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_firewire" value="2"></td>
+                            @endif
+                            @if(Session::get('behuizing_firewire') == "3")
+                                <td><input type="radio" name="behuizing_firewire" value="3" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_firewire" value="3"></td>
+                            @endif
                         </tr>
                     </table>
                     <table class="behuizing_eSATA_table">
                         <tr><th colspan="3"><h5>eSATA aansluitingen
-                                    {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                    'alt' => 'test', 'title'=> 'eSATA is een computerbus ontworpen voor het transport van gegevens tussen het moederbord en externe opslagmedia. eSATA is een aangepaste versie van SATA. De kabels zijn langer en de connector is steviger.')) }}
-                                </h5></th></tr>
+                            {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                            'alt' => 'test', 'title'=> 'eSATA is een computerbus ontworpen voor het transport van gegevens tussen het moederbord en externe opslagmedia. eSATA is een aangepaste versie van SATA. De kabels zijn langer en de connector is steviger.')) }}
+                        </h5></th></tr>
                         <tr>
                             <td style="width:33.3%">0</td>
                             <td style="width:33.3%">1</td>
                             <td style="width:33.3%">Geen voorkeur</td>
                         </tr>
                         <tr>
-                            <td><input type="radio" name="behuizing_esata" value="1"></td>
-                            <td><input type="radio" name="behuizing_esata" value="2"></td>
-                            <td><input type="radio" name="behuizing_esata" value="3"></td>
+                            @if(Session::get('behuizing_esata') == "1")
+                                <td><input type="radio" name="behuizing_esata" value="1" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_esata" value="1"></td>
+                            @endif
+                            @if(Session::get('behuizing_esata') == "2")
+                                <td><input type="radio" name="behuizing_esata" value="2" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_esata" value="2"></td>
+                            @endif
+                            @if(Session::get('behuizing_esata') == "3")
+                                <td><input type="radio" name="behuizing_esata" value="3" checked></td>
+                            @else
+                                <td><input type="radio" name="behuizing_esata" value="3"></td>
+                            @endif
                         </tr>
                     </table>
                     <div class="behuizing_2,5bay specification_table">
                         <h5>2,5'' Bays (HDD/SSD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                    'alt' => 'test', 'title'=> 'Hoeveel 2,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 2,5 inch bay is geschikt voor een harde schijf of SSD.')) }}
+                            'alt' => 'test', 'title'=> 'Hoeveel 2,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 2,5 inch bay is geschikt voor een harde schijf of SSD.')) }}
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_2bay" readonly></p>
                         <div class="specification_table_slider" id="casing_25bays"></div>
@@ -2766,17 +3106,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                     </div>
                     <div class="behuizing_3,5bay specification_table">
                         <h5>3,5'' Bays (HDD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                    'alt' => 'test', 'title'=> 'Hoeveel 3,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 3,5 inch bay is geschikt voor een harde schijf.')) }}
+                            'alt' => 'test', 'title'=> 'Hoeveel 3,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 3,5 inch bay is geschikt voor een harde schijf.')) }}
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_3bay" readonly></p>
                         <div class="specification_table_slider" id="casing_35bays"></div>
                         <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value="2">
                         <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value="5">
                     </div>
-
                     <div class="behuizing_5,25bay specification_table">
                         <h5>5,25'' Bays {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                    'alt' => 'test', 'title'=> 'Hoeveel 5,25 inch bays zijn er beschikbaar in deze computerbehuizing? Een 5,25 inch bay is geschikt voor een optische drive, een harde schijf (met behulp van een bracket), of andere uitbreidingen.')) }}
+                            'alt' => 'test', 'title'=> 'Hoeveel 5,25 inch bays zijn er beschikbaar in deze computerbehuizing? Een 5,25 inch bay is geschikt voor een optische drive, een harde schijf (met behulp van een bracket), of andere uitbreidingen.')) }}
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_5bay" readonly></p>
                         <div class="specification_table_slider" id="casing_525bays"></div>
@@ -2801,11 +3140,31 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:20%">120 GB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SDD_opslag1" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag2" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag3" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag4" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag5" value="1"></td>
+                                @if(Session::get('SDD_opslag1')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag2')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag3')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag4')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag5')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag5" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:20%">128 GB</td>
@@ -2815,11 +3174,31 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:20%">256 GB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SDD_opslag6" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag7" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag8" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag9" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag10" value="1"></td>
+                                @if(Session::get('SDD_opslag6')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag6" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag7')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag7" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag7" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag8')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag8" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag8" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag9')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag9" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag9" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag10')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag10" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag10" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:20%">480 GB</td>
@@ -2829,11 +3208,31 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:20%">1 TB</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SDD_opslag11" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag12" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag13" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag14" value="1"></td>
-                                <td><input type="checkbox" name="SDD_opslag15" value="1"></td>
+                                @if(Session::get('SDD_opslag11')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag11" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag11" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag12')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag12" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag12" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag13')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag13" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag13" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag14')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag14" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag14" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SDD_opslag15')=="0")
+                                    <td><input type="checkbox" name="SDD_opslag15" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SDD_opslag15" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="SDD_formaat_table">
@@ -2847,9 +3246,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">M.2</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="SDD_formaat" value="1"></td>
-                                <td><input type="radio" name="SDD_formaat" value="2"></td>
-                                <td><input type="radio" name="SDD_formaat" value="3"></td>
+                                @if(Session::get('SDD_formaat')=="1")
+                                    <td><input type="radio" name="SDD_formaat" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="SDD_formaat" value="1"></td>
+                                @endif
+                                @if(Session::get('SDD_formaat')=="2")
+                                    <td><input type="radio" name="SDD_formaat" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="SDD_formaat" value="2"></td>
+                                @endif
+                                @if(Session::get('SDD_formaat')=="3")
+                                    <td><input type="radio" name="SDD_formaat" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="SDD_formaat" value="3"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="SSD_soort_table" cellspacing="1px">
@@ -2861,16 +3272,24 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Triple Level Cell (TLC)</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="SSD_soort" value="1"></td>
-                                <td><input type="radio" name="SSD_soort" value="2"></td>
+                                @if(Session::get('SSD_soort')=="1")
+                                    <td><input type="radio" name="SSD_soort" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="SSD_soort" value="1"></td>
+                                @endif
+                                @if(Session::get('SSD_soort')=="2")
+                                    <td><input type="radio" name="SSD_soort" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="SSD_soort" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="SSD_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd" readonly></p>
                             <div class="specification_table_slider" id="ssd_price"></div>
-                            <input name="casing_Bayss" type="hidden" id="ssd_price0" value="2" style="background: red">
-                            <input name="casing_Bayss1"  type="hidden" id="ssd_price1" value="5" style="background: yellow">
+                            <input name="casing_Bayss" type="hidden" id="ssd_price0" value="2">
+                            <input name="casing_Bayss1"  type="hidden" id="ssd_price1" value="5">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -2883,10 +3302,26 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:25%">Kingston</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SSD_merk1" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk2" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk3" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk4" value="1"></td>
+                                @if(Session::get('SSD_merk1')=="0")
+                                    <td><input type="checkbox" name="SSD_merk1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_merk2')=="0")
+                                    <td><input type="checkbox" name="SSD_merk2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_merk3')=="0")
+                                    <td><input type="checkbox" name="SSD_merk3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_merk4')=="0")
+                                    <td><input type="checkbox" name="SSD_merk4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk4" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:25%">OCZ</td>
@@ -2895,10 +3330,26 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:25%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SSD_merk5" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk6" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk7" value="1"></td>
-                                <td><input type="checkbox" name="SSD_merk8" value="1"></td>
+                                @if(Session::get('SSD_merk5')=="0")
+                                    <td><input type="checkbox" name="SSD_merk5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_merk6')=="0")
+                                    <td><input type="checkbox" name="SSD_merk6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk6" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_merk7')=="0")
+                                    <td><input type="checkbox" name="SSD_merk7" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk7" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_merk8')=="0")
+                                    <td><input type="checkbox" name="SSD_merk8" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_merk8" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="SSD_controller_table" cellspacing="1px">
@@ -2913,9 +3364,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">Marvell</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SSD_controller1" value="1"></td>
-                                <td><input type="checkbox" name="SSD_controller2" value="1"></td>
-                                <td><input type="checkbox" name="SSD_controller3" value="1"></td>
+                                @if(Session::get('SSD_controller1')=="0")
+                                    <td><input type="checkbox" name="SSD_controller1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_controller1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_controller2')=="0")
+                                    <td><input type="checkbox" name="SSD_controller2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_controller2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_controller3')=="0")
+                                    <td><input type="checkbox" name="SSD_controller3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_controller3" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">Samsung</td>
@@ -2923,24 +3386,36 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">Phison</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="SSD_controller4" value="1"></td>
-                                <td><input type="checkbox" name="SSD_controller5" value="1"></td>
-                                <td><input type="checkbox" name="SSD_controller6" value="1"></td>
+                                @if(Session::get('SSD_controller4')=="0")
+                                    <td><input type="checkbox" name="SSD_controller4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_controller4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_controller5')=="0")
+                                    <td><input type="checkbox" name="SSD_controller5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_controller5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('SSD_controller6')=="0")
+                                    <td><input type="checkbox" name="SSD_controller6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="SSD_controller6" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="SSD_schrijf specification_table">
                             <h5>Schrijfsnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_schrijf" readonly></p>
                             <div class="specification_table_slider" id="ssd_writespeed"></div>
-                            <input name="ssd_writespeed0" type="hidden" id="ssd_writespeed0" value="2" style="background: red">
-                            <input name="ssd_writespeed1" type="hidden" id="ssd_writespeed1" value="5" style="background: yellow">
+                            <input name="ssd_writespeed0" type="hidden" id="ssd_writespeed0" value="2">
+                            <input name="ssd_writespeed1" type="hidden" id="ssd_writespeed1" value="5">
                         </div>
                         <div class="SSD_lees specification_table">
                             <h5>Leessnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_lees" readonly></p>
                             <div class="specification_table_slider" id="ssd_readspeed"></div>
-                            <input name="ssd_readspeed0" type="hidden" id="ssd_readspeed0" value="2" style="background: red">
-                            <input name="ssd_readspeed1" type="hidden" id="ssd_readspeed1" value="5" style="background: yellow">
+                            <input name="ssd_readspeed0" type="hidden" id="ssd_readspeed0" value="2">
+                            <input name="ssd_readspeed1" type="hidden" id="ssd_readspeed1" value="5">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2960,9 +3435,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">Apple</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="brander_merk1" value="1"></td>
-                                <td><input type="checkbox" name="brander_merk2" value="1"></td>
-                                <td><input type="checkbox" name="brander_merk3" value="1"></td>
+                                @if(Session::get('brander_merk1')=="0")
+                                    <td><input type="checkbox" name="brander_merk1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_merk1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_merk2')=="0")
+                                    <td><input type="checkbox" name="brander_merk2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_merk2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_merk3')=="0")
+                                    <td><input type="checkbox" name="brander_merk3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_merk3" value="1" checked></td>
+                                @endif
                             </tr>
                             <tr>
                                 <td style="width:33.3%">LG</td>
@@ -2970,9 +3457,21 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:33.3%">Geen voorkeur</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="brander_merk4" value="1"></td>
-                                <td><input type="checkbox" name="brander_merk5" value="1"></td>
-                                <td><input type="checkbox" name="brander_merk6" value="1"></td>
+                                @if(Session::get('brander_merk4')=="0")
+                                    <td><input type="checkbox" name="brander_merk4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_merk4" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_merk5')=="0")
+                                    <td><input type="checkbox" name="brander_merk5" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_merk5" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_merk6')=="0")
+                                    <td><input type="checkbox" name="brander_merk6" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_merk6" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="brander_type_table">
@@ -2985,8 +3484,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Extern</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="brander_type" value="1"></td>
-                                <td><input type="radio" name="brander_type" value="2"></td>
+                                @if(Session::get('brander_type')=="1")
+                                    <td><input type="radio" name="brander_type" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="brander_type" value="1"></td>
+                                @endif
+                                @if(Session::get('brander_type')=="2")
+                                    <td><input type="radio" name="brander_type" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="brander_type" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <div class="brander_cost specification_table">
@@ -3007,10 +3514,26 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:25%">Floppy</td>
                             </tr>
                             <tr>
-                                <td><input type="checkbox" name="brander_speelt1" value="1"></td>
-                                <td><input type="checkbox" name="brander_speelt2" value="1"></td>
-                                <td><input type="checkbox" name="brander_speelt3" value="1"></td>
-                                <td><input type="checkbox" name="brander_speelt4" value="1"></td>
+                                @if(Session::get('brander_speelt1')=="0")
+                                    <td><input type="checkbox" name="brander_speelt1" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_speelt1" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_speelt2')=="0")
+                                    <td><input type="checkbox" name="brander_speelt2" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_speelt2" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_speelt3')=="0")
+                                    <td><input type="checkbox" name="brander_speelt3" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_speelt3" value="1" checked></td>
+                                @endif
+                                @if(Session::get('brander_speelt4')=="0")
+                                    <td><input type="checkbox" name="brander_speelt4" value="1"></td>
+                                @else
+                                    <td><input type="checkbox" name="brander_speelt4" value="1" checked></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="brander_besturing_table">
@@ -3020,8 +3543,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Mac OS X</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="brander_besturing" value="1"></td>
-                                <td><input type="radio" name="brander_besturing" value="2"></td>
+                                @if(Session::get('brander_besturing')=="1")
+                                    <td><input type="radio" name="brander_besturing" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="brander_besturing" value="1"></td>
+                                @endif
+                                @if(Session::get('brander_besturing')=="2")
+                                    <td><input type="radio" name="brander_besturing" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="brander_besturing" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                         <table class="brander_ladetype_table">
@@ -3034,8 +3565,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                                 <td style="width:50%">Slot-in</td>
                             </tr>
                             <tr>
-                                <td><input type="radio" name="brander_ladetype" value="1"></td>
-                                <td><input type="radio" name="brander_ladetype" value="2"></td>
+                                @if(Session::get('brander_ladetype')=="1")
+                                    <td><input type="radio" name="brander_ladetype" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="brander_ladetype" value="1"></td>
+                                @endif
+                                @if(Session::get('brander_ladetype')=="2")
+                                    <td><input type="radio" name="brander_ladetype" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="brander_ladetype" value="2"></td>
+                                @endif
                             </tr>
                         </table>
                     </div>
