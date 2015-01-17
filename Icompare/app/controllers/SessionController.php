@@ -286,12 +286,7 @@ class SessionController extends BaseController {
         Session::put('processorcooler_brand5', $processorcooler_brand5);
         Session::put('processorcooler_brand6', $processorcooler_brand6);
         Session::put('processorcooler_brand7', $processorcooler_brand7);
-        //Session::put('processorcooler_price_min', $processorcooler_price_min);
-        //Session::put('processorcooler_price_max', $processorcooler_price_max);
         Session::put('processorcooler_method', $processorcooler_method);
-        //Session::put('processorcooler_diameter', $processorcooler_diameter);
-        //Session::put('processorcooler_rotation_min', $processorcooler_rotation_min);
-        //Session::put('processorcooler_rotation_max', $processorcooler_rotation_max);
 
         if($processorcooler_method != '-') {
             Session::put('processorcooler_check', 'yes');

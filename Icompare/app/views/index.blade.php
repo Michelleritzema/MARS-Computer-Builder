@@ -208,9 +208,7 @@ switch(Session::get('processorcooler_rotation_max')) {
     var ProcessorCoolerP1 = '<?php echo $ProcessorCoolerP1; ?>';
     var ProcessorCoolerVentilatorDm0 = '<?php echo $ProcessorCoolerVentilatorDm0; ?>';
     var ProcessorCoolerRSpeed0 = '<?php echo $ProcessorCoolerRSpeed0; ?>';
-    //alert(ProcessorCoolerRSpeed0);
     var ProcessorCoolerRSpeed1 = '<?php echo $ProcessorCoolerRSpeed1; ?>';
-    //alert(ProcessorCoolerRSpeed1);
 </script>
 
 @extends('layout.template')
@@ -574,8 +572,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Vermogen (in Watt)<br><span class="annotation">(minimum - maximum)</span></h5>
                             <p><input class="slider_label" type="text" id="voeding_vermogen" readonly></p>
                             <div class="specification_table_slider" id="slider_powersupply_power"></div>
-                            <input name="Powersupply_power0" type="hidden" value="400" type="hidden"  id="Powersupply_power0">
-                            <input name="Powersupply_power1" type="hidden" value="1000" type="hidden" id="Powersupply_power1">
+                            <input name="Powersupply_power0" type="hidden" value={{$Powersupply_power0}} type="hidden"  id="Powersupply_power0">
+                            <input name="Powersupply_power1" type="hidden" value={{$Powersupply_power1}} type="hidden" id="Powersupply_power1">
                         </div>
                         <div class="voeding_sata specification_table">
                             <h5>S-ATA aansluiting
@@ -585,8 +583,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             </h5>
                             <p><input class="slider_label" type="text" id="voeding_sata" readonly></p>
                             <div class="specification_table_slider" id="slider_sata"></div>
-                            <input name="Sata-connection0"  type="hidden" value="0" id="Sata-connection0">
-                            <input name="Sata-connection1"  type="hidden" value="4" id="Sata-connection1">
+                            <input name="Sata-connection0"  type="hidden" value={{$Sataconnection0}} id="Sata-connection0">
+                            <input name="Sata-connection1"  type="hidden" value={{$Sataconnection1}} id="Sata-connection1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -655,10 +653,9 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_koeler" readonly></p>
                             <div class="specification_table_slider" id="slider_processorcooler_price"></div>
-                            <input name="ProcessorCoolerP0" type="hidden" value= "60" id="ProcessorCoolerP0">
-                            <input name="ProcessorCoolerP1"  type="hidden" value= "100" id="ProcessorCoolerP1">
+                            <input name="ProcessorCoolerP0" type="hidden" value={{$ProcessorCoolerP0}} id="ProcessorCoolerP0">
+                            <input name="ProcessorCoolerP1"  type="hidden" value={{$ProcessorCoolerP1}} id="ProcessorCoolerP1">
                         </div>
-
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="koeler_methode_table">
@@ -687,14 +684,14 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Diameter ventilator</h5><span class="annotation">(in cm)</span>
                             <p><input class="slider_label" type="text" id="koeler_diameter" readonly></p>
                             <div class="specification_table_slider" id="slider_processorcooler_diameter"></div>
-                            <input name="ProcessorCoolerVentilatorDm0"  type="hidden" value= "9" id="ProcessorCoolerVentilatorDm0">
+                            <input name="ProcessorCoolerVentilatorDm0"  type="hidden" value={{$ProcessorCoolerVentilatorDm0}} id="ProcessorCoolerVentilatorDm0">
                         </div>
                         <div class="koeler_rotatiesnelheid specification_table">
                             <h5>Rotatiesnelheid </h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="koeler_rotatie" readonly></p>
                             <div class="specification_table_slider" id="slider_processorcooler_rotation"></div>
-                            <input name="ProcessorCoolerRSpeed0"  type="hidden" value= "800" id="ProcessorCoolerRSpeed0">
-                            <input name="ProcessorCoolerRSpeed1" type="hidden"  value= "1200" id="ProcessorCoolerRSpeed1">
+                            <input name="ProcessorCoolerRSpeed0"  type="hidden" value={{$ProcessorCoolerRSpeed0}} id="ProcessorCoolerRSpeed0">
+                            <input name="ProcessorCoolerRSpeed1" type="hidden"  value={{$ProcessorCoolerRSpeed1}} id="ProcessorCoolerRSpeed1">
                         </div>
                     </div>
                     <div class="col-md-12">
