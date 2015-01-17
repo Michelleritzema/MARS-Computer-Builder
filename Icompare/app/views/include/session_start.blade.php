@@ -122,8 +122,10 @@ if (!Session::has('GPU_VGA'))  { Session::put('GPU_VGA','-'); }
 if (!Session::has('GPU_bandwidth_memory'))  { Session::put('GPU_bandwidth_memory','-'); }
 if (!Session::has('GPU_DVII'))  { Session::put('GPU_DVII','-'); }
 if (!Session::has('GPU_DVID'))  { Session::put('GPU_DVID','-'); }
-if (!Session::has('GPU_cost'))  { Session::put('GPU_cost','-'); }
-if (!Session::has('GPU_memory'))  { Session::put('GPU_memory',''); }
+if (!Session::has('GPU_price_min'))  { Session::put('GPU_price_min','-'); }
+if (!Session::has('GPU_price_max'))  { Session::put('GPU_price_max','-'); }
+if (!Session::has('GPU_memory_min'))  { Session::put('GPU_memory_min',''); }
+if (!Session::has('GPU_memory_max'))  { Session::put('GPU_memory_max',''); }
 if (!Session::has('processor_brand1'))  { Session::put('processor_brand1','0'); }
 if (!Session::has('processor_brand2'))  { Session::put('processor_brand2','0'); }
 if (!Session::has('processor_core1'))  { Session::put('processor_core1','0'); }
@@ -218,9 +220,12 @@ if (!Session::has('behuizing_usb3_2'))  { Session::put('behuizing_usb3_2','0'); 
 if (!Session::has('behuizing_usb3_3'))  { Session::put('behuizing_usb3_3','0'); }
 if (!Session::has('behuizing_firewire'))  { Session::put('behuizing_firewire','-'); }
 if (!Session::has('behuizing_esata'))  { Session::put('behuizing_esata','-'); }
-if (!Session::has('behuizing_2,5bay'))  { Session::put('behuizing_2,5bay','-'); }
-if (!Session::has('behuizing_3,5bay'))  { Session::put('behuizing_3,5bay','-'); }
-if (!Session::has('behuizing_5,25bay'))  { Session::put('behuizing_5,25bay','-'); }
+if (!Session::has('behuizing_2_5bay_min'))  { Session::put('behuizing_2_5bay_min','-'); }
+if (!Session::has('behuizing_2_5bay_max'))  { Session::put('behuizing_2_5bay_max','-'); }
+if (!Session::has('behuizing_3_5bay_min'))  { Session::put('behuizing_3_5bay_min','-'); }
+if (!Session::has('behuizing_3_5bay_max'))  { Session::put('behuizing_3_5bay_max','-'); }
+if (!Session::has('behuizing_5_25bay_min'))  { Session::put('behuizing_5_25bay_min','-'); }
+if (!Session::has('behuizing_5_25bay_max'))  { Session::put('behuizing_5_25bay_max','-'); }
 if (!Session::has('SDD_opslag1'))  { Session::put('SDD_opslag1','0'); }
 if (!Session::has('SDD_opslag2'))  { Session::put('SDD_opslag2','0'); }
 if (!Session::has('SDD_opslag3'))  { Session::put('SDD_opslag3','0'); }
@@ -295,7 +300,7 @@ echo "Videokaart: ";
 echo Session::get('GPU_producer1');echo Session::get('GPU_producer2');echo Session::get('GPU_type_AMD1');echo Session::get('GPU_type_AMD2');echo Session::get('GPU_type_AMD3');echo Session::get('GPU_type_AMD4');echo Session::get('GPU_type_AMD5');echo Session::get('GPU_type_AMD6');echo Session::get('GPU_type_AMD7');echo Session::get('GPU_type_AMD8');
 echo Session::get('GPU_type_AMD9');echo Session::get('GPU_type_AMD10');echo Session::get('GPU_type_NVIDIA1');echo Session::get('GPU_type_NVIDIA2');echo Session::get('GPU_type_NVIDIA3');echo Session::get('GPU_type_NVIDIA4');echo Session::get('GPU_type_NVIDIA5');echo Session::get('GPU_type_NVIDIA6');echo Session::get('GPU_type_NVIDIA7');echo Session::get('GPU_type_NVIDIA8');
 echo Session::get('GPU_type_NVIDIA9');echo Session::get('GPU_type_NVIDIA10');echo Session::get('GPU_brand1');echo Session::get('GPU_brand2');echo Session::get('GPU_brand3');echo Session::get('GPU_brand4');echo Session::get('GPU_brand5');echo Session::get('GPU_brand6');echo Session::get('GPU_geheugen_type');echo Session::get('GPU_HDMI');
-echo Session::get('GPU_VGA');echo Session::get('GPU_bandwidth_memory');echo Session::get('GPU_DVII');echo Session::get('GPU_DVID');echo Session::get('GPU_cost');echo Session::get('GPU_memory') . "<br>";
+echo Session::get('GPU_VGA');echo Session::get('GPU_bandwidth_memory');echo Session::get('GPU_DVII');echo Session::get('GPU_DVID');echo Session::get('GPU_price_min');echo Session::get('GPU_price_max');echo Session::get('GPU_memory_min');echo Session::get('GPU_memory_max') . "<br>";
 echo "Processor: ";
 echo Session::get('processor_brand1');echo Session::get('processor_brand2');echo Session::get('processor_core1');echo Session::get('processor_core2');echo Session::get('processor_core3');echo Session::get('processor_core4');echo Session::get('processor_cost_min');echo Session::get('processor_cost_max');echo Session::get('processor_serie1');echo Session::get('processor_serie2');
 echo Session::get('processor_serie3');echo Session::get('processor_serie4');echo Session::get('processor_serie5');echo Session::get('processor_serie6');echo Session::get('processor_serie7');echo Session::get('processor_serie8');echo Session::get('processor_serie9');echo Session::get('processor_speed_min');echo Session::get('processor_speed_max') . "<br>";
@@ -312,6 +317,7 @@ echo Session::get('behuizing_merk1');echo Session::get('behuizing_merk2');echo S
 echo Session::get('behuizing_led');echo Session::get('behuizing_ruis');echo Session::get('behuizing_geluid');echo Session::get('behuizing_paneel');echo Session::get('behuizing_price_min');echo Session::get('behuizing_price_max');echo Session::get('behuizing_uitbreiding_min');echo Session::get('behuizing_uitbreiding_max');echo Session::get('behuizing_kleur');
 echo Session::get('behuizing_materiaal');echo Session::get('behuizing_usb2_1');echo Session::get('behuizing_usb2_2');echo Session::get('behuizing_usb2_3');echo Session::get('behuizing_usb3_1');echo Session::get('behuizing_usb3_2');echo Session::get('behuizing_usb3_3');echo Session::get('behuizing_firewire');echo Session::get('behuizing_esata');echo Session::get('behuizing_2_5bay_min');
 echo Session::get('behuizing_2_5bay_max');echo Session::get('behuizing_3_5bay_min');echo Session::get('behuizing_3_5bay_max');echo Session::get('behuizing_5_25bay_min');echo Session::get('behuizing_5_25bay_max') . "<br>";
+
 echo "SSD: ";
 echo Session::get('SDD_opslag1');echo Session::get('SDD_opslag2');echo Session::get('SDD_opslag3');echo Session::get('SDD_opslag4');echo Session::get('SDD_opslag5');echo Session::get('SDD_opslag6');echo Session::get('SDD_opslag7');echo Session::get('SDD_opslag8');echo Session::get('SDD_opslag9');echo Session::get('SDD_opslag10');
 echo Session::get('SDD_opslag11');echo Session::get('SDD_opslag12');echo Session::get('SDD_opslag13');echo Session::get('SDD_opslag14');echo Session::get('SDD_opslag15');echo Session::get('SDD_formaat');echo Session::get('SSD_soort');echo Session::get('SSD_price_min');echo Session::get('SSD_price_max');echo Session::get('SSD_merk1');

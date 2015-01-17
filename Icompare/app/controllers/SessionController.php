@@ -1,11 +1,25 @@
 <?php
 /**
- * Created by: Michelle
- * Date: 11/01/2015
+ * Dit onderdeel is geschreven door:
+ * Michelle & Sander
+ *
+ * Michelle - methode determineSection()
+ *          - Gedeelte opslaan checkboxes
+ *          - Gedeelte opslaan radio boxes
+ *          - Opslaan sliders
+ *          - Check voor verplichte onderdelen
+ *          - Het zetten van de check variabele voor een vinkje
+ * Sander:  - Gedeelte opslaan checkboxes
+ *          - Gedeelte opslaan radio boxes
+
+ * Document is voor het laatst, op 17-01-2015, nagekeken door:
+ * Michelle
  */
 
 class SessionController extends BaseController {
 
+    // Deze functie bepaalt welke methode uitgevoerd moet worden aan de hand van de sessievariabele $menuitem.
+    // Wanneer de methode vervolgens volledig doorlopen is, wordt de index pagina weer geladen.
     public function determineSection() {
         if(Session::has('menuitem')) {
             $menuitem = Session::get('menuitem');
@@ -31,6 +45,10 @@ class SessionController extends BaseController {
     public function savePowerSupply() {
         // De variabele temp wordt gebruikt, aangezien de isset() een error geeft wanneer de Input::get rechtstreeks
         // wordt ingevuld.
+        // Deze methode slaat alle waardes van de categorie "voeding" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('voeding_cpup4');
         $voeding_cpup4 = isset($temp) ? Input::get('voeding_cpup4') : '0';
         $temp = Input::get('voeding_cpup8');
@@ -64,101 +82,101 @@ class SessionController extends BaseController {
 
         $temp = Input::get('voeding_cost0');
         switch($temp) {
-            case "0": Session::put('powersupply_price_min', '1'); break;
-            case "40": Session::put('powersupply_price_min', '2'); break;
-            case "80": Session::put('powersupply_price_min', '3'); break;
-            case "120": Session::put('powersupply_price_min', '4'); break;
-            case "160": Session::put('powersupply_price_min', '5'); break;
-            case "200": Session::put('powersupply_price_min', '6'); break;
-            case "240": Session::put('powersupply_price_min', '7'); break;
-            case "280": Session::put('powersupply_price_min', '8'); break;
-            case "320": Session::put('powersupply_price_min', '9'); break;
-            case "360": Session::put('powersupply_price_min', 'a'); break;
-            case "400": Session::put('powersupply_price_min', 'b'); break;
-            default: Session::put('voeding_cost0', '1'); break;
+            case "0":       Session::put('powersupply_price_min', '1'); break;
+            case "40":      Session::put('powersupply_price_min', '2'); break;
+            case "80":      Session::put('powersupply_price_min', '3'); break;
+            case "120":     Session::put('powersupply_price_min', '4'); break;
+            case "160":     Session::put('powersupply_price_min', '5'); break;
+            case "200":     Session::put('powersupply_price_min', '6'); break;
+            case "240":     Session::put('powersupply_price_min', '7'); break;
+            case "280":     Session::put('powersupply_price_min', '8'); break;
+            case "320":     Session::put('powersupply_price_min', '9'); break;
+            case "360":     Session::put('powersupply_price_min', 'a'); break;
+            case "400":     Session::put('powersupply_price_min', 'b'); break;
+            default:        Session::put('voeding_cost0', '1'); break;
         }
         $temp = Input::get('voeding_cost1');
         switch($temp) {
-            case "0": Session::put('powersupply_price_max', '1'); break;
-            case "40": Session::put('powersupply_price_max', '2'); break;
-            case "80": Session::put('powersupply_price_max', '3'); break;
-            case "120": Session::put('powersupply_price_max', '4'); break;
-            case "160": Session::put('powersupply_price_max', '5'); break;
-            case "200": Session::put('powersupply_price_max', '6'); break;
-            case "240": Session::put('powersupply_price_max', '7'); break;
-            case "280": Session::put('powersupply_price_max', '8'); break;
-            case "320": Session::put('powersupply_price_max', '9'); break;
-            case "360": Session::put('powersupply_price_max', 'a'); break;
-            case "400": Session::put('powersupply_price_max', 'b'); break;
-            default: Session::put('voeding_cost0', 'b'); break;
+            case "0":       Session::put('powersupply_price_max', '1'); break;
+            case "40":      Session::put('powersupply_price_max', '2'); break;
+            case "80":      Session::put('powersupply_price_max', '3'); break;
+            case "120":     Session::put('powersupply_price_max', '4'); break;
+            case "160":     Session::put('powersupply_price_max', '5'); break;
+            case "200":     Session::put('powersupply_price_max', '6'); break;
+            case "240":     Session::put('powersupply_price_max', '7'); break;
+            case "280":     Session::put('powersupply_price_max', '8'); break;
+            case "320":     Session::put('powersupply_price_max', '9'); break;
+            case "360":     Session::put('powersupply_price_max', 'a'); break;
+            case "400":     Session::put('powersupply_price_max', 'b'); break;
+            default:        Session::put('voeding_cost0', 'b'); break;
         }
         $temp = Input::get('Powersupply_power0');
         switch($temp) {
-            case "400": Session::put('powersupply_power_min', '1'); break;
-            case "450": Session::put('powersupply_power_min', '2'); break;
-            case "500": Session::put('powersupply_power_min', '3'); break;
-            case "550": Session::put('powersupply_power_min', '4'); break;
-            case "600": Session::put('powersupply_power_min', '5'); break;
-            case "650": Session::put('powersupply_power_min', '6'); break;
-            case "700": Session::put('powersupply_power_min', '7'); break;
-            case "750": Session::put('powersupply_power_min', '8'); break;
-            case "800": Session::put('powersupply_power_min', '9'); break;
-            case "850": Session::put('powersupply_power_min', 'a'); break;
-            case "900": Session::put('powersupply_power_min', 'b'); break;
-            case "950": Session::put('powersupply_power_min', 'c'); break;
-            case "1000": Session::put('powersupply_power_min', 'd'); break;
-            default: Session::put('powersupply_power_min', '1'); break;
+            case "400":     Session::put('powersupply_power_min', '1'); break;
+            case "450":     Session::put('powersupply_power_min', '2'); break;
+            case "500":     Session::put('powersupply_power_min', '3'); break;
+            case "550":     Session::put('powersupply_power_min', '4'); break;
+            case "600":     Session::put('powersupply_power_min', '5'); break;
+            case "650":     Session::put('powersupply_power_min', '6'); break;
+            case "700":     Session::put('powersupply_power_min', '7'); break;
+            case "750":     Session::put('powersupply_power_min', '8'); break;
+            case "800":     Session::put('powersupply_power_min', '9'); break;
+            case "850":     Session::put('powersupply_power_min', 'a'); break;
+            case "900":     Session::put('powersupply_power_min', 'b'); break;
+            case "950":     Session::put('powersupply_power_min', 'c'); break;
+            case "1000":    Session::put('powersupply_power_min', 'd'); break;
+            default:        Session::put('powersupply_power_min', '1'); break;
         }
         $temp = Input::get('Powersupply_power1');
         switch($temp) {
-            case "400": Session::put('powersupply_power_max', '1'); break;
-            case "450": Session::put('powersupply_power_max', '2'); break;
-            case "500": Session::put('powersupply_power_max', '3'); break;
-            case "550": Session::put('powersupply_power_max', '4'); break;
-            case "600": Session::put('powersupply_power_max', '5'); break;
-            case "650": Session::put('powersupply_power_max', '6'); break;
-            case "700": Session::put('powersupply_power_max', '7'); break;
-            case "750": Session::put('powersupply_power_max', '8'); break;
-            case "800": Session::put('powersupply_power_max', '9'); break;
-            case "850": Session::put('powersupply_power_max', 'a'); break;
-            case "900": Session::put('powersupply_power_max', 'b'); break;
-            case "950": Session::put('powersupply_power_max', 'c'); break;
-            case "1000": Session::put('powersupply_power_max', 'd'); break;
-            default: Session::put('powersupply_power_max', 'd'); break;
+            case "400":     Session::put('powersupply_power_max', '1'); break;
+            case "450":     Session::put('powersupply_power_max', '2'); break;
+            case "500":     Session::put('powersupply_power_max', '3'); break;
+            case "550":     Session::put('powersupply_power_max', '4'); break;
+            case "600":     Session::put('powersupply_power_max', '5'); break;
+            case "650":     Session::put('powersupply_power_max', '6'); break;
+            case "700":     Session::put('powersupply_power_max', '7'); break;
+            case "750":     Session::put('powersupply_power_max', '8'); break;
+            case "800":     Session::put('powersupply_power_max', '9'); break;
+            case "850":     Session::put('powersupply_power_max', 'a'); break;
+            case "900":     Session::put('powersupply_power_max', 'b'); break;
+            case "950":     Session::put('powersupply_power_max', 'c'); break;
+            case "1000":    Session::put('powersupply_power_max', 'd'); break;
+            default:        Session::put('powersupply_power_max', 'd'); break;
         }
         $temp = Input::get('Sata-connection0');
         switch($temp) {
-            case "0": Session::put('s-ata_min', '1'); break;
-            case "1": Session::put('s-ata_min', '2'); break;
-            case "2": Session::put('s-ata_min', '3'); break;
-            case "3": Session::put('s-ata_min', '4'); break;
-            case "4": Session::put('s-ata_min', '5'); break;
-            case "5": Session::put('s-ata_min', '6'); break;
-            case "6": Session::put('s-ata_min', '7'); break;
-            case "7": Session::put('s-ata_min', '8'); break;
-            case "8": Session::put('s-ata_min', '9'); break;
-            case "9": Session::put('s-ata_min', 'a'); break;
-            case "10": Session::put('s-ata_min', 'b'); break;
-            case "11": Session::put('s-ata_min', 'c'); break;
-            case "12": Session::put('s-ata_min', 'd'); break;
-            default: Session::put('s-ata_min', '1'); break;
+            case "0":       Session::put('s-ata_min', '1'); break;
+            case "1":       Session::put('s-ata_min', '2'); break;
+            case "2":       Session::put('s-ata_min', '3'); break;
+            case "3":       Session::put('s-ata_min', '4'); break;
+            case "4":       Session::put('s-ata_min', '5'); break;
+            case "5":       Session::put('s-ata_min', '6'); break;
+            case "6":       Session::put('s-ata_min', '7'); break;
+            case "7":       Session::put('s-ata_min', '8'); break;
+            case "8":       Session::put('s-ata_min', '9'); break;
+            case "9":       Session::put('s-ata_min', 'a'); break;
+            case "10":      Session::put('s-ata_min', 'b'); break;
+            case "11":      Session::put('s-ata_min', 'c'); break;
+            case "12":      Session::put('s-ata_min', 'd'); break;
+            default:        Session::put('s-ata_min', '1'); break;
         }
         $temp = Input::get('Sata-connection1');
         switch($temp) {
-            case "0": Session::put('s-ata_max', '1'); break;
-            case "1": Session::put('s-ata_max', '2'); break;
-            case "2": Session::put('s-ata_max', '3'); break;
-            case "3": Session::put('s-ata_max', '4'); break;
-            case "4": Session::put('s-ata_max', '5'); break;
-            case "5": Session::put('s-ata_max', '6'); break;
-            case "6": Session::put('s-ata_max', '7'); break;
-            case "7": Session::put('s-ata_max', '8'); break;
-            case "8": Session::put('s-ata_max', '9'); break;
-            case "9": Session::put('s-ata_max', 'a'); break;
-            case "10": Session::put('s-ata_max', 'b'); break;
-            case "11": Session::put('s-ata_max', 'c'); break;
-            case "12": Session::put('s-ata_max', 'd'); break;
-            default: Session::put('s-ata_max', 'd'); break;
+            case "0":       Session::put('s-ata_max', '1'); break;
+            case "1":       Session::put('s-ata_max', '2'); break;
+            case "2":       Session::put('s-ata_max', '3'); break;
+            case "3":       Session::put('s-ata_max', '4'); break;
+            case "4":       Session::put('s-ata_max', '5'); break;
+            case "5":       Session::put('s-ata_max', '6'); break;
+            case "6":       Session::put('s-ata_max', '7'); break;
+            case "7":       Session::put('s-ata_max', '8'); break;
+            case "8":       Session::put('s-ata_max', '9'); break;
+            case "9":       Session::put('s-ata_max', 'a'); break;
+            case "10":      Session::put('s-ata_max', 'b'); break;
+            case "11":      Session::put('s-ata_max', 'c'); break;
+            case "12":      Session::put('s-ata_max', 'd'); break;
+            default:        Session::put('s-ata_max', 'd'); break;
         }
 
         Session::put('cpu_p4', $voeding_cpup4);
@@ -188,6 +206,10 @@ class SessionController extends BaseController {
 
     public function saveProcessorCooler()
     {
+        // Deze methode slaat alle waardes van de categorie "processor koeler" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('koeler_merk1');
         $processorcooler_brand1 = isset($temp) ? Input::get('koeler_merk1') : '0';
         $temp = Input::get('koeler_merk2');
@@ -209,74 +231,74 @@ class SessionController extends BaseController {
 
         $temp = Input::get('ProcessorCoolerP0');
         switch($temp) {
-            case "0": Session::put('processorcooler_price_min', '1'); break;
-            case "20": Session::put('processorcooler_price_min', '2'); break;
-            case "40": Session::put('processorcooler_price_min', '3'); break;
-            case "60": Session::put('processorcooler_price_min', '4'); break;
-            case "80": Session::put('processorcooler_price_min', '5'); break;
-            case "100": Session::put('processorcooler_price_min', '6'); break;
-            case "120": Session::put('processorcooler_price_min', '7'); break;
-            default: Session::put('processorcooler_price_min', '1'); break;
+            case "0":       Session::put('processorcooler_price_min', '1'); break;
+            case "20":      Session::put('processorcooler_price_min', '2'); break;
+            case "40":      Session::put('processorcooler_price_min', '3'); break;
+            case "60":      Session::put('processorcooler_price_min', '4'); break;
+            case "80":      Session::put('processorcooler_price_min', '5'); break;
+            case "100":     Session::put('processorcooler_price_min', '6'); break;
+            case "120":     Session::put('processorcooler_price_min', '7'); break;
+            default:        Session::put('processorcooler_price_min', '1'); break;
         }
         $temp = Input::get('ProcessorCoolerP1');
         switch($temp) {
-            case "0": Session::put('processorcooler_price_max', '1'); break;
-            case "20": Session::put('processorcooler_price_max', '2'); break;
-            case "40": Session::put('processorcooler_price_max', '3'); break;
-            case "60": Session::put('processorcooler_price_max', '4'); break;
-            case "80": Session::put('processorcooler_price_max', '5'); break;
-            case "100": Session::put('processorcooler_price_max', '6'); break;
-            case "120": Session::put('processorcooler_price_max', '7'); break;
-            default: Session::put('processorcooler_price_max', '7'); break;
+            case "0":       Session::put('processorcooler_price_max', '1'); break;
+            case "20":      Session::put('processorcooler_price_max', '2'); break;
+            case "40":      Session::put('processorcooler_price_max', '3'); break;
+            case "60":      Session::put('processorcooler_price_max', '4'); break;
+            case "80":      Session::put('processorcooler_price_max', '5'); break;
+            case "100":     Session::put('processorcooler_price_max', '6'); break;
+            case "120":     Session::put('processorcooler_price_max', '7'); break;
+            default:        Session::put('processorcooler_price_max', '7'); break;
         }
         $temp = Input::get('ProcessorCoolerVentilatorDm0');
         switch($temp) {
-            case "6": Session::put('processorcooler_diameter', '1'); break;
-            case "7": Session::put('processorcooler_diameter', '2'); break;
-            case "8": Session::put('processorcooler_diameter', '3'); break;
-            case "9": Session::put('processorcooler_diameter', '4'); break;
-            case "10": Session::put('processorcooler_diameter', '5'); break;
-            case "11": Session::put('processorcooler_diameter', '6'); break;
-            case "12": Session::put('processorcooler_diameter', '7'); break;
-            case "13": Session::put('processorcooler_diameter', '8'); break;
-            case "14": Session::put('processorcooler_diameter', '9'); break;
-            default: Session::put('processorcooler_diameter', '5'); break;
+            case "6":       Session::put('processorcooler_diameter', '1'); break;
+            case "7":       Session::put('processorcooler_diameter', '2'); break;
+            case "8":       Session::put('processorcooler_diameter', '3'); break;
+            case "9":       Session::put('processorcooler_diameter', '4'); break;
+            case "10":      Session::put('processorcooler_diameter', '5'); break;
+            case "11":      Session::put('processorcooler_diameter', '6'); break;
+            case "12":      Session::put('processorcooler_diameter', '7'); break;
+            case "13":      Session::put('processorcooler_diameter', '8'); break;
+            case "14":      Session::put('processorcooler_diameter', '9'); break;
+            default:        Session::put('processorcooler_diameter', '5'); break;
         }
         $temp = Input::get('ProcessorCoolerRSpeed0');
         switch($temp) {
-            case "800": Session::put('processorcooler_rotation_min', '1'); break;
-            case "1000": Session::put('processorcooler_rotation_min', '2'); break;
-            case "1200": Session::put('processorcooler_rotation_min', '3'); break;
-            case "1400": Session::put('processorcooler_rotation_min', '4'); break;
-            case "1600": Session::put('processorcooler_rotation_min', '5'); break;
-            case "1800": Session::put('processorcooler_rotation_min', '6'); break;
-            case "2000": Session::put('processorcooler_rotation_min', '7'); break;
-            case "2200": Session::put('processorcooler_rotation_min', '8'); break;
-            case "2400": Session::put('processorcooler_rotation_min', '9'); break;
-            case "2600": Session::put('processorcooler_rotation_min', 'a'); break;
-            case "2800": Session::put('processorcooler_rotation_min', 'b'); break;
-            case "3000": Session::put('processorcooler_rotation_min', 'c'); break;
-            case "3200": Session::put('processorcooler_rotation_min', 'd'); break;
-            case "3400": Session::put('processorcooler_rotation_min', 'e'); break;
-            default: Session::put('processorcooler_rotation_min', '1'); break;
+            case "800":     Session::put('processorcooler_rotation_min', '1'); break;
+            case "1000":    Session::put('processorcooler_rotation_min', '2'); break;
+            case "1200":    Session::put('processorcooler_rotation_min', '3'); break;
+            case "1400":    Session::put('processorcooler_rotation_min', '4'); break;
+            case "1600":    Session::put('processorcooler_rotation_min', '5'); break;
+            case "1800":    Session::put('processorcooler_rotation_min', '6'); break;
+            case "2000":    Session::put('processorcooler_rotation_min', '7'); break;
+            case "2200":    Session::put('processorcooler_rotation_min', '8'); break;
+            case "2400":    Session::put('processorcooler_rotation_min', '9'); break;
+            case "2600":    Session::put('processorcooler_rotation_min', 'a'); break;
+            case "2800":    Session::put('processorcooler_rotation_min', 'b'); break;
+            case "3000":    Session::put('processorcooler_rotation_min', 'c'); break;
+            case "3200":    Session::put('processorcooler_rotation_min', 'd'); break;
+            case "3400":    Session::put('processorcooler_rotation_min', 'e'); break;
+            default:        Session::put('processorcooler_rotation_min', '1'); break;
         }
         $temp = Input::get('ProcessorCoolerRSpeed1');
         switch($temp) {
-            case "800": Session::put('processorcooler_rotation_max', '1'); break;
-            case "1000": Session::put('processorcooler_rotation_max', '2'); break;
-            case "1200": Session::put('processorcooler_rotation_max', '3'); break;
-            case "1400": Session::put('processorcooler_rotation_max', '4'); break;
-            case "1600": Session::put('processorcooler_rotation_max', '5'); break;
-            case "1800": Session::put('processorcooler_rotation_max', '6'); break;
-            case "2000": Session::put('processorcooler_rotation_max', '7'); break;
-            case "2200": Session::put('processorcooler_rotation_max', '8'); break;
-            case "2400": Session::put('processorcooler_rotation_max', '9'); break;
-            case "2600": Session::put('processorcooler_rotation_max', 'a'); break;
-            case "2800": Session::put('processorcooler_rotation_max', 'b'); break;
-            case "3000": Session::put('processorcooler_rotation_max', 'c'); break;
-            case "3200": Session::put('processorcooler_rotation_max', 'd'); break;
-            case "3400": Session::put('processorcooler_rotation_max', 'e'); break;
-            default: Session::put('processorcooler_rotation_max', 'e'); break;
+            case "800":     Session::put('processorcooler_rotation_max', '1'); break;
+            case "1000":    Session::put('processorcooler_rotation_max', '2'); break;
+            case "1200":    Session::put('processorcooler_rotation_max', '3'); break;
+            case "1400":    Session::put('processorcooler_rotation_max', '4'); break;
+            case "1600":    Session::put('processorcooler_rotation_max', '5'); break;
+            case "1800":    Session::put('processorcooler_rotation_max', '6'); break;
+            case "2000":    Session::put('processorcooler_rotation_max', '7'); break;
+            case "2200":    Session::put('processorcooler_rotation_max', '8'); break;
+            case "2400":    Session::put('processorcooler_rotation_max', '9'); break;
+            case "2600":    Session::put('processorcooler_rotation_max', 'a'); break;
+            case "2800":    Session::put('processorcooler_rotation_max', 'b'); break;
+            case "3000":    Session::put('processorcooler_rotation_max', 'c'); break;
+            case "3200":    Session::put('processorcooler_rotation_max', 'd'); break;
+            case "3400":    Session::put('processorcooler_rotation_max', 'e'); break;
+            default:        Session::put('processorcooler_rotation_max', 'e'); break;
         }
 
         Session::put('processorcooler_brand1', $processorcooler_brand1);
@@ -298,6 +320,10 @@ class SessionController extends BaseController {
 
     public function saveHardDiskDrive()
     {
+        // Deze methode slaat alle waardes van de categorie "harde schijf" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('HDD_merk1');
         $hdd_brand1 = isset($temp) ? Input::get('HDD_merk1') : '0';
         $temp = Input::get('HDD_merk2');
@@ -340,6 +366,33 @@ class SessionController extends BaseController {
         if (isset($temp)) { $hdd_speed = Input::get('HDD_snelheid'); }
         else { $hdd_speed = '-'; }
 
+        $temp = Input::get('harddiskdrive_price0');
+        switch($temp) {
+            case "0":       Session::put('hdd_price_min', '1'); break;
+            case "50":      Session::put('hdd_price_min', '2'); break;
+            case "100":     Session::put('hdd_price_min', '3'); break;
+            case "150":     Session::put('hdd_price_min', '4'); break;
+            case "200":     Session::put('hdd_price_min', '5'); break;
+            case "250":     Session::put('hdd_price_min', '6'); break;
+            case "300":     Session::put('hdd_price_min', '7'); break;
+            case "350":     Session::put('hdd_price_min', '8'); break;
+            case "400":     Session::put('hdd_price_min', '9'); break;
+            default:        Session::put('hdd_price_min', '1'); break;
+        }
+        $temp = Input::get('harddiskdrive_price1');
+        switch($temp) {
+            case "0":       Session::put('hdd_price_max', '1'); break;
+            case "50":      Session::put('hdd_price_max', '2'); break;
+            case "100":     Session::put('hdd_price_max', '3'); break;
+            case "150":     Session::put('hdd_price_max', '4'); break;
+            case "200":     Session::put('hdd_price_max', '5'); break;
+            case "250":     Session::put('hdd_price_max', '6'); break;
+            case "300":     Session::put('hdd_price_max', '7'); break;
+            case "350":     Session::put('hdd_price_max', '8'); break;
+            case "400":     Session::put('hdd_price_max', '9'); break;
+            default:        Session::put('hdd_price_max', '9'); break;
+        }
+
         Session::put('hdd_brand1', $hdd_brand1);
         Session::put('hdd_brand2', $hdd_brand2);
         Session::put('hdd_brand3', $hdd_brand3);
@@ -376,6 +429,10 @@ class SessionController extends BaseController {
 
     public function saveSoundcard()
     {
+        // Deze methode slaat alle waardes van de categorie "geluidskaart" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('geluid_merk1');
         $soundcard_brand1 = isset($temp) ? Input::get('geluid_merk1') : '0';
         $temp = Input::get('geluid_merk2');
@@ -412,6 +469,37 @@ class SessionController extends BaseController {
         if (isset($temp)) { $soundcard_jack = Input::get('geluid_jack'); }
         else { $soundcard_jack = '-'; }
 
+        $temp = Input::get('soundcard_price0');
+        switch($temp) {
+            case "0":       Session::put('soundcard_price_min', '1'); break;
+            case "20":      Session::put('soundcard_price_min', '2'); break;
+            case "40":      Session::put('soundcard_price_min', '3'); break;
+            case "60":      Session::put('soundcard_price_min', '4'); break;
+            case "80":      Session::put('soundcard_price_min', '5'); break;
+            case "100":     Session::put('soundcard_price_min', '6'); break;
+            case "120":     Session::put('soundcard_price_min', '7'); break;
+            case "140":     Session::put('soundcard_price_min', '8'); break;
+            case "160":     Session::put('soundcard_price_min', '9'); break;
+            case "180":     Session::put('soundcard_price_min', 'a'); break;
+            case "200":     Session::put('soundcard_price_min', 'b'); break;
+            default:        Session::put('soundcard_price_min', '1'); break;
+        }
+        $temp = Input::get('soundcard_price1');
+        switch($temp) {
+            case "0":       Session::put('soundcard_price_max', '1'); break;
+            case "20":      Session::put('soundcard_price_max', '2'); break;
+            case "40":      Session::put('soundcard_price_max', '3'); break;
+            case "60":      Session::put('soundcard_price_max', '4'); break;
+            case "80":      Session::put('soundcard_price_max', '5'); break;
+            case "100":     Session::put('soundcard_price_max', '6'); break;
+            case "120":     Session::put('soundcard_price_max', '7'); break;
+            case "140":     Session::put('soundcard_price_max', '8'); break;
+            case "160":     Session::put('soundcard_price_max', '9'); break;
+            case "180":     Session::put('soundcard_price_max', 'a'); break;
+            case "200":     Session::put('soundcard_price_max', 'b'); break;
+            default:        Session::put('soundcard_price_max', 'b'); break;
+        }
+
         Session::put('soundcard_brand1', $soundcard_brand1);
         Session::put('soundcard_brand2', $soundcard_brand2);
         Session::put('soundcard_sample', $soundcard_sample);
@@ -426,8 +514,6 @@ class SessionController extends BaseController {
         Session::put('soundcard_channel', $soundcard_channel);
         Session::put('soundcard_headphone', $soundcard_headphone);
         Session::put('soundcard_jack', $soundcard_jack);
-        //Session::put('soundcard_price_min', $tmp);
-        //Session::put('soundcard_price_max', $tmp);
 
         if($soundcard_sample != '-' && $soundcard_aiso != '-' && $soundcard_port != '-' && $soundcard_channel != '-' && $soundcard_headphone != '-' && $soundcard_jack != '-') {
             if((int)$soundcard_processor1 + (int)$soundcard_processor2 + (int)$soundcard_processor3 +
@@ -445,6 +531,10 @@ class SessionController extends BaseController {
 
     public function savePCI()
     {
+        // Deze methode slaat alle waardes van de categorie "pci" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('pci_usb');
         if (isset($temp)) { $pci_usb = Input::get('pci_usb'); }
         else { $pci_usb = '-'; }
@@ -458,12 +548,29 @@ class SessionController extends BaseController {
         if (isset($temp)) { $pci_esata = Input::get('pci_esata'); }
         else { $pci_esata = '-'; }
 
+        $temp = Input::get('pci_price0');
+        switch($temp) {
+            case "0":       Session::put('pci_price_min', '1'); break;
+            case "20":      Session::put('pci_price_min', '2'); break;
+            case "40":      Session::put('pci_price_min', '3'); break;
+            case "60":      Session::put('pci_price_min', '4'); break;
+            case "80":      Session::put('pci_price_min', '5'); break;
+            default:        Session::put('pci_price_min', '1'); break;
+        }
+        $temp = Input::get('pci_price1');
+        switch($temp) {
+            case "0":       Session::put('pci_price_max', '1'); break;
+            case "20":      Session::put('pci_price_max', '2'); break;
+            case "40":      Session::put('pci_price_max', '3'); break;
+            case "60":      Session::put('pci_price_max', '4'); break;
+            case "80":      Session::put('pci_price_max', '5'); break;
+            default:        Session::put('pci_price_max', '5'); break;
+        }
+
         Session::put('pci_usb', $pci_usb);
         Session::put('pci_firewire', $pci_firewire);
         Session::put('pci_sata', $pci_sata);
         Session::put('pci_esata', $pci_esata);
-        //Session::put('pci_price_min', $pci_price_min);
-        //Session::put('pci_price_max', $pci_price_max);
 
         if($pci_usb != '-' && $pci_firewire != '-' && $pci_sata != '-' && $pci_esata != '-') {
             Session::put('pci_check', 'yes');
@@ -475,6 +582,10 @@ class SessionController extends BaseController {
 
     public function saveVideocard()
     {
+        // Deze methode slaat alle waardes van de categorie "videokaart" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('GPU_producer1');
         $GPU_producer1 = isset($temp) ? Input::get('GPU_producer1') : '0';
         $temp = Input::get('GPU_producer2');
@@ -550,12 +661,69 @@ class SessionController extends BaseController {
         $temp = Input::get('GPU_DVI-D');
         if (isset($temp)) { $GPU_DVID = Input::get('GPU_DVI-D'); }
         else { $GPU_DVID = '-'; }
-        //$temp = Input::get('GPU_cost');
-        //if (isset($temp)) { $GPU_cost = Input::get('GPU_cost'); }
-        //else { $GPU_cost = '-'; }
-        //$temp = Input::get('GPU_memory');
-        //if (isset($temp)) { $GPU_memory = Input::get('GPU_memory'); }
-        //else { $GPU_memory = '-'; }
+
+        $temp = Input::get('videocard_price0');
+        switch($temp) {
+            case "0":       Session::put('GPU_price_min', '1'); break;
+            case "100":     Session::put('GPU_price_min', '2'); break;
+            case "200":     Session::put('GPU_price_min', '3'); break;
+            case "300":     Session::put('GPU_price_min', '4'); break;
+            case "400":     Session::put('GPU_price_min', '5'); break;
+            case "500":     Session::put('GPU_price_min', '6'); break;
+            case "600":     Session::put('GPU_price_min', '7'); break;
+            default:        Session::put('GPU_price_min', '1'); break;
+        }
+        $temp = Input::get('videocard_price1');
+        switch($temp) {
+            case "0":       Session::put('GPU_price_max', '1'); break;
+            case "100":     Session::put('GPU_price_max', '2'); break;
+            case "200":     Session::put('GPU_price_max', '3'); break;
+            case "300":     Session::put('GPU_price_max', '4'); break;
+            case "400":     Session::put('GPU_price_max', '5'); break;
+            case "500":     Session::put('GPU_price_max', '6'); break;
+            case "600":     Session::put('GPU_price_max', '7'); break;
+            default:        Session::put('GPU_price_max', '7'); break;
+        }
+        $temp = Input::get('videocard_memoryMb0');
+        switch($temp) {
+            case "500":     Session::put('GPU_memory_min', '1'); break;
+            case "1013":    Session::put('GPU_memory_min', '2'); break;
+            case "1526":    Session::put('GPU_memory_min', '3'); break;
+            case "2039":    Session::put('GPU_memory_min', '4'); break;
+            case "2552":    Session::put('GPU_memory_min', '5'); break;
+            case "3065":    Session::put('GPU_memory_min', '6'); break;
+            case "3578":    Session::put('GPU_memory_min', '7'); break;
+            case "4091":    Session::put('GPU_memory_min', '8'); break;
+            case "4604":    Session::put('GPU_memory_min', '9'); break;
+            case "5117":    Session::put('GPU_memory_min', 'a'); break;
+            case "5630":    Session::put('GPU_memory_min', 'b'); break;
+            case "6143":    Session::put('GPU_memory_min', 'c'); break;
+            case "6656":    Session::put('GPU_memory_min', 'd'); break;
+            case "7169":    Session::put('GPU_memory_min', 'e'); break;
+            case "7682":    Session::put('GPU_memory_min', 'f'); break;
+            case "8195":    Session::put('GPU_memory_min', 'g'); break;
+            default:        Session::put('GPU_memory_min', '1'); break;
+        }
+        $temp = Input::get('videocard_memoryMb1');
+        switch($temp) {
+            case "500":     Session::put('GPU_memory_max', '1'); break;
+            case "1013":    Session::put('GPU_memory_max', '2'); break;
+            case "1526":    Session::put('GPU_memory_max', '3'); break;
+            case "2039":    Session::put('GPU_memory_max', '4'); break;
+            case "2552":    Session::put('GPU_memory_max', '5'); break;
+            case "3065":    Session::put('GPU_memory_max', '6'); break;
+            case "3578":    Session::put('GPU_memory_max', '7'); break;
+            case "4091":    Session::put('GPU_memory_max', '8'); break;
+            case "4604":    Session::put('GPU_memory_max', '9'); break;
+            case "5117":    Session::put('GPU_memory_max', 'a'); break;
+            case "5630":    Session::put('GPU_memory_max', 'b'); break;
+            case "6143":    Session::put('GPU_memory_max', 'c'); break;
+            case "6656":    Session::put('GPU_memory_max', 'd'); break;
+            case "7169":    Session::put('GPU_memory_max', 'e'); break;
+            case "7682":    Session::put('GPU_memory_max', 'f'); break;
+            case "8195":    Session::put('GPU_memory_max', 'g'); break;
+            default:        Session::put('GPU_memory_max', 'g'); break;
+        }
 
         Session::put('GPU_producer1', $GPU_producer1);
         Session::put('GPU_producer2', $GPU_producer2);
@@ -591,8 +759,6 @@ class SessionController extends BaseController {
         Session::put('GPU_bandwidth_memory', $GPU_bandwidth_memory);
         Session::put('GPU_DVII', $GPU_DVII);
         Session::put('GPU_DVID', $GPU_DVID);
-        //Session::put('GPU_cost', $GPU_cost);
-        //Session::put('GPU_memory', $GPU_memory);
 
         if($GPU_geheugen_type != '-' && $GPU_HDMI != '-' && $GPU_VGA != '-' && $GPU_bandwidth_memory != '-' && $GPU_DVII != '-' && $GPU_DVID != '-') {
             Session::put('videocard_check', 'yes');
@@ -604,6 +770,10 @@ class SessionController extends BaseController {
 
     public function saveProcessor()
     {
+        // Deze methode slaat alle waardes van de categorie "processor" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('processor_brand1');
         $processor_brand1 = isset($temp) ? Input::get('processor_brand1') : '0';
         $temp = Input::get('processor_brand2');
@@ -635,18 +805,70 @@ class SessionController extends BaseController {
         $temp = Input::get('processor_serie9');
         $processor_serie9 = isset($temp) ? Input::get('processor_serie9') : '0';
 
-        /*$temp = Input::get('processor_cost');
-        if (isset($temp)) {
-            $processor_cost = Input::get('processor_cost');
-        } else {
-            $processor_cost = '-';
+        $temp = Input::get('processor_price0');
+        switch($temp) {
+            case "0":       Session::put('processor_cost_min', '1'); break;
+            case "100":     Session::put('processor_cost_min', '2'); break;
+            case "200":     Session::put('processor_cost_min', '3'); break;
+            case "300":     Session::put('processor_cost_min', '4'); break;
+            case "400":     Session::put('processor_cost_min', '5'); break;
+            case "500":     Session::put('processor_cost_min', '6'); break;
+            case "600":     Session::put('processor_cost_min', '7'); break;
+            case "700":     Session::put('processor_cost_min', '8'); break;
+            case "800":     Session::put('processor_cost_min', '9'); break;
+            case "900":     Session::put('processor_cost_min', 'a'); break;
+            case "1000":    Session::put('processor_cost_min', 'b'); break;
+            default:        Session::put('processor_cost_min', '1'); break;
         }
-        $temp = Input::get('processor_speed');
-        if (isset($temp)) {
-            $processor_speed = Input::get('processor_speed');
-        } else {
-            $processor_speed = '-';
-        }*/
+        $temp = Input::get('processor_price10');
+        switch($temp) {
+            case "0":       Session::put('processor_cost_max', '1'); break;
+            case "100":     Session::put('processor_cost_max', '2'); break;
+            case "200":     Session::put('processor_cost_max', '3'); break;
+            case "300":     Session::put('processor_cost_max', '4'); break;
+            case "400":     Session::put('processor_cost_max', '5'); break;
+            case "500":     Session::put('processor_cost_max', '6'); break;
+            case "600":     Session::put('processor_cost_max', '7'); break;
+            case "700":     Session::put('processor_cost_max', '8'); break;
+            case "800":     Session::put('processor_cost_max', '9'); break;
+            case "900":     Session::put('processor_cost_max', 'a'); break;
+            case "1000":    Session::put('processor_cost_max', 'b'); break;
+            default:        Session::put('processor_cost_max', 'b'); break;
+        }
+        $temp = Input::get('processor_clocking0');
+        switch($temp) {
+            case "2900":    Session::put('processor_speed_min', '1'); break;
+            case "3050":    Session::put('processor_speed_min', '2'); break;
+            case "3200":    Session::put('processor_speed_min', '3'); break;
+            case "3350":    Session::put('processor_speed_min', '4'); break;
+            case "3500":    Session::put('processor_speed_min', '5'); break;
+            case "3650":    Session::put('processor_speed_min', '6'); break;
+            case "3800":    Session::put('processor_speed_min', '7'); break;
+            case "3950":    Session::put('processor_speed_min', '8'); break;
+            case "4100":    Session::put('processor_speed_min', '9'); break;
+            case "4250":    Session::put('processor_speed_min', 'a'); break;
+            case "4400":    Session::put('processor_speed_min', 'b'); break;
+            case "4550":    Session::put('processor_speed_min', 'c'); break;
+            case "4700":    Session::put('processor_speed_min', 'd'); break;
+            default:        Session::put('processor_speed_min', '1'); break;
+        }
+        $temp = Input::get('processor_clocking1');
+        switch($temp) {
+            case "2900":    Session::put('processor_speed_max', '1'); break;
+            case "3050":    Session::put('processor_speed_max', '2'); break;
+            case "3200":    Session::put('processor_speed_max', '3'); break;
+            case "3350":    Session::put('processor_speed_max', '4'); break;
+            case "3500":    Session::put('processor_speed_max', '5'); break;
+            case "3650":    Session::put('processor_speed_max', '6'); break;
+            case "3800":    Session::put('processor_speed_max', '7'); break;
+            case "3950":    Session::put('processor_speed_max', '8'); break;
+            case "4100":    Session::put('processor_speed_max', '9'); break;
+            case "4250":    Session::put('processor_speed_max', 'a'); break;
+            case "4400":    Session::put('processor_speed_max', 'b'); break;
+            case "4550":    Session::put('processor_speed_max', 'c'); break;
+            case "4700":    Session::put('processor_speed_max', 'd'); break;
+            default:        Session::put('processor_speed_max', 'd'); break;
+        }
 
         Session::put('processor_brand1', $processor_brand1);
         Session::put('processor_brand2', $processor_brand2);
@@ -663,10 +885,6 @@ class SessionController extends BaseController {
         Session::put('processor_serie7', $processor_serie7);
         Session::put('processor_serie8', $processor_serie8);
         Session::put('processor_serie9', $processor_serie9);
-        //Session::put('processor_cost_min', $processor_cost_min);
-        //Session::put('processor_cost_max', $processor_cost_max);
-        //Session::put('processor_speed_min', $processor_speed_min);
-        //Session::put('processor_speed_max', processor_speed_max);
 
         if(((int)$processor_core1 + (int)$processor_core2 + (int)$processor_core3 + (int)$processor_core4 != 0) &&
             ((int)$processor_serie1 + (int)$processor_serie2 + (int)$processor_serie3 + (int)$processor_serie4 +
@@ -681,6 +899,10 @@ class SessionController extends BaseController {
 
     public function saveInternalMemory()
     {
+        // Deze methode slaat alle waardes van de categorie "intern geheugen" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('RAM_merk1');
         $RAM_merk1 = isset($temp) ? Input::get('RAM_merk1') : '0';
         $temp = Input::get('RAM_merk2');
@@ -727,6 +949,37 @@ class SessionController extends BaseController {
         if (isset($temp)) { $RAM_kanalen = Input::get('RAM_kanalen'); }
         else { $RAM_kanalen = '-'; }
 
+        $temp = Input::get('ram_price0');
+        switch($temp) {
+            case "0":       Session::put('RAM_price_min', '1'); break;
+            case "50":      Session::put('RAM_price_min', '2'); break;
+            case "100":     Session::put('RAM_price_min', '3'); break;
+            case "150":     Session::put('RAM_price_min', '4'); break;
+            case "200":     Session::put('RAM_price_min', '5'); break;
+            case "250":     Session::put('RAM_price_min', '6'); break;
+            case "300":     Session::put('RAM_price_min', '7'); break;
+            case "350":     Session::put('RAM_price_min', '8'); break;
+            case "400":     Session::put('RAM_price_min', '9'); break;
+            case "450":     Session::put('RAM_price_min', 'a'); break;
+            case "500":     Session::put('RAM_price_min', 'b'); break;
+            default:        Session::put('RAM_price_min', '1'); break;
+        }
+        $temp = Input::get('ram_price1');
+        switch($temp) {
+            case "0":       Session::put('RAM_price_max', '1'); break;
+            case "50":      Session::put('RAM_price_max', '2'); break;
+            case "100":     Session::put('RAM_price_max', '3'); break;
+            case "150":     Session::put('RAM_price_max', '4'); break;
+            case "200":     Session::put('RAM_price_max', '5'); break;
+            case "250":     Session::put('RAM_price_max', '6'); break;
+            case "300":     Session::put('RAM_price_max', '7'); break;
+            case "350":     Session::put('RAM_price_max', '8'); break;
+            case "400":     Session::put('RAM_price_max', '9'); break;
+            case "450":     Session::put('RAM_price_max', 'a'); break;
+            case "500":     Session::put('RAM_price_max', 'b'); break;
+            default:        Session::put('RAM_price_max', 'b'); break;
+        }
+
         Session::put('RAM_merk1', $RAM_merk1);
         Session::put('RAM_merk2', $RAM_merk2);
         Session::put('RAM_merk3', $RAM_merk3);
@@ -747,8 +1000,6 @@ class SessionController extends BaseController {
         Session::put('RAM_geschikt4', $RAM_geschikt4);
         Session::put('RAM_type', $RAM_type);
         Session::put('RAM_kanalen', $RAM_kanalen);
-        //Session::put('RAM_price_min', $RAM_price_min);
-        //Session::put('RAM_price_max', $RAM_price_max);
 
         if($RAM_klok != '-' && $RAM_game != '-' && $RAM_type != '-' && $RAM_kanalen != '-') {
             if(((int)$RAM_geheugen1 + (int)$RAM_geheugen2 + (int)$RAM_geheugen3 + (int)$RAM_geheugen4 +
@@ -765,6 +1016,10 @@ class SessionController extends BaseController {
     }
 
     public function saveMotherboard() {
+        // Deze methode slaat alle waardes van de categorie "moederbord" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('moederbord_merk1');
         $moederbord_merk1 = isset($temp) ? Input::get('moederbord_merk1') : '0';
         $temp = Input::get('moederbord_merk2');
@@ -818,6 +1073,82 @@ class SessionController extends BaseController {
         if (isset($temp)) { $moederbord_msata = Input::get('moederbord_msata'); }
         else { $moederbord_msata = '-'; }
 
+        $temp = Input::get('motherboard_price0');
+        switch($temp) {
+            case "0":       Session::put('moederbord_price_min', '1'); break;
+            case "50":      Session::put('moederbord_price_min', '2'); break;
+            case "100":     Session::put('moederbord_price_min', '3'); break;
+            case "150":     Session::put('moederbord_price_min', '4'); break;
+            case "200":     Session::put('moederbord_price_min', '5'); break;
+            case "250":     Session::put('moederbord_price_min', '6'); break;
+            case "300":     Session::put('moederbord_price_min', '7'); break;
+            case "350":     Session::put('moederbord_price_min', '8'); break;
+            case "400":     Session::put('moederbord_price_min', '9'); break;
+            case "450":     Session::put('moederbord_price_min', 'a'); break;
+            case "500":     Session::put('moederbord_price_min', 'b'); break;
+            default:        Session::put('moederbord_price_min', '1'); break;
+        }
+        $temp = Input::get('motherboard_price1');
+        switch($temp) {
+            case "0":       Session::put('moederbord_price_max', '1'); break;
+            case "50":      Session::put('moederbord_price_max', '2'); break;
+            case "100":     Session::put('moederbord_price_max', '3'); break;
+            case "150":     Session::put('moederbord_price_max', '4'); break;
+            case "200":     Session::put('moederbord_price_max', '5'); break;
+            case "250":     Session::put('moederbord_price_max', '6'); break;
+            case "300":     Session::put('moederbord_price_max', '7'); break;
+            case "350":     Session::put('moederbord_price_max', '8'); break;
+            case "400":     Session::put('moederbord_price_max', '9'); break;
+            case "450":     Session::put('moederbord_price_max', 'a'); break;
+            case "500":     Session::put('moederbord_price_max', 'b'); break;
+            default:        Session::put('moederbord_price_max', 'b'); break;
+        }
+        $temp = Input::get('Usb_port0');
+        switch($temp) {
+            case "0":       Session::put('moederbord_usb', '1'); break;
+            case "1":       Session::put('moederbord_usb', '2'); break;
+            case "2":       Session::put('moederbord_usb', '3'); break;
+            case "3":       Session::put('moederbord_usb', '4'); break;
+            case "4":       Session::put('moederbord_usb', '5'); break;
+            case "5":       Session::put('moederbord_usb', '6'); break;
+            case "6":       Session::put('moederbord_usb', '7'); break;
+            case "7":       Session::put('moederbord_usb', '8'); break;
+            case "8":       Session::put('moederbord_usb', '9'); break;
+            case "9":       Session::put('moederbord_usb', 'a'); break;
+            case "10":      Session::put('moederbord_usb', 'b'); break;
+            case "11":      Session::put('moederbord_usb', 'c'); break;
+            case "12":      Session::put('moederbord_usb', 'd'); break;
+            case "13":      Session::put('moederbord_usb', 'e'); break;
+            case "14":      Session::put('moederbord_usb', 'f'); break;
+            default:        Session::put('moederbord_usb', '5'); break;
+        }
+        $temp = Input::get('motherboard_sata300connection0');
+        switch($temp) {
+            case "0":       Session::put('moederbord_SATA300', '1'); break;
+            case "1":       Session::put('moederbord_SATA300', '2'); break;
+            case "2":       Session::put('moederbord_SATA300', '3'); break;
+            case "3":       Session::put('moederbord_SATA300', '4'); break;
+            case "4":       Session::put('moederbord_SATA300', '5'); break;
+            case "5":       Session::put('moederbord_SATA300', '6'); break;
+            case "6":       Session::put('moederbord_SATA300', '7'); break;
+            default:        Session::put('moederbord_SATA300', '3'); break;
+        }
+        $temp = Input::get('motherboard_sata600connection0');
+        switch($temp) {
+            case "0":       Session::put('moederbord_SATA600', '1'); break;
+            case "1":       Session::put('moederbord_SATA600', '2'); break;
+            case "2":       Session::put('moederbord_SATA600', '3'); break;
+            case "3":       Session::put('moederbord_SATA600', '4'); break;
+            case "4":       Session::put('moederbord_SATA600', '5'); break;
+            case "5":       Session::put('moederbord_SATA600', '6'); break;
+            case "6":       Session::put('moederbord_SATA600', '7'); break;
+            case "7":       Session::put('moederbord_SATA600', '8'); break;
+            case "8":       Session::put('moederbord_SATA600', '9'); break;
+            case "9":       Session::put('moederbord_SATA600', 'a'); break;
+            case "10":      Session::put('moederbord_SATA600', 'b'); break;
+            default:        Session::put('moederbord_SATA600', '3'); break;
+        }
+
         Session::put('moederbord_merk1', $moederbord_merk1 );
         Session::put('moederbord_merk2', $moederbord_merk2 );
         Session::put('moederbord_merk3', $moederbord_merk3 );
@@ -827,9 +1158,6 @@ class SessionController extends BaseController {
         Session::put('moederbord_HDMI', $moederbord_HDMI );
         Session::put('moederbord_VGA', $moederbord_VGA );
         Session::put('moederbord_displayport', $moederbord_displayport );
-        //Session::put('moederbord_price_min', moederbord_price_min );
-        //Session::put('moederbord_price_max', moederbord_price_max );
-        //Session::put('moederbord_usb', $moederbord_usb );
         Session::put('moederbord_ethernet', $moederbord_ethernet );
         Session::put('moederbord_DVI', $moederbord_DVI );
         Session::put('moederbord_raid1', $moederbord_raid1 );
@@ -856,7 +1184,12 @@ class SessionController extends BaseController {
         }
         Session::put('menuitem', 'casing');
     }
+
     function saveCasing(){
+        // Deze methode slaat alle waardes van de categorie "behuizing" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('behuizing_merk1');
         $behuizing_merk1 = isset($temp) ? Input::get('behuizing_merk1') : '0';
         $temp = Input::get('behuizing_merk2');
@@ -919,6 +1252,163 @@ class SessionController extends BaseController {
         if (isset($temp)) { $behuizing_esata = Input::get('behuizing_esata'); }
         else { $behuizing_esata = '-'; }
 
+        $temp = Input::get('casing_Price0');
+        switch($temp) {
+            case "30":      Session::put('behuizing_price_min', '1'); break;
+            case "50":      Session::put('behuizing_price_min', '2'); break;
+            case "70":      Session::put('behuizing_price_min', '3'); break;
+            case "90":      Session::put('behuizing_price_min', '4'); break;
+            case "110":     Session::put('behuizing_price_min', '5'); break;
+            case "130":     Session::put('behuizing_price_min', '6'); break;
+            case "150":     Session::put('behuizing_price_min', '7'); break;
+            default:        Session::put('behuizing_price_min', '1'); break;
+        }
+        $temp = Input::get('casing_Price1');
+        switch($temp) {
+            case "30":      Session::put('behuizing_price_max', '1'); break;
+            case "50":      Session::put('behuizing_price_max', '2'); break;
+            case "70":      Session::put('behuizing_price_max', '3'); break;
+            case "90":      Session::put('behuizing_price_max', '4'); break;
+            case "110":     Session::put('behuizing_price_max', '5'); break;
+            case "130":     Session::put('behuizing_price_max', '6'); break;
+            case "150":     Session::put('behuizing_price_max', '7'); break;
+            default:        Session::put('behuizing_price_max', '7'); break;
+        }
+        $temp = Input::get('casing_expansion_0');
+        switch($temp) {
+            case "2":       Session::put('behuizing_uitbreiding_min', '1'); break;
+            case "3":       Session::put('behuizing_uitbreiding_min', '2'); break;
+            case "4":       Session::put('behuizing_uitbreiding_min', '3'); break;
+            case "5":       Session::put('behuizing_uitbreiding_min', '4'); break;
+            case "6":       Session::put('behuizing_uitbreiding_min', '5'); break;
+            case "7":       Session::put('behuizing_uitbreiding_min', '6'); break;
+            case "8":       Session::put('behuizing_uitbreiding_min', '7'); break;
+            case "9":       Session::put('behuizing_uitbreiding_min', '8'); break;
+            case "10":      Session::put('behuizing_uitbreiding_min', '9'); break;
+            case "11":      Session::put('behuizing_uitbreiding_min', 'a'); break;
+            default:        Session::put('behuizing_uitbreiding_min', '1'); break;
+        }
+        $temp = Input::get('casing_expansion_1');
+        switch($temp) {
+            case "2":       Session::put('behuizing_uitbreiding_max', '1'); break;
+            case "3":       Session::put('behuizing_uitbreiding_max', '2'); break;
+            case "4":       Session::put('behuizing_uitbreiding_max', '3'); break;
+            case "5":       Session::put('behuizing_uitbreiding_max', '4'); break;
+            case "6":       Session::put('behuizing_uitbreiding_max', '5'); break;
+            case "7":       Session::put('behuizing_uitbreiding_max', '6'); break;
+            case "8":       Session::put('behuizing_uitbreiding_max', '7'); break;
+            case "9":       Session::put('behuizing_uitbreiding_max', '8'); break;
+            case "10":      Session::put('behuizing_uitbreiding_max', '9'); break;
+            case "11":      Session::put('behuizing_uitbreiding_max', 'a'); break;
+            default:        Session::put('behuizing_uitbreiding_max', 'a'); break;
+        }
+        $temp = Input::get('casing_HDD/SSD_0');
+        switch($temp) {
+            case "0":       Session::put('behuizing_2_5bay_min', '1'); break;
+            case "1":       Session::put('behuizing_2_5bay_min', '2'); break;
+            case "2":       Session::put('behuizing_2_5bay_min', '3'); break;
+            case "3":       Session::put('behuizing_2_5bay_min', '4'); break;
+            case "4":       Session::put('behuizing_2_5bay_min', '5'); break;
+            case "5":       Session::put('behuizing_2_5bay_min', '6'); break;
+            case "6":       Session::put('behuizing_2_5bay_min', '7'); break;
+            case "7":       Session::put('behuizing_2_5bay_min', '8'); break;
+            case "8":       Session::put('behuizing_2_5bay_min', '9'); break;
+            case "9":       Session::put('behuizing_2_5bay_min', 'a'); break;
+            case "10":      Session::put('behuizing_2_5bay_min', 'b'); break;
+            case "11":      Session::put('behuizing_2_5bay_min', 'c'); break;
+            case "12":      Session::put('behuizing_2_5bay_min', 'd'); break;
+            case "13":      Session::put('behuizing_2_5bay_min', 'e'); break;
+            case "14":      Session::put('behuizing_2_5bay_min', 'f'); break;
+            case "15":      Session::put('behuizing_2_5bay_min', 'g'); break;
+            case "16":      Session::put('behuizing_2_5bay_min', 'h'); break;
+            case "17":      Session::put('behuizing_2_5bay_min', 'i'); break;
+            case "18":      Session::put('behuizing_2_5bay_min', 'j'); break;
+            default:        Session::put('behuizing_2_5bay_min', '1'); break;
+        }
+        $temp = Input::get('casing_HDD/SSD_1');
+        switch($temp) {
+            case "0":       Session::put('behuizing_2_5bay_max', '1'); break;
+            case "1":       Session::put('behuizing_2_5bay_max', '2'); break;
+            case "2":       Session::put('behuizing_2_5bay_max', '3'); break;
+            case "3":       Session::put('behuizing_2_5bay_max', '4'); break;
+            case "4":       Session::put('behuizing_2_5bay_max', '5'); break;
+            case "5":       Session::put('behuizing_2_5bay_max', '6'); break;
+            case "6":       Session::put('behuizing_2_5bay_max', '7'); break;
+            case "7":       Session::put('behuizing_2_5bay_max', '8'); break;
+            case "8":       Session::put('behuizing_2_5bay_max', '9'); break;
+            case "9":       Session::put('behuizing_2_5bay_max', 'a'); break;
+            case "10":      Session::put('behuizing_2_5bay_max', 'b'); break;
+            case "11":      Session::put('behuizing_2_5bay_max', 'c'); break;
+            case "12":      Session::put('behuizing_2_5bay_max', 'd'); break;
+            case "13":      Session::put('behuizing_2_5bay_max', 'e'); break;
+            case "14":      Session::put('behuizing_2_5bay_max', 'f'); break;
+            case "15":      Session::put('behuizing_2_5bay_max', 'g'); break;
+            case "16":      Session::put('behuizing_2_5bay_max', 'h'); break;
+            case "17":      Session::put('behuizing_2_5bay_max', 'i'); break;
+            case "18":      Session::put('behuizing_2_5bay_max', 'j'); break;
+            default:        Session::put('behuizing_2_5bay_max', 'j'); break;
+        }
+        $temp = Input::get('casing_HDD_0');
+        switch($temp) {
+            case "2":       Session::put('behuizing_3_5bay_min', '1'); break;
+            case "3":       Session::put('behuizing_3_5bay_min', '2'); break;
+            case "4":       Session::put('behuizing_3_5bay_min', '3'); break;
+            case "5":       Session::put('behuizing_3_5bay_min', '4'); break;
+            case "6":       Session::put('behuizing_3_5bay_min', '5'); break;
+            case "7":       Session::put('behuizing_3_5bay_min', '6'); break;
+            case "8":       Session::put('behuizing_3_5bay_min', '7'); break;
+            case "9":       Session::put('behuizing_3_5bay_min', '8'); break;
+            case "10":      Session::put('behuizing_3_5bay_min', '9'); break;
+            case "11":      Session::put('behuizing_3_5bay_min', 'a'); break;
+            case "12":      Session::put('behuizing_3_5bay_min', 'b'); break;
+            case "13":      Session::put('behuizing_3_5bay_min', 'c'); break;
+            default:        Session::put('behuizing_3_5bay_min', '1'); break;
+        }
+        $temp = Input::get('casing_HDD_1');
+        switch($temp) {
+            case "2":       Session::put('behuizing_3_5bay_max', '1'); break;
+            case "3":       Session::put('behuizing_3_5bay_max', '2'); break;
+            case "4":       Session::put('behuizing_3_5bay_max', '3'); break;
+            case "5":       Session::put('behuizing_3_5bay_max', '4'); break;
+            case "6":       Session::put('behuizing_3_5bay_max', '5'); break;
+            case "7":       Session::put('behuizing_3_5bay_max', '6'); break;
+            case "8":       Session::put('behuizing_3_5bay_max', '7'); break;
+            case "9":       Session::put('behuizing_3_5bay_max', '8'); break;
+            case "10":      Session::put('behuizing_3_5bay_max', '9'); break;
+            case "11":      Session::put('behuizing_3_5bay_max', 'a'); break;
+            case "12":      Session::put('behuizing_3_5bay_max', 'b'); break;
+            case "13":      Session::put('behuizing_3_5bay_max', 'c'); break;
+            default:        Session::put('behuizing_3_5bay_max', 'c'); break;
+        }
+        $temp = Input::get('casing_Bayss0');
+        switch($temp) {
+            case "0":       Session::put('behuizing_5_25bay_min', '1'); break;
+            case "1":       Session::put('behuizing_5_25bay_min', '2'); break;
+            case "2":       Session::put('behuizing_5_25bay_min', '3'); break;
+            case "3":       Session::put('behuizing_5_25bay_min', '4'); break;
+            case "4":       Session::put('behuizing_5_25bay_min', '5'); break;
+            case "5":       Session::put('behuizing_5_25bay_min', '6'); break;
+            case "6":       Session::put('behuizing_5_25bay_min', '7'); break;
+            case "7":       Session::put('behuizing_5_25bay_min', '8'); break;
+            case "8":       Session::put('behuizing_5_25bay_min', '9'); break;
+            case "9":       Session::put('behuizing_5_25bay_min', 'a'); break;
+            default:        Session::put('behuizing_5_25bay_min', '1'); break;
+        }
+        $temp = Input::get('casing_Bayss1');
+        switch($temp) {
+            case "0":       Session::put('behuizing_5_25bay_max', '1'); break;
+            case "1":       Session::put('behuizing_5_25bay_max', '2'); break;
+            case "2":       Session::put('behuizing_5_25bay_max', '3'); break;
+            case "3":       Session::put('behuizing_5_25bay_max', '4'); break;
+            case "4":       Session::put('behuizing_5_25bay_max', '5'); break;
+            case "5":       Session::put('behuizing_5_25bay_max', '6'); break;
+            case "6":       Session::put('behuizing_5_25bay_max', '7'); break;
+            case "7":       Session::put('behuizing_5_25bay_max', '8'); break;
+            case "8":       Session::put('behuizing_5_25bay_max', '9'); break;
+            case "9":       Session::put('behuizing_5_25bay_max', 'a'); break;
+            default:        Session::put('behuizing_5_25bay_max', 'a'); break;
+        }
+
         Session::put('behuizing_merk1', $behuizing_merk1  );
         Session::put('behuizing_merk2', $behuizing_merk2  );
         Session::put('behuizing_merk3', $behuizing_merk3  );
@@ -933,8 +1423,6 @@ class SessionController extends BaseController {
         Session::put('behuizing_ruis', $behuizing_ruis  );
         Session::put('behuizing_geluid', $behuizing_geluid  );
         Session::put('behuizing_paneel', $behuizing_paneel  );
-        //Session::put('behuizing_prijs', $behuizing_prijs  );
-        //Session::put('behuizing_uitbreiding', $behuizing_uitbreiding  );
         Session::put('behuizing_kleur', $behuizing_kleur  );
         Session::put('behuizing_materiaal', $behuizing_materiaal  );
         Session::put('behuizing_usb2_1', $behuizing_usb2_1  );
@@ -945,9 +1433,6 @@ class SessionController extends BaseController {
         Session::put('behuizing_usb3_3', $behuizing_usb3_3  );
         Session::put('behuizing_firewire', $behuizing_firewire  );
         Session::put('behuizing_esata', $behuizing_esata  );
-        //Session::put('behuizing_2_5bay', $behuizing_2_5bay  );
-        //Session::put('behuizing_3_5bay', $behuizing_3_5bay  );
-        //Session::put('behuizing_5_25', $behuizing_5_25bay  );
 
         if($behuizing_computer != '-' && $behuizing_fan != '-' && $behuizing_stof != '-' && $behuizing_water != '-'
             && $behuizing_led != '-' && $behuizing_ruis != '-' && $behuizing_geluid != '-' && $behuizing_paneel != '-'
@@ -965,6 +1450,9 @@ class SessionController extends BaseController {
     }
 
     public function saveSSD() {
+        // Deze methode slaat alle waardes van de categorie "ssd" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
 
         $temp = Input::get('SDD_opslag1');
         $SDD_opslag1 = isset($temp) ? Input::get('SDD_opslag1') : '0';
@@ -1032,6 +1520,93 @@ class SessionController extends BaseController {
         if (isset($temp)) { $SSD_soort = Input::get('SSD_soort'); }
         else { $SSD_soort = '-'; }
 
+        $temp = Input::get('ssd_price0');
+        switch($temp) {
+            case "0":       Session::put('SSD_price_min', '1'); break;
+            case "50":      Session::put('SSD_price_min', '2'); break;
+            case "100":     Session::put('SSD_price_min', '3'); break;
+            case "150":     Session::put('SSD_price_min', '4'); break;
+            case "200":     Session::put('SSD_price_min', '5'); break;
+            case "250":     Session::put('SSD_price_min', '6'); break;
+            case "300":     Session::put('SSD_price_min', '7'); break;
+            case "350":     Session::put('SSD_price_min', '8'); break;
+            case "400":     Session::put('SSD_price_min', '9'); break;
+            case "450":     Session::put('SSD_price_min', 'a'); break;
+            case "500":     Session::put('SSD_price_min', 'b'); break;
+            case "550":     Session::put('SSD_price_min', 'c'); break;
+            case "600":     Session::put('SSD_price_min', 'd'); break;
+            default:        Session::put('SSD_price_min', '1'); break;
+        }
+        $temp = Input::get('ssd_price1');
+        switch($temp) {
+            case "0":       Session::put('SSD_price_max', '1'); break;
+            case "50":      Session::put('SSD_price_max', '2'); break;
+            case "100":     Session::put('SSD_price_max', '3'); break;
+            case "150":     Session::put('SSD_price_max', '4'); break;
+            case "200":     Session::put('SSD_price_max', '5'); break;
+            case "250":     Session::put('SSD_price_max', '6'); break;
+            case "300":     Session::put('SSD_price_max', '7'); break;
+            case "350":     Session::put('SSD_price_max', '8'); break;
+            case "400":     Session::put('SSD_price_max', '9'); break;
+            case "450":     Session::put('SSD_price_max', 'a'); break;
+            case "500":     Session::put('SSD_price_max', 'b'); break;
+            case "550":     Session::put('SSD_price_max', 'c'); break;
+            case "600":     Session::put('SSD_price_max', 'd'); break;
+            default: Session::put('SSD_price_max', 'd'); break;
+        }
+        $temp = Input::get('ssd_writespeed0');
+        switch($temp) {
+            case "100":     Session::put('SSD_schrijf_min', '1'); break;
+            case "150":     Session::put('SSD_schrijf_min', '2'); break;
+            case "200":     Session::put('SSD_schrijf_min', '3'); break;
+            case "250":     Session::put('SSD_schrijf_min', '4'); break;
+            case "300":     Session::put('SSD_schrijf_min', '5'); break;
+            case "350":     Session::put('SSD_schrijf_min', '6'); break;
+            case "400":     Session::put('SSD_schrijf_min', '7'); break;
+            case "450":     Session::put('SSD_schrijf_min', '8'); break;
+            case "500":     Session::put('SSD_schrijf_min', '9'); break;
+            case "550":     Session::put('SSD_schrijf_min', 'a'); break;
+            case "600":     Session::put('SSD_schrijf_min', 'b'); break;
+            default:        Session::put('SSD_schrijf_min', '1'); break;
+        }
+        $temp = Input::get('ssd_writespeed1');
+        switch($temp) {
+            case "100":     Session::put('SSD_schrijf_max', '1'); break;
+            case "150":     Session::put('SSD_schrijf_max', '2'); break;
+            case "200":     Session::put('SSD_schrijf_max', '3'); break;
+            case "250":     Session::put('SSD_schrijf_max', '4'); break;
+            case "300":     Session::put('SSD_schrijf_max', '5'); break;
+            case "350":     Session::put('SSD_schrijf_max', '6'); break;
+            case "400":     Session::put('SSD_schrijf_max', '7'); break;
+            case "450":     Session::put('SSD_schrijf_max', '8'); break;
+            case "500":     Session::put('SSD_schrijf_max', '9'); break;
+            case "550":     Session::put('SSD_schrijf_max', 'a'); break;
+            case "600":     Session::put('SSD_schrijf_max', 'b'); break;
+            default:        Session::put('SSD_schrijf_max', 'b'); break;
+        }
+        $temp = Input::get('ssd_readspeed0');
+        switch($temp) {
+            case "410":     Session::put('SSD_lees_min', '1'); break;
+            case "430":     Session::put('SSD_lees_min', '2'); break;
+            case "450":     Session::put('SSD_lees_min', '3'); break;
+            case "470":     Session::put('SSD_lees_min', '4'); break;
+            case "510":     Session::put('SSD_lees_min', '5'); break;
+            case "530":     Session::put('SSD_lees_min', '6'); break;
+            case "550":     Session::put('SSD_lees_min', '7'); break;
+            default:        Session::put('SSD_lees_min', '1'); break;
+        }
+        $temp = Input::get('ssd_readspeed1');
+        switch($temp) {
+            case "410":     Session::put('SSD_lees_max', '1'); break;
+            case "430":     Session::put('SSD_lees_max', '2'); break;
+            case "450":     Session::put('SSD_lees_max', '3'); break;
+            case "470":     Session::put('SSD_lees_max', '4'); break;
+            case "510":     Session::put('SSD_lees_max', '5'); break;
+            case "530":     Session::put('SSD_lees_max', '6'); break;
+            case "550":     Session::put('SSD_lees_max', '7'); break;
+            default:        Session::put('SSD_lees_max', '7'); break;
+        }
+
         Session::put('SDD_opslag1', $SDD_opslag1  );
         Session::put('SDD_opslag2', $SDD_opslag2  );
         Session::put('SDD_opslag3', $SDD_opslag3  );
@@ -1049,7 +1624,6 @@ class SessionController extends BaseController {
         Session::put('SDD_opslag15', $SDD_opslag15  );
         Session::put('SDD_formaat', $SDD_formaat  );
         Session::put('SSD_soort', $SSD_soort  );
-        //Session::put('SSD_cost', $SSD_cost  );
         Session::put('SSD_merk1', $SSD_merk1  );
         Session::put('SSD_merk2', $SSD_merk2  );
         Session::put('SSD_merk3', $SSD_merk3  );
@@ -1064,8 +1638,6 @@ class SessionController extends BaseController {
         Session::put('SSD_controller4', $SSD_controller4  );
         Session::put('SSD_controller5', $SSD_controller5  );
         Session::put('SSD_controller6', $SSD_controller6  );
-        //Session::put('SSD_schrijf', $SSD_schrijf  );
-        //Session::put('SSD_lees', $SSD_lees  );
 
         if($SDD_formaat != '-' && $SSD_soort != '-') {
             if((int)$SDD_opslag1 + (int)$SDD_opslag2 + (int)$SDD_opslag3 + (int)$SDD_opslag4 +
@@ -1083,6 +1655,10 @@ class SessionController extends BaseController {
     }
 
     public function saveBluraydvd() {
+        // Deze methode slaat alle waardes van de categorie "blu-ray & dvd" op. Hierbij wordt bij de verplichte onderdelen
+        // gecontroleerd of deze ingevuld zijn. Wanneer dit het geval is, wordt de check variabele veranderd en is
+        // op de site een groen vinkje te zien bij dit onderdeel.
+
         $temp = Input::get('brander_merk1');
         $brander_merk1 = isset($temp) ? Input::get('brander_merk1') : '0';
         $temp = Input::get('brander_merk2');
@@ -1113,6 +1689,29 @@ class SessionController extends BaseController {
         $temp = Input::get('brander_ladetype');
         if (isset($temp)) { $brander_ladetype = Input::get('brander_ladetype'); }
         else { $brander_ladetype = '-'; }
+
+        $temp = Input::get('Blu-RayDVD_price0');
+        switch($temp) {
+            case "0":       Session::put('brander_price_min', '1'); break;
+            case "20":      Session::put('brander_price_min', '2'); break;
+            case "40":      Session::put('brander_price_min', '3'); break;
+            case "60":      Session::put('brander_price_min', '4'); break;
+            case "80":      Session::put('brander_price_min', '5'); break;
+            case "100":     Session::put('brander_price_min', '6'); break;
+            case "120":     Session::put('brander_price_min', '7'); break;
+            default:        Session::put('brander_price_min', '1'); break;
+        }
+        $temp = Input::get('Blu-RayDVD_price1');
+        switch($temp) {
+            case "0":       Session::put('brander_price_max', '1'); break;
+            case "20":      Session::put('brander_price_max', '2'); break;
+            case "40":      Session::put('brander_price_max', '3'); break;
+            case "60":      Session::put('brander_price_max', '4'); break;
+            case "80":      Session::put('brander_price_max', '5'); break;
+            case "100":     Session::put('brander_price_max', '6'); break;
+            case "120":     Session::put('brander_price_max', '7'); break;
+            default:        Session::put('brander_price_max', '7'); break;
+        }
 
         Session::put('brander_merk1', $brander_merk1 );
         Session::put('brander_merk2', $brander_merk2 );

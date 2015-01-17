@@ -7,7 +7,9 @@
 *           - De drop-down accordion met informatie over de website
 * Michelle: - Het skelet van de website
 *           - Het tonen van eerder ingevulde onderdelen via sessie variabelen
+*           - Het juist weergeven van de sliders wanneer deze eerder ingevuld zijn
 *           - Het checken of een onderdeel volledig ingevuld is d.m.v. sessie variabelen
+*           - Het veranderen van kruisjes naar vinkjes
 * Randa:    - Het menu van onderdelen
 *           - Banner
 *           - Logo
@@ -15,8 +17,9 @@
 * Sander:   - Het bepalen van checkbox of radio
 *           - De sliders gemaakt
 *           - Min, max, steps, values en ranges bepaald
+*           - De zijbalk gemaakt
 *
-* Document is voor het laatst, op 16-01-2015, nagekeken door:
+* Document is voor het laatst, op 17-01-2015, nagekeken door:
 * Michelle
 -->
 
@@ -38,162 +41,692 @@ $ssd_check = Session::get('ssd_check');
 $bluraydvd_check = Session::get('bluraydvd_check');
 
 switch(Session::get('powersupply_price_min')) {
-    case "1": $voeding_cost0 = "0"; break;
-    case "2": $voeding_cost0 = "40"; break;
-    case "3": $voeding_cost0 = "80"; break;
-    case "4": $voeding_cost0 = "120"; break;
-    case "5": $voeding_cost0 = "160"; break;
-    case "6": $voeding_cost0 = "200"; break;
-    case "7": $voeding_cost0 = "240"; break;
-    case "8": $voeding_cost0 = "280"; break;
-    case "9": $voeding_cost0 = "320"; break;
-    case "a": $voeding_cost0 = "360"; break;
-    case "b": $voeding_cost0 = "400"; break;
-    default: $voeding_cost0 = "40"; break;
+    case "1":   $voeding_cost0 = "0"; break;
+    case "2":   $voeding_cost0 = "40"; break;
+    case "3":   $voeding_cost0 = "80"; break;
+    case "4":   $voeding_cost0 = "120"; break;
+    case "5":   $voeding_cost0 = "160"; break;
+    case "6":   $voeding_cost0 = "200"; break;
+    case "7":   $voeding_cost0 = "240"; break;
+    case "8":   $voeding_cost0 = "280"; break;
+    case "9":   $voeding_cost0 = "320"; break;
+    case "a":   $voeding_cost0 = "360"; break;
+    case "b":   $voeding_cost0 = "400"; break;
+    default:    $voeding_cost0 = "40"; break;
 }
 switch(Session::get('powersupply_price_max')) {
-    case "1": $voeding_cost1 = "0"; break;
-    case "2": $voeding_cost1 = "40"; break;
-    case "3": $voeding_cost1 = "80"; break;
-    case "4": $voeding_cost1 = "120"; break;
-    case "5": $voeding_cost1 = "160"; break;
-    case "6": $voeding_cost1 = "200"; break;
-    case "7": $voeding_cost1 = "240"; break;
-    case "8": $voeding_cost1 = "280"; break;
-    case "9": $voeding_cost1 = "320"; break;
-    case "a": $voeding_cost1 = "360"; break;
-    case "b": $voeding_cost1 = "400"; break;
-    default: $voeding_cost1 = "200"; break;
+    case "1":   $voeding_cost1 = "0"; break;
+    case "2":   $voeding_cost1 = "40"; break;
+    case "3":   $voeding_cost1 = "80"; break;
+    case "4":   $voeding_cost1 = "120"; break;
+    case "5":   $voeding_cost1 = "160"; break;
+    case "6":   $voeding_cost1 = "200"; break;
+    case "7":   $voeding_cost1 = "240"; break;
+    case "8":   $voeding_cost1 = "280"; break;
+    case "9":   $voeding_cost1 = "320"; break;
+    case "a":   $voeding_cost1 = "360"; break;
+    case "b":   $voeding_cost1 = "400"; break;
+    default:    $voeding_cost1 = "200"; break;
 }
 switch(Session::get('powersupply_power_min')) {
-    case "1": $Powersupply_power0 = "400"; break;
-    case "2": $Powersupply_power0 = "450"; break;
-    case "3": $Powersupply_power0 = "500"; break;
-    case "4": $Powersupply_power0 = "550"; break;
-    case "5": $Powersupply_power0 = "600"; break;
-    case "6": $Powersupply_power0 = "650"; break;
-    case "7": $Powersupply_power0 = "700"; break;
-    case "8": $Powersupply_power0 = "750"; break;
-    case "9": $Powersupply_power0 = "800"; break;
-    case "a": $Powersupply_power0 = "850"; break;
-    case "b": $Powersupply_power0 = "900"; break;
-    case "c": $Powersupply_power0 = "950"; break;
-    case "d": $Powersupply_power0 = "1000"; break;
-    default: $Powersupply_power0 = "400"; break;
+    case "1":   $Powersupply_power0 = "400"; break;
+    case "2":   $Powersupply_power0 = "450"; break;
+    case "3":   $Powersupply_power0 = "500"; break;
+    case "4":   $Powersupply_power0 = "550"; break;
+    case "5":   $Powersupply_power0 = "600"; break;
+    case "6":   $Powersupply_power0 = "650"; break;
+    case "7":   $Powersupply_power0 = "700"; break;
+    case "8":   $Powersupply_power0 = "750"; break;
+    case "9":   $Powersupply_power0 = "800"; break;
+    case "a":   $Powersupply_power0 = "850"; break;
+    case "b":   $Powersupply_power0 = "900"; break;
+    case "c":   $Powersupply_power0 = "950"; break;
+    case "d":   $Powersupply_power0 = "1000"; break;
+    default:    $Powersupply_power0 = "400"; break;
 }
 switch(Session::get('powersupply_power_max')) {
-    case "1": $Powersupply_power1 = "400"; break;
-    case "2": $Powersupply_power1 = "450"; break;
-    case "3": $Powersupply_power1 = "500"; break;
-    case "4": $Powersupply_power1 = "550"; break;
-    case "5": $Powersupply_power1 = "600"; break;
-    case "6": $Powersupply_power1 = "650"; break;
-    case "7": $Powersupply_power1 = "700"; break;
-    case "8": $Powersupply_power1 = "750"; break;
-    case "9": $Powersupply_power1 = "800"; break;
-    case "a": $Powersupply_power1 = "850"; break;
-    case "b": $Powersupply_power1 = "900"; break;
-    case "c": $Powersupply_power1 = "950"; break;
-    case "d": $Powersupply_power1 = "1000"; break;
-    default: $Powersupply_power1 = "1000"; break;
+    case "1":   $Powersupply_power1 = "400"; break;
+    case "2":   $Powersupply_power1 = "450"; break;
+    case "3":   $Powersupply_power1 = "500"; break;
+    case "4":   $Powersupply_power1 = "550"; break;
+    case "5":   $Powersupply_power1 = "600"; break;
+    case "6":   $Powersupply_power1 = "650"; break;
+    case "7":   $Powersupply_power1 = "700"; break;
+    case "8":   $Powersupply_power1 = "750"; break;
+    case "9":   $Powersupply_power1 = "800"; break;
+    case "a":   $Powersupply_power1 = "850"; break;
+    case "b":   $Powersupply_power1 = "900"; break;
+    case "c":   $Powersupply_power1 = "950"; break;
+    case "d":   $Powersupply_power1 = "1000"; break;
+    default:    $Powersupply_power1 = "1000"; break;
 }
 switch(Session::get('s-ata_min')) {
-    case "1": $Sataconnection0 = "0"; break;
-    case "2": $Sataconnection0 = "1"; break;
-    case "3": $Sataconnection0 = "2"; break;
-    case "4": $Sataconnection0 = "3"; break;
-    case "5": $Sataconnection0 = "4"; break;
-    case "6": $Sataconnection0 = "5"; break;
-    case "7": $Sataconnection0 = "6"; break;
-    case "8": $Sataconnection0 = "7"; break;
-    case "9": $Sataconnection0 = "8"; break;
-    case "a": $Sataconnection0 = "9"; break;
-    case "b": $Sataconnection0 = "10"; break;
-    case "c": $Sataconnection0 = "11"; break;
-    case "d": $Sataconnection0 = "12"; break;
-    default: $Sataconnection0 = "0"; break;
+    case "1":   $Sataconnection0 = "0"; break;
+    case "2":   $Sataconnection0 = "1"; break;
+    case "3":   $Sataconnection0 = "2"; break;
+    case "4":   $Sataconnection0 = "3"; break;
+    case "5":   $Sataconnection0 = "4"; break;
+    case "6":   $Sataconnection0 = "5"; break;
+    case "7":   $Sataconnection0 = "6"; break;
+    case "8":   $Sataconnection0 = "7"; break;
+    case "9":   $Sataconnection0 = "8"; break;
+    case "a":   $Sataconnection0 = "9"; break;
+    case "b":   $Sataconnection0 = "10"; break;
+    case "c":   $Sataconnection0 = "11"; break;
+    case "d":   $Sataconnection0 = "12"; break;
+    default:    $Sataconnection0 = "0"; break;
 }
 switch(Session::get('s-ata_max')) {
-    case "1": $Sataconnection1 = "0"; break;
-    case "2": $Sataconnection1 = "1"; break;
-    case "3": $Sataconnection1 = "2"; break;
-    case "4": $Sataconnection1 = "3"; break;
-    case "5": $Sataconnection1 = "4"; break;
-    case "6": $Sataconnection1 = "5"; break;
-    case "7": $Sataconnection1 = "6"; break;
-    case "8": $Sataconnection1 = "7"; break;
-    case "9": $Sataconnection1 = "8"; break;
-    case "a": $Sataconnection1 = "9"; break;
-    case "b": $Sataconnection1 = "10"; break;
-    case "c": $Sataconnection1 = "11"; break;
-    case "d": $Sataconnection1 = "12"; break;
-    default: $Sataconnection1 = "4"; break;
+    case "1":   $Sataconnection1 = "0"; break;
+    case "2":   $Sataconnection1 = "1"; break;
+    case "3":   $Sataconnection1 = "2"; break;
+    case "4":   $Sataconnection1 = "3"; break;
+    case "5":   $Sataconnection1 = "4"; break;
+    case "6":   $Sataconnection1 = "5"; break;
+    case "7":   $Sataconnection1 = "6"; break;
+    case "8":   $Sataconnection1 = "7"; break;
+    case "9":   $Sataconnection1 = "8"; break;
+    case "a":   $Sataconnection1 = "9"; break;
+    case "b":   $Sataconnection1 = "10"; break;
+    case "c":   $Sataconnection1 = "11"; break;
+    case "d":   $Sataconnection1 = "12"; break;
+    default:    $Sataconnection1 = "4"; break;
 }
 switch(Session::get('processorcooler_price_min')) {
-    case "1": $ProcessorCoolerP0 = "0"; break;
-    case "2": $ProcessorCoolerP0 = "20"; break;
-    case "3": $ProcessorCoolerP0 = "40"; break;
-    case "4": $ProcessorCoolerP0 = "60"; break;
-    case "5": $ProcessorCoolerP0 = "80"; break;
-    case "6": $ProcessorCoolerP0 = "100"; break;
-    case "7": $ProcessorCoolerP0 = "120"; break;
-    default: $ProcessorCoolerP0 = "60"; break;
+    case "1":   $ProcessorCoolerP0 = "0"; break;
+    case "2":   $ProcessorCoolerP0 = "20"; break;
+    case "3":   $ProcessorCoolerP0 = "40"; break;
+    case "4":   $ProcessorCoolerP0 = "60"; break;
+    case "5":   $ProcessorCoolerP0 = "80"; break;
+    case "6":   $ProcessorCoolerP0 = "100"; break;
+    case "7":   $ProcessorCoolerP0 = "120"; break;
+    default:    $ProcessorCoolerP0 = "60"; break;
 }
 switch(Session::get('processorcooler_price_max')) {
-    case "1": $ProcessorCoolerP1 = "0"; break;
-    case "2": $ProcessorCoolerP1 = "20"; break;
-    case "3": $ProcessorCoolerP1 = "40"; break;
-    case "4": $ProcessorCoolerP1 = "60"; break;
-    case "5": $ProcessorCoolerP1 = "80"; break;
-    case "6": $ProcessorCoolerP1 = "100"; break;
-    case "7": $ProcessorCoolerP1 = "120"; break;
-    default: $ProcessorCoolerP1 = "100"; break;
+    case "1":   $ProcessorCoolerP1 = "0"; break;
+    case "2":   $ProcessorCoolerP1 = "20"; break;
+    case "3":   $ProcessorCoolerP1 = "40"; break;
+    case "4":   $ProcessorCoolerP1 = "60"; break;
+    case "5":   $ProcessorCoolerP1 = "80"; break;
+    case "6":   $ProcessorCoolerP1 = "100"; break;
+    case "7":   $ProcessorCoolerP1 = "120"; break;
+    default:    $ProcessorCoolerP1 = "100"; break;
 }
 switch(Session::get('processorcooler_diameter')) {
-    case "1": $ProcessorCoolerVentilatorDm0 = "6"; break;
-    case "2": $ProcessorCoolerVentilatorDm0 = "7"; break;
-    case "3": $ProcessorCoolerVentilatorDm0 = "8"; break;
-    case "4": $ProcessorCoolerVentilatorDm0 = "9"; break;
-    case "5": $ProcessorCoolerVentilatorDm0 = "10"; break;
-    case "6": $ProcessorCoolerVentilatorDm0 = "11"; break;
-    case "7": $ProcessorCoolerVentilatorDm0 = "12"; break;
-    case "8": $ProcessorCoolerVentilatorDm0 = "13"; break;
-    case "9": $ProcessorCoolerVentilatorDm0 = "14"; break;
-    default: $ProcessorCoolerVentilatorDm0 = "9"; break;
+    case "1":   $ProcessorCoolerVentilatorDm0 = "6"; break;
+    case "2":   $ProcessorCoolerVentilatorDm0 = "7"; break;
+    case "3":   $ProcessorCoolerVentilatorDm0 = "8"; break;
+    case "4":   $ProcessorCoolerVentilatorDm0 = "9"; break;
+    case "5":   $ProcessorCoolerVentilatorDm0 = "10"; break;
+    case "6":   $ProcessorCoolerVentilatorDm0 = "11"; break;
+    case "7":   $ProcessorCoolerVentilatorDm0 = "12"; break;
+    case "8":   $ProcessorCoolerVentilatorDm0 = "13"; break;
+    case "9":   $ProcessorCoolerVentilatorDm0 = "14"; break;
+    default:    $ProcessorCoolerVentilatorDm0 = "9"; break;
 }
 switch(Session::get('processorcooler_rotation_min')) {
-    case "1": $ProcessorCoolerRSpeed0 = "800"; break;
-    case "2": $ProcessorCoolerRSpeed0 = "1000"; break;
-    case "3": $ProcessorCoolerRSpeed0 = "1200"; break;
-    case "4": $ProcessorCoolerRSpeed0 = "1400"; break;
-    case "5": $ProcessorCoolerRSpeed0 = "1600"; break;
-    case "6": $ProcessorCoolerRSpeed0 = "1800"; break;
-    case "7": $ProcessorCoolerRSpeed0 = "2000"; break;
-    case "8": $ProcessorCoolerRSpeed0 = "2200"; break;
-    case "9": $ProcessorCoolerRSpeed0 = "2400"; break;
-    case "a": $ProcessorCoolerRSpeed0 = "2600"; break;
-    case "b": $ProcessorCoolerRSpeed0 = "2800"; break;
-    case "c": $ProcessorCoolerRSpeed0 = "3000"; break;
-    case "d": $ProcessorCoolerRSpeed0 = "3200"; break;
-    case "e": $ProcessorCoolerRSpeed0 = "3400"; break;
-    default: $ProcessorCoolerRSpeed0 = "800"; break;
+    case "1":   $ProcessorCoolerRSpeed0 = "800"; break;
+    case "2":   $ProcessorCoolerRSpeed0 = "1000"; break;
+    case "3":   $ProcessorCoolerRSpeed0 = "1200"; break;
+    case "4":   $ProcessorCoolerRSpeed0 = "1400"; break;
+    case "5":   $ProcessorCoolerRSpeed0 = "1600"; break;
+    case "6":   $ProcessorCoolerRSpeed0 = "1800"; break;
+    case "7":   $ProcessorCoolerRSpeed0 = "2000"; break;
+    case "8":   $ProcessorCoolerRSpeed0 = "2200"; break;
+    case "9":   $ProcessorCoolerRSpeed0 = "2400"; break;
+    case "a":   $ProcessorCoolerRSpeed0 = "2600"; break;
+    case "b":   $ProcessorCoolerRSpeed0 = "2800"; break;
+    case "c":   $ProcessorCoolerRSpeed0 = "3000"; break;
+    case "d":   $ProcessorCoolerRSpeed0 = "3200"; break;
+    case "e":   $ProcessorCoolerRSpeed0 = "3400"; break;
+    default:    $ProcessorCoolerRSpeed0 = "800"; break;
 }
 switch(Session::get('processorcooler_rotation_max')) {
-    case "1": $ProcessorCoolerRSpeed1 = "800"; break;
-    case "2": $ProcessorCoolerRSpeed1 = "1000"; break;
-    case "3": $ProcessorCoolerRSpeed1 = "1200"; break;
-    case "4": $ProcessorCoolerRSpeed1 = "1400"; break;
-    case "5": $ProcessorCoolerRSpeed1 = "1600"; break;
-    case "6": $ProcessorCoolerRSpeed1 = "1800"; break;
-    case "7": $ProcessorCoolerRSpeed1 = "2000"; break;
-    case "8": $ProcessorCoolerRSpeed1 = "2200"; break;
-    case "9": $ProcessorCoolerRSpeed1 = "2400"; break;
-    case "a": $ProcessorCoolerRSpeed1 = "2600"; break;
-    case "b": $ProcessorCoolerRSpeed1 = "2800"; break;
-    case "c": $ProcessorCoolerRSpeed1 = "3000"; break;
-    case "d": $ProcessorCoolerRSpeed1 = "3200"; break;
-    case "e": $ProcessorCoolerRSpeed1 = "3400"; break;
-    default: $ProcessorCoolerRSpeed1 = "1200"; break;
+    case "1":   $ProcessorCoolerRSpeed1 = "800"; break;
+    case "2":   $ProcessorCoolerRSpeed1 = "1000"; break;
+    case "3":   $ProcessorCoolerRSpeed1 = "1200"; break;
+    case "4":   $ProcessorCoolerRSpeed1 = "1400"; break;
+    case "5":   $ProcessorCoolerRSpeed1 = "1600"; break;
+    case "6":   $ProcessorCoolerRSpeed1 = "1800"; break;
+    case "7":   $ProcessorCoolerRSpeed1 = "2000"; break;
+    case "8":   $ProcessorCoolerRSpeed1 = "2200"; break;
+    case "9":   $ProcessorCoolerRSpeed1 = "2400"; break;
+    case "a":   $ProcessorCoolerRSpeed1 = "2600"; break;
+    case "b":   $ProcessorCoolerRSpeed1 = "2800"; break;
+    case "c":   $ProcessorCoolerRSpeed1 = "3000"; break;
+    case "d":   $ProcessorCoolerRSpeed1 = "3200"; break;
+    case "e":   $ProcessorCoolerRSpeed1 = "3400"; break;
+    default:    $ProcessorCoolerRSpeed1 = "1200"; break;
+}
+switch(Session::get('hdd_price_min')) {
+    case "1":   $harddiskdrive_price0 = "0"; break;
+    case "2":   $harddiskdrive_price0 = "50"; break;
+    case "3":   $harddiskdrive_price0 = "100"; break;
+    case "4":   $harddiskdrive_price0 = "150"; break;
+    case "5":   $harddiskdrive_price0 = "200"; break;
+    case "6":   $harddiskdrive_price0 = "250"; break;
+    case "7":   $harddiskdrive_price0 = "300"; break;
+    case "8":   $harddiskdrive_price0 = "350"; break;
+    case "9":   $harddiskdrive_price0 = "400"; break;
+    default:    $harddiskdrive_price0 = "50"; break;
+}
+switch(Session::get('hdd_price_max')) {
+    case "1":   $harddiskdrive_price1 = "0"; break;
+    case "2":   $harddiskdrive_price1 = "50"; break;
+    case "3":   $harddiskdrive_price1 = "100"; break;
+    case "4":   $harddiskdrive_price1 = "150"; break;
+    case "5":   $harddiskdrive_price1 = "200"; break;
+    case "6":   $harddiskdrive_price1 = "250"; break;
+    case "7":   $harddiskdrive_price1 = "300"; break;
+    case "8":   $harddiskdrive_price1 = "350"; break;
+    case "9":   $harddiskdrive_price1 = "400"; break;
+    default:    $harddiskdrive_price1 = "150"; break;
+}
+switch(Session::get('soundcard_price_min')) {
+    case "1":   $soundcard_price0 = "0"; break;
+    case "2":   $soundcard_price0 = "20"; break;
+    case "3":   $soundcard_price0 = "40"; break;
+    case "4":   $soundcard_price0 = "60"; break;
+    case "5":   $soundcard_price0 = "80"; break;
+    case "6":   $soundcard_price0 = "100"; break;
+    case "7":   $soundcard_price0 = "120"; break;
+    case "8":   $soundcard_price0 = "140"; break;
+    case "9":   $soundcard_price0 = "160"; break;
+    case "a":   $soundcard_price0 = "180"; break;
+    case "b":   $soundcard_price0 = "200"; break;
+    default:    $soundcard_price0 = "60"; break;
+}
+switch(Session::get('soundcard_price_max')) {
+    case "1":   $soundcard_price1 = "0"; break;
+    case "2":   $soundcard_price1 = "20"; break;
+    case "3":   $soundcard_price1 = "40"; break;
+    case "4":   $soundcard_price1 = "60"; break;
+    case "5":   $soundcard_price1 = "80"; break;
+    case "6":   $soundcard_price1 = "100"; break;
+    case "7":   $soundcard_price1 = "120"; break;
+    case "8":   $soundcard_price1 = "140"; break;
+    case "9":   $soundcard_price1 = "160"; break;
+    case "a":   $soundcard_price1 = "180"; break;
+    case "b":   $soundcard_price1 = "200"; break;
+    default:    $soundcard_price1 = "100"; break;
+}
+switch(Session::get('pci_price_min')) {
+    case "1":   $pci_price0 = "0"; break;
+    case "2":   $pci_price0 = "20"; break;
+    case "3":   $pci_price0 = "40"; break;
+    case "4":   $pci_price0 = "60"; break;
+    case "5":   $pci_price0 = "80"; break;
+    default:    $pci_price0 = "20"; break;
+}
+switch(Session::get('pci_price_max')) {
+    case "1":   $pci_price1 = "0"; break;
+    case "2":   $pci_price1 = "20"; break;
+    case "3":   $pci_price1 = "40"; break;
+    case "4":   $pci_price1 = "60"; break;
+    case "5":   $pci_price1 = "80"; break;
+    default:    $pci_price1 = "60"; break;
+}
+switch(Session::get('GPU_price_min')) {
+    case "1":   $videocard_price0 = "0"; break;
+    case "2":   $videocard_price0 = "100"; break;
+    case "3":   $videocard_price0 = "200"; break;
+    case "4":   $videocard_price0 = "300"; break;
+    case "5":   $videocard_price0 = "400"; break;
+    case "6":   $videocard_price0 = "500"; break;
+    case "7":   $videocard_price0 = "600"; break;
+    default:    $videocard_price0 = "100"; break;
+}
+switch(Session::get('GPU_price_max')) {
+    case "1":   $videocard_price1 = "0"; break;
+    case "2":   $videocard_price1 = "100"; break;
+    case "3":   $videocard_price1 = "200"; break;
+    case "4":   $videocard_price1 = "300"; break;
+    case "5":   $videocard_price1 = "400"; break;
+    case "6":   $videocard_price1 = "500"; break;
+    case "7":   $videocard_price1 = "600"; break;
+    default:    $videocard_price1 = "600"; break;
+}
+switch(Session::get('GPU_memory_min')) {
+    case "1":   $videocard_memoryMb0 = "500"; break;
+    case "2":   $videocard_memoryMb0 = "1013"; break;
+    case "3":   $videocard_memoryMb0 = "1526"; break;
+    case "4":   $videocard_memoryMb0 = "2039"; break;
+    case "5":   $videocard_memoryMb0 = "2552"; break;
+    case "6":   $videocard_memoryMb0 = "3065"; break;
+    case "7":   $videocard_memoryMb0 = "3578"; break;
+    case "8":   $videocard_memoryMb0 = "4091"; break;
+    case "9":   $videocard_memoryMb0 = "4604"; break;
+    case "a":   $videocard_memoryMb0 = "5117"; break;
+    case "b":   $videocard_memoryMb0 = "5630"; break;
+    case "c":   $videocard_memoryMb0 = "6143"; break;
+    case "d":   $videocard_memoryMb0 = "6656"; break;
+    case "e":   $videocard_memoryMb0 = "7169"; break;
+    case "f":   $videocard_memoryMb0 = "7682"; break;
+    case "g":   $videocard_memoryMb0 = "8195"; break;
+    default:    $videocard_memoryMb0 = "500"; break;
+}
+switch(Session::get('GPU_memory_max')) {
+    case "1":   $videocard_memoryMb1 = "500"; break;
+    case "2":   $videocard_memoryMb1 = "1013"; break;
+    case "3":   $videocard_memoryMb1 = "1526"; break;
+    case "4":   $videocard_memoryMb1 = "2039"; break;
+    case "5":   $videocard_memoryMb1 = "2552"; break;
+    case "6":   $videocard_memoryMb1 = "3065"; break;
+    case "7":   $videocard_memoryMb1 = "3578"; break;
+    case "8":   $videocard_memoryMb1 = "4091"; break;
+    case "9":   $videocard_memoryMb1 = "4604"; break;
+    case "a":   $videocard_memoryMb1 = "5117"; break;
+    case "b":   $videocard_memoryMb1 = "5630"; break;
+    case "c":   $videocard_memoryMb1 = "6143"; break;
+    case "d":   $videocard_memoryMb1 = "6656"; break;
+    case "e":   $videocard_memoryMb1 = "7169"; break;
+    case "f":   $videocard_memoryMb1 = "7682"; break;
+    case "g":   $videocard_memoryMb1 = "8195"; break;
+    default:    $videocard_memoryMb1 = "4091"; break;
+}
+switch(Session::get('processor_cost_min')) {
+    case "1":   $processor_price0 = "0"; break;
+    case "2":   $processor_price0 = "100"; break;
+    case "3":   $processor_price0 = "200"; break;
+    case "4":   $processor_price0 = "300"; break;
+    case "5":   $processor_price0 = "400"; break;
+    case "6":   $processor_price0 = "500"; break;
+    case "7":   $processor_price0 = "600"; break;
+    case "8":   $processor_price0 = "700"; break;
+    case "9":   $processor_price0 = "800"; break;
+    case "a":   $processor_price0 = "900"; break;
+    case "b":   $processor_price0 = "1000"; break;
+    default:    $processor_price0 = "100"; break;
+}
+switch(Session::get('processor_cost_max')) {
+    case "1":   $processor_price1 = "0"; break;
+    case "2":   $processor_price1 = "100"; break;
+    case "3":   $processor_price1 = "200"; break;
+    case "4":   $processor_price1 = "300"; break;
+    case "5":   $processor_price1 = "400"; break;
+    case "6":   $processor_price1 = "500"; break;
+    case "7":   $processor_price1 = "600"; break;
+    case "8":   $processor_price1 = "700"; break;
+    case "9":   $processor_price1 = "800"; break;
+    case "a":   $processor_price1 = "900"; break;
+    case "b":   $processor_price1 = "1000"; break;
+    default:    $processor_price1 = "400"; break;
+}
+switch(Session::get('processor_speed_min')) {
+    case "1":   $processor_clocking0 = "2900"; break;
+    case "2":   $processor_clocking0 = "3050"; break;
+    case "3":   $processor_clocking0 = "3200"; break;
+    case "4":   $processor_clocking0 = "3350"; break;
+    case "5":   $processor_clocking0 = "3500"; break;
+    case "6":   $processor_clocking0 = "3650"; break;
+    case "7":   $processor_clocking0 = "3800"; break;
+    case "8":   $processor_clocking0 = "3950"; break;
+    case "9":   $processor_clocking0 = "4100"; break;
+    case "a":   $processor_clocking0 = "4250"; break;
+    case "b":   $processor_clocking0 = "4400"; break;
+    case "c":   $processor_clocking0 = "4550"; break;
+    case "d":   $processor_clocking0 = "4700"; break;
+    default:    $processor_clocking0 = "2900"; break;
+}
+switch(Session::get('processor_speed_max')) {
+    case "1":   $processor_clocking1 = "2900"; break;
+    case "2":   $processor_clocking1 = "3050"; break;
+    case "3":   $processor_clocking1 = "3200"; break;
+    case "4":   $processor_clocking1 = "3350"; break;
+    case "5":   $processor_clocking1 = "3500"; break;
+    case "6":   $processor_clocking1 = "3650"; break;
+    case "7":   $processor_clocking1 = "3800"; break;
+    case "8":   $processor_clocking1 = "3950"; break;
+    case "9":   $processor_clocking1 = "4100"; break;
+    case "a":   $processor_clocking1 = "4250"; break;
+    case "b":   $processor_clocking1 = "4400"; break;
+    case "c":   $processor_clocking1 = "4550"; break;
+    case "d":   $processor_clocking1 = "4700"; break;
+    default:    $processor_clocking1 = "3650"; break;
+}
+switch(Session::get('RAM_price_min')) {
+    case "1":   $ram_price0 = "0"; break;
+    case "2":   $ram_price0 = "50"; break;
+    case "3":   $ram_price0 = "100"; break;
+    case "4":   $ram_price0 = "150"; break;
+    case "5":   $ram_price0 = "200"; break;
+    case "6":   $ram_price0 = "250"; break;
+    case "7":   $ram_price0 = "300"; break;
+    case "8":   $ram_price0 = "350"; break;
+    case "9":   $ram_price0 = "400"; break;
+    case "a":   $ram_price0 = "450"; break;
+    case "b":   $ram_price0 = "500"; break;
+    default:    $ram_price0 = "50"; break;
+}
+switch(Session::get('RAM_price_max')) {
+    case "1":   $ram_price1 = "0"; break;
+    case "2":   $ram_price1 = "50"; break;
+    case "3":   $ram_price1 = "100"; break;
+    case "4":   $ram_price1 = "150"; break;
+    case "5":   $ram_price1 = "200"; break;
+    case "6":   $ram_price1 = "250"; break;
+    case "7":   $ram_price1 = "300"; break;
+    case "8":   $ram_price1 = "350"; break;
+    case "9":   $ram_price1 = "400"; break;
+    case "a":   $ram_price1 = "450"; break;
+    case "b":   $ram_price1 = "500"; break;
+    default:    $ram_price1 = "250"; break;
+}
+switch(Session::get('moederbord_price_min')) {
+    case "1":   $motherboard_price0 = "0"; break;
+    case "2":   $motherboard_price0 = "50"; break;
+    case "3":   $motherboard_price0 = "100"; break;
+    case "4":   $motherboard_price0 = "150"; break;
+    case "5":   $motherboard_price0 = "200"; break;
+    case "6":   $motherboard_price0 = "250"; break;
+    case "7":   $motherboard_price0 = "300"; break;
+    case "8":   $motherboard_price0 = "350"; break;
+    case "9":   $motherboard_price0 = "400"; break;
+    case "a":   $motherboard_price0 = "450"; break;
+    case "b":   $motherboard_price0 = "500"; break;
+    default:    $motherboard_price0 = "100"; break;
+}
+switch(Session::get('moederbord_price_max')) {
+    case "1":   $motherboard_price1 = "0"; break;
+    case "2":   $motherboard_price1 = "50"; break;
+    case "3":   $motherboard_price1 = "100"; break;
+    case "4":   $motherboard_price1 = "150"; break;
+    case "5":   $motherboard_price1 = "200"; break;
+    case "6":   $motherboard_price1 = "250"; break;
+    case "7":   $motherboard_price1 = "300"; break;
+    case "8":   $motherboard_price1 = "350"; break;
+    case "9":   $motherboard_price1 = "400"; break;
+    case "a":   $motherboard_price1 = "450"; break;
+    case "b":   $motherboard_price1 = "500"; break;
+    default:    $motherboard_price1 = "250"; break;
+}
+switch(Session::get('moederbord_usb')) {
+    case "1":   $Usb_port0 = "0"; break;
+    case "2":   $Usb_port0 = "1"; break;
+    case "3":   $Usb_port0 = "2"; break;
+    case "4":   $Usb_port0 = "3"; break;
+    case "5":   $Usb_port0 = "4"; break;
+    case "6":   $Usb_port0 = "5"; break;
+    case "7":   $Usb_port0 = "6"; break;
+    case "8":   $Usb_port0 = "7"; break;
+    case "9":   $Usb_port0 = "8"; break;
+    case "a":   $Usb_port0 = "9"; break;
+    case "b":   $Usb_port0 = "10"; break;
+    case "c":   $Usb_port0 = "11"; break;
+    case "d":   $Usb_port0 = "12"; break;
+    case "e":   $Usb_port0 = "13"; break;
+    case "f":   $Usb_port0 = "14"; break;
+    default:    $Usb_port0 = "3"; break;
+}
+switch(Session::get('moederbord_SATA300')) {
+    case "1":   $motherboard_sata300connection0 = "0"; break;
+    case "2":   $motherboard_sata300connection0 = "1"; break;
+    case "3":   $motherboard_sata300connection0 = "2"; break;
+    case "4":   $motherboard_sata300connection0 = "3"; break;
+    case "5":   $motherboard_sata300connection0 = "4"; break;
+    case "6":   $motherboard_sata300connection0 = "5"; break;
+    case "7":   $motherboard_sata300connection0 = "6"; break;
+    default:    $motherboard_sata300connection0 = "3"; break;
+}
+switch(Session::get('moederbord_SATA600')) {
+    case "1":   $motherboard_sata600connection0 = "0"; break;
+    case "2":   $motherboard_sata600connection0 = "1"; break;
+    case "3":   $motherboard_sata600connection0 = "2"; break;
+    case "4":   $motherboard_sata600connection0 = "3"; break;
+    case "5":   $motherboard_sata600connection0 = "4"; break;
+    case "6":   $motherboard_sata600connection0 = "5"; break;
+    case "7":   $motherboard_sata600connection0 = "6"; break;
+    case "8":   $motherboard_sata600connection0 = "7"; break;
+    case "9":   $motherboard_sata600connection0 = "8"; break;
+    case "a":   $motherboard_sata600connection0 = "9"; break;
+    case "b":   $motherboard_sata600connection0 = "10"; break;
+    default:    $motherboard_sata600connection0 = "4"; break;
+}
+switch(Session::get('behuizing_price_min')) {
+    case "1":   $casing_Price0 = "30"; break;
+    case "2":   $casing_Price0 = "50"; break;
+    case "3":   $casing_Price0 = "70"; break;
+    case "4":   $casing_Price0 = "90"; break;
+    case "5":   $casing_Price0 = "110"; break;
+    case "6":   $casing_Price0 = "130"; break;
+    case "7":   $casing_Price0 = "150"; break;
+    default:    $casing_Price0 = "70"; break;
+}
+switch(Session::get('behuizing_price_max')) {
+    case "1":   $casing_Price1 = "30"; break;
+    case "2":   $casing_Price1 = "50"; break;
+    case "3":   $casing_Price1 = "70"; break;
+    case "4":   $casing_Price1 = "90"; break;
+    case "5":   $casing_Price1 = "110"; break;
+    case "6":   $casing_Price1 = "130"; break;
+    case "7":   $casing_Price1 = "150"; break;
+    default:    $casing_Price1 = "150"; break;
+}
+switch(Session::get('behuizing_uitbreiding_min')) {
+    case "1":   $casing_expansion_0 = "2"; break;
+    case "2":   $casing_expansion_0 = "3"; break;
+    case "3":   $casing_expansion_0 = "4"; break;
+    case "4":   $casing_expansion_0 = "5"; break;
+    case "5":   $casing_expansion_0 = "6"; break;
+    case "6":   $casing_expansion_0 = "7"; break;
+    case "7":   $casing_expansion_0 = "8"; break;
+    case "8":   $casing_expansion_0 = "9"; break;
+    case "9":   $casing_expansion_0 = "10"; break;
+    case "a":   $casing_expansion_0 = "11"; break;
+    default:    $casing_expansion_0 = "3"; break;
+}
+switch(Session::get('behuizing_uitbreiding_max')) {
+    case "1":   $casing_expansion_1 = "2"; break;
+    case "2":   $casing_expansion_1 = "3"; break;
+    case "3":   $casing_expansion_1 = "4"; break;
+    case "4":   $casing_expansion_1 = "5"; break;
+    case "5":   $casing_expansion_1 = "6"; break;
+    case "6":   $casing_expansion_1 = "7"; break;
+    case "7":   $casing_expansion_1 = "8"; break;
+    case "8":   $casing_expansion_1 = "9"; break;
+    case "9":   $casing_expansion_1 = "10"; break;
+    case "a":   $casing_expansion_1 = "11"; break;
+    default:    $casing_expansion_1 = "7"; break;
+}
+switch(Session::get('behuizing_2_5bay_min')) {
+    case "1":   $casing_HDD_SSD_0 = "0"; break;
+    case "2":   $casing_HDD_SSD_0 = "1"; break;
+    case "3":   $casing_HDD_SSD_0 = "2"; break;
+    case "4":   $casing_HDD_SSD_0 = "3"; break;
+    case "5":   $casing_HDD_SSD_0 = "4"; break;
+    case "6":   $casing_HDD_SSD_0 = "5"; break;
+    case "7":   $casing_HDD_SSD_0 = "6"; break;
+    case "8":   $casing_HDD_SSD_0 = "7"; break;
+    case "9":   $casing_HDD_SSD_0 = "8"; break;
+    case "a":   $casing_HDD_SSD_0 = "9"; break;
+    case "b":   $casing_HDD_SSD_0 = "10"; break;
+    case "c":   $casing_HDD_SSD_0 = "11"; break;
+    case "d":   $casing_HDD_SSD_0 = "12"; break;
+    case "e":   $casing_HDD_SSD_0 = "13"; break;
+    case "f":   $casing_HDD_SSD_0 = "14"; break;
+    case "g":   $casing_HDD_SSD_0 = "15"; break;
+    case "h":   $casing_HDD_SSD_0 = "16"; break;
+    case "i":   $casing_HDD_SSD_0 = "17"; break;
+    case "j":   $casing_HDD_SSD_0 = "18"; break;
+    default:    $casing_HDD_SSD_0 = "5"; break;
+}
+switch(Session::get('behuizing_2_5bay_max')) {
+    case "1":   $casing_HDD_SSD_1 = "0"; break;
+    case "2":   $casing_HDD_SSD_1 = "1"; break;
+    case "3":   $casing_HDD_SSD_1 = "2"; break;
+    case "4":   $casing_HDD_SSD_1 = "3"; break;
+    case "5":   $casing_HDD_SSD_1 = "4"; break;
+    case "6":   $casing_HDD_SSD_1 = "5"; break;
+    case "7":   $casing_HDD_SSD_1 = "6"; break;
+    case "8":   $casing_HDD_SSD_1 = "7"; break;
+    case "9":   $casing_HDD_SSD_1 = "8"; break;
+    case "a":   $casing_HDD_SSD_1 = "9"; break;
+    case "b":   $casing_HDD_SSD_1 = "10"; break;
+    case "c":   $casing_HDD_SSD_1 = "11"; break;
+    case "d":   $casing_HDD_SSD_1 = "12"; break;
+    case "e":   $casing_HDD_SSD_1 = "13"; break;
+    case "f":   $casing_HDD_SSD_1 = "14"; break;
+    case "g":   $casing_HDD_SSD_1 = "15"; break;
+    case "h":   $casing_HDD_SSD_1 = "16"; break;
+    case "i":   $casing_HDD_SSD_1 = "17"; break;
+    case "j":   $casing_HDD_SSD_1 = "18"; break;
+    default:    $casing_HDD_SSD_1 = "10"; break;
+}
+switch(Session::get('behuizing_3_5bay_min')) {
+    case "1":   $casing_HDD_0 = "2"; break;
+    case "2":   $casing_HDD_0 = "3"; break;
+    case "3":   $casing_HDD_0 = "4"; break;
+    case "4":   $casing_HDD_0 = "5"; break;
+    case "5":   $casing_HDD_0 = "6"; break;
+    case "6":   $casing_HDD_0 = "7"; break;
+    case "7":   $casing_HDD_0 = "8"; break;
+    case "8":   $casing_HDD_0 = "9"; break;
+    case "9":   $casing_HDD_0 = "10"; break;
+    case "a":   $casing_HDD_0 = "11"; break;
+    case "b":   $casing_HDD_0 = "12"; break;
+    case "c":   $casing_HDD_0 = "13"; break;
+    default:    $casing_HDD_0 = "2"; break;
+}
+switch(Session::get('behuizing_3_5bay_max')) {
+    case "1":   $casing_HDD_1 = "2"; break;
+    case "2":   $casing_HDD_1 = "3"; break;
+    case "3":   $casing_HDD_1 = "4"; break;
+    case "4":   $casing_HDD_1 = "5"; break;
+    case "5":   $casing_HDD_1 = "6"; break;
+    case "6":   $casing_HDD_1 = "7"; break;
+    case "7":   $casing_HDD_1 = "8"; break;
+    case "8":   $casing_HDD_1 = "9"; break;
+    case "9":   $casing_HDD_1 = "10"; break;
+    case "a":   $casing_HDD_1 = "11"; break;
+    case "b":   $casing_HDD_1 = "12"; break;
+    case "c":   $casing_HDD_1 = "13"; break;
+    default:    $casing_HDD_1 = "5"; break;
+}
+switch(Session::get('behuizing_5_25bay_min')) {
+    case "1":   $casing_Bayss0 = "0"; break;
+    case "2":   $casing_Bayss0 = "1"; break;
+    case "3":   $casing_Bayss0 = "2"; break;
+    case "4":   $casing_Bayss0 = "3"; break;
+    case "5":   $casing_Bayss0 = "4"; break;
+    case "6":   $casing_Bayss0 = "5"; break;
+    case "7":   $casing_Bayss0 = "6"; break;
+    case "8":   $casing_Bayss0 = "7"; break;
+    case "9":   $casing_Bayss0 = "8"; break;
+    case "a":   $casing_Bayss0 = "9"; break;
+    default:    $casing_Bayss0 = "2"; break;
+}
+switch(Session::get('behuizing_5_25bay_max')) {
+    case "1":   $casing_Bayss1 = "0"; break;
+    case "2":   $casing_Bayss1 = "1"; break;
+    case "3":   $casing_Bayss1 = "2"; break;
+    case "4":   $casing_Bayss1 = "3"; break;
+    case "5":   $casing_Bayss1 = "4"; break;
+    case "6":   $casing_Bayss1 = "5"; break;
+    case "7":   $casing_Bayss1 = "6"; break;
+    case "8":   $casing_Bayss1 = "7"; break;
+    case "9":   $casing_Bayss1 = "8"; break;
+    case "a":   $casing_Bayss1 = "9"; break;
+    default:    $casing_Bayss1 = "5"; break;
+}
+switch(Session::get('SSD_price_min')) {
+    case "1":   $ssd_price0 = "0"; break;
+    case "2":   $ssd_price0 = "50"; break;
+    case "3":   $ssd_price0 = "100"; break;
+    case "4":   $ssd_price0 = "150"; break;
+    case "5":   $ssd_price0 = "200"; break;
+    case "6":   $ssd_price0 = "250"; break;
+    case "7":   $ssd_price0 = "300"; break;
+    case "8":   $ssd_price0 = "350"; break;
+    case "9":   $ssd_price0 = "400"; break;
+    case "a":   $ssd_price0 = "450"; break;
+    case "b":   $ssd_price0 = "500"; break;
+    case "c":   $ssd_price0 = "550"; break;
+    case "d":   $ssd_price0 = "600"; break;
+    default:    $ssd_price0 = "150"; break;
+}
+switch(Session::get('SSD_price_max')) {
+    case "1":   $ssd_price1 = "0"; break;
+    case "2":   $ssd_price1 = "50"; break;
+    case "3":   $ssd_price1 = "100"; break;
+    case "4":   $ssd_price1 = "150"; break;
+    case "5":   $ssd_price1 = "200"; break;
+    case "6":   $ssd_price1 = "250"; break;
+    case "7":   $ssd_price1 = "300"; break;
+    case "8":   $ssd_price1 = "350"; break;
+    case "9":   $ssd_price1 = "400"; break;
+    case "a":   $ssd_price1 = "450"; break;
+    case "b":   $ssd_price1 = "500"; break;
+    case "c":   $ssd_price1 = "550"; break;
+    case "d":   $ssd_price1 = "600"; break;
+    default:    $ssd_price1 = "300"; break;
+}
+switch(Session::get('SSD_schrijf_min')) {
+    case "1":   $ssd_writespeed0 = "100"; break;
+    case "2":   $ssd_writespeed0 = "150"; break;
+    case "3":   $ssd_writespeed0 = "200"; break;
+    case "4":   $ssd_writespeed0 = "250"; break;
+    case "5":   $ssd_writespeed0 = "300"; break;
+    case "6":   $ssd_writespeed0 = "350"; break;
+    case "7":   $ssd_writespeed0 = "400"; break;
+    case "8":   $ssd_writespeed0 = "450"; break;
+    case "9":   $ssd_writespeed0 = "500"; break;
+    case "a":   $ssd_writespeed0 = "550"; break;
+    case "b":   $ssd_writespeed0 = "600"; break;
+    default:    $ssd_writespeed0 = "150"; break;
+}
+switch(Session::get('SSD_schrijf_max')) {
+    case "1":   $ssd_writespeed1 = "100"; break;
+    case "2":   $ssd_writespeed1 = "150"; break;
+    case "3":   $ssd_writespeed1 = "200"; break;
+    case "4":   $ssd_writespeed1 = "250"; break;
+    case "5":   $ssd_writespeed1 = "300"; break;
+    case "6":   $ssd_writespeed1 = "350"; break;
+    case "7":   $ssd_writespeed1 = "400"; break;
+    case "8":   $ssd_writespeed1 = "450"; break;
+    case "9":   $ssd_writespeed1 = "500"; break;
+    case "a":   $ssd_writespeed1 = "550"; break;
+    case "b":   $ssd_writespeed1 = "600"; break;
+    default:    $ssd_writespeed1 = "350"; break;
+}
+switch(Session::get('SSD_lees_min')) {
+    case "1":   $ssd_readspeed0 = "410"; break;
+    case "2":   $ssd_readspeed0 = "430"; break;
+    case "3":   $ssd_readspeed0 = "450"; break;
+    case "4":   $ssd_readspeed0 = "470"; break;
+    case "5":   $ssd_readspeed0 = "510"; break;
+    case "6":   $ssd_readspeed0 = "530"; break;
+    case "7":   $ssd_readspeed0 = "550"; break;
+    default:    $ssd_readspeed0 = "450"; break;
+}
+switch(Session::get('SSD_lees_max')) {
+    case "1":   $ssd_readspeed1 = "410"; break;
+    case "2":   $ssd_readspeed1 = "430"; break;
+    case "3":   $ssd_readspeed1 = "450"; break;
+    case "4":   $ssd_readspeed1 = "470"; break;
+    case "5":   $ssd_readspeed1 = "510"; break;
+    case "6":   $ssd_readspeed1 = "530"; break;
+    case "7":   $ssd_readspeed1 = "550"; break;
+    default:    $ssd_readspeed1 = "510"; break;
+}
+switch(Session::get('brander_price_min')) {
+    case "1":   $BluRayDVD_price0 = "0"; break;
+    case "2":   $BluRayDVD_price0 = "20"; break;
+    case "3":   $BluRayDVD_price0 = "40"; break;
+    case "4":   $BluRayDVD_price0 = "60"; break;
+    case "5":   $BluRayDVD_price0 = "80"; break;
+    case "6":   $BluRayDVD_price0 = "100"; break;
+    case "7":   $BluRayDVD_price0 = "120"; break;
+    default:    $BluRayDVD_price0 = "60"; break;
+}
+switch(Session::get('brander_price_max')) {
+    case "1":   $BluRayDVD_price1 = "0"; break;
+    case "2":   $BluRayDVD_price1 = "20"; break;
+    case "3":   $BluRayDVD_price1 = "40"; break;
+    case "4":   $BluRayDVD_price1 = "60"; break;
+    case "5":   $BluRayDVD_price1 = "80"; break;
+    case "6":   $BluRayDVD_price1 = "100"; break;
+    case "7":   $BluRayDVD_price1 = "120"; break;
+    default:    $BluRayDVD_price1 = "100"; break;
 }
 ?>
 
@@ -209,6 +742,45 @@ switch(Session::get('processorcooler_rotation_max')) {
     var ProcessorCoolerVentilatorDm0 = '<?php echo $ProcessorCoolerVentilatorDm0; ?>';
     var ProcessorCoolerRSpeed0 = '<?php echo $ProcessorCoolerRSpeed0; ?>';
     var ProcessorCoolerRSpeed1 = '<?php echo $ProcessorCoolerRSpeed1; ?>';
+    var harddiskdrive_price0 = '<?php echo $harddiskdrive_price0; ?>';
+    var harddiskdrive_price1 = '<?php echo $harddiskdrive_price1; ?>';
+    var soundcard_price0 = '<?php echo $soundcard_price0; ?>';
+    var soundcard_price1 = '<?php echo $soundcard_price1; ?>';
+    var pci_price0 = '<?php echo $pci_price0; ?>';
+    var pci_price1 = '<?php echo $pci_price1; ?>';
+    var videocard_price0 = '<?php echo $videocard_price0; ?>';
+    var videocard_price1 = '<?php echo $videocard_price1; ?>';
+    var videocard_memoryMb0 = '<?php echo $videocard_memoryMb0; ?>';
+    var videocard_memoryMb1 = '<?php echo $videocard_memoryMb1; ?>';
+    var processor_price0 = '<?php echo $processor_price0; ?>';
+    var processor_price1 = '<?php echo $processor_price1; ?>';
+    var processor_clocking0 = '<?php echo $processor_clocking0; ?>';
+    var processor_clocking1 = '<?php echo $processor_clocking1; ?>';
+    var ram_price0 = '<?php echo $ram_price0; ?>';
+    var ram_price1 = '<?php echo $ram_price1; ?>';
+    var motherboard_price0 = '<?php echo $motherboard_price0; ?>';
+    var motherboard_price1 = '<?php echo $motherboard_price1; ?>';
+    var Usb_port0 = '<?php echo $Usb_port0; ?>';
+    var motherboard_sata300connection0 = '<?php echo $motherboard_sata300connection0; ?>';
+    var motherboard_sata600connection0 = '<?php echo $motherboard_sata600connection0; ?>';
+    var casing_Price0 = '<?php echo $casing_Price0; ?>';
+    var casing_Price1 = '<?php echo $casing_Price1; ?>';
+    var casing_expansion_0 = '<?php echo $casing_expansion_0; ?>';
+    var casing_expansion_1 = '<?php echo $casing_expansion_1; ?>';
+    var casing_HDD_SSD_0 = '<?php echo $casing_HDD_SSD_0; ?>';
+    var casing_HDD_SSD_1 = '<?php echo $casing_HDD_SSD_1; ?>';
+    var casing_HDD_0 = '<?php echo $casing_HDD_0; ?>';
+    var casing_HDD_1 = '<?php echo $casing_HDD_1; ?>';
+    var casing_Bayss0 = '<?php echo $casing_Bayss0; ?>';
+    var casing_Bayss1 = '<?php echo $casing_Bayss1; ?>';
+    var ssd_price0 = '<?php echo $ssd_price0; ?>';
+    var ssd_price1 = '<?php echo $ssd_price1; ?>';
+    var ssd_writespeed0 = '<?php echo $ssd_writespeed0; ?>';
+    var ssd_writespeed1 = '<?php echo $ssd_writespeed1; ?>';
+    var ssd_readspeed0 = '<?php echo $ssd_readspeed0; ?>';
+    var ssd_readspeed1 = '<?php echo $ssd_readspeed1; ?>';
+    var BluRayDVD_price0 = '<?php echo $BluRayDVD_price0; ?>';
+    var BluRayDVD_price1 = '<?php echo $BluRayDVD_price1; ?>';
 </script>
 
 @extends('layout.template')
@@ -968,8 +1540,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_hdd" readonly></p>
                             <div class="specification_table_slider" id="slider_harddiskdrive_price"></div>
-                            <input name="harddiskdrive_price0" type="hidden"  value="60" id="harddiskdrive_price0">
-                            <input name="harddiskdrive_price1" type="hidden"  value="160" id="harddiskdrive_price1">
+                            <input name="harddiskdrive_price0" type="hidden"  value={{$harddiskdrive_price0}} id="harddiskdrive_price0">
+                            <input name="harddiskdrive_price1" type="hidden"  value={{$harddiskdrive_price1}} id="harddiskdrive_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1288,8 +1860,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_geluid" readonly></p>
                             <div class="specification_table_slider" id="soundcard_price"></div>
-                            <input name="soundcard_price0" type="hidden" value="60" id="soundcard_price0">
-                            <input name="soundcard_price1" type="hidden" value="100" id="soundcard_price1">
+                            <input name="soundcard_price0" type="hidden" value={{$soundcard_price0}} id="soundcard_price0">
+                            <input name="soundcard_price1" type="hidden" value={{$soundcard_price1}} id="soundcard_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1390,8 +1962,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_pci" readonly></p>
                             <div class="specification_table_slider" id="pci_price"></div>
-                            <input name="pci_price0" type="hidden"  value="20" id="pci_price0">
-                            <input name="pci_price1" type="hidden" value="60" id="pci_price1">
+                            <input name="pci_price0" type="hidden"  value={{$pci_price0}} id="pci_price0">
+                            <input name="pci_price1" type="hidden" value={{$pci_price1}} id="pci_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1829,15 +2401,15 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs </h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label"   type="text" id="amount_GPU_prijs" readonly></p>
                             <div class="specification_table_slider" type="hidden"  id="videocard_price"></div>
-                            <input name="videocard_price0" type="hidden" value="100" id="videocard_price0">
-                            <input name="videocard_price1"  type="hidden" value="600" id="videocard_price1">
+                            <input name="videocard_price0" type="hidden" value={{$videocard_price0}} id="videocard_price0">
+                            <input name="videocard_price1"  type="hidden" value={{$videocard_price1}} id="videocard_price1">
                         </div>
                         <div class="GPU_memory specification_table">
                             <h5>Gewenst videogeheugen</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label"  type="text" id="amount_GPU_geheugen" readonly></p>
                             <div class="specification_table_slider" id="videocard_memory"></div>
-                            <input name="videocard_memoryMb0" type="hidden"  value="516" id="videocard_memoryMb0">
-                            <input name="videocard_memoryMb1" type="hidden"  value="4096" id="videocard_memoryMb1">
+                            <input name="videocard_memoryMb0" type="hidden"  value={{$videocard_memoryMb0}} id="videocard_memoryMb0">
+                            <input name="videocard_memoryMb1" type="hidden"  value={{$videocard_memoryMb1}} id="videocard_memoryMb1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -1906,8 +2478,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount" readonly></p>
                             <div class="specification_table_slider" id="processor_price"></div>
-                            <input name="processor_price0"  type="hidden" value="100" id="processor_price0">
-                            <input name="processor_price1"  type="hidden" value="400" id="processor_price1">
+                            <input name="processor_price0"  type="hidden" value={{$processor_price0}} id="processor_price0">
+                            <input name="processor_price1"  type="hidden" value={{$processor_price1}} id="processor_price1">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -1991,8 +2563,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="speed" readonly></p>
                             <div class="specification_table_slider" id="processor_clockingspeed"></div>
-                            <input name="processor_clocking0" type="hidden" value="1450" id="processor_clocking0">
-                            <input name="processor_clocking1"  type="hidden" value="2510"  id="processor_clocking1">
+                            <input name="processor_clocking0" type="hidden" value={{$processor_clocking0}} id="processor_clocking0">
+                            <input name="processor_clocking1"  type="hidden" value={{$processor_clocking1}}  id="processor_clocking1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2246,8 +2818,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ram" readonly></p>
                             <div class="specification_table_slider" id="ram_price"></div>
-                            <input name="ram_price0"  type="hidden" value="60" id="ram_price0">
-                            <input name="ram_price"1  type="hidden"  value="120" id="ram_price1">
+                            <input name="ram_price0"  type="hidden" value={{$ram_price0}} id="ram_price0">
+                            <input name="ram_price1"  type="hidden"  value={{$ram_price1}} id="ram_price1">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2447,14 +3019,14 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_moederbord" readonly></p>
                             <div class="specification_table_slider" id="motherboard_price"></div>
-                            <input name="motherboard_price0"  type="hidden" value="100" id="motherboard_price0">
-                            <input name="motherboard_price1" type="hidden"  value="260" id="motherboard_price1">
+                            <input name="motherboard_price0"  type="hidden" value={{$motherboard_price0}} id="motherboard_price0">
+                            <input name="motherboard_price1" type="hidden"  value={{$motherboard_price1}} id="motherboard_price1">
                         </div>
                         <div class="moederbord_usb specification_table">
                             <h5>Aantal USB 3.0 poorten</h5>
                             <p><input class="slider_label" type="text" id="amount_usb" readonly></p>
                             <div class="specification_table_slider" id="motherboard_ports"></div>
-                            <input name="Usb_port0" type="hidden" value="3" id="Usb_port0">
+                            <input name="Usb_port0" type="hidden" value={{$Usb_port0}} id="Usb_port0">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -2629,13 +3201,13 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Aantal SATA 300 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata300" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata300"></div>
-                            <input name="motherboard_sata600connection0"  type="hidden" value="3" id="motherboard_sata300connection0">
+                            <input name="motherboard_sata300connection0"  type="hidden" value={{$motherboard_sata300connection0}} id="motherboard_sata300connection0">
                         </div>
                         <div class="moederbord_SATA600 specification_table">
                             <h5>Aantal SATA 600 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata600" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata600"></div>
-                            <input name="motherboard_sata600connection0" type="hidden"  value="4" id="motherboard_sata600connection0">
+                            <input name="motherboard_sata600connection0" type="hidden"  value={{$motherboard_sata600connection0}} id="motherboard_sata600connection0">
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -2874,16 +3446,16 @@ switch(Session::get('processorcooler_rotation_max')) {
                         <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                         <p><input class="slider_label" type="text" id="amount_behuizing" readonly></p>
                         <div class="specification_table_slider" id="casing_price"></div>
-                        <input name="casing_Price0" type="hidden" value="100" id="casing_Price0">
-                        <input name="casing_Price1"  type="hidden" value="160" id="casing_Price1">
+                        <input name="casing_Price0" type="hidden" value={{$casing_Price0}} id="casing_Price0">
+                        <input name="casing_Price1"  type="hidden" value={{$casing_Price1}} id="casing_Price1">
 
                     </div>
                     <div class="behuizing_uitbreiding specification_table">
                         <h5>Aantal uitbreidingssloten</h5><span class="annotation">(minimum - maximum)</span>
                         <p><input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly></p>
                         <div class="specification_table_slider" id="casing_ports"></div>
-                        <input name="casing_expansion_0"  type="hidden"  value="3" id="casing_expansion_0">
-                        <input name="casing_expansion_1"  type="hidden" value="7" id="casing_expansion_1">
+                        <input name="casing_expansion_0"  type="hidden"  value={{$casing_expansion_0}} id="casing_expansion_0">
+                        <input name="casing_expansion_1"  type="hidden" value={{$casing_expansion_1}} id="casing_expansion_1">
 
                     </div>
                 </div>
@@ -3098,8 +3670,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_2bay" readonly></p>
                         <div class="specification_table_slider" id="casing_25bays"></div>
-                        <input name="casing_HDD/SSD_0"  type="hidden" id="casing_HDD/SSD_0" value="2">
-                        <input name="casing_HDD/SSD_1"  type="hidden" id="casing_HDD/SSD_1" value="5">
+                        <input name="casing_HDD/SSD_0"  type="hidden" id="casing_HDD/SSD_0" value={{$casing_HDD_SSD_0}}>
+                        <input name="casing_HDD/SSD_1"  type="hidden" id="casing_HDD/SSD_1" value={{$casing_HDD_SSD_1}}>
                     </div>
                     <div class="behuizing_3,5bay specification_table">
                         <h5>3,5'' Bays (HDD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -3107,8 +3679,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_3bay" readonly></p>
                         <div class="specification_table_slider" id="casing_35bays"></div>
-                        <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value="2">
-                        <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value="5">
+                        <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value={{$casing_HDD_0}}>
+                        <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value={{$casing_HDD_1}}>
                     </div>
                     <div class="behuizing_5,25bay specification_table">
                         <h5>5,25'' Bays {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -3116,8 +3688,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                         </h5>
                         <p><input class="slider_label" type="text" id="amount_behuizing_5bay" readonly></p>
                         <div class="specification_table_slider" id="casing_525bays"></div>
-                        <input name="casing_Bayss0"  type="hidden" id="casing_Bayss0" value="2">
-                        <input name="casing_Bayss1"  type="hidden" id="casing_Bayss1" value="5">
+                        <input name="casing_Bayss0"  type="hidden" id="casing_Bayss0" value={{$casing_Bayss0}}>
+                        <input name="casing_Bayss1"  type="hidden" id="casing_Bayss1" value={{$casing_Bayss1}}>
                     </div>
                 </div>
                 <div class="col-md-12">
@@ -3285,8 +3857,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd" readonly></p>
                             <div class="specification_table_slider" id="ssd_price"></div>
-                            <input name="casing_Bayss" type="hidden" id="ssd_price0" value="2">
-                            <input name="casing_Bayss1"  type="hidden" id="ssd_price1" value="5">
+                            <input name="ssd_price0" type="hidden" id="ssd_price0" value={{$ssd_price0}}>
+                            <input name="ssd_price1"  type="hidden" id="ssd_price1" value={{$ssd_price1}}>
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
@@ -3404,15 +3976,15 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Schrijfsnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_schrijf" readonly></p>
                             <div class="specification_table_slider" id="ssd_writespeed"></div>
-                            <input name="ssd_writespeed0" type="hidden" id="ssd_writespeed0" value="2">
-                            <input name="ssd_writespeed1" type="hidden" id="ssd_writespeed1" value="5">
+                            <input name="ssd_writespeed0" type="hidden" id="ssd_writespeed0" value={{$ssd_writespeed0}}>
+                            <input name="ssd_writespeed1" type="hidden" id="ssd_writespeed1" value={{$ssd_writespeed1}}>
                         </div>
                         <div class="SSD_lees specification_table">
                             <h5>Leessnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_lees" readonly></p>
                             <div class="specification_table_slider" id="ssd_readspeed"></div>
-                            <input name="ssd_readspeed0" type="hidden" id="ssd_readspeed0" value="2">
-                            <input name="ssd_readspeed1" type="hidden" id="ssd_readspeed1" value="5">
+                            <input name="ssd_readspeed0" type="hidden" id="ssd_readspeed0" value={{$ssd_readspeed0}}>
+                            <input name="ssd_readspeed1" type="hidden" id="ssd_readspeed1" value={{$ssd_readspeed1}}>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -3497,8 +4069,8 @@ switch(Session::get('processorcooler_rotation_max')) {
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_brander" readonly></p>
                             <div class="specification_table_slider" id="blyraydvd_price"></div>
-                            <input name="Blu-RayDVD_price0" type="hidden" value="60" id="Blu-RayDVD_price0">
-                            <input name="Blu-RayDVD_price1"  type="hidden" value="100" id="Blu-RayDVD_price1">
+                            <input name="Blu-RayDVD_price0" type="hidden" value={{$BluRayDVD_price0}} id="Blu-RayDVD_price0">
+                            <input name="Blu-RayDVD_price1"  type="hidden" value={{$BluRayDVD_price1}} id="Blu-RayDVD_price1">
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
