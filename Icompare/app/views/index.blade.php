@@ -728,6 +728,27 @@ switch(Session::get('brander_price_max')) {
     case "7":   $BluRayDVD_price1 = "120"; break;
     default:    $BluRayDVD_price1 = "100"; break;
 }
+
+$check_items = array("powersupply_check","processorcooler_check","internalharddrive_check","soundcard_check",
+    "pci_check", "videocard_check", "processor_check", "internalmemory_check", "motherboard_check",
+    "casing_check", "ssd_check", "bluraydvd_check");
+$to_do_items = array();
+
+if(isset($message)) {
+    for($item = 0; $item < 12; $item++) {
+        if(Session::get($check_items[$item]) == "-") {
+            array_push($to_do_items, $check_items[$item]);
+        }
+    }
+} else {
+    $message = "none";
+}
+
+if($message == "none") {
+    $show_to_do_class = "container_show_to_do_hidden";
+} else {
+    $show_to_do_class = "container_show_to_do";
+}
 ?>
 
 <script type="text/javascript">
@@ -781,11 +802,52 @@ switch(Session::get('brander_price_max')) {
     var ssd_readspeed1 = '<?php echo $ssd_readspeed1; ?>';
     var BluRayDVD_price0 = '<?php echo $BluRayDVD_price0; ?>';
     var BluRayDVD_price1 = '<?php echo $BluRayDVD_price1; ?>';
+
+    function closeOverview() {
+        $(".container_show_to_do").toggleClass("container_show_to_do_hidden");
+    }
 </script>
 
 @extends('layout.template')
 
 @section('content')
+    <div id="container_show_to_do" class={{$show_to_do_class}}>
+        <div id="show_to_do">
+            <h4 style="color:#428bca;font-weight:bold;">De volgende onderdelen zijn nog niet (volledig) ingevuld:</h4>
+            <p id="item_fill_up">
+                @foreach($to_do_items as $value)
+                    @if($value == "powersupply_check")
+                        <li class="to_do_item">Voeding</li>
+                    @elseif($value == "processorcooler_check")
+                        <li class="to_do_item">Processor koeler</li>
+                    @elseif($value == "internalharddrive_check")
+                        <li class="to_do_item">Interne harde schijf</li>
+                    @elseif($value == "soundcard_check")
+                        <li class="to_do_item">Geluidskaart</li>
+                    @elseif($value == "pci_check")
+                        <li class="to_do_item">PCI</li>
+                    @elseif($value == "videocard_check")
+                        <li class="to_do_item">Videokaart</li>
+                    @elseif($value == "processor_check")
+                        <li class="to_do_item">Processor</li>
+                    @elseif($value == "internalmemory_check")
+                        <li class="to_do_item">Intern geheugen</li>
+                    @elseif($value == "motherboard_check")
+                        <li class="to_do_item">Moederbord</li>
+                    @elseif($value == "casing_check")
+                        <li class="to_do_item">Behuizing</li>
+                    @elseif($value == "ssd_check")
+                        <li class="to_do_item">SSD</li>
+                    @elseif($value == "bluraydvd_check")
+                        <li class="to_do_item">Blu-ray & DVD</li>
+                    @endif
+                @endforeach
+                <div class="col-md-12" style="margin-top:30px;">
+                    <input type="button" class="myButton" onclick="closeOverview()" value="Verder met het invullen">
+                </div>
+            </p>
+        </div>
+    </div>
     <div class="content col-md-10">
         <div class="intro_accordion">
             <div class="accordion-section">
@@ -4219,6 +4281,6 @@ switch(Session::get('brander_price_max')) {
                 <li><img src="images/checked.png" class="list_state", id="bluraydvd_state"/> Blu-ray & DVD</li>
             @endif
         </ul>
-        <a href="awaiting_response" class="myButtonCreer">Creëer profiel</a>
+        <a href="save" class="myButtonCreer">Creëer profiel</a>
     </div>
 @stop
