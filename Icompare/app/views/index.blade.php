@@ -903,7 +903,7 @@ if($message == "none") {
                 Processor koeler {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                     'alt' => 'test', 'title'=> 'De processorkoeler zorgt ervoor dat de hitte die de processor van je computer produceert, afgevoerd wordt. Veel processoren worden geleverd met een koeler. Vaak produceren deze meegeleverde koelers (te) veel geluid en/of koelen ze niet optimaal.')) }}
             @elseif($menuitem == "internalharddrive")
-                Interne harde schrijf
+                Interne harde schijf
             @elseif($menuitem == "internalmemory")
                 Intern geheugen {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                     'alt' => 'test', 'title'=> 'RAM-geheugen, ook wel intern geheugen of werkgeheugen genoemd, wordt door computers gebruikt om snel te functioneren.')) }}
@@ -1236,7 +1236,7 @@ if($message == "none") {
                                 <td style="width:25%">Be quiet!</td>
                                 <td style="width:25%">Cooler Master</td>
                                 <td style="width:25%">Corsair</td>
-                                <td style="width:25%">Artic</td>
+                                <td style="width:25%">Arctic</td>
                             </tr>
                             <tr>
                                 @if(Session::get('processorcooler_brand1') == "0")
