@@ -86,10 +86,13 @@ def run_insert_query(man_code, value, insert_string):
     if not insert_string == "":
         query = neo4j.CypherQuery(graph, insert_string)
         query.execute(man_code=man_code, value=value)
+    #else:
+    #    print "abort"
 
 def save_specification(item, man_code, spec_title, spec_desc):
     value = spec_desc[item]
     insert_string = ""
+    #print spec_title[item] + " " + value
     if spec_title[item] == "Socket":
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.socket = {value} RETURN n'
     elif spec_title[item] == "Chipset":
@@ -270,6 +273,8 @@ def save_specification(item, man_code, spec_title, spec_desc):
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.voorzijde = {value} RETURN n'
     elif spec_title[item] == "Achterzijde":
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.achterzijde = {value} RETURN n'
+    elif spec_title[item] == "Zijkant":
+        insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.zijkant = {value} RETURN n'
     elif spec_title[item] == "Bovenzijdeslot":
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.bovenzijdeslot = {value} RETURN n'
     elif spec_title[item] == "Onderzijdeslot":
@@ -602,6 +607,8 @@ def get_details(link_item, cat_name):
     source = get_img(item_name, item_container)
     spec_title = get_spec_title(item_name, item_container, soup)
     spec_desc = get_spec_desc(item_name, item_container, soup)
+    #print spec_title
+    #print spec_desc
     manufacture_code = get_manufacture_code(spec_title, spec_desc)
     if not manufacture_code == "unknown":
         check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
