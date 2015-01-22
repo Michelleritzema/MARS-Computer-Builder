@@ -21,12 +21,6 @@ foreach(preg_split("/((\r?\n)|(\r\n?))/", $string) as $line){
     preg_match('/[^\"\]]*,img[^,]*/', $line, $output_array);
     $img = filter_data($output_array);
 
-    echo $price;
-    preg_match('/(\d\d.)/', $line, $output_array);
-    $cur_price_first = filter_data($output_array);
-    preg_match('/(\d\d.)/', $line, $output_array);
-    $cur_price_second = filter_data($output_array);
-
     if($category == "Internehardeschijven(HDD)") {
         preg_match('/[^\"\],]*manufacture_code[^,]*/', $line, $output_array);
         $manufacture_code = filter_data($output_array);
@@ -205,9 +199,6 @@ switch($menuitem) {
             </table>
         </div>
         <div class="content col-md-6" style="padding:2%">
-            <div style="position:absolute;top:20px;right:10%;font-size:30pt;color:#323232">
-                &euro; 120<span style="font-size:22pt;color:#35A6E9">.00</span>
-            </div>
             <a href="{{ $result_link }}" target="_blank">
                 <img class="result_img" src="{{ $result_img }}"/>
             </a>

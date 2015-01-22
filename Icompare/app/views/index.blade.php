@@ -68,7 +68,9 @@ switch(Session::get('powersupply_price_max')) {
     case "b":   $voeding_cost1 = "400"; break;
     default:    $voeding_cost1 = "200"; break;
 }
-switch(Session::get('powersupply_power_min')) {
+$Powersupply_power0 = "0";
+$Powersupply_power1 = "0";
+/*switch(Session::get('powersupply_power_min')) {
     case "1":   $Powersupply_power0 = "400"; break;
     case "2":   $Powersupply_power0 = "450"; break;
     case "3":   $Powersupply_power0 = "500"; break;
@@ -83,8 +85,8 @@ switch(Session::get('powersupply_power_min')) {
     case "c":   $Powersupply_power0 = "950"; break;
     case "d":   $Powersupply_power0 = "1000"; break;
     default:    $Powersupply_power0 = "400"; break;
-}
-switch(Session::get('powersupply_power_max')) {
+}*/
+/*switch(Session::get('powersupply_power_max')) {
     case "1":   $Powersupply_power1 = "400"; break;
     case "2":   $Powersupply_power1 = "450"; break;
     case "3":   $Powersupply_power1 = "500"; break;
@@ -99,7 +101,7 @@ switch(Session::get('powersupply_power_max')) {
     case "c":   $Powersupply_power1 = "950"; break;
     case "d":   $Powersupply_power1 = "1000"; break;
     default:    $Powersupply_power1 = "1000"; break;
-}
+}*/
 $Sataconnection0 = "0";
 $Sataconnection1 = "0";
 /*switch(Session::get('s-ata_min')) {
@@ -1207,13 +1209,13 @@ if($message == "none") {
                             <input name="voeding_cost0" type="hidden" value={{$voeding_cost0}} id="voeding_cost0">
                             <input name="voeding_cost1" type="hidden" value={{$voeding_cost1}} id="voeding_cost1">
                         </div>
-                        <div class="voeding_vermogen specification_table">
+                        <!--<div class="voeding_vermogen specification_table">
                             <h5>Vermogen (in Watt)<br><span class="annotation">(minimum - maximum)</span></h5>
                             <p><input class="slider_label" type="text" id="voeding_vermogen" readonly></p>
                             <div class="specification_table_slider" id="slider_powersupply_power"></div>
                             <input name="Powersupply_power0" type="hidden" value={{$Powersupply_power0}} type="hidden"  id="Powersupply_power0">
                             <input name="Powersupply_power1" type="hidden" value={{$Powersupply_power1}} type="hidden" id="Powersupply_power1">
-                        </div>
+                        </div>-->
                         <!--<div class="voeding_sata specification_table">
                             <h5>S-ATA aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',

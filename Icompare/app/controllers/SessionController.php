@@ -110,8 +110,10 @@ class SessionController extends BaseController {
             case "400":     Session::put('powersupply_price_max', 'b'); break;
             default:        Session::put('voeding_cost0', 'b'); break;
         }
-        $temp = Input::get('Powersupply_power0');
-        switch($temp) {
+        Session::put('powersupply_power_min', '0');
+        Session::put('powersupply_power_max', '0');
+        //$temp = Input::get('Powersupply_power0');
+        /*switch($temp) {
             case "400":     Session::put('powersupply_power_min', '1'); break;
             case "450":     Session::put('powersupply_power_min', '2'); break;
             case "500":     Session::put('powersupply_power_min', '3'); break;
@@ -126,9 +128,9 @@ class SessionController extends BaseController {
             case "950":     Session::put('powersupply_power_min', 'c'); break;
             case "1000":    Session::put('powersupply_power_min', 'd'); break;
             default:        Session::put('powersupply_power_min', '1'); break;
-        }
-        $temp = Input::get('Powersupply_power1');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('Powersupply_power1');
+        /*switch($temp) {
             case "400":     Session::put('powersupply_power_max', '1'); break;
             case "450":     Session::put('powersupply_power_max', '2'); break;
             case "500":     Session::put('powersupply_power_max', '3'); break;
@@ -143,7 +145,7 @@ class SessionController extends BaseController {
             case "950":     Session::put('powersupply_power_max', 'c'); break;
             case "1000":    Session::put('powersupply_power_max', 'd'); break;
             default:        Session::put('powersupply_power_max', 'd'); break;
-        }
+        }*/
         //$temp = Input::get('Sata-connection0');
         Session::put('s-ata_min', '0');
         Session::put('s-ata_max', '0');
@@ -195,11 +197,7 @@ class SessionController extends BaseController {
         Session::put('pci_express_6pin2pin', $voeding_pci6_2);
 
         if($voeding_cpup4p4 != '-' && $voeding_modulair != '-' && $voeding_certificering != '-' && $voeding_pci6 != '-' && $voeding_pci6_2 != '-') {
-            if((int)$voeding_cpup4 + (int)$voeding_cpup8 != 0) {
-                Session::put('powersupply_check', 'yes');
-            } else {
-                Session::put('powersupply_check', '-');
-            }
+            Session::put('powersupply_check', 'yes');
         } else {
             Session::put('powersupply_check', '-');
         }
