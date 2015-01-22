@@ -154,7 +154,10 @@ switch(Session::get('processorcooler_price_max')) {
     case "7":   $ProcessorCoolerP1 = "120"; break;
     default:    $ProcessorCoolerP1 = "100"; break;
 }
-switch(Session::get('processorcooler_diameter')) {
+$ProcessorCoolerVentilatorDm0 = "0";
+$ProcessorCoolerRSpeed0 = "0";
+$ProcessorCoolerRSpeed1 = "0";
+/*switch(Session::get('processorcooler_diameter')) {
     case "1":   $ProcessorCoolerVentilatorDm0 = "6"; break;
     case "2":   $ProcessorCoolerVentilatorDm0 = "7"; break;
     case "3":   $ProcessorCoolerVentilatorDm0 = "8"; break;
@@ -165,8 +168,8 @@ switch(Session::get('processorcooler_diameter')) {
     case "8":   $ProcessorCoolerVentilatorDm0 = "13"; break;
     case "9":   $ProcessorCoolerVentilatorDm0 = "14"; break;
     default:    $ProcessorCoolerVentilatorDm0 = "9"; break;
-}
-switch(Session::get('processorcooler_rotation_min')) {
+}*/
+/*switch(Session::get('processorcooler_rotation_min')) {
     case "1":   $ProcessorCoolerRSpeed0 = "800"; break;
     case "2":   $ProcessorCoolerRSpeed0 = "1000"; break;
     case "3":   $ProcessorCoolerRSpeed0 = "1200"; break;
@@ -182,8 +185,8 @@ switch(Session::get('processorcooler_rotation_min')) {
     case "d":   $ProcessorCoolerRSpeed0 = "3200"; break;
     case "e":   $ProcessorCoolerRSpeed0 = "3400"; break;
     default:    $ProcessorCoolerRSpeed0 = "800"; break;
-}
-switch(Session::get('processorcooler_rotation_max')) {
+}*/
+/*switch(Session::get('processorcooler_rotation_max')) {
     case "1":   $ProcessorCoolerRSpeed1 = "800"; break;
     case "2":   $ProcessorCoolerRSpeed1 = "1000"; break;
     case "3":   $ProcessorCoolerRSpeed1 = "1200"; break;
@@ -199,7 +202,7 @@ switch(Session::get('processorcooler_rotation_max')) {
     case "d":   $ProcessorCoolerRSpeed1 = "3200"; break;
     case "e":   $ProcessorCoolerRSpeed1 = "3400"; break;
     default:    $ProcessorCoolerRSpeed1 = "1200"; break;
-}
+}*/
 switch(Session::get('hdd_price_min')) {
     case "1":   $harddiskdrive_price0 = "0"; break;
     case "2":   $harddiskdrive_price0 = "50"; break;
@@ -1285,13 +1288,6 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <div class="koeler_cost specification_table">
-                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
-                            <p><input class="slider_label" type="text" id="amount_koeler" readonly></p>
-                            <div class="specification_table_slider" id="slider_processorcooler_price"></div>
-                            <input name="ProcessorCoolerP0" type="hidden" value={{$ProcessorCoolerP0}} id="ProcessorCoolerP0">
-                            <input name="ProcessorCoolerP1"  type="hidden" value={{$ProcessorCoolerP1}} id="ProcessorCoolerP1">
-                        </div>
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="koeler_methode_table">
@@ -1316,7 +1312,14 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <div class="koeler_diameterventilator specification_table">
+                        <div class="koeler_cost specification_table">
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_koeler" readonly></p>
+                            <div class="specification_table_slider" id="slider_processorcooler_price"></div>
+                            <input name="ProcessorCoolerP0" type="hidden" value={{$ProcessorCoolerP0}} id="ProcessorCoolerP0">
+                            <input name="ProcessorCoolerP1"  type="hidden" value={{$ProcessorCoolerP1}} id="ProcessorCoolerP1">
+                        </div>
+                        <!--<div class="koeler_diameterventilator specification_table">
                             <h5>Diameter ventilator</h5><span class="annotation">(in cm)</span>
                             <p><input class="slider_label" type="text" id="koeler_diameter" readonly></p>
                             <div class="specification_table_slider" id="slider_processorcooler_diameter"></div>
@@ -1328,7 +1331,7 @@ if($message == "none") {
                             <div class="specification_table_slider" id="slider_processorcooler_rotation"></div>
                             <input name="ProcessorCoolerRSpeed0"  type="hidden" value={{$ProcessorCoolerRSpeed0}} id="ProcessorCoolerRSpeed0">
                             <input name="ProcessorCoolerRSpeed1" type="hidden"  value={{$ProcessorCoolerRSpeed1}} id="ProcessorCoolerRSpeed1">
-                        </div>
+                        </div>-->
                     </div>
                     <div class="col-md-12">
                         <input class="myButton" type="submit" value="Onderdeel opslaan">
@@ -1732,7 +1735,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="geluid_aiso_table">
+                        <!--<table class="geluid_aiso_table">
                             <tr>
                                 <th colspan="6"><h5>AISO Sample frequentie</h5></th>
                             </tr>
@@ -1786,7 +1789,7 @@ if($message == "none") {
                                     <td colspan="6"><input type="radio" name="geluid_aiso" value="7"></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <table class="geluid_optisch_table">
                             <tr><th colspan="2"><h5>Optische ingang
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -1898,7 +1901,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="geluid_minijack_table">
+                        <!--<table class="geluid_minijack_table">
                             <tr><th colspan="2"><h5>3,5 mm mini-jack
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Geeft aan of het product beschikt over een 3,5 mm mini-jack-ingang.')) }}
@@ -1918,7 +1921,7 @@ if($message == "none") {
                                 @else
                                     <td><input type="radio" name="geluid_jack" value="2"></td>
                                 @endif
-                            </tr>
+                            </tr>-->
                         </table>
                         <div class="geluid_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>

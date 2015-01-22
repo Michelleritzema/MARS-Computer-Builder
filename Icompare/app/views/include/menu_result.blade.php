@@ -36,7 +36,7 @@
         </table>
     </a>
 </div>
-<div class="parts-buttons col-md-12">
+<div class="parts-buttons col-md-12" style="margin-bottom:20px">
     <a href="processor">
         <table class="col-xs-2">
             <tr><td id="image_processor" class="link_image"><img src="images/processor.gif"></td></tr>

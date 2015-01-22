@@ -410,3 +410,20 @@ tbody tr td {
     font-size: 12pt;
     margin: 5px 13%;
 }
+
+.result_img {
+    width: 50%;
+}
+
+.detail_title, .detail_desc {
+    font-size: 12pt;
+    text-align: left;
+}
+
+.detail_title {
+    width: 40%;
+}
+
+.detail_desc {
+    width: 60%;
+}

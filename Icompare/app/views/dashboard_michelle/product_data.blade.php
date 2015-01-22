@@ -43,7 +43,7 @@ foreach(preg_split("/((\r?\n)|(\r\n?))/", $string) as $line){
     $price = filter_data($output_array);
     echo $price;
     echo "<br>";
-    preg_match('/[^\"]*img[^,]*/', $line, $output_array);
+    preg_match('/[^\"\]]*,img[^,]*/', $line, $output_array);
     $img = filter_data($output_array);
     echo "<img src='" . $img . "' style='width:60px'/>";
     echo "<br><br>";
@@ -54,7 +54,7 @@ function filter_data($output_array) {
     $replace = array(
         "\"" => "",
         "name:" => "",
-        "],img:" => "",
+        ",img:" => "",
         "date:" => "",
         "link:" => "",
         ",category:" => "",

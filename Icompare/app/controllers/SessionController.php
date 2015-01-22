@@ -253,8 +253,12 @@ class SessionController extends BaseController {
             case "120":     Session::put('processorcooler_price_max', '7'); break;
             default:        Session::put('processorcooler_price_max', '7'); break;
         }
-        $temp = Input::get('ProcessorCoolerVentilatorDm0');
-        switch($temp) {
+        Session::put('processorcooler_diameter', '0');
+        Session::put('processorcooler_rotation_min', '0');
+        Session::put('processorcooler_rotation_max', '0');
+
+        //$temp = Input::get('ProcessorCoolerVentilatorDm0');
+        /*switch($temp) {
             case "6":       Session::put('processorcooler_diameter', '1'); break;
             case "7":       Session::put('processorcooler_diameter', '2'); break;
             case "8":       Session::put('processorcooler_diameter', '3'); break;
@@ -265,9 +269,9 @@ class SessionController extends BaseController {
             case "13":      Session::put('processorcooler_diameter', '8'); break;
             case "14":      Session::put('processorcooler_diameter', '9'); break;
             default:        Session::put('processorcooler_diameter', '5'); break;
-        }
-        $temp = Input::get('ProcessorCoolerRSpeed0');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('ProcessorCoolerRSpeed0');
+        /*switch($temp) {
             case "800":     Session::put('processorcooler_rotation_min', '1'); break;
             case "1000":    Session::put('processorcooler_rotation_min', '2'); break;
             case "1200":    Session::put('processorcooler_rotation_min', '3'); break;
@@ -283,9 +287,9 @@ class SessionController extends BaseController {
             case "3200":    Session::put('processorcooler_rotation_min', 'd'); break;
             case "3400":    Session::put('processorcooler_rotation_min', 'e'); break;
             default:        Session::put('processorcooler_rotation_min', '1'); break;
-        }
-        $temp = Input::get('ProcessorCoolerRSpeed1');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('ProcessorCoolerRSpeed1');
+        /*switch($temp) {
             case "800":     Session::put('processorcooler_rotation_max', '1'); break;
             case "1000":    Session::put('processorcooler_rotation_max', '2'); break;
             case "1200":    Session::put('processorcooler_rotation_max', '3'); break;
@@ -301,7 +305,7 @@ class SessionController extends BaseController {
             case "3200":    Session::put('processorcooler_rotation_max', 'd'); break;
             case "3400":    Session::put('processorcooler_rotation_max', 'e'); break;
             default:        Session::put('processorcooler_rotation_max', 'e'); break;
-        }
+        }*/
 
         Session::put('processorcooler_brand1', $processorcooler_brand1);
         Session::put('processorcooler_brand2', $processorcooler_brand2);
@@ -457,7 +461,7 @@ class SessionController extends BaseController {
         else { $soundcard_sample = '-'; }
         $temp = Input::get('geluid_aiso');
         if (isset($temp)) { $soundcard_aiso = Input::get('geluid_aiso'); }
-        else { $soundcard_aiso = '-'; }
+        else { $soundcard_aiso = '0'; }                                         //Veranderd vanwege Computerstore
         $temp = Input::get('geluid_optisch');
         if (isset($temp)) { $soundcard_port = Input::get('geluid_optisch'); }
         else { $soundcard_port = '-'; }
@@ -469,7 +473,7 @@ class SessionController extends BaseController {
         else { $soundcard_headphone = '-'; }
         $temp = Input::get('geluid_jack');
         if (isset($temp)) { $soundcard_jack = Input::get('geluid_jack'); }
-        else { $soundcard_jack = '-'; }
+        else { $soundcard_jack = '0'; }                                         //Veranderd vanwege Computerstore
 
         $temp = Input::get('soundcard_price0');
         switch($temp) {
