@@ -100,7 +100,9 @@ switch(Session::get('powersupply_power_max')) {
     case "d":   $Powersupply_power1 = "1000"; break;
     default:    $Powersupply_power1 = "1000"; break;
 }
-switch(Session::get('s-ata_min')) {
+$Sataconnection0 = "0";
+$Sataconnection1 = "0";
+/*switch(Session::get('s-ata_min')) {
     case "1":   $Sataconnection0 = "0"; break;
     case "2":   $Sataconnection0 = "1"; break;
     case "3":   $Sataconnection0 = "2"; break;
@@ -115,8 +117,8 @@ switch(Session::get('s-ata_min')) {
     case "c":   $Sataconnection0 = "11"; break;
     case "d":   $Sataconnection0 = "12"; break;
     default:    $Sataconnection0 = "0"; break;
-}
-switch(Session::get('s-ata_max')) {
+}*/
+/*switch(Session::get('s-ata_max')) {
     case "1":   $Sataconnection1 = "0"; break;
     case "2":   $Sataconnection1 = "1"; break;
     case "3":   $Sataconnection1 = "2"; break;
@@ -131,7 +133,7 @@ switch(Session::get('s-ata_max')) {
     case "c":   $Sataconnection1 = "11"; break;
     case "d":   $Sataconnection1 = "12"; break;
     default:    $Sataconnection1 = "4"; break;
-}
+}*/
 switch(Session::get('processorcooler_price_min')) {
     case "1":   $ProcessorCoolerP0 = "0"; break;
     case "2":   $ProcessorCoolerP0 = "20"; break;
@@ -918,7 +920,7 @@ if($message == "none") {
             @if($menuitem == "powersupply")
                 {{ Form::open(array('action' => 'SessionController@determineSection')) }}
                     <div class="col-md-6 left_div">
-                        <table class="voeding_cpu_table">
+                        <!--<table class="voeding_cpu_table">
                             <tr><th colspan="2"><h5>CPU Aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Een 4-pin en/of 8-pin voedingsstekker voor de processor.')) }}
@@ -939,7 +941,7 @@ if($message == "none") {
                                     <td><input type="checkbox" name="voeding_cpup8" value="1" checked></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <table class="voeding_cpu+_table">
                             <tr><th colspan="4"><h5> CPU P4+P4 Aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -1209,7 +1211,7 @@ if($message == "none") {
                             <input name="Powersupply_power0" type="hidden" value={{$Powersupply_power0}} type="hidden"  id="Powersupply_power0">
                             <input name="Powersupply_power1" type="hidden" value={{$Powersupply_power1}} type="hidden" id="Powersupply_power1">
                         </div>
-                        <div class="voeding_sata specification_table">
+                        <!--<div class="voeding_sata specification_table">
                             <h5>S-ATA aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Een voedingsstekker voor een optische drive of harde schijf.')) }}
@@ -1219,7 +1221,7 @@ if($message == "none") {
                             <div class="specification_table_slider" id="slider_sata"></div>
                             <input name="Sata-connection0"  type="hidden" value={{$Sataconnection0}} id="Sata-connection0">
                             <input name="Sata-connection1"  type="hidden" value={{$Sataconnection1}} id="Sata-connection1">
-                        </div>
+                        </div>-->
                     </div>
                     <div class="col-md-12">
                         <input class="myButton" type="submit" value="Onderdeel opslaan">

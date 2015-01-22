@@ -21,7 +21,7 @@ foreach(preg_split("/((\r?\n)|(\r\n?))/", $string) as $line){
     $link = filter_data($output_array);
     echo "<a href='" . $link . "'/>klik voor link</a>";
     echo "<br>";
-    preg_match('/[^",]*category[^,]*/', $line, $output_array);
+    preg_match('/[^"]*,category[^,]*/', $line, $output_array);
     $category = filter_data($output_array);
     echo $category;
     echo "<br>";
@@ -42,7 +42,7 @@ function filter_data($output_array) {
         "],img:" => "",
         "date:" => "",
         "link:" => "",
-        "link:" => "",
+        ",category:" => "",
         "artikelnummer:" => "",
         "merk:" => ""
     );

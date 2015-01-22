@@ -144,8 +144,10 @@ class SessionController extends BaseController {
             case "1000":    Session::put('powersupply_power_max', 'd'); break;
             default:        Session::put('powersupply_power_max', 'd'); break;
         }
-        $temp = Input::get('Sata-connection0');
-        switch($temp) {
+        //$temp = Input::get('Sata-connection0');
+        Session::put('s-ata_min', '0');
+        Session::put('s-ata_max', '0');
+        /*switch($temp) {
             case "0":       Session::put('s-ata_min', '1'); break;
             case "1":       Session::put('s-ata_min', '2'); break;
             case "2":       Session::put('s-ata_min', '3'); break;
@@ -160,9 +162,9 @@ class SessionController extends BaseController {
             case "11":      Session::put('s-ata_min', 'c'); break;
             case "12":      Session::put('s-ata_min', 'd'); break;
             default:        Session::put('s-ata_min', '1'); break;
-        }
-        $temp = Input::get('Sata-connection1');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('Sata-connection1');
+        /*switch($temp) {
             case "0":       Session::put('s-ata_max', '1'); break;
             case "1":       Session::put('s-ata_max', '2'); break;
             case "2":       Session::put('s-ata_max', '3'); break;
@@ -177,7 +179,7 @@ class SessionController extends BaseController {
             case "11":      Session::put('s-ata_max', 'c'); break;
             case "12":      Session::put('s-ata_max', 'd'); break;
             default:        Session::put('s-ata_max', 'd'); break;
-        }
+        }*/
 
         Session::put('cpu_p4', $voeding_cpup4);
         Session::put('cpu_p8', $voeding_cpup8);
