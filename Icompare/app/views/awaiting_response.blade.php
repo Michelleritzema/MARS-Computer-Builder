@@ -86,7 +86,7 @@ $customer_data->save();
 @section('content')
     <div class="content col-md-12">
         <div class="waiting_message" style="margin-top:50px;">
-            <h1>Even geduld<h1>
+            <h1>Even geduld</h1>
             <h3>Uw ideale computer wordt samengesteld</h3>
             {{ HTML::image('images/loading.gif', 'Icompare load gif', array('class' => 'loading_animation', 'style' => 'width:20%')) }}
         </div>

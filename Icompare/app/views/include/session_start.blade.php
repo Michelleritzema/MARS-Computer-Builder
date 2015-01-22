@@ -2,6 +2,7 @@
 session_start();
 
 if (!Session::has('menuitem')) { Session::put('menuitem', 'powersupply'); }
+if (!Session::has('resultpage')) { Session::put('resultpage', 'no'); }
 if (!Session::has('powersupply_check')) { Session::put('powersupply_check', '-'); }
 if (!Session::has('processorcooler_check')) { Session::put('processorcooler_check', '-'); }
 if (!Session::has('internalharddrive_check')) { Session::put('internalharddrive_check', '-'); }
@@ -201,8 +202,8 @@ if (!Session::has('behuizing_merk6'))  { Session::put('behuizing_merk6','0'); }
 if (!Session::has('behuizing_computer'))  { Session::put('behuizing_computer','-'); }
 if (!Session::has('behuizing_fan'))  { Session::put('behuizing_fan','-'); }
 if (!Session::has('behuizing_stof'))  { Session::put('behuizing_stof','-'); }
-if (!Session::has('behuizing_water'))  { Session::put('behuizing_water','-'); }
-if (!Session::has('behuizing_led'))  { Session::put('behuizing_led','-'); }
+if (!Session::has('behuizing_water'))  { Session::put('behuizing_water','0'); }     // Veranderd vanwege Computerstore Website
+if (!Session::has('behuizing_led'))  { Session::put('behuizing_led','0'); }         // Veranderd vanwege Computerstore Website
 if (!Session::has('behuizing_ruis'))  { Session::put('behuizing_ruis','-'); }
 if (!Session::has('behuizing_geluid'))  { Session::put('behuizing_geluid','-'); }
 if (!Session::has('behuizing_paneel'))  { Session::put('behuizing_paneel','-'); }

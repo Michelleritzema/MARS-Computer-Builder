@@ -24,72 +24,132 @@ class HomeController extends BaseController
 	public function showPowerSupply()
 	{
 		Session::put('menuitem', 'powersupply');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showProcessorCooler()
 	{
 		Session::put('menuitem', 'processorcooler');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showInternalHarddrive()
 	{
 		Session::put('menuitem', 'internalharddrive');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showSoundcard()
 	{
 		Session::put('menuitem', 'soundcard');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showPCI()
 	{
 		Session::put('menuitem', 'PCI');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showVideoCard()
 	{
 		Session::put('menuitem', 'videocard');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showProcessor()
 	{
 		Session::put('menuitem', 'processor');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showInternalMemory()
 	{
 		Session::put('menuitem', 'internalmemory');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showMotherboard()
 	{
 		Session::put('menuitem', 'motherboard');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showCasing()
 	{
 		Session::put('menuitem', 'casing');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showSSD()
 	{
 		Session::put('menuitem', 'ssd');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 
 	public function showBlurayDVD()
 	{
 		Session::put('menuitem', 'bluraydvd');
-		return View::make('index');
+		if(Session::get('resultpage') == "no") {
+			return View::make('index');
+		}
+		else {
+			return View::make('result');
+		}
 	}
 }

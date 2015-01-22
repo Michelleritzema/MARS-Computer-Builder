@@ -3406,7 +3406,7 @@ if($message == "none") {
                             @endif
                         </tr>
                     </table>
-                    <table class="behuizing_water_table">
+                    <!--<table class="behuizing_water_table">
                         <tr><th colspan="2"><h5>Voorziening waterkoeling</h5></th></tr>
                         <tr>
                             <td style="width:50%">Ja</td>
@@ -3424,8 +3424,8 @@ if($message == "none") {
                                 <td><input type="radio" name="behuizing_water" value="2"></td>
                             @endif
                         </tr>
-                    </table>
-                    <table class="behuizing_led_table">
+                    </table>-->
+                    <!--<table class="behuizing_led_table">
                         <tr><th colspan="2"><h5>LED display aanwezig</h5></th></tr>
                         <tr>
                             <td style="width:50%">Ja</td>
@@ -3442,7 +3442,7 @@ if($message == "none") {
                             @else
                                 <td><input type="radio" name="behuizing_led" value="2"></td>
                             @endif
-                        </tr>
+                        </tr>-->
                     </table>
                     <table class="behuizing_Ruisreductie_table">
                         <tr><th colspan="2"><h5>Ruisreductie aanwezig</h5></th></tr>
@@ -3564,7 +3564,7 @@ if($message == "none") {
                         </tr>
                     </table>
                     <table class="behuizing_materiaal_table">
-                        <tr><th colspan="3"><h5>Materiaal behuizing</h5></th></tr>
+                        <tr><th colspan="4"><h5>Materiaal behuizing</h5></th></tr>
                         <tr>
                             <td style="width:25%">Aluminium</td>
                             <td style="width:25%">Kunststof</td>

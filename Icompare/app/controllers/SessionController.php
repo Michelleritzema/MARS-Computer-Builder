@@ -1226,10 +1226,10 @@ class SessionController extends BaseController {
         else { $behuizing_stof = '-'; }
         $temp = Input::get('behuizing_water');
         if (isset($temp)) { $behuizing_water = Input::get('behuizing_water'); }
-        else { $behuizing_water = '-'; }
+        else { $behuizing_water = '0'; }                                            // Veranderd vanwege Computerstore
         $temp = Input::get('behuizing_led');
         if (isset($temp)) { $behuizing_led = Input::get('behuizing_led'); }
-        else { $behuizing_led = '-'; }
+        else { $behuizing_led = '0'; }                                              // Veranderd vanwege Computerstore
         $temp = Input::get('behuizing_ruis');
         if (isset($temp)) { $behuizing_ruis = Input::get('behuizing_ruis'); }
         else { $behuizing_ruis = '-'; }

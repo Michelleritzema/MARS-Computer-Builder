@@ -47,3 +47,20 @@ Route::get('/awaiting_response', function()
 {
 	return View::make('awaiting_response');
 });
+
+Route::get('/dashboard_anny', function() { return View::make('dashboard_anny.home'); });
+Route::get('/dashboard_anny_customer_data', function() { return View::make('dashboard_anny.customer_data'); });
+Route::get('/dashboard_anny_product_data', function() { return View::make('dashboard_anny.product_data'); });
+Route::get('/dashboard_michelle', function() { return View::make('dashboard_michelle.home'); });
+Route::get('/dashboard_michelle_customer_data', function() { return View::make('dashboard_michelle.customer_data'); });
+Route::get('/dashboard_michelle_product_data', function() { return View::make('dashboard_michelle.product_data'); });
+Route::get('/dashboard_randa', function() { return View::make('dashboard_randa.home'); });
+Route::get('/dashboard_randa_customer_data', function() { return View::make('dashboard_randa.customer_data'); });
+Route::get('/dashboard_randa_product_data', function() { return View::make('dashboard_randa.product_data'); });
+Route::get('/dashboard_sander', function() { return View::make('dashboard_sander.home'); });
+Route::get('/dashboard_sander_customer_data', function() { return View::make('dashboard_sander.customer_data'); });
+Route::get('/dashboard_sander_product_data', function() { return View::make('dashboard_sander.product_data'); });
+
+
+Route::get('/annyenmichelle', function()
+{ return View::make('result'); });
