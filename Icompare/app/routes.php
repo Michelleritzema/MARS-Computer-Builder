@@ -62,5 +62,5 @@ Route::get('/dashboard_sander_customer_data', function() { return View::make('da
 Route::get('/dashboard_sander_product_data', function() { return View::make('dashboard_sander.product_data'); });
 
 
-Route::get('/annyenmichelle', function()
+Route::get('/request_result', function()
 { return View::make('result'); });

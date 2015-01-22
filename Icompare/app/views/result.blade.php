@@ -20,16 +20,22 @@ foreach(preg_split("/((\r?\n)|(\r\n?))/", $string) as $line){
     $price = filter_data($output_array);
     preg_match('/[^\"\]]*,img[^,]*/', $line, $output_array);
     $img = filter_data($output_array);
+    preg_match('/[^\"\],]*manufacture_code[^,]*/', $line, $output_array);
+    $manufacture_code = filter_data($output_array);
 
-    if($category == "Internehardeschijven(HDD)") {
-        preg_match('/[^\"\],]*manufacture_code[^,]*/', $line, $output_array);
-        $manufacture_code = filter_data($output_array);
+    if($category != "Behuizingen") {
+        preg_match('/[^\"\]]*,garantie:"[^,]*/', $line, $output_array);
+        $warranty = filter_data($output_array);
         preg_match('/[^\"\],]*merk[^,]*/', $line, $output_array);
         $brand = filter_data($output_array);
-        preg_match('/[^\"\]]*,garantie:"[^,]*/', $line, $output_array);
-        $garantie = filter_data($output_array);
-        $hdd_extra = array("manufacture_code" => $manufacture_code, "brand" => $brand, "garantie" => $garantie);
+    } else {
+        $warranty = "";
+        $brand = "";
     }
+
+    $price_split = explode(".", $price);
+    $price_first = $price_split[0];
+    $price_second = $price_split[1];
 
     if($category == "Internehardeschijven(HDD)") { $category = "Interne harde schijf";}
     else if($category == "SolidStateDrives(SSD)") { $category = "SSD"; }
@@ -44,7 +50,10 @@ foreach(preg_split("/((\r?\n)|(\r\n?))/", $string) as $line){
     else if($category == "Geluidskaarten") { $category = "Geluidskaart"; }
     else if($category == "Voedingen") { $category = "Voeding"; }
 
-    $values = array("name" => $name, "category" => $category, "link" => $link, "img" => $img);
+    $values = array("name" => $name, "category" => $category, "link" => $link, "img" => $img,
+        "price_first" => $price_first, "price_second" => $price_second, "brand" => $brand,
+        "manufacture_code" => $manufacture_code, "warranty" => $warranty);
+
     $super_array[$i] = $values;
     $i++;
 }
@@ -79,72 +88,96 @@ switch($menuitem) {
         $result_category = $super_array[11]['category'];
         $result_link = $super_array[11]['link'];
         $result_img = $super_array[11]['img'];
+        $result_price_first = $super_array[11]['price_first'];
+        $result_price_second = $super_array[11]['price_second'];
         break;
     case "processorcooler":
         $result_name = $super_array[9]['name'];
         $result_category = $super_array[9]['category'];
         $result_link = $super_array[9]['link'];
         $result_img = $super_array[9]['img'];
+        $result_price_first = $super_array[9]['price_first'];
+        $result_price_second = $super_array[9]['price_second'];
         break;
     case "internalharddrive":
         $result_name = $super_array[0]['name'];
         $result_category = $super_array[0]['category'];
         $result_link = $super_array[0]['link'];
         $result_img = $super_array[0]['img'];
+        $result_price_first = $super_array[0]['price_first'];
+        $result_price_second = $super_array[0]['price_second'];
         break;
     case "soundcard":
         $result_name = $super_array[10]['name'];
         $result_category = $super_array[10]['category'];
         $result_link = $super_array[10]['link'];
         $result_img = $super_array[10]['img'];
+        $result_price_first = $super_array[10]['price_first'];
+        $result_price_second = $super_array[10]['price_second'];
         break;
     case "PCI":
         $result_name = $super_array[2]['name'];
         $result_category = $super_array[2]['category'];
         $result_link = $super_array[2]['link'];
         $result_img = $super_array[2]['img'];
+        $result_price_first = $super_array[2]['price_first'];
+        $result_price_second = $super_array[2]['price_second'];
         break;
     case "videocard":
         $result_name = $super_array[7]['name'];
         $result_category = $super_array[7]['category'];
         $result_link = $super_array[7]['link'];
         $result_img = $super_array[7]['img'];
+        $result_price_first = $super_array[7]['price_first'];
+        $result_price_second = $super_array[7]['price_second'];
         break;
     case "processor":
         $result_name = $super_array[5]['name'];
         $result_category = $super_array[5]['category'];
         $result_link = $super_array[5]['link'];
         $result_img = $super_array[5]['img'];
+        $result_price_first = $super_array[5]['price_first'];
+        $result_price_second = $super_array[5]['price_second'];
         break;
     case "internalmemory":
         $result_name = $super_array[6]['name'];
         $result_category = $super_array[6]['category'];
         $result_link = $super_array[6]['link'];
         $result_img = $super_array[6]['img'];
+        $result_price_first = $super_array[6]['price_first'];
+        $result_price_second = $super_array[6]['price_second'];
         break;
     case "motherboard":
         $result_name = $super_array[4]['name'];
         $result_category = $super_array[4]['category'];
         $result_link = $super_array[4]['link'];
         $result_img = $super_array[4]['img'];
+        $result_price_first = $super_array[4]['price_first'];
+        $result_price_second = $super_array[4]['price_second'];
         break;
     case "casing":
         $result_name = $super_array[8]['name'];
         $result_category = $super_array[8]['category'];
         $result_link = $super_array[8]['link'];
         $result_img = $super_array[8]['img'];
+        $result_price_first = $super_array[8]['price_first'];
+        $result_price_second = $super_array[8]['price_second'];
         break;
     case "ssd":
         $result_name = $super_array[1]['name'];
         $result_category = $super_array[1]['category'];
         $result_link = $super_array[1]['link'];
         $result_img = $super_array[1]['img'];
+        $result_price_first = $super_array[1]['price_first'];
+        $result_price_second = $super_array[1]['price_second'];
         break;
     case "bluraydvd":
         $result_name = $super_array[3]['name'];
         $result_category = $super_array[3]['category'];
         $result_link = $super_array[3]['link'];
         $result_img = $super_array[3]['img'];
+        $result_price_first = $super_array[3]['price_first'];
+        $result_price_second = $super_array[3]['price_second'];
         break;
 }
 ?>
@@ -159,27 +192,34 @@ switch($menuitem) {
             <table class="result_details">
                 <tr><th style="font-size:14pt">Product details</th></tr>
                 <tr>
-                    <td class="detail_title">Naam product: </td>
+                    <td class="detail_title">Naam product:</td>
                     <td class="detail_desc">{{ $result_name }}</td>
                 </tr>
-                @if($menuitem == "internalharddrive")
+                @if($menuitem != "casing")
                     <tr>
-                        <td class="detail_title">Fabrikantcode: </td>
-                        <td class="detail_desc">{{$hdd_extra["manufacture_code"]}}</td>
+                        <td class="detail_title">Fabrikantcode:</td>
+                        <td class="detail_desc">{{ $manufacture_code }}</td>
                     </tr>
                     <tr>
-                        <td class="detail_title">Merk: </td>
-                        <td class="detail_desc">{{$hdd_extra["brand"]}}</td>
+                        <td class="detail_title">Merk:</td>
+                        <td class="detail_desc">{{ $brand }}</td>
                     </tr>
                     <tr>
-                        <td class="detail_title">Garantie: </td>
-                        <td class="detail_desc">{{$hdd_extra["garantie"]}}</td>
+                        <td class="detail_title">Garantie:</td>
+                        <td class="detail_desc">{{ $warranty }}</td>
                     </tr>
                 @endif
                 <tr>
-                    <td class="detail_title">Link product: </td>
+                    <td class="detail_title">Link product:</td>
                     <td class="detail_desc">
                         <a href='{{ $result_link }}' target="_blank"><img style="height:80%" src="images/computerstore.png" /></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="detail_title">Huidige prijs:</td>
+                    <td class="detail_desc">
+                        <span style="color:#323232;font-size:26pt">{{$result_price_first}}.</span><span
+                            style="color:#00A1FF;font-size:18pt">{{$result_price_second}}</span>
                     </td>
                 </tr>
             </table><br>
@@ -191,7 +231,7 @@ switch($menuitem) {
                 </table>
             @endif
             <table style="margin-bottom:25px;width:50%">
-                <tr><th colspan="2">Overzicht prijsverandering</th></tr>
+                <tr><th colspan="2" style="font-size:14pt">Overzicht prijsverandering</th></tr>
                 <tr><td class="detail_desc">20-01-2014</td><td class="detail_desc">&euro; 45.00</td></tr>
                 <tr><td class="detail_desc">21-01-2014</td><td class="detail_desc">&euro; 34.00</td></tr>
                 <tr><td class="detail_desc">22-01-2014</td><td class="detail_desc">&euro; 34.00</td></tr>

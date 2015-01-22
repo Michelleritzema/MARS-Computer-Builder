@@ -27,6 +27,7 @@
 
 <?php
 $menuitem = Session::get('menuitem');
+Session::set('resultpage', 'no');
 $powersupply_check = Session::get('powersupply_check');
 $processorcooler_check = Session::get('processorcooler_check');
 $internalharddrive_check = Session::get('internalharddrive_check');
