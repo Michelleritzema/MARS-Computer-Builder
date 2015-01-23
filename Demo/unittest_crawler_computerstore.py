@@ -1,25 +1,28 @@
 __author__ = 'Michelle'
 # coding: utf-8
-import unittest
+
 from bs4 import BeautifulSoup
+import requests
+import unittest
 from CrawlerComputerstore import get_name, get_price, get_img, get_spec_title, get_spec_desc
 
-soup = BeautifulSoup("<div class='product_container'><span itemprop='name'>	Example name  </span>"
-                     "<div class='price'>€@!100,50,-</div><img class='hasImageZoom' "
-                     "data-img-large='http://img.cbcdn.net/products/315988?width=1172&height=894'/>"
-                     "<td class='table_spectable_spec'><span class='table_spectable_spec_titletext'>"
-                     "   Titel 1 </span></td><td class='table_spectable_specdescription'> Desc 1 </td>"
-                     "<td class='table_spectable_spec'> Titel 2 </td>"
-                     "<td class='table_spectable_specdescription'> Desc 2 </td></div>"
-                     "<div class='product-page'><span class='js-product-name'>Example name</span>"
-                     "<strong class='sales-price--current'>€@!100,50,-</strong><img class='media-gallery--main-image' "
-                     "src='http://img.cbcdn.net/products/315988?width=1172&height=894'/>"
-                     "<div class='show-more--content'><dt class='product-specs--item-title'>"
-                     "<span class='product-specs--help-title'> Titel 1 </span></dt>"
-                     "<dd class='product-specs--item-spec'><span class='icon-fallback'> Desc 1 </span></dd>"
-                     "<dt class='product-specs--item-title'> Titel 2 </dt>"
-                     "<dd class='product-specs--item-spec'> Desc 2 </dd></div>"
-                     "</div>")
+url = "http://www.computerstore.nl/category/208983/moederborden.html"
+source_code = requests.get(url)
+plain_text = source_code.text
+soup = BeautifulSoup(plain_text)
+
+categories = []
+for container in soup.findAll('li', {'class': 'facetcontainer'}):
+    container_sources = container.findChildren('a', {'class': 'image'})
+    source = "http://www.computerstore.nl" + container_sources[0].get('href')
+    categories.append(source)
+    url = source + "?sort=popularity&dir=d&page=1&items=12"
+    source_code = requests.get(url)
+    plain_text = source_code.text
+    soup = BeautifulSoup(plain_text)
+
+#print soup;
+
 
 spec_title = ['Titel1', 'Titel2']
 spec_desc_noicon = ['Desc 1', 'Desc 2']
@@ -60,6 +63,7 @@ class TestUM(unittest.TestCase):
             self.assertEqual(get_spec_desc("product_container", item_container, soup), spec_desc_noicon)
         for item_container in soup.findAll('div', {'class': 'product-page'}):
             self.assertEqual(get_spec_desc("product-page", item_container, soup), spec_desc_icon)
+        print "Klaar met testen"
 
 if __name__ == '__main__':
     unittest.main()

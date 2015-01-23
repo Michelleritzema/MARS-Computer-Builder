@@ -20,7 +20,7 @@ graph = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
 # naar de links binnen de facetcontainer die een class hebben van 'image'. Hieruit wordt de
 # href gehaald en opgeslagen in de variabele 'source', deze wordt vervolgens aan de array
 # 'categories' toegevoegd. De functie walk_through_categories() wordt aangeroepen.
-def get_categories():
+def get_categories(test):
     categories = []
     category_names = []
     url = "http://www.computerstore.nl/category/211478/computer-onderdelen.html"
@@ -37,8 +37,10 @@ def get_categories():
         for container_source in container_sources:
             source = "http://www.computerstore.nl" + container_source.get('href')
             categories.append(source)
-    walk_through_categories(categories, category_names)
-    #shutdowndatabase()
+    if not test == "yes":
+        walk_through_categories(categories, category_names)
+    done = True
+    return done
 
 # Deze functie loopt alle items in de array 'categories' door. Voor elk item wordt de
 # naam opgeslagen uit de 'category_names' array onder de variabele 'cat_name'. Ook wordt
@@ -71,28 +73,18 @@ def get_pages(url):
     print("Maximale aantal pagina's voor deze categorie: " + str(max_amount))
     return max_amount
 
-
-#def shutdowndatabase():
-#    def _close_db():
-#        try:
-#            graph.shutdown()
-#        except NameError:
-#            print 'Could not shutdown Neo4j database. Is it open in another process?'
-#    #import atexit
-#    #atexit.register(_close_db)
-
-
+# Checkt of de parameter gespecificeerd is bij save_specification.
+# Als dit zo is, wordt een update (of insert) query uitgevoerd.
 def run_insert_query(man_code, value, insert_string):
     if not insert_string == "":
         query = neo4j.CypherQuery(graph, insert_string)
         query.execute(man_code=man_code, value=value)
-    #else:
-    #    print "abort"
 
-def save_specification(item, man_code, spec_title, spec_desc):
+# Deze functie zoekt neemt alle parameters die in de spec_desc array zitten,
+# zodat deze als losse parameters opgeslagen kunnen worden.
+def save_specification(item, man_code, spec_title, spec_desc, test):
     value = spec_desc[item]
     insert_string = ""
-    #print spec_title[item] + " " + value
     if spec_title[item] == "Socket":
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.socket = {value} RETURN n'
     elif spec_title[item] == "Chipset":
@@ -393,7 +385,10 @@ def save_specification(item, man_code, spec_title, spec_desc):
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.dvdschrijfsnelheid = {value} RETURN n'
     elif spec_title[item] == "Geschiktvoor":
         insert_string = 'MATCH (n:Item { manufacture_code: {man_code} }) SET n.geschiktvoor = {value} RETURN n'
-    run_insert_query(man_code, value, insert_string)
+    if not test == "yes":
+        run_insert_query(man_code, value, insert_string)
+    done = True
+    return done
 
 # Deze functie checkt of een bepaalde node al in de Neo4j database aanwezig is.
 # Dit wordt gedaan door een lijst te maken van alle nodes die een bepaalde manufacture_code
@@ -467,10 +462,8 @@ def get_info_per_page(url, cat_name, max_pages):
                     link_obj = a_child
                 link_item = "http://www.computerstore.nl" + link_obj.get('href')
                 print("cat_name: " + cat_name)
-                #print("link_item: " + link_item)
                 try:
                     get_details(link_item, cat_name)
-                    #break
                 except socket.error as error:
                     if error.errno == errno.WSAECONNRESET:
                         print("there was an error, sleeping for 30 seconds and trying again...")
@@ -509,7 +502,7 @@ def get_price(item_name, item_container):
         price_str = price_item.replace(',', '.')
         price_float = float(price_str)
         price = ('%.2f' % price_float)
-    #print("price: " + str(price))
+    print("price: " + str(price))
     return price
 
 # Deze functie neemt de afbeelding en stopt deze in een variabele source.
@@ -522,7 +515,6 @@ def get_img(item_name, item_container):
     elif item_name == "product-page":
         for img_child in item_container.findChildren('img', {'class': 'media-gallery--main-image'}):
             source = str(img_child.get('src'))
-    #print("source: " + source)
     return source
 
 # Deze functie verzamelt al de specificatie titels en stopt ze in een array spec_title[].
@@ -550,7 +542,6 @@ def get_spec_title(item_name, item_container, soup):
                 else:
                     specs_title_txt = title_child.text.replace(" ", "").lstrip().rstrip()
                     spec_title.append(re.sub('\s+', ' ', specs_title_txt))
-    #print(spec_title)
     return spec_title
 
 def get_spec_desc(item_name, item_container, soup):
@@ -569,17 +560,14 @@ def get_spec_desc(item_name, item_container, soup):
                 else:
                     specs_desc_txt = desc_child.text.lstrip().rstrip()
                     spec_desc.append(re.sub('\s+', ' ', specs_desc_txt))
-    #print(spec_desc)
     return spec_desc
 
-# noinspection PyBroadException
 def get_manufacture_code(spec_title, spec_desc):
     try:
         index = spec_title.index('Fabrikantcode')
         manufacture_code = spec_desc[index]
     except:
         manufacture_code = "unknown"
-    #print("manufacture_code: " + manufacture_code)
     return manufacture_code
 
 
@@ -594,7 +582,6 @@ def get_details(link_item, cat_name):
     time.sleep(8)
     today = datetime.date.today()
     date = today.strftime("%d-%m-%Y")
-    #print("Current date: " + date)
     source_code = requests.get(link_item)
     plain_text = source_code.text
     soup = BeautifulSoup(plain_text)
@@ -607,8 +594,6 @@ def get_details(link_item, cat_name):
     source = get_img(item_name, item_container)
     spec_title = get_spec_title(item_name, item_container, soup)
     spec_desc = get_spec_desc(item_name, item_container, soup)
-    #print spec_title
-    #print spec_desc
     manufacture_code = get_manufacture_code(spec_title, spec_desc)
     if not manufacture_code == "unknown":
         check_for_nodes(cat_name, link_item, name, price, source, date, manufacture_code, spec_title, spec_desc)
@@ -619,4 +604,5 @@ if time.strftime("%H:%M") == "23:00":
 else:
     print("this is a test")
 
-#get_categories()
+#test = 'no'
+#get_categories(test)
