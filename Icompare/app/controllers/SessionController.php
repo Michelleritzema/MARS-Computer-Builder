@@ -75,7 +75,7 @@ class SessionController extends BaseController {
         else { $voeding_certificering = '-'; }
         $temp = Input::get('voeding_pci6');
         if (isset($temp)) { $voeding_pci6 = Input::get('voeding_pci6'); }
-        else { $voeding_pci6 = '-'; }
+        else { $voeding_pci6 = '0'; }
         $temp = Input::get('voeding_pci6+2');
         if (isset($temp)) { $voeding_pci6_2 = Input::get('voeding_pci6+2'); }
         else { $voeding_pci6_2 = '-'; }
@@ -365,7 +365,7 @@ class SessionController extends BaseController {
         else { $hdd_connection = '-'; }
         $temp = Input::get('HDD_cache');
         if (isset($temp)) { $hdd_buffer = Input::get('HDD_cache'); }
-        else { $hdd_buffer = '-'; }
+        else { $hdd_buffer = '0'; }                                         //Veranderd vanwege Computerstore
         $temp = Input::get('HDD_snelheid');
         if (isset($temp)) { $hdd_speed = Input::get('HDD_snelheid'); }
         else { $hdd_speed = '-'; }
@@ -456,10 +456,10 @@ class SessionController extends BaseController {
 
         $temp = Input::get('geluid_sample');
         if (isset($temp)) { $soundcard_sample = Input::get('geluid_sample'); }
-        else { $soundcard_sample = '-'; }
+        else { $soundcard_sample = '0'; }                                           //Veranderd vanwege Computerstore
         $temp = Input::get('geluid_aiso');
         if (isset($temp)) { $soundcard_aiso = Input::get('geluid_aiso'); }
-        else { $soundcard_aiso = '0'; }                                         //Veranderd vanwege Computerstore
+        else { $soundcard_aiso = '0'; }                                             //Veranderd vanwege Computerstore
         $temp = Input::get('geluid_optisch');
         if (isset($temp)) { $soundcard_port = Input::get('geluid_optisch'); }
         else { $soundcard_port = '-'; }
@@ -471,7 +471,7 @@ class SessionController extends BaseController {
         else { $soundcard_headphone = '-'; }
         $temp = Input::get('geluid_jack');
         if (isset($temp)) { $soundcard_jack = Input::get('geluid_jack'); }
-        else { $soundcard_jack = '0'; }                                         //Veranderd vanwege Computerstore
+        else { $soundcard_jack = '0'; }                                             //Veranderd vanwege Computerstore
 
         $temp = Input::get('soundcard_price0');
         switch($temp) {
@@ -547,10 +547,10 @@ class SessionController extends BaseController {
         else { $pci_firewire = '-'; }
         $temp = Input::get('pci_sata');
         if (isset($temp)) { $pci_sata = Input::get('pci_sata'); }
-        else { $pci_sata = '-'; }
+        else { $pci_sata = '0'; }                                           //Veranderd vanwege Computerstore
         $temp = Input::get('pci_esata');
         if (isset($temp)) { $pci_esata = Input::get('pci_esata'); }
-        else { $pci_esata = '-'; }
+        else { $pci_esata = '0'; }                                          //Veranderd vanwege Computerstore
 
         $temp = Input::get('pci_price0');
         switch($temp) {
@@ -652,7 +652,7 @@ class SessionController extends BaseController {
         else { $GPU_geheugen_type = '-'; }
         $temp = Input::get('GPU_HDMI');
         if (isset($temp)) { $GPU_HDMI = Input::get('GPU_HDMI'); }
-        else { $GPU_HDMI = '-'; }
+        else { $GPU_HDMI = '0'; }
         $temp = Input::get('GPU_VGA');
         if (isset($temp)) { $GPU_VGA = Input::get('GPU_VGA'); }
         else { $GPU_VGA = '-'; }
@@ -661,10 +661,10 @@ class SessionController extends BaseController {
         else { $GPU_bandwidth_memory = '-'; }
         $temp = Input::get('GPU_DVI-I');
         if (isset($temp)) { $GPU_DVII = Input::get('GPU_DVI-I'); }
-        else { $GPU_DVII = '-'; }
+        else { $GPU_DVII = '0'; }
         $temp = Input::get('GPU_DVI-D');
         if (isset($temp)) { $GPU_DVID = Input::get('GPU_DVI-D'); }
-        else { $GPU_DVID = '-'; }
+        else { $GPU_DVID = '0'; }
 
         $temp = Input::get('videocard_price0');
         switch($temp) {
@@ -1075,7 +1075,7 @@ class SessionController extends BaseController {
         else { $moederbord_type = '-'; }
         $temp = Input::get('moederbord_msata');
         if (isset($temp)) { $moederbord_msata = Input::get('moederbord_msata'); }
-        else { $moederbord_msata = '-'; }
+        else { $moederbord_msata = '0'; }                                                   //Veranderd vanwege Computerstore
 
         $temp = Input::get('motherboard_price0');
         switch($temp) {
@@ -1126,8 +1126,10 @@ class SessionController extends BaseController {
             case "14":      Session::put('moederbord_usb', 'f'); break;
             default:        Session::put('moederbord_usb', '5'); break;
         }
-        $temp = Input::get('motherboard_sata300connection0');
-        switch($temp) {
+        Session::put('moederbord_SATA300', '0');
+        Session::put('moederbord_SATA600', '0');
+        //$temp = Input::get('motherboard_sata300connection0');
+        /*switch($temp) {
             case "0":       Session::put('moederbord_SATA300', '1'); break;
             case "1":       Session::put('moederbord_SATA300', '2'); break;
             case "2":       Session::put('moederbord_SATA300', '3'); break;
@@ -1136,9 +1138,9 @@ class SessionController extends BaseController {
             case "5":       Session::put('moederbord_SATA300', '6'); break;
             case "6":       Session::put('moederbord_SATA300', '7'); break;
             default:        Session::put('moederbord_SATA300', '3'); break;
-        }
-        $temp = Input::get('motherboard_sata600connection0');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('motherboard_sata600connection0');
+        /*switch($temp) {
             case "0":       Session::put('moederbord_SATA600', '1'); break;
             case "1":       Session::put('moederbord_SATA600', '2'); break;
             case "2":       Session::put('moederbord_SATA600', '3'); break;
@@ -1151,7 +1153,7 @@ class SessionController extends BaseController {
             case "9":       Session::put('moederbord_SATA600', 'a'); break;
             case "10":      Session::put('moederbord_SATA600', 'b'); break;
             default:        Session::put('moederbord_SATA600', '3'); break;
-        }
+        }*/
 
         Session::put('moederbord_merk1', $moederbord_merk1 );
         Session::put('moederbord_merk2', $moederbord_merk2 );
@@ -1177,12 +1179,7 @@ class SessionController extends BaseController {
         if($moederbord_format != '-' && $moederbord_wifi != '-' && $moederbord_geheugen != '-' && $moederbord_HDMI != '-'
             && $moederbord_VGA != '-' && $moederbord_displayport != '-' && $moederbord_ethernet != '-' && $moederbord_DVI != '-'
             && $moederbord_audiokanalen != '-' && $moederbord_type != '-' && $moederbord_msata != '-') {
-            if(((int)$moederbord_raid1 + (int)$moederbord_raid2 + (int)$moederbord_raid3 + (int)$moederbord_raid4 +
-                (int)$moederbord_raid5 + (int)$moederbord_raid6 != 0)) {
-                Session::put('motherboard_check', 'yes');
-            } else {
-                Session::put('motherboard_check', '-');
-            }
+            Session::put('motherboard_check', 'yes');
         } else {
             Session::put('motherboard_check', '-');
         }
@@ -1230,10 +1227,10 @@ class SessionController extends BaseController {
         else { $behuizing_stof = '-'; }
         $temp = Input::get('behuizing_water');
         if (isset($temp)) { $behuizing_water = Input::get('behuizing_water'); }
-        else { $behuizing_water = '0'; }                                            // Veranderd vanwege Computerstore
+        else { $behuizing_water = '0'; }                                                // Veranderd vanwege Computerstore
         $temp = Input::get('behuizing_led');
         if (isset($temp)) { $behuizing_led = Input::get('behuizing_led'); }
-        else { $behuizing_led = '0'; }                                              // Veranderd vanwege Computerstore
+        else { $behuizing_led = '0'; }                                                  // Veranderd vanwege Computerstore
         $temp = Input::get('behuizing_ruis');
         if (isset($temp)) { $behuizing_ruis = Input::get('behuizing_ruis'); }
         else { $behuizing_ruis = '-'; }
@@ -1247,8 +1244,8 @@ class SessionController extends BaseController {
         if (isset($temp)) { $behuizing_kleur = Input::get('behuizing_kleur'); }
         else { $behuizing_kleur = '-'; }
         $temp = Input::get('behuizing_materiaal');
-        if (isset($temp)) { $behuizing_materiaal = Input::get('behuizing_materiaal'); }
-        else { $behuizing_materiaal = '-'; }
+        if (isset($temp)) { $behuizing_materiaal = Input::get('behuizing_materiaal'); }     // Veranderd vanwege Computerstore
+        else { $behuizing_materiaal = '0'; }
         $temp = Input::get('behuizing_firewire');
         if (isset($temp)) { $behuizing_firewire = Input::get('behuizing_firewire'); }
         else { $behuizing_firewire = '-'; }
@@ -1278,7 +1275,15 @@ class SessionController extends BaseController {
             case "150":     Session::put('behuizing_price_max', '7'); break;
             default:        Session::put('behuizing_price_max', '7'); break;
         }
-        $temp = Input::get('casing_expansion_0');
+        Session::put('behuizing_uitbreiding_min', '0');
+        Session::put('behuizing_uitbreiding_max', '0');
+        Session::put('behuizing_2_5bay_min', '0');
+        Session::put('behuizing_2_5bay_max', '0');
+        Session::put('behuizing_3_5bay_min', '0');
+        Session::put('behuizing_3_5bay_max', '0');
+        Session::put('behuizing_5_25bay_min', '0');
+        Session::put('behuizing_5_25bay_max', '0');
+        /*$temp = Input::get('casing_expansion_0');
         switch($temp) {
             case "2":       Session::put('behuizing_uitbreiding_min', '1'); break;
             case "3":       Session::put('behuizing_uitbreiding_min', '2'); break;
@@ -1291,8 +1296,8 @@ class SessionController extends BaseController {
             case "10":      Session::put('behuizing_uitbreiding_min', '9'); break;
             case "11":      Session::put('behuizing_uitbreiding_min', 'a'); break;
             default:        Session::put('behuizing_uitbreiding_min', '1'); break;
-        }
-        $temp = Input::get('casing_expansion_1');
+        }*/
+        /*$temp = Input::get('casing_expansion_1');
         switch($temp) {
             case "2":       Session::put('behuizing_uitbreiding_max', '1'); break;
             case "3":       Session::put('behuizing_uitbreiding_max', '2'); break;
@@ -1305,9 +1310,9 @@ class SessionController extends BaseController {
             case "10":      Session::put('behuizing_uitbreiding_max', '9'); break;
             case "11":      Session::put('behuizing_uitbreiding_max', 'a'); break;
             default:        Session::put('behuizing_uitbreiding_max', 'a'); break;
-        }
-        $temp = Input::get('casing_HDD/SSD_0');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('casing_HDD/SSD_0');
+        /*switch($temp) {
             case "0":       Session::put('behuizing_2_5bay_min', '1'); break;
             case "1":       Session::put('behuizing_2_5bay_min', '2'); break;
             case "2":       Session::put('behuizing_2_5bay_min', '3'); break;
@@ -1328,9 +1333,9 @@ class SessionController extends BaseController {
             case "17":      Session::put('behuizing_2_5bay_min', 'i'); break;
             case "18":      Session::put('behuizing_2_5bay_min', 'j'); break;
             default:        Session::put('behuizing_2_5bay_min', '1'); break;
-        }
-        $temp = Input::get('casing_HDD/SSD_1');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('casing_HDD/SSD_1');
+        /*switch($temp) {
             case "0":       Session::put('behuizing_2_5bay_max', '1'); break;
             case "1":       Session::put('behuizing_2_5bay_max', '2'); break;
             case "2":       Session::put('behuizing_2_5bay_max', '3'); break;
@@ -1351,9 +1356,9 @@ class SessionController extends BaseController {
             case "17":      Session::put('behuizing_2_5bay_max', 'i'); break;
             case "18":      Session::put('behuizing_2_5bay_max', 'j'); break;
             default:        Session::put('behuizing_2_5bay_max', 'j'); break;
-        }
-        $temp = Input::get('casing_HDD_0');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('casing_HDD_0');
+        /*switch($temp) {
             case "2":       Session::put('behuizing_3_5bay_min', '1'); break;
             case "3":       Session::put('behuizing_3_5bay_min', '2'); break;
             case "4":       Session::put('behuizing_3_5bay_min', '3'); break;
@@ -1367,9 +1372,9 @@ class SessionController extends BaseController {
             case "12":      Session::put('behuizing_3_5bay_min', 'b'); break;
             case "13":      Session::put('behuizing_3_5bay_min', 'c'); break;
             default:        Session::put('behuizing_3_5bay_min', '1'); break;
-        }
-        $temp = Input::get('casing_HDD_1');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('casing_HDD_1');
+        /*switch($temp) {
             case "2":       Session::put('behuizing_3_5bay_max', '1'); break;
             case "3":       Session::put('behuizing_3_5bay_max', '2'); break;
             case "4":       Session::put('behuizing_3_5bay_max', '3'); break;
@@ -1383,9 +1388,9 @@ class SessionController extends BaseController {
             case "12":      Session::put('behuizing_3_5bay_max', 'b'); break;
             case "13":      Session::put('behuizing_3_5bay_max', 'c'); break;
             default:        Session::put('behuizing_3_5bay_max', 'c'); break;
-        }
-        $temp = Input::get('casing_Bayss0');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('casing_Bayss0');
+        /*switch($temp) {
             case "0":       Session::put('behuizing_5_25bay_min', '1'); break;
             case "1":       Session::put('behuizing_5_25bay_min', '2'); break;
             case "2":       Session::put('behuizing_5_25bay_min', '3'); break;
@@ -1397,9 +1402,9 @@ class SessionController extends BaseController {
             case "8":       Session::put('behuizing_5_25bay_min', '9'); break;
             case "9":       Session::put('behuizing_5_25bay_min', 'a'); break;
             default:        Session::put('behuizing_5_25bay_min', '1'); break;
-        }
-        $temp = Input::get('casing_Bayss1');
-        switch($temp) {
+        }*/
+        //$temp = Input::get('casing_Bayss1');
+        /*switch($temp) {
             case "0":       Session::put('behuizing_5_25bay_max', '1'); break;
             case "1":       Session::put('behuizing_5_25bay_max', '2'); break;
             case "2":       Session::put('behuizing_5_25bay_max', '3'); break;
@@ -1411,7 +1416,7 @@ class SessionController extends BaseController {
             case "8":       Session::put('behuizing_5_25bay_max', '9'); break;
             case "9":       Session::put('behuizing_5_25bay_max', 'a'); break;
             default:        Session::put('behuizing_5_25bay_max', 'a'); break;
-        }
+        }*/
 
         Session::put('behuizing_merk1', $behuizing_merk1  );
         Session::put('behuizing_merk2', $behuizing_merk2  );
@@ -1732,11 +1737,7 @@ class SessionController extends BaseController {
         Session::put('brander_ladetype', $brander_ladetype );
 
         if($brander_type != '-' && $brander_besturing != '-' && $brander_ladetype != '-') {
-            if((int)$brander_speelt1 + (int)$brander_speelt2 + (int)$brander_speelt3 + (int)$brander_speelt4 != 0) {
-                Session::put('bluraydvd_check', 'yes');
-            } else {
-                Session::put('bluraydvd_check', '-');
-            }
+            Session::put('bluraydvd_check', 'yes');
         } else {
             Session::put('bluraydvd_check', '-');
         }

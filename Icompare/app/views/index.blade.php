@@ -466,7 +466,9 @@ switch(Session::get('moederbord_usb')) {
     case "f":   $Usb_port0 = "14"; break;
     default:    $Usb_port0 = "3"; break;
 }
-switch(Session::get('moederbord_SATA300')) {
+$motherboard_sata300connection0 = "0";
+$motherboard_sata600connection0 = "0";
+/*switch(Session::get('moederbord_SATA300')) {
     case "1":   $motherboard_sata300connection0 = "0"; break;
     case "2":   $motherboard_sata300connection0 = "1"; break;
     case "3":   $motherboard_sata300connection0 = "2"; break;
@@ -475,8 +477,8 @@ switch(Session::get('moederbord_SATA300')) {
     case "6":   $motherboard_sata300connection0 = "5"; break;
     case "7":   $motherboard_sata300connection0 = "6"; break;
     default:    $motherboard_sata300connection0 = "3"; break;
-}
-switch(Session::get('moederbord_SATA600')) {
+}*/
+/*switch(Session::get('moederbord_SATA600')) {
     case "1":   $motherboard_sata600connection0 = "0"; break;
     case "2":   $motherboard_sata600connection0 = "1"; break;
     case "3":   $motherboard_sata600connection0 = "2"; break;
@@ -489,7 +491,7 @@ switch(Session::get('moederbord_SATA600')) {
     case "a":   $motherboard_sata600connection0 = "9"; break;
     case "b":   $motherboard_sata600connection0 = "10"; break;
     default:    $motherboard_sata600connection0 = "4"; break;
-}
+}*/
 switch(Session::get('behuizing_price_min')) {
     case "1":   $casing_Price0 = "30"; break;
     case "2":   $casing_Price0 = "50"; break;
@@ -510,7 +512,9 @@ switch(Session::get('behuizing_price_max')) {
     case "7":   $casing_Price1 = "150"; break;
     default:    $casing_Price1 = "150"; break;
 }
-switch(Session::get('behuizing_uitbreiding_min')) {
+$casing_expansion_0 = "0";
+$casing_expansion_1 = "1";
+/*switch(Session::get('behuizing_uitbreiding_min')) {
     case "1":   $casing_expansion_0 = "2"; break;
     case "2":   $casing_expansion_0 = "3"; break;
     case "3":   $casing_expansion_0 = "4"; break;
@@ -522,8 +526,8 @@ switch(Session::get('behuizing_uitbreiding_min')) {
     case "9":   $casing_expansion_0 = "10"; break;
     case "a":   $casing_expansion_0 = "11"; break;
     default:    $casing_expansion_0 = "3"; break;
-}
-switch(Session::get('behuizing_uitbreiding_max')) {
+}*/
+/*switch(Session::get('behuizing_uitbreiding_max')) {
     case "1":   $casing_expansion_1 = "2"; break;
     case "2":   $casing_expansion_1 = "3"; break;
     case "3":   $casing_expansion_1 = "4"; break;
@@ -535,8 +539,10 @@ switch(Session::get('behuizing_uitbreiding_max')) {
     case "9":   $casing_expansion_1 = "10"; break;
     case "a":   $casing_expansion_1 = "11"; break;
     default:    $casing_expansion_1 = "7"; break;
-}
-switch(Session::get('behuizing_2_5bay_min')) {
+}*/
+$casing_HDD_SSD_0 = "0";
+$casing_HDD_SSD_1 = "0";
+/*switch(Session::get('behuizing_2_5bay_min')) {
     case "1":   $casing_HDD_SSD_0 = "0"; break;
     case "2":   $casing_HDD_SSD_0 = "1"; break;
     case "3":   $casing_HDD_SSD_0 = "2"; break;
@@ -557,8 +563,8 @@ switch(Session::get('behuizing_2_5bay_min')) {
     case "i":   $casing_HDD_SSD_0 = "17"; break;
     case "j":   $casing_HDD_SSD_0 = "18"; break;
     default:    $casing_HDD_SSD_0 = "5"; break;
-}
-switch(Session::get('behuizing_2_5bay_max')) {
+}*/
+/*switch(Session::get('behuizing_2_5bay_max')) {
     case "1":   $casing_HDD_SSD_1 = "0"; break;
     case "2":   $casing_HDD_SSD_1 = "1"; break;
     case "3":   $casing_HDD_SSD_1 = "2"; break;
@@ -579,8 +585,10 @@ switch(Session::get('behuizing_2_5bay_max')) {
     case "i":   $casing_HDD_SSD_1 = "17"; break;
     case "j":   $casing_HDD_SSD_1 = "18"; break;
     default:    $casing_HDD_SSD_1 = "10"; break;
-}
-switch(Session::get('behuizing_3_5bay_min')) {
+}*/
+$casing_HDD_0 = "0";
+$casing_HDD_1 = "0";
+/*switch(Session::get('behuizing_3_5bay_min')) {
     case "1":   $casing_HDD_0 = "2"; break;
     case "2":   $casing_HDD_0 = "3"; break;
     case "3":   $casing_HDD_0 = "4"; break;
@@ -594,8 +602,8 @@ switch(Session::get('behuizing_3_5bay_min')) {
     case "b":   $casing_HDD_0 = "12"; break;
     case "c":   $casing_HDD_0 = "13"; break;
     default:    $casing_HDD_0 = "2"; break;
-}
-switch(Session::get('behuizing_3_5bay_max')) {
+}*/
+/*switch(Session::get('behuizing_3_5bay_max')) {
     case "1":   $casing_HDD_1 = "2"; break;
     case "2":   $casing_HDD_1 = "3"; break;
     case "3":   $casing_HDD_1 = "4"; break;
@@ -609,8 +617,10 @@ switch(Session::get('behuizing_3_5bay_max')) {
     case "b":   $casing_HDD_1 = "12"; break;
     case "c":   $casing_HDD_1 = "13"; break;
     default:    $casing_HDD_1 = "5"; break;
-}
-switch(Session::get('behuizing_5_25bay_min')) {
+}*/
+$casing_Bayss0 = "0";
+$casing_Bayss1 = "0";
+/*switch(Session::get('behuizing_5_25bay_min')) {
     case "1":   $casing_Bayss0 = "0"; break;
     case "2":   $casing_Bayss0 = "1"; break;
     case "3":   $casing_Bayss0 = "2"; break;
@@ -622,8 +632,8 @@ switch(Session::get('behuizing_5_25bay_min')) {
     case "9":   $casing_Bayss0 = "8"; break;
     case "a":   $casing_Bayss0 = "9"; break;
     default:    $casing_Bayss0 = "2"; break;
-}
-switch(Session::get('behuizing_5_25bay_max')) {
+}*/
+/*switch(Session::get('behuizing_5_25bay_max')) {
     case "1":   $casing_Bayss1 = "0"; break;
     case "2":   $casing_Bayss1 = "1"; break;
     case "3":   $casing_Bayss1 = "2"; break;
@@ -635,7 +645,7 @@ switch(Session::get('behuizing_5_25bay_max')) {
     case "9":   $casing_Bayss1 = "8"; break;
     case "a":   $casing_Bayss1 = "9"; break;
     default:    $casing_Bayss1 = "5"; break;
-}
+}*/
 switch(Session::get('SSD_price_min')) {
     case "1":   $ssd_price0 = "0"; break;
     case "2":   $ssd_price0 = "50"; break;
@@ -948,40 +958,6 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>-->
-                        <table class="voeding_cpu+_table">
-                            <tr><th colspan="4"><h5> CPU P4+P4 Aansluiting
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Twee keer 4-pin voedingsstekker voor de processor aan één kabel.')) }}
-                            </h5></th></tr>
-                            <tr>
-                                <td style="width:25%">0</td>
-                                <td style="width:25%">1</td>
-                                <td style="width:25%">2</td>
-                                <td style="width:25%">Geen voorkeur</td>
-                            </tr>
-                            <tr>
-                                @if(Session::get('cpu_p4+p4') == "1")
-                                    <td><input type="radio" name="voeding_cpup4p4" value="1" checked></td>
-                                @else
-                                    <td><input type="radio" name="voeding_cpup4p4" value="1"></td>
-                                @endif
-                                @if(Session::get('cpu_p4+p4') == "2")
-                                    <td><input type="radio" name="voeding_cpup4p4" value="2" checked></td>
-                                @else
-                                    <td><input type="radio" name="voeding_cpup4p4" value="2"></td>
-                                @endif
-                                @if(Session::get('cpu_p4+p4') == "3")
-                                    <td><input type="radio" name="voeding_cpup4p4" value="3" checked></td>
-                                @else
-                                    <td><input type="radio" name="voeding_cpup4p4" value="3"></td>
-                                @endif
-                                @if(Session::get('cpu_p4+p4') == "4")
-                                    <td><input type="radio" name="voeding_cpup4p4" value="4" checked></td>
-                                @else
-                                    <td><input type="radio" name="voeding_cpup4p4" value="4"></td>
-                                @endif
-                            </tr>
-                        </table>
                         <table class="voeding_modulair_table">
                             <tr><th colspan="2" style="position:relative"><h5>Modulair
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -1095,7 +1071,7 @@ if($message == "none") {
                         </table>
                     </div>
                     <div class="col-md-6 right_div">
-                        <table class="pci_express_6pin_table">
+                        <!--<table class="pci_express_6pin_table">
                             <tr><th colspan="4"><h5>PCI Express 6-pin
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Een 6-pin voedingsstekker voor de videokaart.')) }}
@@ -1126,6 +1102,40 @@ if($message == "none") {
                                     <td><input type="radio" name="voeding_pci6" value="4" checked></td>
                                 @else
                                     <td><input type="radio" name="voeding_pci6" value="4"></td>
+                                @endif
+                            </tr>
+                        </table>-->
+                        <table class="voeding_cpu+_table">
+                            <tr><th colspan="4"><h5> CPU P4+P4 Aansluiting
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Twee keer 4-pin voedingsstekker voor de processor aan één kabel.')) }}
+                                    </h5></th></tr>
+                            <tr>
+                                <td style="width:25%">0</td>
+                                <td style="width:25%">1</td>
+                                <td style="width:25%">2</td>
+                                <td style="width:25%">Geen voorkeur</td>
+                            </tr>
+                            <tr>
+                                @if(Session::get('cpu_p4+p4') == "1")
+                                    <td><input type="radio" name="voeding_cpup4p4" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="voeding_cpup4p4" value="1"></td>
+                                @endif
+                                @if(Session::get('cpu_p4+p4') == "2")
+                                    <td><input type="radio" name="voeding_cpup4p4" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="voeding_cpup4p4" value="2"></td>
+                                @endif
+                                @if(Session::get('cpu_p4+p4') == "3")
+                                    <td><input type="radio" name="voeding_cpup4p4" value="3" checked></td>
+                                @else
+                                    <td><input type="radio" name="voeding_cpup4p4" value="3"></td>
+                                @endif
+                                @if(Session::get('cpu_p4+p4') == "4")
+                                    <td><input type="radio" name="voeding_cpup4p4" value="4" checked></td>
+                                @else
+                                    <td><input type="radio" name="voeding_cpup4p4" value="4"></td>
                                 @endif
                             </tr>
                         </table>
@@ -1474,31 +1484,9 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="HDD_aansluiting_table" cellspacing="1px">
-                            <tr><th colspan="2"><h5>Aansluiting
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'SATA III heeft een doorvoersnelheid van 6 Gb/s. De doorvoersnelheid wordt bepaald door het maximale aantal bits (in dit geval gigabits) dat per seconde van de harde schijf naar de computer wordt verzonden. SATA II heeft een doorvoersnelheid van 3 Gb/s. Niet alle apparaten ondersteunen SATA III.')) }}
-                            </h5></th></tr>
-                            <tr>
-                                <td style="width:50%">S-ATA(II)</td>
-                                <td style="width:50%">S-ATA(III)</td>
-                            </tr>
-                            <tr>
-                                @if(Session::get('hdd_connection') == "1")
-                                    <td><input type="radio" name="HDD_aansluiting" value="1" checked></td>
-                                @else
-                                    <td><input type="radio" name="HDD_aansluiting" value="1"></td>
-                                @endif
-                                @if(Session::get('hdd_connection') == "2")
-                                    <td><input type="radio" name="HDD_aansluiting" value="2" checked></td>
-                                @else
-                                    <td><input type="radio" name="HDD_aansluiting" value="2"></td>
-                                @endif
-                            </tr>
-                        </table>
                     </div>
                     <div class="col-md-6 right_div">
-                        <table class="HDD_cache_table" cellspacing="1px">
+                        <!--<table class="HDD_cache_table" cellspacing="1px">
                             <tr><th colspan="3"><h5>Buffer / Cache
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Het cachegeheugen (de buffer) is geheugen waarin bestanden die in gebruik zijn tijdelijk worden opgeslagen, waarna ze sneller toegankelijk zijn. Hoe meer MB cache, hoe vlotter bestanden laden.')) }}
@@ -1547,7 +1535,7 @@ if($message == "none") {
                                     <td><input type="radio" name="HDD_cache" value="6"></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <table class="HDD_snelheid_table" cellspacing="1px">
                             <tr>
                                 <th colspan="4"><h5>Hardeschijfsnelheid
@@ -1606,6 +1594,28 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
+                        <table class="HDD_aansluiting_table" cellspacing="1px">
+                            <tr><th colspan="2"><h5>Aansluiting
+                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                'alt' => 'test', 'title'=> 'SATA III heeft een doorvoersnelheid van 6 Gb/s. De doorvoersnelheid wordt bepaald door het maximale aantal bits (in dit geval gigabits) dat per seconde van de harde schijf naar de computer wordt verzonden. SATA II heeft een doorvoersnelheid van 3 Gb/s. Niet alle apparaten ondersteunen SATA III.')) }}
+                            </h5></th></tr>
+                            <tr>
+                                <td style="width:50%">S-ATA(II)</td>
+                                <td style="width:50%">S-ATA(III)</td>
+                            </tr>
+                            <tr>
+                                @if(Session::get('hdd_connection') == "1")
+                                    <td><input type="radio" name="HDD_aansluiting" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="HDD_aansluiting" value="1"></td>
+                                @endif
+                                @if(Session::get('hdd_connection') == "2")
+                                    <td><input type="radio" name="HDD_aansluiting" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="HDD_aansluiting" value="2"></td>
+                                @endif
+                            </tr>
+                        </table>
                         <div class="specification_table" id="HDD_cost">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_hdd" readonly></p>
@@ -1642,7 +1652,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="geluid_sample_table">
+                        <!--<table class="geluid_sample_table">
                             <tr><th colspan="6"><h5>Sample frequentie
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Het aantal malen per seconde dat de sterkte van een geluidssignaal gemeten wordt. Hoe hoger de samplefrequentie, hoe hoger de kwaliteit van het eindresultaat.')) }}
@@ -1737,7 +1747,7 @@ if($message == "none") {
                                     <td colspan="6"><input type="radio" name="geluid_sample" value="d"></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <!--<table class="geluid_aiso_table">
                             <tr>
                                 <th colspan="6"><h5>AISO Sample frequentie</h5></th>
@@ -1815,6 +1825,25 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
+                        <table class="geluid_hoofdtelefoonaansluiting_table">
+                            <tr><th colspan="2"><h5>Hoofdtelefoon aansluiting</h5></th></tr>
+                            <tr>
+                                <td style="width:50%">Ja</td>
+                                <td style="width:50%">Nee</td>
+                            </tr>
+                            <tr>
+                                @if(Session::get('soundcard_headphone') == "1")
+                                    <td><input type="radio" name="geluid_hoofd" value="1" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_hoofd" value="1"></td>
+                                @endif
+                                @if(Session::get('soundcard_headphone') == "2")
+                                    <td><input type="radio" name="geluid_hoofd" value="2" checked></td>
+                                @else
+                                    <td><input type="radio" name="geluid_hoofd" value="2"></td>
+                                @endif
+                            </tr>
+                        </table>
                     </div>
                     <div class="col-md-6 right_div">
                         <table class="geluid_processor_table">
@@ -1882,25 +1911,6 @@ if($message == "none") {
                                     <td><input type="radio" name="geluid_kanalen" value="2" checked></td>
                                 @else
                                     <td><input type="radio" name="geluid_kanalen" value="2"></td>
-                                @endif
-                            </tr>
-                        </table>
-                        <table class="geluid_hoofdtelefoonaansluiting_table">
-                            <tr><th colspan="2"><h5>Hoofdtelefoon aansluiting</h5></th></tr>
-                            <tr>
-                                <td style="width:50%">Ja</td>
-                                <td style="width:50%">Nee</td>
-                            </tr>
-                            <tr>
-                                @if(Session::get('soundcard_headphone') == "1")
-                                    <td><input type="radio" name="geluid_hoofd" value="1" checked></td>
-                                @else
-                                    <td><input type="radio" name="geluid_hoofd" value="1"></td>
-                                @endif
-                                @if(Session::get('soundcard_headphone') == "2")
-                                    <td><input type="radio" name="geluid_hoofd" value="2" checked></td>
-                                @else
-                                    <td><input type="radio" name="geluid_hoofd" value="2"></td>
                                 @endif
                             </tr>
                         </table>
@@ -1984,7 +1994,7 @@ if($message == "none") {
                         </table>
                     </div>
                     <div class="col-md-6 right_div">
-                        <table class="pci_sata_table">
+                        <!--<table class="pci_sata_table">
                             <tr><th colspan="2"><h5>SATA aansluiting aanwezig
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Serial ATA (ook SATA of S-ATA) is een computerbus ontworpen voor het transport van gegevens tussen de computer en de harde schijf. Serial ATA is de opvolger van Parallel ATA/PATA/P-ATA (Advanced Technology Attachment) of IDE-bus.')) }}
@@ -2005,8 +2015,8 @@ if($message == "none") {
                                     <td><input type="radio" name="pci_sata" value="2"></td>
                                 @endif
                             </tr>
-                        </table>
-                        <table class="pci_esata_table">
+                        </table>-->
+                       <!-- <table class="pci_esata_table">
                             <tr><th colspan="2"><h5>e-SATA aansluiting aanwezig
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'e-SATA, kort voor External SATA, is een op Serial ATA gebaseerde aansluiting welke (op de buitenkant van de computer) de mogelijkheid biedt om externe media als harde schijven, docking stations en Blu-ray-spelers via de snelle SATA-interface aan te sluiten. Voor dit soort toepassingen is een e-SATA naar e-SATA kabel nodig. e-SATA is tot wel 5 x sneller dan usb 2.0.')) }}
@@ -2027,7 +2037,7 @@ if($message == "none") {
                                     <td><input type="radio" name="pci_esata" value="2"></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <div class="pci_cost specification_table">
                             <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_pci" readonly></p>
@@ -2309,7 +2319,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table>
+                        <!--<table>
                             <tr><th colspan="3"><h5>HDMI aansluitingen
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Met een HDMI-aansluiting is High Definition apparatuur digitaal te koppelen. Via HDMI kunnen zowel beeld als geluid tegelijk worden getransporteerd. Hierbij gaat er geen kwaliteit verloren bij resoluties tot 1080p.')) }}
@@ -2336,7 +2346,7 @@ if($message == "none") {
                                     <td><input type="radio" name="GPU_HDMI" value="3"></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <table>
                             <tr><th colspan="2"><h5>VGA-poort
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -2417,7 +2427,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table>
+                        <!--<table>
                             <tr><th colspan="2"><h5>DVI-I aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Een aansluiting die zowel analoge als digitale beelden naar de monitor kan sturen.')) }}
@@ -2438,8 +2448,8 @@ if($message == "none") {
                                     <td><input type="radio" name="GPU_DVI-I" value="2"></td>
                                 @endif
                             </tr>
-                        </table>
-                        <table>
+                        </table>-->
+                        <!--<table>
                             <tr><th colspan="3"><h5>DVI-D aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'Een aansluiting die digitale beelden naar de monitor stuurt.')) }}
@@ -2466,7 +2476,7 @@ if($message == "none") {
                                     <td><input type="radio" name="GPU_DVI-D" value="3"></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <div class="GPU_cost specification_table">
                             <h5>Prijs </h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label"   type="text" id="amount_GPU_prijs" readonly></p>
@@ -3041,10 +3051,18 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
+                        <div class="moederbord_usb specification_table">
+                            <h5>Aantal USB 3.0 poorten</h5>
+                            <p><input class="slider_label" type="text" id="amount_usb" readonly></p>
+                            <div class="specification_table_slider" id="motherboard_ports"></div>
+                            <input name="Usb_port0" type="hidden" value={{$Usb_port0}} id="Usb_port0">
+                        </div>
+                    </div>
+                    <div class="col-md-6 right_div">
                         <table class="moederbord_VGA_table">
                             <tr><th colspan="2"><h5>VGA-poort
-                                {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
-                                'alt' => 'test', 'title'=> 'Een VGA-aansluiting (ook wel 15-pin D-sub genoemd) maakt het mogelijk om PC&#39;s op monitoren, tv&#39;s of beamers aan te sluiten.')) }}
+                                        {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
+                                        'alt' => 'test', 'title'=> 'Een VGA-aansluiting (ook wel 15-pin D-sub genoemd) maakt het mogelijk om PC&#39;s op monitoren, tv&#39;s of beamers aan te sluiten.')) }}
                                     </h5></th></tr>
                             <tr>
                                 <td style="width:50%">Ja</td>
@@ -3085,21 +3103,6 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <div class="moederbord_cost specification_table">
-                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
-                            <p><input class="slider_label" type="text" id="amount_moederbord" readonly></p>
-                            <div class="specification_table_slider" id="motherboard_price"></div>
-                            <input name="motherboard_price0"  type="hidden" value={{$motherboard_price0}} id="motherboard_price0">
-                            <input name="motherboard_price1" type="hidden"  value={{$motherboard_price1}} id="motherboard_price1">
-                        </div>
-                        <div class="moederbord_usb specification_table">
-                            <h5>Aantal USB 3.0 poorten</h5>
-                            <p><input class="slider_label" type="text" id="amount_usb" readonly></p>
-                            <div class="specification_table_slider" id="motherboard_ports"></div>
-                            <input name="Usb_port0" type="hidden" value={{$Usb_port0}} id="Usb_port0">
-                        </div>
-                    </div>
-                    <div class="col-md-6 right_div">
                         <table class="moederbord_ethernet_table">
                             <tr><th colspan="2"><h5>Aantal ethernetpoorten
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -3144,7 +3147,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="moederbord_RAID_table">
+                        <!--<table class="moederbord_RAID_table">
                             <tr><th colspan="4"><h5>RAID configuratie
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'RAID staat voor Redundant Array of Independent Disks. Met RAID kan je data opslaan en/of verdelen over meerdere schijven. Dit zorgt voor snelheidswinst bij bestanden lezen en/of beveiliging tegen gegevensverlies.')) }}
@@ -3193,7 +3196,7 @@ if($message == "none") {
                                     <td colspan="2"><input type="checkbox" name="moederbord_raid6" value="1" checked></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <table class="moederbord_audiokanalen_table">
                             <tr><th colspan="2"><h5>Audiokanaal
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -3245,7 +3248,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="moederbord_msata_table">
+                        <!--<table class="moederbord_msata_table">
                             <tr><th colspan="2"><h5>mSATA-aansluiting
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'mSATA is een variant van SATA bedoeld voor harde schijven in mobiele apparaten. mSATA-SSD-schijven kunnen vaak direct op het moederbord zonder tussenkomst van een SATA kabel worden aangesloten.')) }}
@@ -3266,19 +3269,26 @@ if($message == "none") {
                                     <td><input type="radio" name="moederbord_msata" value="2"></td>
                                 @endif
                             </tr>
-                        </table>
-                        <div class="moederbord_SATA300 specification_table">
+                        </table>-->
+                        <div class="moederbord_cost specification_table">
+                            <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                            <p><input class="slider_label" type="text" id="amount_moederbord" readonly></p>
+                            <div class="specification_table_slider" id="motherboard_price"></div>
+                            <input name="motherboard_price0"  type="hidden" value={{$motherboard_price0}} id="motherboard_price0">
+                            <input name="motherboard_price1" type="hidden"  value={{$motherboard_price1}} id="motherboard_price1">
+                        </div>
+                        <!--<div class="moederbord_SATA300 specification_table">
                             <h5>Aantal SATA 300 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata300" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata300"></div>
                             <input name="motherboard_sata300connection0"  type="hidden" value={{$motherboard_sata300connection0}} id="motherboard_sata300connection0">
-                        </div>
-                        <div class="moederbord_SATA600 specification_table">
+                        </div>-->
+                        <!--<div class="moederbord_SATA600 specification_table">
                             <h5>Aantal SATA 600 aansluitingen</h5>
                             <p><input class="slider_label" type="text" id="amount_sata600" readonly></p>
                             <div class="specification_table_slider" id="motherboard_sata600"></div>
                             <input name="motherboard_sata600connection0" type="hidden"  value={{$motherboard_sata600connection0}} id="motherboard_sata600connection0">
-                        </div>
+                        </div>-->
                     </div>
                     <div class="col-md-12">
                         <input class="myButton" type="submit" value="Onderdeel opslaan">
@@ -3512,22 +3522,13 @@ if($message == "none") {
                             @endif
                         </tr>
                     </table>
-                    <div class="behuizing_prijs specification_table">
-                        <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
-                        <p><input class="slider_label" type="text" id="amount_behuizing" readonly></p>
-                        <div class="specification_table_slider" id="casing_price"></div>
-                        <input name="casing_Price0" type="hidden" value={{$casing_Price0}} id="casing_Price0">
-                        <input name="casing_Price1"  type="hidden" value={{$casing_Price1}} id="casing_Price1">
-
-                    </div>
-                    <div class="behuizing_uitbreiding specification_table">
+                    <!--<div class="behuizing_uitbreiding specification_table">
                         <h5>Aantal uitbreidingssloten</h5><span class="annotation">(minimum - maximum)</span>
                         <p><input class="slider_label" type="text" id="amount_behuizing_uitbreiding" readonly></p>
                         <div class="specification_table_slider" id="casing_ports"></div>
                         <input name="casing_expansion_0"  type="hidden"  value={{$casing_expansion_0}} id="casing_expansion_0">
                         <input name="casing_expansion_1"  type="hidden" value={{$casing_expansion_1}} id="casing_expansion_1">
-
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-6 right_div">
                     <table class="behuizing_kleur_table">
@@ -3571,7 +3572,7 @@ if($message == "none") {
                             @endif
                         </tr>
                     </table>
-                    <table class="behuizing_materiaal_table">
+                    <!--<table class="behuizing_materiaal_table">
                         <tr><th colspan="4"><h5>Materiaal behuizing</h5></th></tr>
                         <tr>
                             <td style="width:25%">Aluminium</td>
@@ -3624,7 +3625,7 @@ if($message == "none") {
                                 <td colspan="2"><input type="radio" name="behuizing_materiaal" value="7"></td>
                             @endif
                         </tr>
-                    </table>
+                    </table>-->
                     <table class="behuizing_usb2_table">
                         <tr><th colspan="3"><h5>Aantal USB 2.0 poorten
                             {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
@@ -3734,7 +3735,14 @@ if($message == "none") {
                             @endif
                         </tr>
                     </table>
-                    <div class="behuizing_2,5bay specification_table">
+                    <div class="behuizing_prijs specification_table">
+                        <h5>Prijs</h5><span class="annotation">(minimum - maximum)</span>
+                        <p><input class="slider_label" type="text" id="amount_behuizing" readonly></p>
+                        <div class="specification_table_slider" id="casing_price"></div>
+                        <input name="casing_Price0" type="hidden" value={{$casing_Price0}} id="casing_Price0">
+                        <input name="casing_Price1"  type="hidden" value={{$casing_Price1}} id="casing_Price1">
+                    </div>
+                    <!--<div class="behuizing_2,5bay specification_table">
                         <h5>2,5'' Bays (HDD/SSD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                             'alt' => 'test', 'title'=> 'Hoeveel 2,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 2,5 inch bay is geschikt voor een harde schijf of SSD.')) }}
                         </h5>
@@ -3742,8 +3750,8 @@ if($message == "none") {
                         <div class="specification_table_slider" id="casing_25bays"></div>
                         <input name="casing_HDD/SSD_0"  type="hidden" id="casing_HDD/SSD_0" value={{$casing_HDD_SSD_0}}>
                         <input name="casing_HDD/SSD_1"  type="hidden" id="casing_HDD/SSD_1" value={{$casing_HDD_SSD_1}}>
-                    </div>
-                    <div class="behuizing_3,5bay specification_table">
+                    </div>-->
+                    <!--<div class="behuizing_3,5bay specification_table">
                         <h5>3,5'' Bays (HDD) {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                             'alt' => 'test', 'title'=> 'Hoeveel 3,5 inch bays voor uitbreiding zijn er in deze computerbehuizing? Een 3,5 inch bay is geschikt voor een harde schijf.')) }}
                         </h5>
@@ -3751,8 +3759,8 @@ if($message == "none") {
                         <div class="specification_table_slider" id="casing_35bays"></div>
                         <input name="casing_HDD_0" type="hidden" id="casing_HDD_0" value={{$casing_HDD_0}}>
                         <input name="casing_HDD_1"  type="hidden" id="casing_HDD_1" value={{$casing_HDD_1}}>
-                    </div>
-                    <div class="behuizing_5,25bay specification_table">
+                    </div>-->
+                    <!--<div class="behuizing_5,25bay specification_table">
                         <h5>5,25'' Bays {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                             'alt' => 'test', 'title'=> 'Hoeveel 5,25 inch bays zijn er beschikbaar in deze computerbehuizing? Een 5,25 inch bay is geschikt voor een optische drive, een harde schijf (met behulp van een bracket), of andere uitbreidingen.')) }}
                         </h5>
@@ -3760,7 +3768,7 @@ if($message == "none") {
                         <div class="specification_table_slider" id="casing_525bays"></div>
                         <input name="casing_Bayss0"  type="hidden" id="casing_Bayss0" value={{$casing_Bayss0}}>
                         <input name="casing_Bayss1"  type="hidden" id="casing_Bayss1" value={{$casing_Bayss1}}>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="col-md-12">
                     <input class="myButton" type="submit" value="Onderdeel opslaan">
@@ -3991,7 +3999,7 @@ if($message == "none") {
                                 @endif
                             </tr>
                         </table>
-                        <table class="SSD_controller_table" cellspacing="1px">
+                        <!--<table class="SSD_controller_table" cellspacing="1px">
                             <tr><h5>SSD-controller
                                 {{ HTML::image('images/help.png', 'help', array('class' => 'help_icon',
                                 'alt' => 'test', 'title'=> 'De fabrikant van de controller van de SSD')) }}
@@ -4041,7 +4049,7 @@ if($message == "none") {
                                     <td><input type="checkbox" name="SSD_controller6" value="1" checked></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <div class="SSD_schrijf specification_table">
                             <h5>Schrijfsnelheid</h5><span class="annotation">(minimum - maximum)</span>
                             <p><input class="slider_label" type="text" id="amount_ssd_schrijf" readonly></p>
@@ -4144,7 +4152,7 @@ if($message == "none") {
                         </div>
                     </div>
                     <div class="col-md-6 right_div">
-                        <table class="brander_speelt_table">
+                        <!--<table class="brander_speelt_table">
                             <tr><th colspan="4"><h5>Speelt van disc</h5></th></tr>
                             <tr>
                                 <td style="width:25%">Blu-ray</td>
@@ -4174,7 +4182,7 @@ if($message == "none") {
                                     <td><input type="checkbox" name="brander_speelt4" value="1" checked></td>
                                 @endif
                             </tr>
-                        </table>
+                        </table>-->
                         <table class="brander_besturing_table">
                             <tr><th colspan="2"><h5>Besturingsysteem</h5></th></tr>
                             <tr>
