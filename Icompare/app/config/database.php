@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'icompare_test',
+			'database'  => 'icompare_data',
 			'username'  => 'root',
 			'password'  => 'root',
 			'charset'   => 'utf8',
